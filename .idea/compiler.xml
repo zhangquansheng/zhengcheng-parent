@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="commons" />
+        <module name="mvc-spring-boot-starter" />
+        <module name="swagger-spring-boot-starter" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="mvc-springboot-starter" target="1.8" />
+      <module name="mvcspringbootstarter" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="commons" options="-parameters" />
+      <module name="mvc-spring-boot-starter" options="-parameters" />
+      <module name="mvc-springboot-starter" options="-parameters" />
+      <module name="mvcspringbootstarter" options="-parameters" />
+      <module name="swagger-spring-boot-starter" options="-parameters" />
+      <module name="zhengcheng-parent" options="-parameters" />
+    </option>
+  </component>
+</project>
