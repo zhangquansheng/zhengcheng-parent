@@ -3,10 +3,7 @@ package com.zhengcheng.mvc.config;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
-import com.zhengcheng.mvc.filter.EncryptIdContextValueFilter;
 import com.zhengcheng.mvc.filter.MobileContextValueFilter;
-import com.zhengcheng.mvc.security.ZcSecurity;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -15,7 +12,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.converter.FormHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.xml.SourceHttpMessageConverter;
-import org.springframework.util.Assert;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,20 +29,8 @@ import java.util.List;
 @ComponentScan("com.zhengcheng.mvc.interceptor")
 public class HttpFastJsonConverterConfig {
 
-    @Value("${spring.mvc.encrypt.id.key}")
-    private String key;
-    @Value("${spring.mvc.encrypt.id.iv}")
-    private String iv;
-
-    @Bean
-    public ZcSecurity zcSecurity() {
-        return new ZcSecurity(key, iv);
-    }
-
     @Bean
     public HttpMessageConverters customConverters() {
-        Assert.notNull(key, "spring.mvc.encrypt.id.key is required");
-        Assert.notNull(iv, "spring.mvc.encrypt.id.iv is required");
         HttpMessageConverter<?> formHttpMessageConverter = new FormHttpMessageConverter();
         HttpMessageConverter<?> sourceHttpMessageConverter = new SourceHttpMessageConverter<>();
         //需要定义一个Convert转换消息的对象
@@ -78,7 +62,7 @@ public class HttpFastJsonConverterConfig {
         //添加fastjson的配置信息，比如是否要格式化返回的json数据
         FastJsonConfig fastJsonConfig = new FastJsonConfig();
         fastJsonConfig.setSerializerFeatures(SerializerFeature.PrettyFormat);
-        fastJsonConfig.setSerializeFilters(new MobileContextValueFilter(), new EncryptIdContextValueFilter(key, iv));
+        fastJsonConfig.setSerializeFilters(new MobileContextValueFilter());
         //3.在convert中添加配置信息
         fastConverter.setFastJsonConfig(fastJsonConfig);
         HttpMessageConverter<?> converter = fastConverter;
