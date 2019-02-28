@@ -47,12 +47,11 @@ public class ControllerInterceptor {
         MethodSignature signature = (MethodSignature) pjp.getSignature();
         String className = signature.getDeclaringTypeName();
         String methodName = signature.getName();
-
         Object retObj;
         try {
             retObj = pjp.proceed();
         } catch (Throwable e) {
-            log.error(className + "#" + methodName + "请求异常，错误：" + e.getMessage(), e);
+            log.error("{}#{}#{}请求异常，错误：{}", className, methodName, pjp.getArgs(), e.getMessage(), e);
             if (e instanceof BizException) {
                 retObj = Result.errorMessage(e.getMessage());
             } else {
