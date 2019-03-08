@@ -29,15 +29,17 @@ public class OpenClient {
     private final String dataKey = "data";
 
     public void post(String url, Map<String, Object> paramMap) {
-        HttpWrapper.create()
+        String resp = HttpWrapper.create()
                 .setUrl(url).setMethod(HttpWrapper.HttpMethod.POST)
-                .setPostData(JSON.toJSONString(paramMap));
+                .setPostData(JSON.toJSONString(paramMap)).executeStr();
+        log.info("method:post,url:{},param:{},resp:{}", url, paramMap, resp);
     }
 
     public <T> T post(String url, Map<String, Object> paramMap, Class<T> clazz) {
         String resp = HttpWrapper.create()
                 .setUrl(url).setMethod(HttpWrapper.HttpMethod.POST)
                 .setPostData(JSON.toJSONString(paramMap)).executeStr();
+        log.info("method:post,url:{},param:{},resp:{}", url, paramMap, resp);
         return getResult(resp, clazz);
     }
 
@@ -45,29 +47,34 @@ public class OpenClient {
         String resp = HttpWrapper.create()
                 .setUrl(url).setMethod(HttpWrapper.HttpMethod.POST)
                 .setPostData(JSON.toJSONString(paramMap)).executeStr();
+        log.info("method:post,url:{},param:{},resp:{}", url, paramMap, resp);
         return getResult0(resp, clazz);
     }
 
     public void get(String url, Map<String, Object> paramMap) {
-        HttpWrapper.create()
-                .setUrl(url).addParams(paramMap).setMethod(HttpWrapper.HttpMethod.GET);
+        String resp = HttpWrapper.create()
+                .setUrl(url).addParams(paramMap).setMethod(HttpWrapper.HttpMethod.GET).executeStr();
+        log.info("method:get,url:{},param:{},resp:{}", url, paramMap, resp);
     }
 
     public <T> T get(String url, Map<String, Object> paramMap, Class<T> clazz) {
         String resp = HttpWrapper.create()
                 .setUrl(url).addParams(paramMap).setMethod(HttpWrapper.HttpMethod.GET).executeStr();
+        log.info("method:get,url:{},param:{},resp:{}", url, paramMap, resp);
         return getResult(resp, clazz);
     }
 
     public <T> T get(String url, Class<T> clazz) {
         String resp = HttpWrapper.create()
                 .setUrl(url).setMethod(HttpWrapper.HttpMethod.GET).executeStr();
+        log.info("method:get,url:{},resp:{}", url, resp);
         return getResult(resp, clazz);
     }
 
     public <T> List<T> get0(String url, Class<T> clazz) {
         String resp = HttpWrapper.create()
                 .setUrl(url).setMethod(HttpWrapper.HttpMethod.GET).executeStr();
+        log.info("method:get,url:{},resp:{}", url, resp);
         return getResult0(resp, clazz);
     }
 
@@ -94,7 +101,7 @@ public class OpenClient {
                 throw new BizException();
             }
         } catch (Exception e) {
-            log.error("resp:{} , saleClientException", Strings.isBlank(resp) ? "接口返回数据异常" : resp, e);
+            log.error("resp:{} , openClientException", Strings.isBlank(resp) ? "接口返回数据异常" : resp, e);
         }
         return null;
     }
