@@ -19,6 +19,9 @@ public class MobileContextValueFilter implements ContextValueFilter {
 
     @Override
     public Object process(BeanContext beanContext, Object object, String name, Object value) {
+        if (beanContext == null) {
+            return value;
+        }
         if (value == null || !(value instanceof String)) {
             return value;
         }

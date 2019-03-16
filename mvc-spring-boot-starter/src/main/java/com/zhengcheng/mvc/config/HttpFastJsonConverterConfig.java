@@ -35,8 +35,6 @@ public class HttpFastJsonConverterConfig {
         HttpMessageConverter<?> sourceHttpMessageConverter = new SourceHttpMessageConverter<>();
         //需要定义一个Convert转换消息的对象
         FastJsonHttpMessageConverter fastConverter = new FastJsonHttpMessageConverter();
-        //WriteNullStringAsEmpty配置null值转换成空字符串； WriteNonStringValueAsString配置所有的值都加上双引号
-        fastConverter.getFastJsonConfig().setSerializerFeatures(SerializerFeature.WriteNullStringAsEmpty, SerializerFeature.WriteNonStringValueAsString);
         //下面这个contextType是需要添加；不然后面会报 * 不能匹配所有的contextType类型；
         List<MediaType> supportedMediaTypes = new ArrayList<>();
         supportedMediaTypes.add(MediaType.APPLICATION_JSON);
@@ -61,7 +59,8 @@ public class HttpFastJsonConverterConfig {
         fastConverter.setSupportedMediaTypes(supportedMediaTypes);
         //添加fastjson的配置信息，比如是否要格式化返回的json数据
         FastJsonConfig fastJsonConfig = new FastJsonConfig();
-        fastJsonConfig.setSerializerFeatures(SerializerFeature.PrettyFormat);
+        //WriteNullStringAsEmpty配置null值转换成空字符串； WriteNonStringValueAsString配置所有的值都加上双引号
+        fastJsonConfig.setSerializerFeatures(SerializerFeature.WriteMapNullValue, SerializerFeature.PrettyFormat, SerializerFeature.DisableCircularReferenceDetect);
         fastJsonConfig.setSerializeFilters(new MobileContextValueFilter());
         //3.在convert中添加配置信息
         fastConverter.setFastJsonConfig(fastJsonConfig);

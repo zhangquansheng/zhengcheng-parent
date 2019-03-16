@@ -12,6 +12,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="authserver" target="1.7" />
       <module name="mvc-springboot-starter" target="1.8" />
       <module name="mvcspringbootstarter" target="1.8" />
     </bytecodeTargetLevel>
