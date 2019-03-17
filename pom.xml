@@ -36,7 +36,8 @@
         <pagehelper.version>5.0.0</pagehelper.version>
         <org.projectlombok.version>1.16.18</org.projectlombok.version>
         <nutz.version>1.r.67</nutz.version>
-        <spring.security.oauth2.version>2.3.2.RELEASE</spring.security.oauth2.version>
+        <spring.security.oauth2.version>2.3.3.RELEASE</spring.security.oauth2.version>
+        <spring.security.jwt.version>1.0.10.RELEASE</spring.security.jwt.version>
         <lombok.version>1.18.4</lombok.version>
         <swagger2.version>2.8.0</swagger2.version>
         <guava.version>27.0.1-jre</guava.version>
@@ -56,6 +57,11 @@
                 <groupId>org.springframework.security.oauth</groupId>
                 <artifactId>spring-security-oauth2</artifactId>
                 <version>${spring.security.oauth2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-jwt</artifactId>
+                <version>${spring.security.jwt.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
