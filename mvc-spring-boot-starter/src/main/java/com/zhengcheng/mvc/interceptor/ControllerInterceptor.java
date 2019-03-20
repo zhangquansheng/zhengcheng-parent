@@ -51,10 +51,11 @@ public class ControllerInterceptor {
         try {
             retObj = pjp.proceed();
         } catch (Throwable e) {
-            log.error("{}#{}#{}请求异常，错误：{}", className, methodName, pjp.getArgs(), e.getMessage(), e);
             if (e instanceof BizException) {
+                log.info("BizException#{}#{}#{}请求异常，错误：{}", className, methodName, pjp.getArgs(), e.getMessage());
                 retObj = Result.errorMessage(e.getMessage());
             } else {
+                log.error("{}#{}#{}请求异常，错误：{}", className, methodName, pjp.getArgs(), e.getMessage(), e);
                 retObj = Result.errorData("服务异常，请联系技术人员", Lang.getStackTrace(e));
             }
         }
