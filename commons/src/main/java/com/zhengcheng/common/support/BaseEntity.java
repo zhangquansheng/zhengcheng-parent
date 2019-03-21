@@ -20,8 +20,11 @@ import java.util.Date;
 @Data
 public class BaseEntity implements Serializable {
     private static final long serialVersionUID = 8126755480334740840L;
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    // MySQL/SQLServer: @GeneratedValue(strategy = GenerationType.AUTO)
+    // Oracle: @GeneratedValue(strategy = GenerationType.AUTO, generator = "sequenceGenerator")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date gmtCreate;
