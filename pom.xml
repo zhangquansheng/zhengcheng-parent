@@ -33,7 +33,7 @@
         <springboot.mybatis.version>1.3.2</springboot.mybatis.version>
         <springboot.tk.mybatis.version>2.1.5</springboot.tk.mybatis.version>
         <mapper.version>3.4.0</mapper.version>
-        <pagehelper.version>5.0.0</pagehelper.version>
+        <pagehelper.version>5.1.8</pagehelper.version>
         <org.projectlombok.version>1.16.18</org.projectlombok.version>
         <nutz.version>1.r.67</nutz.version>
         <spring.security.oauth2.version>2.3.3.RELEASE</spring.security.oauth2.version>
@@ -90,6 +90,16 @@
                 <version>${mapper.version}</version>
             </dependency>
             <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-autoconfigure</artifactId>
+                <version>1.2.10</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>3.5.0</version>
+            </dependency>
+            <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${springboot.mybatis.version}</version>
@@ -137,29 +147,9 @@
                 <version>${easyexcel.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>3.1.0</version>
-            </dependency>
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-generator</artifactId>
-                <version>3.1.0</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.velocity</groupId>
-                <artifactId>velocity-engine-core</artifactId>
-                <version>2.0</version>
-            </dependency>
-            <dependency>
-                <groupId>org.freemarker</groupId>
-                <artifactId>freemarker</artifactId>
-                <version>2.3.28</version>
-            </dependency>
-            <dependency>
-                <groupId>com.ibeetl</groupId>
-                <artifactId>beetl</artifactId>
-                <version>2.9.8</version>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-tx</artifactId>
+                <version>5.1.5.RELEASE</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
