@@ -9,8 +9,14 @@ import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
+
 /**
  * The class Base entity.
+ *
+ * @author :    quansheng.zhang
+ * @Package :     com.zhengcheng.common.mybatis
+ * @Description :
+ * @date :    2019/2/28 21:00
  */
 @Data
 public class BaseEntity implements Serializable {

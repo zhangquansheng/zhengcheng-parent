@@ -9,7 +9,10 @@ import java.util.List;
 /**
  * 通用接口
  *
- * @param <T> the type parameter
+ * @author :    quansheng.zhang
+ * @Package :     com.zhengcheng.common.support
+ * @Description :
+ * @date :    2019/2/28 21:00
  */
 public interface IService<T> {
     /**
