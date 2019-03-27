@@ -48,6 +48,8 @@
         <servlet.api.version>4.0.1</servlet.api.version>
         <mybatis.version>3.5.0</mybatis.version>
         <pagehelper.spring.boot.autoconfigure.version>1.2.10</pagehelper.spring.boot.autoconfigure.version>
+        <jjwt.version>0.7.0</jjwt.version>
+        <feign.version>1.4.6.RELEASE</feign.version>
     </properties>
 
     <dependencyManagement>
@@ -118,7 +120,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-feign</artifactId>
-                <version>1.4.6.RELEASE</version>
+                <version>${feign.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.nutz</groupId>
@@ -175,7 +177,7 @@
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt</artifactId>
-                <version>0.7.0</version>
+                <version>${jjwt.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
