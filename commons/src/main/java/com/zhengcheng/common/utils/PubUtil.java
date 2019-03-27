@@ -16,7 +16,7 @@ import java.util.UUID;
  * @date :    2019/1/26 7:49
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class PubUtils {
+public class PubUtil {
     /**
      * The constant STRING_NULL.
      */
@@ -38,7 +38,7 @@ public class PubUtils {
      * @return the boolean
      */
     public static Boolean isMobileNumber(String inputStr) {
-        return !PubUtils.isNull(inputStr) && inputStr.matches(REGX_MOBILENUM);
+        return !PubUtil.isNull(inputStr) && inputStr.matches(REGX_MOBILENUM);
     }
 
     /**
@@ -48,7 +48,7 @@ public class PubUtils {
      * @return 只有要判断的一个对象都为空则返回true, 否则返回false boolean
      */
     public static boolean isNull(Object... values) {
-        if (!PubUtils.isNotNullAndNotEmpty(values)) {
+        if (!PubUtil.isNotNullAndNotEmpty(values)) {
             return true;
         }
         for (Object value : values) {
