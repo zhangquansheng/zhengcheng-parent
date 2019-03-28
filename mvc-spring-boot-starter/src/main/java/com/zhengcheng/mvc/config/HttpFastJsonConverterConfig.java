@@ -1,10 +1,15 @@
 package com.zhengcheng.mvc.config;
 
+import com.alibaba.fastjson.serializer.SerializeFilter;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import com.zhengcheng.mvc.filter.MobileContextValueFilter;
+import com.zhengcheng.mvc.filter.SecutityParamContextValueFilter;
+import com.zhengcheng.mvc.properties.CustomMvcProperties;
+import io.jsonwebtoken.lang.Assert;
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -27,10 +32,12 @@ import java.util.List;
  */
 @Configuration
 @ComponentScan("com.zhengcheng.mvc.interceptor")
+@EnableConfigurationProperties({CustomMvcProperties.class})
 public class HttpFastJsonConverterConfig {
 
     @Bean
-    public HttpMessageConverters customConverters() {
+    public HttpMessageConverters customConverters(CustomMvcProperties customMvcProperties) {
+        Assert.notNull(customMvcProperties.getAesKey(), "spring.mvc.custom.aes.key is required");
         HttpMessageConverter<?> formHttpMessageConverter = new FormHttpMessageConverter();
         HttpMessageConverter<?> sourceHttpMessageConverter = new SourceHttpMessageConverter<>();
         //需要定义一个Convert转换消息的对象
@@ -61,7 +68,7 @@ public class HttpFastJsonConverterConfig {
         FastJsonConfig fastJsonConfig = new FastJsonConfig();
         //WriteNullStringAsEmpty配置null值转换成空字符串； WriteNonStringValueAsString配置所有的值都加上双引号
         fastJsonConfig.setSerializerFeatures(SerializerFeature.WriteMapNullValue, SerializerFeature.PrettyFormat, SerializerFeature.DisableCircularReferenceDetect);
-        fastJsonConfig.setSerializeFilters(new MobileContextValueFilter());
+        fastJsonConfig.setSerializeFilters(new SerializeFilter[]{new MobileContextValueFilter(), new SecutityParamContextValueFilter(customMvcProperties.getAesKey())});
         //3.在convert中添加配置信息
         fastConverter.setFastJsonConfig(fastJsonConfig);
         HttpMessageConverter<?> converter = fastConverter;
