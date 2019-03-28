@@ -61,8 +61,12 @@ public class SwaggerAutoConfiguration {
                 .build();
     }
 
+    private ApiKey apiKey() {
+        return new ApiKey("Bearer", "Authorization", "header");
+    }
+
     private List<ApiKey> securitySchemes() {
-        return new ArrayList(Collections.singleton(new ApiKey("Authorization", "Authorization", "header")));
+        return new ArrayList(Collections.singleton(new ApiKey("Bearer", "Authorization", "header")));
     }
 
     private List<SecurityContext> securityContexts() {
@@ -78,6 +82,6 @@ public class SwaggerAutoConfiguration {
         AuthorizationScope authorizationScope = new AuthorizationScope("global", "accessEverything");
         AuthorizationScope[] authorizationScopes = new AuthorizationScope[1];
         authorizationScopes[0] = authorizationScope;
-        return new ArrayList(Collections.singleton(new SecurityReference("Authorization", authorizationScopes)));
+        return new ArrayList(Collections.singleton(new SecurityReference("Bearer", authorizationScopes)));
     }
 }
