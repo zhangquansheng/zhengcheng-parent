@@ -5,7 +5,7 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import com.zhengcheng.mvc.filter.MobileContextValueFilter;
-import com.zhengcheng.mvc.filter.SecutityParamContextValueFilter;
+import com.zhengcheng.mvc.filter.SecurityParamContextValueFilter;
 import com.zhengcheng.mvc.properties.CustomMvcProperties;
 import io.jsonwebtoken.lang.Assert;
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
@@ -68,7 +68,7 @@ public class HttpFastJsonConverterConfig {
         FastJsonConfig fastJsonConfig = new FastJsonConfig();
         //WriteNullStringAsEmpty配置null值转换成空字符串； WriteNonStringValueAsString配置所有的值都加上双引号
         fastJsonConfig.setSerializerFeatures(SerializerFeature.WriteMapNullValue, SerializerFeature.PrettyFormat, SerializerFeature.DisableCircularReferenceDetect);
-        fastJsonConfig.setSerializeFilters(new SerializeFilter[]{new MobileContextValueFilter(), new SecutityParamContextValueFilter(customMvcProperties.getAesKey())});
+        fastJsonConfig.setSerializeFilters(new SerializeFilter[]{new MobileContextValueFilter(), new SecurityParamContextValueFilter(customMvcProperties.getAesKey())});
         //3.在convert中添加配置信息
         fastConverter.setFastJsonConfig(fastJsonConfig);
         HttpMessageConverter<?> converter = fastConverter;

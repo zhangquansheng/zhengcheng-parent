@@ -4,6 +4,7 @@ import com.alibaba.fastjson.serializer.BeanContext;
 import com.alibaba.fastjson.serializer.ContextValueFilter;
 import com.zhengcheng.common.utils.AesUtil;
 import com.zhengcheng.mvc.annotation.SecurityParam;
+import com.zhengcheng.mvc.enumeration.SecurityParamType;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -15,11 +16,11 @@ import lombok.extern.slf4j.Slf4j;
  * @date :    2019/3/28 10:45
  */
 @Slf4j
-public class SecutityParamContextValueFilter implements ContextValueFilter {
+public class SecurityParamContextValueFilter implements ContextValueFilter {
 
     private String aesKey;
 
-    public SecutityParamContextValueFilter(String aesKey) {
+    public SecurityParamContextValueFilter(String aesKey) {
         this.aesKey = aesKey;
     }
 
@@ -28,17 +29,19 @@ public class SecutityParamContextValueFilter implements ContextValueFilter {
         if (beanContext == null) {
             return value;
         }
-        if (value == null || !(value instanceof String)) {
-            return null;
+        if (value == null
+                || !(value instanceof String)
+                || !(value instanceof Integer)
+                || !(value instanceof Long)) {
+            return value;
         }
         SecurityParam securityParam = beanContext.getAnnation(SecurityParam.class);
         if (securityParam != null) {
             String propertyValue = String.valueOf(value);
             try {
-                if (securityParam.inDecode()) {
+                if (securityParam.type() == SecurityParamType.DECRYPT) {
                     propertyValue = AesUtil.decrypt(propertyValue, aesKey);
-                }
-                if (securityParam.outEncode()) {
+                } else {
                     propertyValue = AesUtil.encrypt(propertyValue, aesKey);
                 }
             } catch (Exception e) {

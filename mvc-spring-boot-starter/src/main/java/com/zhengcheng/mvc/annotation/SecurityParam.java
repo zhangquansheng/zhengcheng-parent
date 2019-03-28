@@ -1,6 +1,6 @@
 package com.zhengcheng.mvc.annotation;
 
-import org.springframework.web.bind.annotation.Mapping;
+import com.zhengcheng.mvc.enumeration.SecurityParamType;
 
 import java.lang.annotation.*;
 
@@ -12,19 +12,9 @@ import java.lang.annotation.*;
  * @Description :
  * @date :    2019/3/28 10:36
  */
-@Target({ElementType.METHOD, ElementType.TYPE})
-@Retention(RetentionPolicy.RUNTIME)
-@Mapping
 @Documented
+@Target({ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER})
+@Retention(RetentionPolicy.RUNTIME)
 public @interface SecurityParam {
-
-    /**
-     * 入参是否解密，默认解密
-     */
-    boolean inDecode() default true;
-
-    /**
-     * 出参是否加密，默认加密
-     */
-    boolean outEncode() default true;
+    SecurityParamType type() default SecurityParamType.ENCRYPT;
 }
