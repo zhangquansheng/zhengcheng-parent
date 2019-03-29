@@ -29,7 +29,7 @@ public class ControllerInterceptor {
     /**
      * 定义拦截规则：
      */
-    @Pointcut("@within(org.springframework.web.bind.annotation.RequestMapping)")
+    @Pointcut("@within(org.springframework.web.bind.annotation.RequestMapping) && !@annotation(com.zhengcheng.mvc.annotation.RateLimiter)")
     public void controllerMethodPointcut() {
     }
 

@@ -16,18 +16,10 @@ import java.lang.annotation.*;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface RateLimiter {
-
     /**
      * 资源的key
      */
     String key() default "rate:limiter";
-
-    /**
-     * 单位时间限制通过请求总数,0表示不限制
-     *
-     * @return
-     */
-    int total() default 1000;
 
     /**
      * 单位时间限制通过请求数,0表示不限制
@@ -43,4 +35,14 @@ public @interface RateLimiter {
      * 类型
      */
     RateLimiterType type() default RateLimiterType.IP;
+
+    /**
+     * 降级线，在过期时间内，非业务异常总数达线，服务强制降级
+     */
+    int downLine() default 10;
+
+    /**
+     * 降级时间
+     */
+    int downtime() default 180;
 }
