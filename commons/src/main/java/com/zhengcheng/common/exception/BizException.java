@@ -1,6 +1,7 @@
 package com.zhengcheng.common.exception;
 
 
+import com.zhengcheng.common.enums.ErrorCodeEnum;
 import lombok.Data;
 
 /**
@@ -23,20 +24,24 @@ public class BizException extends RuntimeException {
     }
 
     public BizException(String code) {
-        this(code, (String)null);
+        this(code, (String) null);
     }
 
     public BizException(String code, String message) {
-        this(code, message, (Throwable)null);
+        this(code, message, (Throwable) null);
     }
 
     public BizException(String code, Throwable cause) {
-        this(code, (String)null, cause);
+        this(code, (String) null, cause);
     }
 
     public BizException(String code, String message, Throwable cause) {
         super(message, cause);
         this.code = code;
         this.message = message;
+    }
+
+    public BizException(ErrorCodeEnum errorCodeEnum) {
+        this(errorCodeEnum.code(), errorCodeEnum.msg());
     }
 }

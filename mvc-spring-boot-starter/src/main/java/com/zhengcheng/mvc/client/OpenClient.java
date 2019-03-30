@@ -1,10 +1,10 @@
 package com.zhengcheng.mvc.client;
 
 import com.alibaba.fastjson.JSON;
+import com.zhengcheng.common.enums.ErrorCodeEnum;
 import com.zhengcheng.common.exception.BizException;
 import com.zhengcheng.common.http.HttpWrapper;
 import lombok.extern.slf4j.Slf4j;
-import org.nutz.lang.Strings;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,82 +28,86 @@ public class OpenClient {
 
     private final String dataKey = "data";
 
-    public void post(String url, Map<String, Object> paramMap) {
+    public void post(String url, String postData) {
         String resp = HttpWrapper.create()
                 .setUrl(url).setMethod(HttpWrapper.HttpMethod.POST)
-                .setPostData(JSON.toJSONString(paramMap)).executeStr();
-        log.info("method:post,url:{},param:{},resp:{}", url, paramMap, resp);
+                .setPostData(postData).executeStr();
+        getResult(url, postData, resp);
     }
 
-    public <T> T post(String url, Map<String, Object> paramMap, Class<T> clazz) {
+    public <T> T post(String url, String postData, Class<T> clazz) {
         String resp = HttpWrapper.create()
                 .setUrl(url).setMethod(HttpWrapper.HttpMethod.POST)
-                .setPostData(JSON.toJSONString(paramMap)).executeStr();
-        log.info("method:post,url:{},param:{},resp:{}", url, paramMap, resp);
-        return getResult(resp, clazz);
+                .setPostData(postData).executeStr();
+        return getResult(url, postData, resp, clazz);
     }
 
-    public <T> List<T> post0(String url, Map<String, Object> paramMap, Class<T> clazz) {
+    public <T> List<T> post0(String url, String postData, Class<T> clazz) {
         String resp = HttpWrapper.create()
                 .setUrl(url).setMethod(HttpWrapper.HttpMethod.POST)
-                .setPostData(JSON.toJSONString(paramMap)).executeStr();
-        log.info("method:post,url:{},param:{},resp:{}", url, paramMap, resp);
-        return getResult0(resp, clazz);
+                .setPostData(postData).executeStr();
+        return getResult0(url, postData, resp, clazz);
     }
 
     public void get(String url, Map<String, Object> paramMap) {
         String resp = HttpWrapper.create()
                 .setUrl(url).addParams(paramMap).setMethod(HttpWrapper.HttpMethod.GET).executeStr();
-        log.info("method:get,url:{},param:{},resp:{}", url, paramMap, resp);
+        getResult(url, JSON.toJSONString(paramMap), resp);
     }
 
     public <T> T get(String url, Map<String, Object> paramMap, Class<T> clazz) {
         String resp = HttpWrapper.create()
                 .setUrl(url).addParams(paramMap).setMethod(HttpWrapper.HttpMethod.GET).executeStr();
-        log.info("method:get,url:{},param:{},resp:{}", url, paramMap, resp);
-        return getResult(resp, clazz);
+        return getResult(url, JSON.toJSONString(paramMap), resp, clazz);
     }
 
     public <T> T get(String url, Class<T> clazz) {
         String resp = HttpWrapper.create()
                 .setUrl(url).setMethod(HttpWrapper.HttpMethod.GET).executeStr();
-        log.info("method:get,url:{},resp:{}", url, resp);
-        return getResult(resp, clazz);
+        return getResult(url, "", resp, clazz);
     }
 
     public <T> List<T> get0(String url, Class<T> clazz) {
         String resp = HttpWrapper.create()
                 .setUrl(url).setMethod(HttpWrapper.HttpMethod.GET).executeStr();
-        log.info("method:get,url:{},resp:{}", url, resp);
-        return getResult0(resp, clazz);
+        return getResult0(url, "", resp, clazz);
     }
 
-    public <T> List<T> getResult0(String resp, Class<T> clazz) {
+    public <T> List<T> getResult0(String url, String data, String resp, Class<T> clazz) {
         try {
             Integer code = JSON.parseObject(resp).getInteger(codeKey);
             if (code != null && code.equals(successCode)) {
                 return JSON.parseArray(JSON.parseObject(resp).getString(dataKey), clazz);
             } else {
-                throw new BizException();
+                log.info("{}#{}#{}", url, data, resp);
+                throw new BizException(ErrorCodeEnum.BIZ1001);
             }
         } catch (Exception e) {
-            log.error("resp:{} , saleClientException", Strings.isBlank(resp) ? "接口返回数据异常" : resp, e);
+            log.error("{}#{}#{}#OpenClientException:{}", url, data, resp, e.getMessage(), e);
         }
         return null;
     }
 
-    public <T> T getResult(String resp, Class<T> clazz) {
+    public <T> T getResult(String url, String data, String resp, Class<T> clazz) {
         try {
             Integer code = JSON.parseObject(resp).getInteger(codeKey);
             if (code != null && code.equals(successCode)) {
                 return JSON.parseObject(JSON.parseObject(resp).getString(dataKey), clazz);
             } else {
-                throw new BizException();
+                throw new BizException(ErrorCodeEnum.BIZ1001);
             }
         } catch (Exception e) {
-            log.error("resp:{} , openClientException", Strings.isBlank(resp) ? "接口返回数据异常" : resp, e);
+            log.error("{}#{}#{}#OpenClientException:{}", url, data, resp, e.getMessage(), e);
         }
         return null;
+    }
+
+    public void getResult(String url, String data, String resp) {
+        Integer code = JSON.parseObject(resp).getInteger(codeKey);
+        if (code != null && !code.equals(successCode)) {
+            log.info("{}#{}#{}", url, data, resp);
+            throw new BizException(ErrorCodeEnum.BIZ1001);
+        }
     }
 
 }
