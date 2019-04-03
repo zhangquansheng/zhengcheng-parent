@@ -36,7 +36,7 @@ public class RpcClient {
     private final String MESSAGE = "message";
 
 
-    public String getFallback(String url, Map<String, Object> paramMap) {
+    private String getFallback(String url, Map<String, Object> paramMap) {
         log.error("getFallback#{}#{}", url, paramMap);
         return JSONObject.toJSONString(Result.errorMessage("接口超时"));
     }
@@ -47,7 +47,7 @@ public class RpcClient {
                 .setUrl(url).addParams(paramMap).setMethod(HttpWrapper.HttpMethod.GET).executeStr();
     }
 
-    public String postFallback(String url, String postData) {
+    private String postFallback(String url, String postData) {
         log.error("postFallback#{}#{}", url, postData);
         return JSONObject.toJSONString(Result.errorMessage("接口超时"));
     }
@@ -89,9 +89,6 @@ public class RpcClient {
 
     public String getData(String url, Map<String, Object> paramMap) {
         String resp = this.get(url, paramMap);
-        if (Strings.isBlank(resp)) {
-            return null;
-        }
         return JSON.parseObject(resp).getString(DATA);
     }
 
@@ -105,7 +102,7 @@ public class RpcClient {
         return getResult0(url, "", resp, clazz);
     }
 
-    public <T> List<T> getResult0(String url, String paramData, String resp, Class<T> clazz) {
+    private <T> List<T> getResult0(String url, String paramData, String resp, Class<T> clazz) {
         try {
             if (Strings.isBlank(resp)) {
                 return null;
@@ -122,7 +119,7 @@ public class RpcClient {
         return null;
     }
 
-    public <T> T getResult(String url, String paramData, String resp, Class<T> clazz) {
+    private <T> T getResult(String url, String paramData, String resp, Class<T> clazz) {
         try {
             if (Strings.isBlank(resp)) {
                 return null;
