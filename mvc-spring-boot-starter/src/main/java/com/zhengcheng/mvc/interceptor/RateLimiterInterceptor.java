@@ -14,8 +14,8 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.nutz.lang.Lang;
 import org.nutz.lang.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -33,7 +33,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Slf4j
 @Aspect
-@Configuration
+@Component
 public class RateLimiterInterceptor {
 
     @Autowired

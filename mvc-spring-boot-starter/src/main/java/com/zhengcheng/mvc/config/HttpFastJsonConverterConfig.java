@@ -4,15 +4,20 @@ import com.alibaba.fastjson.serializer.SerializeFilter;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import com.zhengcheng.common.support.SpringContextHolder;
+import com.zhengcheng.mvc.client.RpcClient;
 import com.zhengcheng.mvc.filter.MobileContextValueFilter;
 import com.zhengcheng.mvc.filter.SecurityParamContextValueFilter;
+import com.zhengcheng.mvc.interceptor.ControllerInterceptor;
+import com.zhengcheng.mvc.interceptor.ExceptionControllerAdvice;
+import com.zhengcheng.mvc.interceptor.RateLimiterInterceptor;
 import com.zhengcheng.mvc.properties.CustomMvcProperties;
 import io.jsonwebtoken.lang.Assert;
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.FormHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -31,8 +36,8 @@ import java.util.List;
  * @date :    2019/1/26 7:59
  */
 @Configuration
-@ComponentScan("com.zhengcheng.mvc.interceptor")
 @EnableConfigurationProperties({CustomMvcProperties.class})
+@Import({ControllerInterceptor.class, RateLimiterInterceptor.class, ExceptionControllerAdvice.class, RpcClient.class, SpringContextHolder.class})
 public class HttpFastJsonConverterConfig {
 
     @Bean
