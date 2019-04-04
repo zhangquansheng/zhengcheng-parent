@@ -47,7 +47,7 @@
         <spring.tx.version>5.1.5.RELEASE</spring.tx.version>
         <servlet.api.version>4.0.1</servlet.api.version>
         <mybatis.version>3.5.0</mybatis.version>
-        <pagehelper.spring.boot.autoconfigure.version>1.2.10</pagehelper.spring.boot.autoconfigure.version>
+        <pagehelper.spring.boot.version>1.2.10</pagehelper.spring.boot.version>
         <jjwt.version>0.7.0</jjwt.version>
         <feign.version>1.4.6.RELEASE</feign.version>
         <elastic-job.version>2.1.5</elastic-job.version>
@@ -101,7 +101,12 @@
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper-spring-boot-autoconfigure</artifactId>
-                <version>${pagehelper.spring.boot.autoconfigure.version}</version>
+                <version>${pagehelper.spring.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper.spring.boot.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.mybatis</groupId>
