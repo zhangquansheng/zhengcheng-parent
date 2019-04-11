@@ -1,8 +1,8 @@
 package com.zhengcheng.mvc.client;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.zhengcheng.common.constant.CommonConstant;
 import com.zhengcheng.common.exception.BizException;
 import com.zhengcheng.common.http.HttpWrapper;
 import com.zhengcheng.common.web.Result;
@@ -27,8 +27,6 @@ import java.util.Map;
 @Component
 public class RpcClient {
 
-    private final Integer SUCCESS = 0;
-
     private final String CODE = "code";
 
     private final String DATA = "data";
@@ -36,105 +34,148 @@ public class RpcClient {
     private final String MESSAGE = "message";
 
 
-    private String getFallback(String url, Map<String, Object> paramMap) {
-        log.error("getFallback#{}#{}", url, paramMap);
-        return JSONObject.toJSONString(Result.errorMessage("接口超时"));
+    @HystrixCommand(fallbackMethod = "fallback", ignoreExceptions = {IllegalArgumentException.class, BizException.class})
+    public <T> Result<T> get(String url, Class<T> clazz) {
+        String resp = this.get(url, new HashMap<>(4));
+        return this.getResult(resp, clazz);
     }
 
-    @HystrixCommand(fallbackMethod = "getFallback")
+    public <T> Result<T> fallback(String url, Class<T> clazz, Throwable throwable) {
+        log.error("fallback#{}，进入回退方法，异常：", url, throwable);
+        return this.fallbackResult();
+    }
+
+    @HystrixCommand(fallbackMethod = "fallback", ignoreExceptions = {IllegalArgumentException.class, BizException.class})
+    public <T> Result<T> get(String url, Map<String, Object> param, Class<T> clazz) {
+        String resp = this.get(url, param);
+        return this.getResult(resp, clazz);
+    }
+
+    public <T> Result<T> fallback(String url, Map<String, Object> param, Class<T> clazz, Throwable throwable) {
+        log.error("fallback#{}，进入回退方法，异常：", url, throwable);
+        return this.fallbackResult();
+    }
+
+    @HystrixCommand(fallbackMethod = "fallbackList", ignoreExceptions = {IllegalArgumentException.class, BizException.class})
+    public <T> Result<List<T>> getList(String url, Class<T> clazz) {
+        String resp = this.get(url, new HashMap<>(4));
+        return this.getResult0(resp, clazz);
+    }
+
+    public <T> Result<List<T>> fallbackList(String url, Class<T> clazz, Throwable throwable) {
+        log.error("fallbackList#{}，进入回退方法，异常：", url, throwable);
+        return this.fallbackResult();
+    }
+
+    @HystrixCommand(fallbackMethod = "fallbackList", ignoreExceptions = {IllegalArgumentException.class, BizException.class})
+    public <T> Result<List<T>> getList(String url, Map<String, Object> param, Class<T> clazz) {
+        String resp = this.get(url, param);
+        return this.getResult0(resp, clazz);
+    }
+
+    public <T> Result<List<T>> fallbackList(String url, Map<String, Object> param, Class<T> clazz, Throwable throwable) {
+        log.error("fallbackList#{}，进入回退方法，异常：", url, throwable);
+        return this.fallbackResult();
+    }
+
+    @HystrixCommand(fallbackMethod = "fallback", ignoreExceptions = {IllegalArgumentException.class, BizException.class})
+    public <T> Result<T> post(String url, Class<T> clazz) {
+        String resp = this.post(url, JSON.toJSONString(new HashMap<>(4)));
+        return this.getResult(resp, clazz);
+    }
+
+    @HystrixCommand(fallbackMethod = "fallback", ignoreExceptions = {IllegalArgumentException.class, BizException.class})
+    public <T> Result<T> post(String url, Map<String, Object> param, Class<T> clazz) {
+        String resp = this.post(url, JSON.toJSONString(param));
+        return this.getResult(resp, clazz);
+    }
+
+    @HystrixCommand(fallbackMethod = "fallback", ignoreExceptions = {IllegalArgumentException.class, BizException.class})
+    public <T> Result<T> post(String url, String postData, Class<T> clazz) {
+        String resp = this.post(url, postData);
+        return this.getResult(resp, clazz);
+    }
+
+    public <T> Result<T> fallback(String url, String postData, Class<T> clazz, Throwable throwable) {
+        log.error("fallback#{}，进入回退方法，异常：", url, throwable);
+        return this.fallbackResult();
+    }
+
+    @HystrixCommand(fallbackMethod = "fallbackList", ignoreExceptions = {IllegalArgumentException.class, BizException.class})
+    public <T> Result<List<T>> postList(String url, Class<T> clazz) {
+        String resp = this.post(url, JSON.toJSONString(new HashMap<>(4)));
+        return this.getResult0(resp, clazz);
+    }
+
+    @HystrixCommand(fallbackMethod = "fallbackList", ignoreExceptions = {IllegalArgumentException.class, BizException.class})
+    public <T> Result<List<T>> postList(String url, Map<String, Object> param, Class<T> clazz) {
+        String resp = this.post(url, JSON.toJSONString(param));
+        return this.getResult0(resp, clazz);
+    }
+
+    @HystrixCommand(fallbackMethod = "fallbackList", ignoreExceptions = {IllegalArgumentException.class, BizException.class})
+    public <T> Result<List<T>> postList(String url, String postData, Class<T> clazz) {
+        String resp = this.post(url, postData);
+        return this.getResult0(resp, clazz);
+    }
+
+    public <T> Result<List<T>> fallbackList(String url, String postData, Class<T> clazz, Throwable throwable) {
+        log.error("fallbackList#{}，进入回退方法，异常：", url, throwable);
+        return this.fallbackResult();
+    }
+
+
+    private Result fallbackResult() {
+        Result result = new Result();
+        result.setCode(CommonConstant.FALLBACK_CODE);
+        result.setMessage(CommonConstant.FALLBACK_MSG);
+        return result;
+    }
+
+    private Result initResult(String resp) {
+        Result result = new Result();
+        if (Strings.isBlank(resp)) {
+            result.setCode(CommonConstant.EMPTY_CODE);
+            result.setMessage(CommonConstant.EMPTY_MSG);
+            return result;
+        }
+        Integer code = JSON.parseObject(resp).getInteger(CODE);
+        result.setCode(String.valueOf(code));
+        return result;
+    }
+
+    private <T> Result<T> getResult(String resp, Class<T> clazz) {
+        Result result = this.initResult(resp);
+        if (result.getCode().equals(CommonConstant.SUCCESS)) {
+            result.setData(JSON.parseObject(JSON.parseObject(resp).getString(DATA), clazz));
+        } else if (result.getCode().equals(CommonConstant.EMPTY_CODE)) {
+            return result;
+        } else {
+            result.setMessage(JSON.parseObject(resp).getString(MESSAGE));
+        }
+        return result;
+    }
+
+    private <T> Result<List<T>> getResult0(String resp, Class<T> clazz) {
+        Result result = this.initResult(resp);
+        if (result.getCode().equals(CommonConstant.SUCCESS)) {
+            result.setData(JSON.parseArray(JSON.parseObject(resp).getString(DATA), clazz));
+        } else if (result.getCode().equals(CommonConstant.EMPTY_CODE)) {
+            return result;
+        } else {
+            result.setMessage(JSON.parseObject(resp).getString(MESSAGE));
+        }
+        return result;
+    }
+
     private String get(String url, Map<String, Object> paramMap) {
         return HttpWrapper.create()
                 .setUrl(url).addParams(paramMap).setMethod(HttpWrapper.HttpMethod.GET).executeStr();
     }
 
-    private String postFallback(String url, String postData) {
-        log.error("postFallback#{}#{}", url, postData);
-        return JSONObject.toJSONString(Result.errorMessage("接口超时"));
-    }
-
-    @HystrixCommand(fallbackMethod = "postFallback")
     private String post(String url, String postData) {
         return HttpWrapper.create()
                 .setUrl(url).setMethod(HttpWrapper.HttpMethod.POST)
                 .setPostData(postData).executeStr();
     }
-
-    public void post(String url, Map<String, Object> paramMap) {
-        this.post(url, JSON.toJSONString(paramMap));
-    }
-
-    public Integer postCode(String url, Map<String, Object> paramMap) {
-        String resp = this.post(url, JSON.toJSONString(paramMap));
-        JSONObject result = JSON.parseObject(resp);
-        Integer code = result.getInteger("code");
-        return code;
-    }
-
-    public <T> T post(String url, Map<String, Object> paramMap, Class<T> clazz) {
-        String paramData = JSON.toJSONString(paramMap);
-        String resp = this.post(url, paramData);
-        return getResult(url, paramData, resp, clazz);
-    }
-
-    public <T> List<T> post0(String url, Map<String, Object> paramMap, Class<T> clazz) {
-        String paramData = JSON.toJSONString(paramMap);
-        String resp = this.post(url, paramData);
-        return getResult0(url, paramData, resp, clazz);
-    }
-
-    public <T> T get(String url, Map<String, Object> paramMap, Class<T> clazz) {
-        String resp = this.get(url, paramMap);
-        return getResult(url, "", resp, clazz);
-    }
-
-    public String getData(String url, Map<String, Object> paramMap) {
-        String resp = this.get(url, paramMap);
-        return JSON.parseObject(resp).getString(DATA);
-    }
-
-    public <T> T get(String url, Class<T> clazz) {
-        String resp = this.get(url, new HashMap<>(4));
-        return getResult(url, "", resp, clazz);
-    }
-
-    public <T> List<T> get0(String url, Class<T> clazz) {
-        String resp = this.get(url, new HashMap<>(4));
-        return getResult0(url, "", resp, clazz);
-    }
-
-    private <T> List<T> getResult0(String url, String paramData, String resp, Class<T> clazz) {
-        try {
-            if (Strings.isBlank(resp)) {
-                return null;
-            }
-            Integer code = JSON.parseObject(resp).getInteger(CODE);
-            if (code != null && code.equals(SUCCESS)) {
-                return JSON.parseArray(JSON.parseObject(resp).getString(DATA), clazz);
-            } else {
-                throw new BizException("", JSON.parseObject(resp).getString(MESSAGE));
-            }
-        } catch (Exception e) {
-            log.info("RpcClientException#{}#{}#{}", url, paramData, resp, e.getMessage());
-        }
-        return null;
-    }
-
-    private <T> T getResult(String url, String paramData, String resp, Class<T> clazz) {
-        try {
-            if (Strings.isBlank(resp)) {
-                return null;
-            }
-            Integer code = JSON.parseObject(resp).getInteger(CODE);
-            if (code != null && code.equals(SUCCESS)) {
-                return JSON.parseObject(JSON.parseObject(resp).getString(DATA), clazz);
-            } else {
-                throw new BizException("", JSON.parseObject(resp).getString(MESSAGE));
-            }
-        } catch (Exception e) {
-            log.info("RpcClientException#{}#{}#{}", url, paramData, resp, e.getMessage());
-        }
-        return null;
-    }
-
-
 }

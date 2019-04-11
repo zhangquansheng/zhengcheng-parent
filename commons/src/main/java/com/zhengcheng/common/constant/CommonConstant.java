@@ -18,6 +18,16 @@ public class CommonConstant {
 
     public static final String UNKNOWN = "unknown";
 
+    public static final String SUCCESS = "0";
+
+    public static final String FALLBACK_CODE = "1001";
+
+    public static final String FALLBACK_MSG = "接口访问超时";
+
+    public static final String EMPTY_CODE = "1002";
+
+    public static final String EMPTY_MSG = "无返回数据";
+
     public static final String X_FORWARDED_FOR = "X-Forwarded-For";
     public static final String X_REAL_IP = "X-Real-IP";
     public static final String PROXY_CLIENT_IP = "Proxy-Client-IP";
