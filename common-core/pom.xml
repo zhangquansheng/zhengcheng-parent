@@ -9,9 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>commons</artifactId>
+    <artifactId>common-core</artifactId>
 
-    <name>commons</name>
+    <name>common-core</name>
 
     <dependencies>
         <dependency>
