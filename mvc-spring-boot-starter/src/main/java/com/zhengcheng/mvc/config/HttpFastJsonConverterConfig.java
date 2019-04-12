@@ -4,7 +4,6 @@ import com.alibaba.fastjson.serializer.SerializeFilter;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
-import com.zhengcheng.common.support.SpringContextHolder;
 import com.zhengcheng.mvc.client.RpcClient;
 import com.zhengcheng.mvc.filter.MobileContextValueFilter;
 import com.zhengcheng.mvc.filter.SecurityParamContextValueFilter;
@@ -37,7 +36,7 @@ import java.util.List;
  */
 @Configuration
 @EnableConfigurationProperties({CustomMvcProperties.class})
-@Import({ControllerInterceptor.class, RateLimiterInterceptor.class, ExceptionControllerAdvice.class, RpcClient.class, SpringContextHolder.class})
+@Import({ControllerInterceptor.class, RateLimiterInterceptor.class, ExceptionControllerAdvice.class, RpcClient.class})
 public class HttpFastJsonConverterConfig {
 
     @Bean
