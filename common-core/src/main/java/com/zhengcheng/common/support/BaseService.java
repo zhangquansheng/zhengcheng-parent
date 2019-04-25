@@ -3,6 +3,7 @@ package com.zhengcheng.common.support;
 import com.zhengcheng.common.exception.BizException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.session.RowBounds;
+import org.springframework.beans.factory.annotation.Autowired;
 import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public abstract class BaseService<T> implements IService<T> {
     /**
      * The Mapper.
      */
+    @Autowired
     protected Mapper<T> mapper;
 
     /**
