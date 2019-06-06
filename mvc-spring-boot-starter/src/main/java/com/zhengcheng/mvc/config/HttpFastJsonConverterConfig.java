@@ -4,12 +4,10 @@ import com.alibaba.fastjson.serializer.SerializeFilter;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
-import com.zhengcheng.mvc.client.RpcClient;
 import com.zhengcheng.mvc.filter.MobileContextValueFilter;
 import com.zhengcheng.mvc.filter.SecurityParamContextValueFilter;
 import com.zhengcheng.mvc.interceptor.ControllerInterceptor;
 import com.zhengcheng.mvc.interceptor.ExceptionControllerAdvice;
-import com.zhengcheng.mvc.interceptor.RateLimiterInterceptor;
 import com.zhengcheng.mvc.properties.CustomMvcProperties;
 import io.jsonwebtoken.lang.Assert;
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
@@ -29,14 +27,11 @@ import java.util.List;
  * 为Spring Boot默认FASTJSON解析框架
  *
  * @author :    quansheng.zhang
- * @Filename :     HttpFastJsonConverterConfig.java
- * @Package :     com.zhengcheng.config
- * @Description :
  * @date :    2019/1/26 7:59
  */
 @Configuration
 @EnableConfigurationProperties({CustomMvcProperties.class})
-@Import({ControllerInterceptor.class, RateLimiterInterceptor.class, ExceptionControllerAdvice.class, RpcClient.class})
+@Import({ControllerInterceptor.class, ExceptionControllerAdvice.class})
 public class HttpFastJsonConverterConfig {
 
     @Bean
