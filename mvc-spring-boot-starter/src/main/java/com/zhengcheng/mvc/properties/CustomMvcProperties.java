@@ -8,8 +8,6 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
  * mvc自定义配置
  *
  * @author :    quansheng.zhang
- * @Package :     com.zhengcheng.mvc.properties
- * @Description :
  * @date :    2019/3/28 10:42
  */
 @Data

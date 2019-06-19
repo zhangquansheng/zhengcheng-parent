@@ -1,5 +1,6 @@
 package com.zhengcheng.mvc.interceptor;
 
+import com.alibaba.fastjson.JSON;
 import com.zhengcheng.common.exception.BizException;
 import com.zhengcheng.common.web.Result;
 import lombok.extern.slf4j.Slf4j;
@@ -29,7 +30,7 @@ public class ControllerInterceptor {
     /**
      * 定义拦截规则：
      */
-    @Pointcut("@within(org.springframework.web.bind.annotation.RequestMapping) && !@annotation(com.zhengcheng.mvc.annotation.RateLimiter)")
+    @Pointcut("@within(org.springframework.web.bind.annotation.RequestMapping)")
     public void controllerMethodPointcut() {
     }
 
@@ -47,20 +48,25 @@ public class ControllerInterceptor {
         MethodSignature signature = (MethodSignature) pjp.getSignature();
         String className = signature.getDeclaringTypeName();
         String methodName = signature.getName();
+        Object[] args = pjp.getArgs();
+        String argsJsonStr = "";
+        if (args != null) {
+            argsJsonStr = JSON.toJSONString(args);
+        }
         Object retObj;
         try {
             retObj = pjp.proceed();
         } catch (Throwable e) {
             if (e instanceof BizException) {
-                log.info("BizException#{}#{}#{}请求异常，错误：{}", className, methodName, pjp.getArgs(), e.getMessage());
+                log.info("BizException#{}#{}#{}请求异常，错误：{}", className, methodName, argsJsonStr, e.getMessage());
                 retObj = Result.errorMessage(e.getMessage());
             } else {
-                log.error("{}#{}#{}请求异常，错误：{}", className, methodName, pjp.getArgs(), e.getMessage(), e);
+                log.error("{}#{}#{}请求异常，错误：{}", className, methodName, argsJsonStr, e.getMessage(), e);
                 retObj = Result.errorData("服务异常，请联系技术人员", Lang.getStackTrace(e));
             }
         }
         long costMs = System.currentTimeMillis() - beginTime;
-        log.info("{}#{}请求结束，耗时：{}ms", className, methodName, costMs);
+        log.info("{}#{}#{}请求结束，耗时：{}ms", className, methodName, argsJsonStr, costMs);
         return retObj;
     }
 }

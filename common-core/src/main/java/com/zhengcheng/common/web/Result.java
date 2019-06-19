@@ -10,16 +10,13 @@ import java.io.Serializable;
  * web端的返回结果
  *
  * @author :    zqs
- * @Filename :     Result.java
- * @Package :     com.quansheng.web
- * @Description :
  * @date :    2018/12/20 16:30
  */
 @ApiModel(description = "rest请求的返回模型，所有rest正常都返回该类的对象")
 public class Result<T> implements Serializable {
     private static final long serialVersionUID = -3032015199552656978L;
-    private static final String SUCCESS = "0";
-    private static final String ERROR = "1";
+    private static final String SUCCESS = "1";
+    private static final String ERROR = "0";
     @ApiModelProperty(value = "处理结果code", required = true)
     private String code;
     @ApiModelProperty(value = "处理结果描述信息")

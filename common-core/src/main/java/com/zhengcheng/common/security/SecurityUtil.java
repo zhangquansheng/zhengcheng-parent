@@ -10,8 +10,6 @@ import java.security.Principal;
  * 安全工具
  *
  * @author :    quansheng.zhang
- * @Package :     com.zhengcheng.common.security
- * @Description :
  * @date :    2019/3/26 22:11
  */
 public class SecurityUtil {

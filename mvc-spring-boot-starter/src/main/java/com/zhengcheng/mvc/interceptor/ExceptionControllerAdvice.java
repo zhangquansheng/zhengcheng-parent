@@ -15,9 +15,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * 控制层异常通知
  *
  * @author :    quansheng.zhang
- * @Filename :     ExceptionControllerAdvice.java
- * @Package :     com.zhengcheng.config
- * @Description :
  * @date :    2019/1/26 7:59
  */
 @ControllerAdvice

@@ -46,8 +46,6 @@ import java.util.*;
  * HttpWrapper
  *
  * @author :    quansheng.zhang
- * @Package :     com.zhengcheng.common.http
- * @Description :
  * @date :    2019/2/28 21:00
  */
 @Slf4j

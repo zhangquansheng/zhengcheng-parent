@@ -10,8 +10,6 @@ import java.util.Collection;
  * 安全用户
  *
  * @author :    quansheng.zhang
- * @Package :     com.zhengcheng.authserver.serce
- * @Description :
  * @date :    2019/3/26 1:19
  */
 @Data
