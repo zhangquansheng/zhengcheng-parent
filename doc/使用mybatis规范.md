@@ -1,0 +1,13 @@
+- 【建议】update和delete必须根据id单条操作。
+- 在表查询中，一律不要使用*作为查询的字段列表，需要哪些字段必须明确写明。说明：
+- > 增加查询分析器解析成本
+- > 增加字段容易与resultMap配置不一致
+- > 无用字段增加网络消耗，尤其是text类型的字段
+- 不允许直接拿HashMap与HashTable作为查询结果集的输出。resultClass="HashTable",会置入字段名和属性值，但是值的类型不可控。
+- update更新数据库表记录时，必须更新对应记录的update_time（更新时间）字段为当前时间。
+- @Transactional事务不要滥用，尤其是定时任务更新数据，不要出现大批量的统一提交事务，事务会影响数据库的QPS，另外使用事务的地方需要考虑各方面的回滚方案，包括缓存回滚，消息补偿，统计修正等。
+- 查询数据列表必须使用LIMIT，可以使用PageHelper.startPage(param.getPageNo(), param.getPageSize(), false).doSelectPageInfo来控制，防止误操作过多数据到内存中。
+- PageHelper禁止使用它自带的total总数查询，必须手写SQL查询总数。
+- 禁止在系统中写超过3个表以上的关联查询，多表的情况下你可以分配查询相关数据，然后在程序中完成查询逻辑。
+- 禁止在系统中写跨服务查询。
+- 【建议】ORDER BY xxx LIMIT 1 有可能使索引失效，写之前看下SQL的执行计划。
