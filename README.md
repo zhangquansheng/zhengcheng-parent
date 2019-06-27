@@ -48,7 +48,7 @@ Spring Cloud 版本
 ### 11.经验之道
 #### 11.1 统一的技术标准
 
-- 数据持久化框架推荐使用MyBatis，尽量不要使用JPA，nutz等其他框架,【使用Mybatis规范】(https://gitee.com/zhangquansheng/zhengcheng-parent/blob/master/doc/%E4%BD%BF%E7%94%A8mybatis%E8%A7%84%E8%8C%83.md) 
+- 数据持久化框架推荐使用MyBatis，尽量不要使用JPA，nutz等其他框架,[使用Mybatis规范](https://gitee.com/zhangquansheng/zhengcheng-parent/blob/master/doc/%E4%BD%BF%E7%94%A8mybatis%E8%A7%84%E8%8C%83.md) 
 - 相同的命名策略和写代码习惯，参考alibaba代码规范
 
 
