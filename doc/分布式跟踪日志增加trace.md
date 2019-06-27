@@ -6,7 +6,9 @@
 
 
  修改项目的logback-spring.xml
-
+ 
+ 
+```
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration debug="false">
  
@@ -110,6 +112,8 @@
     </root>
  
 </configuration>
+```
+
 增加的内容如下：
 "trace":"%X{X-B3-TraceId:-}",
 "span":"%X{X-B3-SpanId:-}",
@@ -119,12 +123,12 @@
 2. 引入pom文件
 
 
-
+```
 <dependency>
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-starter-sleuth</artifactId>
 </dependency>
-
+```
 
 3、日志系统中的效果
 
@@ -149,14 +153,16 @@ trace(跟踪)：一组共享”root span“的span组成的树状结果成为tra
 
 
 1、 在使用了mvc-spring-boot-starter项目中直接升级到2.2即可。
-
+```
 <dependency>
     <groupId>com.zhangmen.boot</groupId>
     <artifactId>mvc-spring-boot-starter</artifactId>
     <version>2.2</version>
 </dependency>
+```
 logback版本的日志增加traceId主要的原理和源码如下：
 
+```
 /**
  * 定义拦截规则：
  * 有@RequestMapping注解的方法。
@@ -190,18 +196,14 @@ public void afterReturn() {
 public void afterThrow() {
     MDC.remove(TRACE_ID);
 }
-
+```
 
 2、 修改项目的logback-spring.xml（直接下载copy到项目中即可）,打印traceId
 
 
-
-
-
 3、日志系统中根据traceId查看
 
-
-
+```
 {
   "query": {
     "bool": {
@@ -215,7 +217,7 @@ public void afterThrow() {
     }
   }
 }
-
+```
 
 4、问题
 

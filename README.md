@@ -30,7 +30,7 @@ Spring Cloud 版本
 ### 7.实现微服务跟踪
 #### 1. 推荐CAT
 #### 2. 使用 Spring Cloud Sleuth 实现微服务跟踪
-##### 2.1 Spring Cloud Sleuth 与 ELK配合使用
+##### 2.1 [Spring Cloud Sleuth 与 ELK配合使用](https://gitee.com/zhangquansheng/zhengcheng-parent/blob/master/doc/%E5%88%86%E5%B8%83%E5%BC%8F%E8%B7%9F%E8%B8%AA%E6%97%A5%E5%BF%97%E5%A2%9E%E5%8A%A0trace.md)
 ##### 2.2 Spring Cloud Sleuth 与 ZipKin配合使用
 #### 3. ZipKin
 
