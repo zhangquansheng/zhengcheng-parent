@@ -50,7 +50,7 @@ Spring Cloud 版本
 
 - 数据持久化框架推荐使用MyBatis，尽量不要使用JPA，nutz等其他框架,[使用Mybatis规范](https://gitee.com/zhangquansheng/zhengcheng-parent/blob/master/doc/%E4%BD%BF%E7%94%A8mybatis%E8%A7%84%E8%8C%83.md) 
 - 相同的命名策略和写代码习惯，参考alibaba代码规范
-
+- 抛弃使用Druid，推荐使用Hikari
 
 #### 11.2 系统分类 
 
@@ -66,3 +66,9 @@ Spring Cloud 版本
 
 - 日志脱敏
 - 接口关键数据脱敏，例如手机号，邮箱等
+
+### 12.工作经历总结
+
+### 13.技术分享
+
+### 14.高潜分享

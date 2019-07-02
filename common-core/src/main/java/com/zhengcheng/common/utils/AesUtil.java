@@ -13,8 +13,6 @@ import java.util.Map;
  * AES工具
  *
  * @author :    quansheng.zhang
- * @Package :     com.zhengcheng.common.utils
- * @Description :
  * @date :    2019/3/28 10:24
  */
 public class AesUtil {

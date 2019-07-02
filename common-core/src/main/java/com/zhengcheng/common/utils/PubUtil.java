@@ -10,9 +10,6 @@ import java.util.UUID;
  * The class Pub utils.
  *
  * @author :    quansheng.zhang
- * @Filename :     Mask.java
- * @Package :     com.zhengcheng.upms.utils
- * @Description :
  * @date :    2019/1/26 7:49
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -101,7 +98,6 @@ public class PubUtil {
         } else {
             return "";
         }
-        // return s == null ? "" : s.trim();
     }
 
     /**

@@ -15,9 +15,6 @@ import java.net.UnknownHostException;
 /**
  * The class Request util.
  *
- * @author :    quansheng.zhang
- * @Package :     com.zhengcheng.common.utils
- * @Description :
  * @date :    2019/3/29 13:39
  */
 @Slf4j

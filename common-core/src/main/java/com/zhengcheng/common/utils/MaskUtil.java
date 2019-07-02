@@ -6,9 +6,6 @@ import org.nutz.lang.Strings;
  * 脱敏工具类
  *
  * @author :    quansheng.zhang
- * @Filename :     Mask.java
- * @Package :     com.zhengcheng.upms.utils
- * @Description :
  * @date :    2019/1/26 7:49
  */
 public class MaskUtil {
