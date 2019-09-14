@@ -9,7 +9,6 @@
 ---|---
 zc-feign-spring-boot-starter | 远程通信通用组件
 zc-db-spring-boot-starter | 数据库通用组件
-mvc-spring-boot-starter | 控制层通用组件
 zc-common-spring-boot-starter | 公共库通用组件
 zc-mq-spring-boot-starter | 阿里云消息队列通用组件
 zm-redis-spring-boot-starter | 缓存通用组件
