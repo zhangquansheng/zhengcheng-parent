@@ -13,13 +13,7 @@
     <groupId>com.zhengcheng</groupId>
     <artifactId>zhengcheng-parent</artifactId>
     <packaging>pom</packaging>
-    <version>3.0.0.RELEASE</version>
-
-    <modules>
-        <module>common-core</module>
-        <module>mvc-spring-boot-starter</module>
-        <module>swagger-spring-boot-starter</module>
-    </modules>
+    <version>3.0.0</version>
 
     <name>zhengcheng-parent</name>
 

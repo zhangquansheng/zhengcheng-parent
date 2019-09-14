@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <annotationProcessing>
-      <profile name="Maven default annotation processors profile" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="common-core" />
-        <module name="mvc-spring-boot-starter" />
-        <module name="swagger-spring-boot-starter" />
-      </profile>
-    </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="authserver" target="1.7" />
       <module name="authserver-master" target="1.5" />
+      <module name="common-core" target="1.8" />
+      <module name="mvc-spring-boot-starter" target="1.8" />
       <module name="mvc-springboot-starter" target="1.8" />
       <module name="mvcspringbootstarter" target="1.8" />
+      <module name="swagger-spring-boot-starter" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
