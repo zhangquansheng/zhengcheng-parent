@@ -17,34 +17,17 @@
 
     <name>zhengcheng-parent</name>
 
+    <modules>
+        <module>zc-feign-spring-boot-starter</module>
+        <module>zc-common-spring-boot-starter</module>
+    </modules>
+
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <druid.version>1.0.29</druid.version>
-        <fastjson.version>1.2.56</fastjson.version>
         <spring.cloud.version>Finchley.SR3</spring.cloud.version>
-        <springboot.mybatis.version>1.3.2</springboot.mybatis.version>
-        <springboot.tk.mybatis.version>2.1.5</springboot.tk.mybatis.version>
-        <mapper.version>3.4.0</mapper.version>
-        <pagehelper.version>5.1.8</pagehelper.version>
-        <org.projectlombok.version>1.16.18</org.projectlombok.version>
-        <nutz.version>1.r.67</nutz.version>
-        <spring.security.oauth2.version>2.3.3.RELEASE</spring.security.oauth2.version>
-        <spring.security.jwt.version>1.0.10.RELEASE</spring.security.jwt.version>
-        <lombok.version>1.18.4</lombok.version>
-        <swagger2.version>2.8.0</swagger2.version>
-        <guava.version>27.0.1-jre</guava.version>
-        <easyexcel.version>1.1.1</easyexcel.version>
-        <httpclient.version>4.5.6</httpclient.version>
-        <httpmime.version>4.5.6</httpmime.version>
-        <spring.tx.version>5.1.5.RELEASE</spring.tx.version>
-        <servlet.api.version>4.0.1</servlet.api.version>
-        <mybatis.version>3.5.0</mybatis.version>
-        <pagehelper.spring.boot.version>1.2.10</pagehelper.spring.boot.version>
-        <jjwt.version>0.7.0</jjwt.version>
-        <feign.version>1.4.6.RELEASE</feign.version>
-        <elastic-job.version>2.1.5</elastic-job.version>
+        <mybatis-plus-boot-starter.version>3.1.2</mybatis-plus-boot-starter.version>
     </properties>
 
     <dependencyManagement>
@@ -56,138 +39,21 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!-- mybatis-plus start -->
             <dependency>
-                <groupId>org.springframework.security.oauth</groupId>
-                <artifactId>spring-security-oauth2</artifactId>
-                <version>${spring.security.oauth2.version}</version>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus-boot-starter.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.springframework.security</groupId>
-                <artifactId>spring-security-jwt</artifactId>
-                <version>${spring.security.jwt.version}</version>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-extension</artifactId>
+                <version>${mybatis-plus-boot-starter.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-                <version>${fastjson.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>druid</artifactId>
-                <version>${druid.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${org.projectlombok.version}</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.github.pagehelper</groupId>
-                <artifactId>pagehelper</artifactId>
-                <version>${pagehelper.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>tk.mybatis</groupId>
-                <artifactId>mapper</artifactId>
-                <version>${mapper.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.pagehelper</groupId>
-                <artifactId>pagehelper-spring-boot-autoconfigure</artifactId>
-                <version>${pagehelper.spring.boot.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.pagehelper</groupId>
-                <artifactId>pagehelper-spring-boot-starter</artifactId>
-                <version>${pagehelper.spring.boot.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.mybatis</groupId>
-                <artifactId>mybatis</artifactId>
-                <version>${mybatis.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.mybatis.spring.boot</groupId>
-                <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>${springboot.mybatis.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>tk.mybatis</groupId>
-                <artifactId>mapper-spring-boot-starter</artifactId>
-                <version>${springboot.tk.mybatis.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-feign</artifactId>
-                <version>${feign.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.nutz</groupId>
-                <artifactId>nutz</artifactId>
-                <version>${nutz.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>javax.servlet</groupId>
-                <artifactId>javax.servlet-api</artifactId>
-                <version>${servlet.api.version}</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger2</artifactId>
-                <version>${swagger2.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger-ui</artifactId>
-                <version>${swagger2.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>${guava.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>easyexcel</artifactId>
-                <version>${easyexcel.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-tx</artifactId>
-                <version>${spring.tx.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.httpcomponents</groupId>
-                <artifactId>httpclient</artifactId>
-                <version>${httpclient.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.httpcomponents</groupId>
-                <artifactId>httpmime</artifactId>
-                <version>${httpmime.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.jsonwebtoken</groupId>
-                <artifactId>jjwt</artifactId>
-                <version>${jjwt.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.dangdang</groupId>
-                <artifactId>elastic-job-lite-core</artifactId>
-                <version>${elastic-job.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.dangdang</groupId>
-                <artifactId>elastic-job-lite-spring</artifactId>
-                <version>${elastic-job.version}</version>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus</artifactId>
+                <version>${mybatis-plus-boot-starter.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
