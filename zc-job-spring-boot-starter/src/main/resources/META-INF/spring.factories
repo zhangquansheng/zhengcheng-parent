@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.zhengcheng.sentinel.SentinelAutoConfigure
+  com.zhengcheng.job.XxlJobAutoConfig
