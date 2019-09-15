@@ -9,7 +9,12 @@ package com.zhengcheng.common.enumeration;
 public enum CodeEnum {
 
     SUCCESS(200),
-    ERROR(1);
+    ERROR(1),
+    BAD_REQUEST(400),
+    FORBIDDEN(403),
+    METHOD_NOT_ALLOWED(405),
+    UNSUPPORTED_MEDIA_TYPE(415),
+    INTERNAL_SERVER_ERROR(500);
 
     private Integer code;
 
