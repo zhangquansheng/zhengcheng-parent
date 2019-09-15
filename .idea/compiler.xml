@@ -13,6 +13,7 @@
         <module name="zc-mq-spring-boot-starter" />
         <module name="zc-redis-spring-boot-starter" />
         <module name="zc-sentinel-spring-boot-starter" />
+        <module name="zc-swagger-spring-boot-starter" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -39,6 +40,7 @@
       <module name="zc-mq-spring-boot-starter" options="-parameters" />
       <module name="zc-redis-spring-boot-starter" options="-parameters" />
       <module name="zc-sentinel-spring-boot-starter" options="-parameters" />
+      <module name="zc-swagger-spring-boot-starter" options="-parameters" />
       <module name="zhengcheng-parent" options="-parameters" />
     </option>
   </component>

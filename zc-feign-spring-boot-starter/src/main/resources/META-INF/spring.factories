@@ -1,3 +1,3 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.zhengcheng.feign.FeignAutoConfigure,\
-com.zhengcheng.feign.RestTemplateAutoConfigure
+com.zhengcheng.swagger.feign.FeignAutoConfigure,\
+com.zhengcheng.swagger.feign.RestTemplateAutoConfigure
