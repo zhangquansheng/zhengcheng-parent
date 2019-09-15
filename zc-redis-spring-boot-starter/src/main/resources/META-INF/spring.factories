@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.zhengcheng.swagger.redis.RedisAutoConfigure
+com.zhengcheng.redis.RedisAutoConfigure
