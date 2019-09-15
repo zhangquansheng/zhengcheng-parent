@@ -9,6 +9,7 @@
         <module name="zc-common-spring-boot-starter" />
         <module name="zc-db-spring-boot-starter" />
         <module name="zc-feign-spring-boot-starter" />
+        <module name="zc-mq-spring-boot-starter" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -31,6 +32,7 @@
       <module name="zc-common-spring-boot-starter" options="-parameters" />
       <module name="zc-db-spring-boot-starter" options="-parameters" />
       <module name="zc-feign-spring-boot-starter" options="-parameters" />
+      <module name="zc-mq-spring-boot-starter" options="-parameters" />
       <module name="zhengcheng-parent" options="-parameters" />
     </option>
   </component>

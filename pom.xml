@@ -21,6 +21,7 @@
         <module>zc-feign-spring-boot-starter</module>
         <module>zc-common-spring-boot-starter</module>
         <module>zc-db-spring-boot-starter</module>
+        <module>zc-mq-spring-boot-starter</module>
     </modules>
 
     <properties>
@@ -30,6 +31,9 @@
         <spring.cloud.version>Finchley.SR3</spring.cloud.version>
         <mybatis-plus-boot-starter.version>3.1.2</mybatis-plus-boot-starter.version>
         <spring.security.oauth2.version>2.3.3.RELEASE</spring.security.oauth2.version>
+        <aliyun.ons-client.version>1.8.2.Final</aliyun.ons-client.version>
+        <fastjson.version>1.2.60</fastjson.version>
+        <guava.version>27.0.1-jre</guava.version>
     </properties>
 
     <dependencyManagement>
@@ -61,6 +65,27 @@
                 <groupId>org.springframework.security.oauth</groupId>
                 <artifactId>spring-security-oauth2</artifactId>
                 <version>${spring.security.oauth2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.aliyun.openservices</groupId>
+                <artifactId>ons-client</artifactId>
+                <version>${aliyun.ons-client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>jsr305</artifactId>
+                        <groupId>com.google.code.findbugs</groupId>
+                    </exclusion>
+                </exclusions>
             </dependency>
         </dependencies>
     </dependencyManagement>
