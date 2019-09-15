@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
-    <artifactId>zm-redis-spring-boot-starter</artifactId>
+    <artifactId>zc-redis-spring-boot-starter</artifactId>
     <description>缓存通用组件</description>
 
     <dependencies>
