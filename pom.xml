@@ -20,6 +20,7 @@
     <modules>
         <module>zc-feign-spring-boot-starter</module>
         <module>zc-common-spring-boot-starter</module>
+        <module>zc-db-spring-boot-starter</module>
     </modules>
 
     <properties>

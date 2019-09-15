@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="zc-common-spring-boot-starter" />
+        <module name="zc-db-spring-boot-starter" />
         <module name="zc-feign-spring-boot-starter" />
       </profile>
     </annotationProcessing>
@@ -28,6 +29,7 @@
       <module name="mvcspringbootstarter" options="-parameters" />
       <module name="swagger-spring-boot-starter" options="-parameters" />
       <module name="zc-common-spring-boot-starter" options="-parameters" />
+      <module name="zc-db-spring-boot-starter" options="-parameters" />
       <module name="zc-feign-spring-boot-starter" options="-parameters" />
       <module name="zhengcheng-parent" options="-parameters" />
     </option>
