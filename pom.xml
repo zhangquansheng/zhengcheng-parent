@@ -22,6 +22,7 @@
         <module>zc-common-spring-boot-starter</module>
         <module>zc-db-spring-boot-starter</module>
         <module>zc-mq-spring-boot-starter</module>
+        <module>zm-redis-spring-boot-starter</module>
     </modules>
 
     <properties>
