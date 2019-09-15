@@ -17,4 +17,4 @@ zc-redis-spring-boot-starter | 缓存通用组件
 zc-sentinel-spring-boot-starter | 服务降级、熔断和限流通用组件
 zc-job-spring-boot-starter | XXL-JOB定时任务通用组件
 zc-swagger-spring-boot-starter | swagger通用组件
-zc-sharding-jdbc-spring-boot-start | 分库分表通用组件
+zc-sharding-jdbc-spring-boot-starter | 分库分表通用组件
