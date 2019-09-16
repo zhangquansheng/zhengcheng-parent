@@ -1,6 +1,5 @@
-package com.zhengcheng.common.controller;
+package com.zhengcheng.common.support;
 
-import com.zhengcheng.common.support.DateEditor;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
