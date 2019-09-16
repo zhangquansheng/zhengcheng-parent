@@ -17,7 +17,8 @@ import java.util.Properties;
 /**
  * Producer Auto Configuration
  *
- * @author czhouyi@gmail.com
+ * @author :    quansheng.zhang
+ * @date :    2019/8/13 0:17
  */
 @Configuration
 @EnableConfigurationProperties(ProducerProperties.class)
