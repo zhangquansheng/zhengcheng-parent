@@ -28,6 +28,8 @@ public class BaseEntity<T extends Model<?>> extends Model<T> {
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date gmtModified;
 
+    private Boolean deleted;
+
     @Override
     protected Serializable pkVal() {
         return this.id;
