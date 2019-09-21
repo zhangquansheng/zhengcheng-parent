@@ -27,7 +27,7 @@ public class DefaultMybatisPlusConfig {
      * 设置 dev test 环境开启
      */
     @Bean
-    @Profile({"dev", "test"})
+    @Profile({"dev", "fat"})
     public PerformanceInterceptor performanceInterceptor() {
         return new PerformanceInterceptor();
     }

@@ -27,7 +27,7 @@ public class BaseEntity<T extends Model<?>> extends Model<T> {
     private Date gmtCreate;
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date gmtModified;
-
+    @TableField(value = "is_deleted", fill = FieldFill.INSERT)
     private Boolean deleted;
 
     @Override

@@ -14,6 +14,7 @@ import java.util.Date;
 public class DateMetaObjectHandler implements MetaObjectHandler {
     private final String GMT_CREATE = "gmtCreate";
     private final String GMT_MODIFIED = "gmtModified";
+    private final String DELETED = "deleted";
 
     /**
      * 插入填充，字段为空自动填充
@@ -22,13 +23,17 @@ public class DateMetaObjectHandler implements MetaObjectHandler {
     public void insertFill(MetaObject metaObject) {
         Object gmtCreate = getFieldValByName(GMT_CREATE, metaObject);
         Object gmtModified = getFieldValByName(GMT_MODIFIED, metaObject);
-        if (gmtCreate == null || gmtModified == null) {
+        Object deleted = getFieldValByName(DELETED, metaObject);
+        if (gmtCreate == null || gmtModified == null || deleted == null) {
             Date date = new Date();
             if (gmtCreate == null) {
                 setFieldValByName(GMT_CREATE, date, metaObject);
             }
             if (gmtModified == null) {
                 setFieldValByName(GMT_MODIFIED, date, metaObject);
+            }
+            if (deleted == null) {
+                setFieldValByName(DELETED, Boolean.FALSE, metaObject);
             }
         }
     }
