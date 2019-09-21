@@ -4,8 +4,9 @@ import com.alibaba.fastjson.serializer.SerializeFilter;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
-import com.zhengcheng.web.config.ExceptionAdvice;
 import com.zhengcheng.web.filter.MobileContextValueFilter;
+import com.zhengcheng.web.interceptor.ControllerInterceptor;
+import com.zhengcheng.web.interceptor.ExceptionControllerAdvice;
 import com.zhengcheng.web.properties.CustomMvcProperties;
 import com.zhengcheng.web.util.AspectUtil;
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
@@ -27,7 +28,7 @@ import java.util.List;
  * @author :    quansheng.zhang
  * @date :    2019/1/26 7:59
  */
-@Import({ExceptionAdvice.class})
+@Import({ControllerInterceptor.class, ExceptionControllerAdvice.class})
 @EnableConfigurationProperties({CustomMvcProperties.class})
 public class WebAutoConfiguration {
 
