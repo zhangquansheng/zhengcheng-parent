@@ -1,4 +1,4 @@
-package com.zhengcheng.common.util;
+package com.zhengcheng.web.util;
 
 import com.alibaba.fastjson.JSON;
 import com.zhengcheng.common.enumeration.CodeEnum;

@@ -1,6 +1,6 @@
-package com.zhengcheng.common.interceptor;
+package com.zhengcheng.web.interceptor;
 
-import com.zhengcheng.common.util.AspectUtil;
+import com.zhengcheng.web.util.AspectUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

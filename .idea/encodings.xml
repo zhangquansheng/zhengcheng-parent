@@ -2,9 +2,6 @@
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8" addBOMForNewFiles="with NO BOM">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/common-core" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/mvc-spring-boot-starter" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/swagger-spring-boot-starter" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-common-spring-boot-starter" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-db-spring-boot-starter" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-feign-spring-boot-starter" charset="UTF-8" />
@@ -14,6 +11,7 @@
     <file url="file://$PROJECT_DIR$/zc-sentinel-spring-boot-starter" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-sharding-jdbc-spring-boot-starter" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-swagger-spring-boot-starter" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-web-spring-boot-starter" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

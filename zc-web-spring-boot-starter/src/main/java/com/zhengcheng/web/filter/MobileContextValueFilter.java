@@ -1,9 +1,9 @@
-package com.zhengcheng.common.filter;
+package com.zhengcheng.web.filter;
 
 import com.alibaba.fastjson.serializer.BeanContext;
 import com.alibaba.fastjson.serializer.ContextValueFilter;
-import com.zhengcheng.common.annotation.MobileMask;
-import com.zhengcheng.common.util.Mask;
+import com.zhengcheng.web.annotation.MobileMask;
+import com.zhengcheng.web.util.Mask;
 
 import java.util.Objects;
 

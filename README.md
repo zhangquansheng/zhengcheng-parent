@@ -9,6 +9,7 @@
 
  name | description
 ---|---
+zc-web-spring-boot-starter | Web模块通用组件
 zc-feign-spring-boot-starter | 远程通信通用组件
 zc-db-spring-boot-starter | 数据库通用组件
 zc-common-spring-boot-starter | 公共库通用组件

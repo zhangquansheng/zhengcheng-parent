@@ -1,13 +1,13 @@
-package com.zhengcheng.common;
+package com.zhengcheng.web;
 
 import com.alibaba.fastjson.serializer.SerializeFilter;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
-import com.zhengcheng.common.config.ExceptionAdvice;
-import com.zhengcheng.common.filter.MobileContextValueFilter;
-import com.zhengcheng.common.properties.CustomMvcProperties;
-import com.zhengcheng.common.util.AspectUtil;
+import com.zhengcheng.web.config.ExceptionAdvice;
+import com.zhengcheng.web.filter.MobileContextValueFilter;
+import com.zhengcheng.web.properties.CustomMvcProperties;
+import com.zhengcheng.web.util.AspectUtil;
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -22,16 +22,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ZhangchengStarter项目中增加默认配置，功能有：FASTJSON解析框架
+ * Web模块自动配置
  *
  * @author :    quansheng.zhang
  * @date :    2019/1/26 7:59
  */
 @Import({ExceptionAdvice.class})
 @EnableConfigurationProperties({CustomMvcProperties.class})
-public class ZhangchengStarterAutoConfiguration {
+public class WebAutoConfiguration {
 
-    public ZhangchengStarterAutoConfiguration() {
+    public WebAutoConfiguration() {
     }
 
     @Bean

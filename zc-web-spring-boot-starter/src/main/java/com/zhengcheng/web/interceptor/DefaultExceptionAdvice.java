@@ -1,4 +1,4 @@
-package com.zhengcheng.common.interceptor;
+package com.zhengcheng.web.interceptor;
 
 import com.zhengcheng.common.enumeration.CodeEnum;
 import com.zhengcheng.common.exception.BizException;

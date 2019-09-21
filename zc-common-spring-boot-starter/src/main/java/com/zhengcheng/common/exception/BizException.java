@@ -2,6 +2,7 @@ package com.zhengcheng.common.exception;
 
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * 业务异常
@@ -10,6 +11,7 @@ import lombok.Data;
  * @date :    2018/12/20 16:30
  */
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class BizException extends RuntimeException {
 
     private static final long serialVersionUID = 5402012883466443408L;

@@ -1,4 +1,4 @@
-package com.zhengcheng.common.enumeration;
+package com.zhengcheng.web.enumeration;
 
 /**
  * 手机号脱敏类型

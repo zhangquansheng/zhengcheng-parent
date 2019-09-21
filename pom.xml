@@ -18,6 +18,7 @@
     <name>zhengcheng-parent</name>
 
     <modules>
+        <module>zc-web-spring-boot-starter</module>
         <module>zc-feign-spring-boot-starter</module>
         <module>zc-common-spring-boot-starter</module>
         <module>zc-db-spring-boot-starter</module>

@@ -1,4 +1,4 @@
-package com.zhengcheng.common.annotation;
+package com.zhengcheng.web.annotation;
 
 
 import com.zhengcheng.common.enumeration.MobileMaskType;

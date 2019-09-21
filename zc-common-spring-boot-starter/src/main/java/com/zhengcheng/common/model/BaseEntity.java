@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -17,6 +18,7 @@ import java.util.Date;
  * @date :    2019/2/28 21:00
  */
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class BaseEntity<T extends Model<?>> extends Model<T> {
     /**
      * 主键ID
