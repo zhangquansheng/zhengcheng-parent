@@ -85,6 +85,11 @@
             <!-- 自定义 starter -->
             <dependency>
                 <groupId>com.zhengcheng</groupId>
+                <artifactId>zc-web-spring-boot-starter</artifactId>
+                <version>${module.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
                 <artifactId>zc-common-spring-boot-starter</artifactId>
                 <version>${module.version}</version>
             </dependency>

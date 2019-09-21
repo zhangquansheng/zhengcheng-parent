@@ -1,7 +1,7 @@
 package com.zhengcheng.web.annotation;
 
 
-import com.zhengcheng.common.enumeration.MobileMaskType;
+import com.zhengcheng.web.enumeration.MobileMaskType;
 
 import java.lang.annotation.*;
 

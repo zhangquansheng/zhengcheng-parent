@@ -1,6 +1,6 @@
 package com.zhengcheng.web.config;
 
-import com.zhengcheng.common.interceptor.DefaultExceptionAdvice;
+import com.zhengcheng.web.interceptor.DefaultExceptionAdvice;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 
 /**
