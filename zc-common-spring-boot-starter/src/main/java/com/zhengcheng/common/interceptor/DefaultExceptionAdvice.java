@@ -30,7 +30,7 @@ public class DefaultExceptionAdvice {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler({IllegalArgumentException.class})
     public Result badRequestException(IllegalArgumentException e) {
-        return defHandler(CodeEnum.BAD_REQUEST.getCode(), "参数解析失败", e);
+        return defHandler(CodeEnum.BAD_REQUEST.getCode(), CodeEnum.BAD_REQUEST.getMessage(), e);
     }
 
     /**
@@ -40,7 +40,7 @@ public class DefaultExceptionAdvice {
     @ResponseStatus(HttpStatus.FORBIDDEN)
     @ExceptionHandler({AccessDeniedException.class})
     public Result badMethodExpressException(AccessDeniedException e) {
-        return defHandler(CodeEnum.FORBIDDEN.getCode(), "没有权限请求当前方法", e);
+        return defHandler(CodeEnum.FORBIDDEN.getCode(), CodeEnum.FORBIDDEN.getMessage(), e);
     }
 
     /**
@@ -49,7 +49,7 @@ public class DefaultExceptionAdvice {
     @ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED)
     @ExceptionHandler({HttpRequestMethodNotSupportedException.class})
     public Result handleHttpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException e) {
-        return defHandler(CodeEnum.METHOD_NOT_ALLOWED.getCode(), "不支持当前请求方法", e);
+        return defHandler(CodeEnum.METHOD_NOT_ALLOWED.getCode(), CodeEnum.METHOD_NOT_ALLOWED.getMessage(), e);
     }
 
     /**
@@ -58,7 +58,7 @@ public class DefaultExceptionAdvice {
     @ResponseStatus(HttpStatus.UNSUPPORTED_MEDIA_TYPE)
     @ExceptionHandler({HttpMediaTypeNotSupportedException.class})
     public Result handleHttpMediaTypeNotSupportedException(HttpMediaTypeNotSupportedException e) {
-        return defHandler(CodeEnum.UNSUPPORTED_MEDIA_TYPE.getCode(), "不支持当前媒体类型", e);
+        return defHandler(CodeEnum.UNSUPPORTED_MEDIA_TYPE.getCode(), CodeEnum.UNSUPPORTED_MEDIA_TYPE.getMessage(), e);
     }
 
     /**
@@ -88,7 +88,7 @@ public class DefaultExceptionAdvice {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(Exception.class)
     public Result handleException(Exception e) {
-        return defHandler(CodeEnum.INTERNAL_SERVER_ERROR.getCode(), "系统升级中，请稍后重试！", e);
+        return defHandler(CodeEnum.INTERNAL_SERVER_ERROR.getCode(), CodeEnum.INTERNAL_SERVER_ERROR.getMessage(), e);
     }
 
     private Result defHandler(Integer code, String msg, Exception e) {
