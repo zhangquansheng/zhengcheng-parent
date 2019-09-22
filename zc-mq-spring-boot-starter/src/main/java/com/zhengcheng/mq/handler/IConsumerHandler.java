@@ -2,7 +2,7 @@ package com.zhengcheng.mq.handler;
 
 
 import com.alibaba.fastjson.JSONObject;
-import com.zhengcheng.mq.model.Result;
+import com.aliyun.openservices.ons.api.Action;
 
 /**
  * 消费者处理
@@ -19,5 +19,5 @@ public interface IConsumerHandler {
      * @return 执行结果，成功则消费消息成功，否则消费消息失败
      * @throws Exception
      */
-    Result execute(JSONObject jsonObject);
+    Action execute(JSONObject jsonObject);
 }

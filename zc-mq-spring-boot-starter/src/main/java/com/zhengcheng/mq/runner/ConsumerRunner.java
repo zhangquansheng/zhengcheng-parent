@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.aliyun.openservices.ons.api.*;
 import com.zhengcheng.mq.factory.ConsumerFactory;
 import com.zhengcheng.mq.handler.IConsumerHandler;
-import com.zhengcheng.mq.model.Result;
 import com.zhengcheng.mq.properties.ConsumerProperties;
 import com.zhengcheng.mq.properties.SubscriptionTable;
 import lombok.extern.slf4j.Slf4j;
@@ -50,11 +49,7 @@ public class ConsumerRunner implements CommandLineRunner {
                         IConsumerHandler consumerHandler = consumerFactory.create(event);
                         if (consumerHandler != null) {
                             log.info("Receive: event: {}, body: {}", event, body);
-                            Result result = consumerHandler.execute(JSONObject.parseObject(body));
-                            if (result.getCode() == Result.SUCCESS_CODE) {
-                                return Action.CommitMessage;
-                            }
-                            return Action.ReconsumeLater;
+                            return consumerHandler.execute(JSONObject.parseObject(body));
                         } else {
                             log.error("commit message, but create handler IllegalArgumentException, event:{}, body:{}", event, body);
                         }
