@@ -5,6 +5,7 @@ import com.zhengcheng.common.enumeration.CodeEnum;
 import com.zhengcheng.common.exception.BizException;
 import com.zhengcheng.common.web.Result;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.logging.log4j.util.Strings;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -72,7 +73,10 @@ public class AspectUtil {
                     sb.append(" | param:").append(JSON.toJSONString(parameterMap));
                 }
             } else {
-                sb.append(" | param:").append(request.getQueryString());
+                String queryString = request.getQueryString();
+                if (Strings.isNotBlank(queryString)) {
+                    sb.append(" | param:").append(request.getQueryString());
+                }
             }
         } catch (Exception e) {
             sb.append("|Exception:").append(e.getMessage());
