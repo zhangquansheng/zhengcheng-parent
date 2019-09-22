@@ -57,10 +57,11 @@ public class AspectUtil {
         StringBuilder sb = new StringBuilder();
         try {
             HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-            String method = request.getMethod();
             String className = point.getSignature().getDeclaringType().getSimpleName();
             String methodName = point.getSignature().getName();
             sb.append(className).append(".").append(methodName);
+            String method = request.getMethod();
+            sb.append(" | ").append(method);
             if ("POST".equalsIgnoreCase(method)) {
                 Object[] args = point.getArgs();
                 if (args.length > 0) {
@@ -75,7 +76,7 @@ public class AspectUtil {
             } else {
                 String queryString = request.getQueryString();
                 if (Strings.isNotBlank(queryString)) {
-                    sb.append(" | param:").append(request.getQueryString());
+                    sb.append(" | ").append(request.getQueryString());
                 }
             }
         } catch (Exception e) {
