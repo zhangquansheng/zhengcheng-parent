@@ -1,7 +1,8 @@
 package com.zhengcheng.redis;
 
-import com.zhengcheng.redis.template.RedisRepository;
+import com.zhengcheng.redis.lock.RedisDistributedLock;
 import com.zhengcheng.redis.properties.CacheManagerProperties;
+import com.zhengcheng.redis.template.RedisRepository;
 import com.zhengcheng.redis.util.RedisObjectSerializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -11,6 +12,7 @@ import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
@@ -30,6 +32,7 @@ import java.util.Map;
  * @author :    quansheng.zhang
  * @date :    2019/8/12 22:41
  */
+@Import({RedisDistributedLock.class})
 @EnableConfigurationProperties({RedisProperties.class, CacheManagerProperties.class})
 @EnableCaching
 public class RedisAutoConfigure {
