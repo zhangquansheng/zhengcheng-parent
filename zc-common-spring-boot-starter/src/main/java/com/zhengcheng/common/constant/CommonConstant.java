@@ -15,4 +15,8 @@ public interface CommonConstant {
      * 系统默认最大单页限制数量
      */
     Integer DEFAULT_PAGINATION_LIMIT = 10;
+    /**
+     * 锁KEY的前缀
+     */
+    String LOCK_KEY_PREFIX = "LOCK_KEY:";
 }
