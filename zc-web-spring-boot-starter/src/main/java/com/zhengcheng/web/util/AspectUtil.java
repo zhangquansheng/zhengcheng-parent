@@ -3,6 +3,7 @@ package com.zhengcheng.web.util;
 import com.alibaba.fastjson.JSON;
 import com.zhengcheng.common.enumeration.CodeEnum;
 import com.zhengcheng.common.exception.BizException;
+import com.zhengcheng.common.exception.IdempotentException;
 import com.zhengcheng.common.web.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.util.Strings;
@@ -40,6 +41,9 @@ public class AspectUtil {
         } catch (Throwable e) {
             if (e instanceof BizException) {
                 retObj = Result.create(((BizException) e).getCode(), e.getMessage());
+                log.info("{}请求异常，错误：{}", this.getMethodInfo(pjp), e.getMessage());
+            } else if (e instanceof IdempotentException) {
+                retObj = Result.create(CodeEnum.ERROR.getCode(), CodeEnum.ERROR.getMessage());
                 log.info("{}请求异常，错误：{}", this.getMethodInfo(pjp), e.getMessage());
             } else {
                 retObj = Result.create(CodeEnum.INTERNAL_SERVER_ERROR.getCode(), CodeEnum.INTERNAL_SERVER_ERROR.getMessage(), e.getMessage());
