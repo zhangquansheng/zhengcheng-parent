@@ -43,7 +43,7 @@ public class AspectUtil {
                 retObj = Result.create(((BizException) e).getCode(), e.getMessage());
                 log.info("{}请求业务异常，错误：{}", this.getMethodInfo(pjp), e.getMessage());
             } else if (e instanceof IdempotentException) {
-                retObj = Result.create(CodeEnum.ERROR.getCode(), CodeEnum.ERROR.getMessage(), e.getMessage());
+                retObj = Result.create(CodeEnum.ERROR.getCode(), e.getMessage());
                 log.info("{}请求幂等性异常，错误：{}", this.getMethodInfo(pjp), e.getMessage());
             } else {
                 retObj = Result.create(CodeEnum.INTERNAL_SERVER_ERROR.getCode(), CodeEnum.INTERNAL_SERVER_ERROR.getMessage(), e.getMessage());
