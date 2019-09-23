@@ -6,7 +6,7 @@ package com.zhengcheng.common.constant;
  * @author :    quansheng.zhang
  * @date :    2019/2/28 21:00
  */
-public interface CommonConstant {
+public interface CommonConstants {
     /**
      * token请求头名称
      */
