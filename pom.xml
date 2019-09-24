@@ -28,6 +28,7 @@
         <module>zc-job-spring-boot-starter</module>
         <module>zc-swagger-spring-boot-starter</module>
         <module>zc-sharding-jdbc-spring-boot-starter</module>
+        <module>zc-auth-client-spring-boot-starter</module>
     </modules>
 
     <properties>
@@ -134,6 +135,11 @@
             <dependency>
                 <groupId>com.zhengcheng</groupId>
                 <artifactId>zc-swagger-spring-boot-starter</artifactId>
+                <version>${module.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zc-auth-client-spring-boot-starter</artifactId>
                 <version>${module.version}</version>
             </dependency>
             <dependency>

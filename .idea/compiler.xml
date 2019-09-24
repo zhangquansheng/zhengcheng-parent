@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="zc-auth-client-spring-boot-starter" />
         <module name="zc-common-spring-boot-starter" />
         <module name="zc-db-spring-boot-starter" />
         <module name="zc-feign-spring-boot-starter" />
@@ -35,6 +36,7 @@
       <module name="mvc-springboot-starter" options="-parameters" />
       <module name="mvcspringbootstarter" options="-parameters" />
       <module name="swagger-spring-boot-starter" options="-parameters" />
+      <module name="zc-auth-client-spring-boot-starter" options="-parameters" />
       <module name="zc-common-spring-boot-starter" options="-parameters" />
       <module name="zc-db-spring-boot-starter" options="-parameters" />
       <module name="zc-feign-spring-boot-starter" options="-parameters" />
