@@ -163,4 +163,8 @@ public interface SecurityConstants {
      * rsa公钥
      */
     String RSA_PUBLIC_KEY = "pubkey.txt";
+    /**
+     * 登录失败提示
+     */
+    String LOGIN_FAIL_MESSAGE = "用户名不存在或者密码错误";
 }

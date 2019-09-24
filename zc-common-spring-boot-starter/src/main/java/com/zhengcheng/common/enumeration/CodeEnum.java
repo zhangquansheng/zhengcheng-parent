@@ -14,6 +14,7 @@ public enum CodeEnum {
     SUCCESS(200, "操作成功"),
     ERROR(1, "操作失败"),
     BAD_REQUEST(400, "参数解析失败"),
+    UNAUTHORIZED(401, "登录信息已过期"),
     FORBIDDEN(403, "没有权限请求当前方法"),
     METHOD_NOT_ALLOWED(405, "不支持当前请求方法"),
     UNSUPPORTED_MEDIA_TYPE(415, "不支持当前媒体类型"),

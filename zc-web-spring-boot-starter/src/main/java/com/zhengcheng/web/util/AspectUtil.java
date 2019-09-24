@@ -1,6 +1,7 @@
 package com.zhengcheng.web.util;
 
 import com.alibaba.fastjson.JSON;
+import com.zhengcheng.common.constant.SecurityConstants;
 import com.zhengcheng.common.enumeration.CodeEnum;
 import com.zhengcheng.common.exception.BizException;
 import com.zhengcheng.common.exception.IdempotentException;
@@ -9,6 +10,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.util.Strings;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.springframework.security.authentication.InternalAuthenticationServiceException;
+import org.springframework.security.oauth2.common.exceptions.InvalidGrantException;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -45,6 +48,10 @@ public class AspectUtil {
             } else if (e instanceof IdempotentException) {
                 retObj = Result.create(CodeEnum.ERROR.getCode(), e.getMessage());
                 log.info("{}请求幂等性异常，错误：{}", this.getMethodInfo(pjp), e.getMessage());
+            } else if (e instanceof InternalAuthenticationServiceException) {
+                retObj = Result.create(CodeEnum.BAD_REQUEST.getCode(), e.getMessage());
+            } else if (e instanceof InvalidGrantException) {
+                retObj = Result.create(CodeEnum.BAD_REQUEST.getCode(), SecurityConstants.LOGIN_FAIL_MESSAGE);
             } else {
                 retObj = Result.create(CodeEnum.INTERNAL_SERVER_ERROR.getCode(), CodeEnum.INTERNAL_SERVER_ERROR.getMessage(), e.getMessage());
                 log.error("{}请求异常，错误：{}", this.getMethodInfo(pjp), e.getMessage(), e);
