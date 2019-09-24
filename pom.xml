@@ -53,6 +53,7 @@
         <shardingsphere.version>4.0.0-RC2</shardingsphere.version>
         <freemarker.version>2.3.29</freemarker.version>
         <hutool.version>4.6.7</hutool.version>
+        <weixin-java-tools.version>3.5.0</weixin-java-tools.version>
     </properties>
 
     <dependencies>
@@ -295,6 +296,32 @@
                 <groupId>org.apache.shardingsphere</groupId>
                 <artifactId>sharding-jdbc-spring-namespace</artifactId>
                 <version>${shardingsphere.version}</version>
+            </dependency>
+            <!-- weixin-java-tools begin-->
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>weixin-java-miniapp</artifactId>
+                <version>${weixin-java-tools.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>weixin-java-pay</artifactId>
+                <version>${weixin-java-tools.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>weixin-java-open</artifactId>
+                <version>${weixin-java-tools.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>weixin-java-mp</artifactId>
+                <version>${weixin-java-tools.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>weixin-java-cp</artifactId>
+                <version>${weixin-java-tools.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
