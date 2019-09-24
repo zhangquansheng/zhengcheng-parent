@@ -31,7 +31,7 @@ import java.util.List;
 @EnableOAuth2Client
 public class ResourceServerAutoConfig extends ResourceServerConfigurerAdapter {
 
-    private List<String> DEFAUT_PERMIT_ALL = Lists.newArrayList(
+    private List<String> DEFAULT_PERMIT_ALL = Lists.newArrayList(
             "/favicon.ico",
             "/oauth/**",
             "/webjars/**",
@@ -47,7 +47,7 @@ public class ResourceServerAutoConfig extends ResourceServerConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         Assert.notNull(securityOauth2Properties.getResourceId(), "resourceId is required");
         List<String> permitAll = securityOauth2Properties.getPermitAll();
-        permitAll.addAll(DEFAUT_PERMIT_ALL);
+        permitAll.addAll(DEFAULT_PERMIT_ALL);
         http
                 .csrf().disable()
                 .exceptionHandling()
