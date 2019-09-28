@@ -326,18 +326,30 @@
         </dependencies>
     </dependencyManagement>
 
+    <!-- 云效-->
     <distributionManagement>
         <repository>
-            <id>releases</id>
-            <name>Releases</name>
-            <url>http://localhost:8081/repository/maven-releases/</url>
+            <id>rdc-releases</id>
+            <url>https://repo.rdc.aliyun.com/repository/106415-release-OcvxIZ/</url>
         </repository>
         <snapshotRepository>
-            <id>snapshots</id>
-            <name>Snapshot</name>
-            <url>http://localhost:8081/repository/maven-snapshots/</url>
+            <id>rdc-snapshots</id>
+            <url>https://repo.rdc.aliyun.com/repository/106415-snapshot-yTYLma/</url>
         </snapshotRepository>
     </distributionManagement>
+
+    <!--<distributionManagement>-->
+    <!--<repository>-->
+    <!--<id>releases</id>-->
+    <!--<name>Releases</name>-->
+    <!--<url>http://localhost:8081/repository/maven-releases/</url>-->
+    <!--</repository>-->
+    <!--<snapshotRepository>-->
+    <!--<id>snapshots</id>-->
+    <!--<name>Snapshot</name>-->
+    <!--<url>http://localhost:8081/repository/maven-snapshots/</url>-->
+    <!--</snapshotRepository>-->
+    <!--</distributionManagement>-->
 
     <build>
         <outputDirectory>${project.basedir}/target/classes/</outputDirectory>
