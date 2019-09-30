@@ -1,4 +1,8 @@
-package com.zhengcheng.common.constant;
+package com.zhengcheng.auth.client.constant;
+
+import com.google.common.collect.Lists;
+
+import java.util.List;
 
 /**
  * Security 权限常量
@@ -51,4 +55,16 @@ public interface SecurityConstants {
      * 授权登录失败提示
      */
     String AUTH_FAIL_MESSAGE = "授权信息错误";
+
+    /**
+     * 默认不需要授权的URL
+     */
+    List<String> DEFAULT_PERMIT_ALL = Lists.newArrayList(
+            "/favicon.ico",
+            "/oauth/**",
+            "/webjars/**",
+            "/resources/**",
+            "/swagger-ui.html",
+            "/swagger-resources/**",
+            "/v2/api-docs");
 }
