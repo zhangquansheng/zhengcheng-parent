@@ -15,7 +15,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.util.Assert;
 
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
@@ -51,7 +50,8 @@ public class ResourceServerAutoConfig extends ResourceServerConfigurerAdapter {
         http
                 .csrf().disable()
                 .exceptionHandling()
-                .authenticationEntryPoint((request, response, authException) -> response.sendError(HttpServletResponse.SC_UNAUTHORIZED))
+                .authenticationEntryPoint(new AuthExceptionEntryPoint())
+//                .authenticationEntryPoint((request, response, authException) -> response.sendError(HttpServletResponse.SC_UNAUTHORIZED))
                 .and()
                 .authorizeRequests()
                 .antMatchers(permitAll.toArray(new String[permitAll.size()])).permitAll()
