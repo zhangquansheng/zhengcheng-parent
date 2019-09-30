@@ -60,15 +60,12 @@ public class ResourceServerAutoConfig extends ResourceServerConfigurerAdapter {
                 .httpBasic();
     }
 
-//    @Value("${security.oauth2.resource.id}")
-//    private String resourceId;
-
     @Autowired
     private CustomOauth2AccessDeniedHandler customoAuth2AccessDeniedHandler;
 
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) {
-        resources.resourceId("user")
+        resources.resourceId(securityOauth2Properties.getResourceId())
                 .stateless(true)
                 .authenticationEntryPoint(new AuthExceptionEntryPoint())
                 .accessDeniedHandler(customoAuth2AccessDeniedHandler);
