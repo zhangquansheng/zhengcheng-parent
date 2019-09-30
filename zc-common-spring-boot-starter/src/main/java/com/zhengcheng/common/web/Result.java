@@ -85,4 +85,7 @@ public class Result<T> implements Serializable {
         return Objects.equals(CodeEnum.SUCCESS.getCode(), this.code) && this.data != null;
     }
 
+    public static Result fallbackResult() {
+        return Result.create(CodeEnum.FALLBACK.getCode(), CodeEnum.FALLBACK.getMessage());
+    }
 }

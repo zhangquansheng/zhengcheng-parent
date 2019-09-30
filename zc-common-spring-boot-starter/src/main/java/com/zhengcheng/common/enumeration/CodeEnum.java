@@ -13,6 +13,7 @@ public enum CodeEnum {
 
     SUCCESS(200, "操作成功"),
     ERROR(1, "操作失败"),
+    FALLBACK(2, "接口访问超时"),
     BAD_REQUEST(400, "参数解析失败"),
     UNAUTHORIZED(401, "登录信息已过期"),
     FORBIDDEN(403, "没有权限请求当前方法"),

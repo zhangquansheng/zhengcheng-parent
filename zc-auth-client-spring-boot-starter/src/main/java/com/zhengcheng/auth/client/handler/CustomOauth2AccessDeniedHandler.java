@@ -6,7 +6,6 @@ import com.zhengcheng.common.web.Result;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
-import org.springframework.stereotype.Component;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +18,6 @@ import java.io.IOException;
  * @author :    quansheng.zhang
  * @date :    2019/9/24 11:13
  */
-@Component
 public class CustomOauth2AccessDeniedHandler implements AccessDeniedHandler {
 
     @Override
