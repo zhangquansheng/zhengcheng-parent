@@ -1,4 +1,4 @@
-package com.zhengcheng.common.security;
+package com.zhengcheng.auth.client.security;
 
 import com.zhengcheng.common.constant.CommonConstants;
 import com.zhengcheng.common.model.CurrentUserDto;

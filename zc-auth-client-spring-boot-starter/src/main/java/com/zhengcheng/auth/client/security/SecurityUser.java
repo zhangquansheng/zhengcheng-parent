@@ -1,4 +1,4 @@
-package com.zhengcheng.common.security;
+package com.zhengcheng.auth.client.security;
 
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
