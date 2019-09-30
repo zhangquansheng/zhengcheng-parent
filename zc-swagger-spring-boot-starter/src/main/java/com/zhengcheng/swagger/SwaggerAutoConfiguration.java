@@ -4,6 +4,7 @@ import com.zhengcheng.swagger.properties.SwaggerProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.util.Assert;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.ParameterBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -35,8 +36,9 @@ public class SwaggerAutoConfiguration {
 
     @Bean
     public Docket createRestApi(SwaggerProperties swaggerProperties) {
+        Assert.notNull(swaggerProperties.getEnable(), "swagger enable is required");
         List<Parameter> operationParameters = new ArrayList<>();
-        operationParameters.add(new ParameterBuilder().name("currentUserId").description("当前用户ID").modelRef(new ModelRef("Integer")).parameterType("query").required(false).build());
+        operationParameters.add(new ParameterBuilder().name("access_token").description("访问令牌").modelRef(new ModelRef("String")).parameterType("query").required(false).build());
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName(swaggerProperties.getGroupName())
                 .apiInfo(apiInfo(swaggerProperties))

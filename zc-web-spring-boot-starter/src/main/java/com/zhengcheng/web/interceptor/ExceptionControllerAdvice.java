@@ -1,6 +1,8 @@
 package com.zhengcheng.web.interceptor;
 
 import com.zhengcheng.common.enumeration.CodeEnum;
+import com.zhengcheng.common.exception.BizException;
+import com.zhengcheng.common.exception.IdempotentException;
 import com.zhengcheng.common.web.Result;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindException;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import java.sql.SQLException;
 import java.util.Objects;
 
 /**
@@ -51,6 +54,46 @@ public class ExceptionControllerAdvice {
     @ExceptionHandler({HttpMediaTypeNotSupportedException.class})
     public Result handleHttpMediaTypeNotSupportedException(HttpMediaTypeNotSupportedException e) {
         return Result.create(CodeEnum.UNSUPPORTED_MEDIA_TYPE.getCode(), CodeEnum.UNSUPPORTED_MEDIA_TYPE.getMessage(), e);
+    }
+
+    /**
+     * SQLException sql异常处理
+     * 返回状态码:500
+     */
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler({SQLException.class})
+    public Result handleSQLException(SQLException e) {
+        return Result.create(CodeEnum.INTERNAL_SERVER_ERROR.getCode(), "服务运行SQLException异常", e);
+    }
+
+    /**
+     * BusinessException 业务异常处理
+     * 返回状态码:500
+     */
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(BizException.class)
+    public Result handleException(BizException e) {
+        return Result.create(e.getCode(), e.getMessage());
+    }
+
+    /**
+     * 所有异常统一处理
+     * 返回状态码:500
+     */
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(Exception.class)
+    public Result handleException(Exception e) {
+        return Result.create(CodeEnum.INTERNAL_SERVER_ERROR.getCode(), CodeEnum.INTERNAL_SERVER_ERROR.getMessage(), e.getMessage());
+    }
+
+    /**
+     * IdempotentException 幂等性异常
+     * 返回状态码:200
+     */
+    @ResponseStatus(HttpStatus.OK)
+    @ExceptionHandler(IdempotentException.class)
+    public Result handleException(IdempotentException e) {
+        return Result.errorMessage(e.getMessage());
     }
 
     @ExceptionHandler(BindException.class)
