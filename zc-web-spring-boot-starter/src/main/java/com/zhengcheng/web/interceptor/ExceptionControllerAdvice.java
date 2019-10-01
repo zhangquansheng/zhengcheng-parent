@@ -31,7 +31,6 @@ public class ExceptionControllerAdvice {
      */
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler({IllegalArgumentException.class})
-    @ResponseBody
     public Result badRequestException(IllegalArgumentException e) {
         return Result.create(CodeEnum.BAD_REQUEST.getCode(), CodeEnum.BAD_REQUEST.getMessage(), e);
     }
