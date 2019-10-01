@@ -1,6 +1,7 @@
 package com.zhengcheng.feign;
 
 import com.zhengcheng.feign.config.FeignOkHttpConfig;
+import com.zhengcheng.feign.interceptor.OAuth2FeignRequestInterceptor;
 import feign.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
@@ -11,7 +12,7 @@ import org.springframework.context.annotation.Import;
  * @author :    quansheng.zhang
  * @date :    2019/7/28 21:31
  */
-@Import({FeignOkHttpConfig.class})
+@Import({FeignOkHttpConfig.class, OAuth2FeignRequestInterceptor.class})
 public class FeignAutoConfigure {
 
     /**
