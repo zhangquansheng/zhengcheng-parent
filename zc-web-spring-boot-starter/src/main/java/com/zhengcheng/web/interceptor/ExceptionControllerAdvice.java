@@ -67,7 +67,7 @@ public class ExceptionControllerAdvice {
      * BusinessException 业务异常处理
      * 返回状态码:500
      */
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(BizException.class)
     public Result handleException(BizException e) {
         return Result.create(e.getCode(), e.getMessage());
