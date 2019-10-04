@@ -55,9 +55,9 @@ public class ExceptionControllerAdvice {
 
     /**
      * SQLException sql异常处理
-     * 返回状态码:500
+     * 返回状态码:200
      */
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler({SQLException.class})
     public Result handleSQLException(SQLException e) {
         return Result.create(CodeEnum.INTERNAL_SERVER_ERROR.getCode(), "服务运行SQLException异常", e);
@@ -65,7 +65,7 @@ public class ExceptionControllerAdvice {
 
     /**
      * BusinessException 业务异常处理
-     * 返回状态码:500
+     * 返回状态码:200
      */
     @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(BizException.class)
@@ -75,9 +75,9 @@ public class ExceptionControllerAdvice {
 
     /**
      * 所有异常统一处理
-     * 返回状态码:500
+     * 返回状态码:200
      */
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(Exception.class)
     public Result handleException(Exception e) {
         return Result.create(CodeEnum.INTERNAL_SERVER_ERROR.getCode(), CodeEnum.INTERNAL_SERVER_ERROR.getMessage(), e.getMessage());
