@@ -4,6 +4,7 @@ import com.zhengcheng.common.enumeration.CodeEnum;
 import com.zhengcheng.common.exception.BizException;
 import com.zhengcheng.common.exception.IdempotentException;
 import com.zhengcheng.common.web.Result;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
@@ -23,6 +24,7 @@ import java.util.Objects;
  * @author :    quansheng.zhang
  * @date :    2019/2/28 21:00
  */
+@Slf4j
 public class ExceptionControllerAdvice {
 
     /**
@@ -32,6 +34,7 @@ public class ExceptionControllerAdvice {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler({IllegalArgumentException.class})
     public Result badRequestException(IllegalArgumentException e) {
+        log.error("IllegalArgumentException:", e);
         return Result.create(CodeEnum.BAD_REQUEST.getCode(), CodeEnum.BAD_REQUEST.getMessage(), e);
     }
 
@@ -60,6 +63,7 @@ public class ExceptionControllerAdvice {
     @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler({SQLException.class})
     public Result handleSQLException(SQLException e) {
+        log.error("SQLException:", e);
         return Result.create(CodeEnum.INTERNAL_SERVER_ERROR.getCode(), "服务运行SQLException异常", e);
     }
 
@@ -70,6 +74,7 @@ public class ExceptionControllerAdvice {
     @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(BizException.class)
     public Result handleException(BizException e) {
+        log.info("BizException:", e.getMessage());
         return Result.create(e.getCode(), e.getMessage());
     }
 
@@ -80,6 +85,7 @@ public class ExceptionControllerAdvice {
     @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(Exception.class)
     public Result handleException(Exception e) {
+        log.error("Exception:{}", e.getMessage(), e);
         return Result.create(CodeEnum.INTERNAL_SERVER_ERROR.getCode(), CodeEnum.INTERNAL_SERVER_ERROR.getMessage(), e.getMessage());
     }
 
