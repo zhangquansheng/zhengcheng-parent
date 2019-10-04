@@ -14,7 +14,7 @@ public interface CommonConstants {
     /**
      * 系统默认最大单页限制数量
      */
-    Integer DEFAULT_PAGINATION_LIMIT = 10;
+    Integer DEFAULT_PAGINATION_LIMIT = 100;
     /**
      * 锁KEY的前缀
      */
