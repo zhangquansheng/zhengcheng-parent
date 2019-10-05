@@ -34,6 +34,8 @@ public class SecurityUtils {
         if (principal instanceof SecurityUser) {
             SecurityUser securityUser = ((SecurityUser) principal);
             currentUserDto.setId(securityUser.getUserId());
+            currentUserDto.setSingleId(securityUser.getSingleId());
+            currentUserDto.setAdminId(securityUser.getAdminId());
             currentUserDto.setUsername(securityUser.getUsername());
             currentUserDto.setNickname(securityUser.getNickname());
             currentUserDto.setMobile(securityUser.getMobile());

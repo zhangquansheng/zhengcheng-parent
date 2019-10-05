@@ -13,7 +13,7 @@
     <groupId>com.zhengcheng</groupId>
     <artifactId>zhengcheng-parent</artifactId>
     <packaging>pom</packaging>
-    <version>3.1.4</version>
+    <version>3.1.6</version>
 
     <name>zhengcheng-parent</name>
 
@@ -32,7 +32,7 @@
     </modules>
 
     <properties>
-        <module.version>3.1.4</module.version>
+        <module.version>3.1.6</module.version>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -41,6 +41,7 @@
         <spring.security.oauth2.version>2.3.3.RELEASE</spring.security.oauth2.version>
         <spring.security.jwt.version>1.0.10.RELEASE</spring.security.jwt.version>
         <jjwt.version>0.7.0</jjwt.version>
+        <aliyun-sdk-oss.version>3.5.0</aliyun-sdk-oss.version>
         <aliyun.ons-client.version>1.8.2.Final</aliyun.ons-client.version>
         <fastjson.version>1.2.60</fastjson.version>
         <guava.version>27.0.1-jre</guava.version>
@@ -185,6 +186,11 @@
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt</artifactId>
                 <version>${jjwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.aliyun.oss</groupId>
+                <artifactId>aliyun-sdk-oss</artifactId>
+                <version>${aliyun-sdk-oss.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.aliyun.openservices</groupId>

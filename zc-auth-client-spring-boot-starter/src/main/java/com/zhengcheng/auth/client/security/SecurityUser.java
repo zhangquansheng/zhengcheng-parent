@@ -19,6 +19,15 @@ public class SecurityUser implements UserDetails {
 
     private Long userId;
 
+    /**
+     * t_single的单身会员ID
+     */
+    private Long singleId;
+    /**
+     * t_admin后台管理员ID
+     */
+    private Long adminId;
+
     private String mobile;
 
     private String nickname;
