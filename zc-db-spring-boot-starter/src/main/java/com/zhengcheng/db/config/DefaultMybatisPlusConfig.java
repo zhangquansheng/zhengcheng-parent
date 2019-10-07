@@ -1,5 +1,6 @@
 package com.zhengcheng.db.config;
 
+import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor;
 import com.zhengcheng.common.constant.CommonConstants;
@@ -23,6 +24,11 @@ public class DefaultMybatisPlusConfig {
         PaginationInterceptor paginationInterceptor = new PaginationInterceptor();
         paginationInterceptor.setLimit(CommonConstants.DEFAULT_PAGINATION_LIMIT);
         return paginationInterceptor;
+    }
+
+    @Bean
+    public OptimisticLockerInterceptor optimisticLockerInterceptor() {
+        return new OptimisticLockerInterceptor();
     }
 
     /**
