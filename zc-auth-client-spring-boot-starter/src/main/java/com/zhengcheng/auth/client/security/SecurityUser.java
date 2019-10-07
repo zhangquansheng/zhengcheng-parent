@@ -1,5 +1,6 @@
 package com.zhengcheng.auth.client.security;
 
+import com.zhengcheng.common.model.CurrentUserDto;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,24 +14,9 @@ import java.util.Collection;
  * @date :    2019/3/26 1:19
  */
 @Data
-public class SecurityUser implements UserDetails {
+public class SecurityUser extends CurrentUserDto implements UserDetails {
 
     private static final long serialVersionUID = 4872628781561412463L;
-
-    private Long userId;
-
-    /**
-     * t_single的单身会员ID
-     */
-    private Long singleId;
-    /**
-     * t_admin后台管理员ID
-     */
-    private Long adminId;
-
-    private String mobile;
-
-    private String nickname;
 
     private Collection<GrantedAuthority> authorities;
 
@@ -70,5 +56,6 @@ public class SecurityUser implements UserDetails {
     public boolean isEnabled() {
         return this.isEnabled;
     }
+
 }
 

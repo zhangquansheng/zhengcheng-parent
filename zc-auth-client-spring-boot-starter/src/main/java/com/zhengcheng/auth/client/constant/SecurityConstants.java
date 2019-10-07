@@ -11,6 +11,10 @@ import java.util.List;
  * @date :    2019/9/24 0:06
  */
 public interface SecurityConstants {
+    /**
+     * open_id 自定义授权登录方式
+     */
+    String OPEN_ID_GRANT_TYPE = "open_id";
 
     /**
      * 用户信息分隔符
