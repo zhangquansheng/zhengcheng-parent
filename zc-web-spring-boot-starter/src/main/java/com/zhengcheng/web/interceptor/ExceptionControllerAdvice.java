@@ -6,6 +6,7 @@ import com.zhengcheng.common.exception.IdempotentException;
 import com.zhengcheng.common.web.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.HttpMediaTypeNotSupportedException;
@@ -54,6 +55,17 @@ public class ExceptionControllerAdvice {
     @ExceptionHandler({HttpMediaTypeNotSupportedException.class})
     public Result handleHttpMediaTypeNotSupportedException(HttpMediaTypeNotSupportedException e) {
         return Result.create(CodeEnum.UNSUPPORTED_MEDIA_TYPE.getCode(), CodeEnum.UNSUPPORTED_MEDIA_TYPE.getMessage(), e);
+    }
+
+    /**
+     * BusinessException 业务异常处理
+     * 返回状态码:200
+     */
+    @ResponseStatus(HttpStatus.OK)
+    @ExceptionHandler(AccessDeniedException.class)
+    public Result handleException(AccessDeniedException e) {
+        log.info("AccessDeniedException:", e.getMessage());
+        return Result.create(CodeEnum.FORBIDDEN.getCode(), CodeEnum.FORBIDDEN.getMessage());
     }
 
     /**
