@@ -35,7 +35,7 @@ public class BaseEntity<T extends Model<?>> extends Model<T> {
     private Date gmtModified;
     @JSONField(serialize = false)
     @TableField(value = "is_deleted", fill = FieldFill.INSERT)
-    private Boolean deleted;
+    private boolean deleted;
 
     @Override
     protected Serializable pkVal() {
