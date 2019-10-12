@@ -12,6 +12,7 @@
         <module name="zc-feign-spring-boot-starter" />
         <module name="zc-job-spring-boot-starter" />
         <module name="zc-mq-spring-boot-starter" />
+        <module name="zc-oss-spring-boot-starter" />
         <module name="zc-redis-spring-boot-starter" />
         <module name="zc-sentinel-spring-boot-starter" />
         <module name="zc-sharding-jdbc-spring-boot-starter" />
@@ -42,6 +43,7 @@
       <module name="zc-feign-spring-boot-starter" options="-parameters" />
       <module name="zc-job-spring-boot-starter" options="-parameters" />
       <module name="zc-mq-spring-boot-starter" options="-parameters" />
+      <module name="zc-oss-spring-boot-starter" options="-parameters" />
       <module name="zc-redis-spring-boot-starter" options="-parameters" />
       <module name="zc-sentinel-spring-boot-starter" options="-parameters" />
       <module name="zc-sharding-jdbc-spring-boot-starter" options="-parameters" />
