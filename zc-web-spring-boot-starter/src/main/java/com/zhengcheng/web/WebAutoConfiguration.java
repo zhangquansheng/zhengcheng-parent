@@ -12,9 +12,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.FormHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.xml.SourceHttpMessageConverter;
 import org.springframework.util.Assert;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +29,7 @@ import java.util.List;
  * @date :    2019/1/26 7:59
  */
 @EnableConfigurationProperties({CustomMvcProperties.class})
-public class WebAutoConfiguration {
+public class WebAutoConfiguration implements WebMvcConfigurer {
 
     public WebAutoConfiguration() {
     }
@@ -33,8 +37,6 @@ public class WebAutoConfiguration {
     @Bean
     public HttpMessageConverters customConverters(CustomMvcProperties customMvcProperties) {
         Assert.notNull(customMvcProperties.getMobileMaskType(), "mobileMaskType is required");
-        HttpMessageConverter<?> formHttpMessageConverter = new FormHttpMessageConverter();
-        HttpMessageConverter<?> sourceHttpMessageConverter = new SourceHttpMessageConverter<>();
         //需要定义一个Convert转换消息的对象
         FastJsonHttpMessageConverter fastConverter = new FastJsonHttpMessageConverter();
         //下面这个contextType是需要添加；不然后面会报 * 不能匹配所有的contextType类型；
@@ -64,7 +66,20 @@ public class WebAutoConfiguration {
         fastJsonConfig.setSerializeFilters(new SerializeFilter[]{new MobileContextValueFilter(customMvcProperties.getMobileMaskType())});
         fastConverter.setFastJsonConfig(fastJsonConfig);
         HttpMessageConverter<?> converter = fastConverter;
-        return new HttpMessageConverters(sourceHttpMessageConverter, formHttpMessageConverter, converter);
+        //字符串解析器
+        StringHttpMessageConverter stringHttpMessageConverter = new StringHttpMessageConverter(Charset.forName("UTF-8"));
+        HttpMessageConverter<?> formHttpMessageConverter = new FormHttpMessageConverter();
+        HttpMessageConverter<?> sourceHttpMessageConverter = new SourceHttpMessageConverter<>();
+        return new HttpMessageConverters(stringHttpMessageConverter, sourceHttpMessageConverter, formHttpMessageConverter, converter);
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
+        registry.addResourceHandler("swagger-ui.html")
+                .addResourceLocations("classpath:/META-INF/resources/");
+        registry.addResourceHandler("/webjars/**")
+                .addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
 
 }
