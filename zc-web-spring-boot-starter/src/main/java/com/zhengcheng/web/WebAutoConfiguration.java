@@ -6,15 +6,13 @@ import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import com.zhengcheng.web.filter.MobileContextValueFilter;
 import com.zhengcheng.web.properties.CustomMvcProperties;
-import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.FormHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.xml.SourceHttpMessageConverter;
-import org.springframework.util.Assert;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -34,11 +32,14 @@ public class WebAutoConfiguration implements WebMvcConfigurer {
     public WebAutoConfiguration() {
     }
 
-    @Bean
-    public HttpMessageConverters customConverters(CustomMvcProperties customMvcProperties) {
-        Assert.notNull(customMvcProperties.getMobileMaskType(), "mobileMaskType is required");
+    @Autowired
+    private CustomMvcProperties customMvcProperties;
+
+    @Override
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+        converters.add(new StringHttpMessageConverter(Charset.forName("UTF-8")));
         //需要定义一个Convert转换消息的对象
-        FastJsonHttpMessageConverter fastConverter = new FastJsonHttpMessageConverter();
+        FastJsonHttpMessageConverter fastJsonHttpMessageConverter = new FastJsonHttpMessageConverter();
         //下面这个contextType是需要添加；不然后面会报 * 不能匹配所有的contextType类型；
         List<MediaType> supportedMediaTypes = new ArrayList<>();
         supportedMediaTypes.add(MediaType.APPLICATION_JSON);
@@ -60,17 +61,14 @@ public class WebAutoConfiguration implements WebMvcConfigurer {
         supportedMediaTypes.add(MediaType.TEXT_XML);
         //处理中文乱码问题
         supportedMediaTypes.add(MediaType.APPLICATION_JSON_UTF8);
-        fastConverter.setSupportedMediaTypes(supportedMediaTypes);
+        fastJsonHttpMessageConverter.setSupportedMediaTypes(supportedMediaTypes);
         FastJsonConfig fastJsonConfig = new FastJsonConfig();
         fastJsonConfig.setSerializerFeatures(SerializerFeature.WriteMapNullValue, SerializerFeature.PrettyFormat, SerializerFeature.DisableCircularReferenceDetect);
         fastJsonConfig.setSerializeFilters(new SerializeFilter[]{new MobileContextValueFilter(customMvcProperties.getMobileMaskType())});
-        fastConverter.setFastJsonConfig(fastJsonConfig);
-        HttpMessageConverter<?> converter = fastConverter;
-        HttpMessageConverter<?> formHttpMessageConverter = new FormHttpMessageConverter();
-        HttpMessageConverter<?> sourceHttpMessageConverter = new SourceHttpMessageConverter<>();
-        //字符串解析器
-        StringHttpMessageConverter stringHttpMessageConverter = new StringHttpMessageConverter(Charset.forName("UTF-8"));
-        return new HttpMessageConverters(sourceHttpMessageConverter, formHttpMessageConverter, converter, stringHttpMessageConverter);
+        fastJsonHttpMessageConverter.setFastJsonConfig(fastJsonConfig);
+        converters.add(fastJsonHttpMessageConverter);
+        converters.add(new FormHttpMessageConverter());
+        converters.add(new SourceHttpMessageConverter());
     }
 
     @Override
