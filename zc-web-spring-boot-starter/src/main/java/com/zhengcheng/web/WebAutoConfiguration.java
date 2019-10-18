@@ -66,11 +66,11 @@ public class WebAutoConfiguration implements WebMvcConfigurer {
         fastJsonConfig.setSerializeFilters(new SerializeFilter[]{new MobileContextValueFilter(customMvcProperties.getMobileMaskType())});
         fastConverter.setFastJsonConfig(fastJsonConfig);
         HttpMessageConverter<?> converter = fastConverter;
-        //字符串解析器
-        StringHttpMessageConverter stringHttpMessageConverter = new StringHttpMessageConverter(Charset.forName("UTF-8"));
         HttpMessageConverter<?> formHttpMessageConverter = new FormHttpMessageConverter();
         HttpMessageConverter<?> sourceHttpMessageConverter = new SourceHttpMessageConverter<>();
-        return new HttpMessageConverters(stringHttpMessageConverter, sourceHttpMessageConverter, formHttpMessageConverter, converter);
+        //字符串解析器
+        StringHttpMessageConverter stringHttpMessageConverter = new StringHttpMessageConverter(Charset.forName("UTF-8"));
+        return new HttpMessageConverters(sourceHttpMessageConverter, formHttpMessageConverter, converter, stringHttpMessageConverter);
     }
 
     @Override
