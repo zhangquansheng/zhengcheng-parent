@@ -63,7 +63,7 @@ public class WebAutoConfiguration implements WebMvcConfigurer {
         supportedMediaTypes.add(MediaType.APPLICATION_JSON_UTF8);
         fastJsonHttpMessageConverter.setSupportedMediaTypes(supportedMediaTypes);
         FastJsonConfig fastJsonConfig = new FastJsonConfig();
-        fastJsonConfig.setSerializerFeatures(SerializerFeature.WriteMapNullValue, SerializerFeature.PrettyFormat, SerializerFeature.DisableCircularReferenceDetect);
+        fastJsonConfig.setSerializerFeatures(SerializerFeature.PrettyFormat, SerializerFeature.DisableCircularReferenceDetect);
         fastJsonConfig.setSerializeFilters(new SerializeFilter[]{new MobileContextValueFilter(customMvcProperties.getMobileMaskType())});
         fastJsonHttpMessageConverter.setFastJsonConfig(fastJsonConfig);
         converters.add(fastJsonHttpMessageConverter);
