@@ -32,8 +32,8 @@ public class ExceptionControllerAdvice {
      * IllegalArgumentException异常处理返回json
      * 返回状态码:400
      */
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler({IllegalArgumentException.class})
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     public Result badRequestException(IllegalArgumentException e) {
         log.error("IllegalArgumentException:", e);
         return Result.create(CodeEnum.BAD_REQUEST.getCode(), CodeEnum.BAD_REQUEST.getMessage(), e);
@@ -42,8 +42,8 @@ public class ExceptionControllerAdvice {
     /**
      * 返回状态码:405
      */
-    @ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED)
     @ExceptionHandler({HttpRequestMethodNotSupportedException.class})
+    @ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED)
     public Result handleHttpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException e) {
         return Result.create(CodeEnum.METHOD_NOT_ALLOWED.getCode(), CodeEnum.METHOD_NOT_ALLOWED.getMessage(), e);
     }
@@ -51,8 +51,8 @@ public class ExceptionControllerAdvice {
     /**
      * 返回状态码:415
      */
-    @ResponseStatus(HttpStatus.UNSUPPORTED_MEDIA_TYPE)
     @ExceptionHandler({HttpMediaTypeNotSupportedException.class})
+    @ResponseStatus(HttpStatus.UNSUPPORTED_MEDIA_TYPE)
     public Result handleHttpMediaTypeNotSupportedException(HttpMediaTypeNotSupportedException e) {
         return Result.create(CodeEnum.UNSUPPORTED_MEDIA_TYPE.getCode(), CodeEnum.UNSUPPORTED_MEDIA_TYPE.getMessage(), e);
     }
@@ -61,8 +61,8 @@ public class ExceptionControllerAdvice {
      * BusinessException 业务异常处理
      * 返回状态码:200
      */
-    @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(AccessDeniedException.class)
+    @ResponseStatus(HttpStatus.OK)
     public Result handleException(AccessDeniedException e) {
         log.info("AccessDeniedException:", e.getMessage());
         return Result.create(CodeEnum.FORBIDDEN.getCode(), CodeEnum.FORBIDDEN.getMessage());
@@ -72,8 +72,8 @@ public class ExceptionControllerAdvice {
      * SQLException sql异常处理
      * 返回状态码:200
      */
-    @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler({SQLException.class})
+    @ResponseStatus(HttpStatus.OK)
     public Result handleSQLException(SQLException e) {
         log.error("SQLException:", e);
         return Result.create(CodeEnum.INTERNAL_SERVER_ERROR.getCode(), "服务运行SQLException异常", e);
@@ -83,8 +83,8 @@ public class ExceptionControllerAdvice {
      * BusinessException 业务异常处理
      * 返回状态码:200
      */
-    @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(BizException.class)
+    @ResponseStatus(HttpStatus.OK)
     public Result handleException(BizException e) {
         log.info("BizException:", e.getMessage());
         return Result.create(e.getCode(), e.getMessage());
@@ -94,8 +94,8 @@ public class ExceptionControllerAdvice {
      * 所有异常统一处理
      * 返回状态码:200
      */
-    @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.OK)
     public Result handleException(Exception e) {
         log.error("Exception:{}", e.getMessage(), e);
         return Result.create(CodeEnum.INTERNAL_SERVER_ERROR.getCode(), CodeEnum.INTERNAL_SERVER_ERROR.getMessage(), e.getMessage());
@@ -105,8 +105,8 @@ public class ExceptionControllerAdvice {
      * IdempotentException 幂等性异常
      * 返回状态码:200
      */
-    @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(IdempotentException.class)
+    @ResponseStatus(HttpStatus.OK)
     public Result handleException(IdempotentException e) {
         return Result.errorMessage(e.getMessage());
     }

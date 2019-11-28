@@ -4,10 +4,13 @@ import com.alibaba.fastjson.serializer.SerializeFilter;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import com.zhengcheng.web.aspect.ControllerLogAspect;
 import com.zhengcheng.web.filter.MobileContextValueFilter;
 import com.zhengcheng.web.properties.CustomMvcProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.FormHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -26,6 +29,8 @@ import java.util.List;
  * @author :    quansheng.zhang
  * @date :    2019/1/26 7:59
  */
+@Configuration
+@Import({ControllerLogAspect.class})
 @EnableConfigurationProperties({CustomMvcProperties.class})
 public class WebAutoConfiguration implements WebMvcConfigurer {
 
