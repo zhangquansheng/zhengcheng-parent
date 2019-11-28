@@ -30,6 +30,7 @@
         <module>zc-sharding-jdbc-spring-boot-starter</module>
         <module>zc-auth-client-spring-boot-starter</module>
         <module>zc-oss-spring-boot-starter</module>
+        <module>zc-green-spring-boot-starter</module>
     </modules>
 
     <properties>
