@@ -19,3 +19,4 @@ zc-job-spring-boot-starter | XXL-JOB定时任务通用组件
 zc-swagger-spring-boot-starter | swagger通用组件
 zc-sharding-jdbc-spring-boot-starter | 分库分表通用组件
 zc-common-spring-boot-starter | 公共库通用组件(module之间的公共部分)
+zc-green-spring-boot-starter |  内容检测模块通用组件(阿里云)
