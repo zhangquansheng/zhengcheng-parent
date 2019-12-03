@@ -1,11 +1,7 @@
 package com.zhengcheng.green.service;
 
-import com.aliyuncs.exceptions.ClientException;
 import com.zhengcheng.green.dto.SceneResult;
 import lombok.NonNull;
-
-import java.io.UnsupportedEncodingException;
-import java.util.List;
 
 /**
  * IAliYunGreenService
@@ -22,6 +18,6 @@ public interface IAliYunGreenService {
      * @param content 待检测的文本，长度不超过10000个字符
      * @return 检测结果
      */
-    List<SceneResult> antispam(@NonNull String dataId, @NonNull String content) throws UnsupportedEncodingException, ClientException;
+    SceneResult antispam(@NonNull String dataId, @NonNull String content);
 
 }

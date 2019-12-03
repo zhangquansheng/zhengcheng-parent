@@ -1,5 +1,6 @@
 package com.zhengcheng.green.service.impl;
 
+import cn.hutool.core.collection.CollectionUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -12,13 +13,14 @@ import com.aliyuncs.http.HttpResponse;
 import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.profile.IClientProfile;
 import com.google.common.collect.Lists;
+import com.zhengcheng.green.constant.AliYunGreenConstants;
 import com.zhengcheng.green.dto.SceneResult;
 import com.zhengcheng.green.properties.AcsProperties;
 import com.zhengcheng.green.service.IAliYunGreenService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -37,11 +39,6 @@ public class AliYunGreenServiceImpl implements IAliYunGreenService {
     private final AcsProperties acsProperties;
 
     /**
-     * 成功返回码
-     */
-    private final int okCode = 200;
-
-    /**
      * 获取默认客户端
      *
      * @return IAcsClient
@@ -53,7 +50,7 @@ public class AliYunGreenServiceImpl implements IAliYunGreenService {
 
 
     @Override
-    public List<SceneResult> antispam(String dataId, String content) throws UnsupportedEncodingException, ClientException {
+    public SceneResult antispam(String dataId, String content) {
         TextScanRequest textScanRequest = new TextScanRequest();
         textScanRequest.setAcceptFormat(FormatType.JSON);
         textScanRequest.setHttpContentType(FormatType.JSON);
@@ -68,25 +65,32 @@ public class AliYunGreenServiceImpl implements IAliYunGreenService {
         tasks.add(task1);
         JSONObject data = new JSONObject();
         // 检测场景，文本垃圾检测传递：antispam
-        data.put("scenes", Lists.newArrayList("antispam"));
+        String scene = "antispam";
+        data.put("scenes", Lists.newArrayList(scene));
         data.put("tasks", tasks);
-        textScanRequest.setHttpContent(data.toJSONString().getBytes("UTF-8"), "UTF-8", FormatType.JSON);
+        textScanRequest.setHttpContent(data.toJSONString().getBytes(StandardCharsets.UTF_8), "UTF-8", FormatType.JSON);
         // 请务必设置超时时间
         textScanRequest.setConnectTimeout(acsProperties.getConnectTimeout());
         textScanRequest.setReadTimeout(acsProperties.getReadTimeout());
-        HttpResponse httpResponse = this.getDefaultAcsClient().doAction(textScanRequest);
-        if (httpResponse.isSuccess()) {
-            JSONObject scrResponse = JSON.parseObject(new String(httpResponse.getHttpContent(), "UTF-8"));
-            System.out.println(JSON.toJSONString(scrResponse, true));
-            if (okCode == scrResponse.getInteger("code")) {
-                JSONArray taskResults = scrResponse.getJSONArray("data");
-                for (Object taskResult : taskResults) {
-                    if (okCode == ((JSONObject) taskResult).getInteger("code")) {
-                        return JSONArray.parseArray(((JSONObject) taskResult).getString("results"), SceneResult.class);
+        try {
+            HttpResponse httpResponse = this.getDefaultAcsClient().doAction(textScanRequest);
+            if (httpResponse.isSuccess()) {
+                JSONObject scrResponse = JSON.parseObject(new String(httpResponse.getHttpContent(), StandardCharsets.UTF_8));
+                if (AliYunGreenConstants.OK == scrResponse.getInteger(AliYunGreenConstants.CODE)) {
+                    JSONArray taskResults = scrResponse.getJSONArray("data");
+                    for (Object taskResult : taskResults) {
+                        if (AliYunGreenConstants.OK == ((JSONObject) taskResult).getInteger(AliYunGreenConstants.CODE)) {
+                            List<SceneResult> sceneResultList = JSONArray.parseArray(((JSONObject) taskResult).getString("results"), SceneResult.class);
+                            if (CollectionUtil.isNotEmpty(sceneResultList)) {
+                                return sceneResultList.get(0);
+                            }
+                        }
                     }
                 }
             }
+        } catch (ClientException e) {
+            log.error("antispam fail,dataId:{},message:{}", dataId, e.getMessage(), e);
         }
-        return null;
+        return new SceneResult(scene, "");
     }
 }

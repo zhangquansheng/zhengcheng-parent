@@ -1,6 +1,8 @@
 package com.zhengcheng.green.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 检测结果
@@ -8,6 +10,8 @@ import lombok.Data;
  * @author :    quansheng.zhang
  * @date :    2019/12/2 23:29
  */
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 public class SceneResult {
     /**
