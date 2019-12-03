@@ -45,7 +45,7 @@ public class AliYunGreenServiceImpl implements IAliYunGreenService {
      *
      * @return IAcsClient
      */
-    public IAcsClient getDefaultAcsClient() {
+    private IAcsClient getDefaultAcsClient() {
         IClientProfile profile = DefaultProfile.getProfile(acsProperties.getRegionId(), acsProperties.getAccessKeyId(), acsProperties.getAccessKeySecret());
         return new DefaultAcsClient(profile);
     }
@@ -72,12 +72,12 @@ public class AliYunGreenServiceImpl implements IAliYunGreenService {
         textScanRequest.setEncoding("UTF-8");
         textScanRequest.setRegionId(acsProperties.getRegionId());
         List<Map<String, Object>> tasks = new ArrayList<>();
-        Map<String, Object> task1 = new LinkedHashMap<>();
         for (TextSceneData textSceneData : textSceneDataList) {
-            task1.put("dataId", textSceneData.getDataId());
+            Map<String, Object> task = new LinkedHashMap<>();
+            task.put("dataId", textSceneData.getDataId());
             //待检测的文本，长度不超过10000个字符
-            task1.put("content", textSceneData.getContent());
-            tasks.add(task1);
+            task.put("content", textSceneData.getContent());
+            tasks.add(task);
         }
         JSONObject data = new JSONObject();
         // 检测场景，文本垃圾检测传递：antispam
@@ -93,12 +93,7 @@ public class AliYunGreenServiceImpl implements IAliYunGreenService {
             if (httpResponse.isSuccess()) {
                 JSONObject scrResponse = JSON.parseObject(new String(httpResponse.getHttpContent(), StandardCharsets.UTF_8));
                 if (AliYunGreenConstants.OK == scrResponse.getInteger(AliYunGreenConstants.CODE)) {
-                    JSONArray taskResults = scrResponse.getJSONArray("data");
-                    for (Object taskResult : taskResults) {
-                        if (AliYunGreenConstants.OK == ((JSONObject) taskResult).getInteger(AliYunGreenConstants.CODE)) {
-                            return JSONArray.parseArray(((JSONObject) taskResult).getString("results"), SceneResult.class);
-                        }
-                    }
+                    return JSONArray.parseArray(scrResponse.getString("data"), SceneResult.class);
                 }
             }
         } catch (ClientException e) {

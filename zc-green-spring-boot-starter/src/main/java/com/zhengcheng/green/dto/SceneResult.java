@@ -1,39 +1,48 @@
 package com.zhengcheng.green.dto;
 
-import lombok.AllArgsConstructor;
+import cn.hutool.core.collection.CollectionUtil;
+import com.zhengcheng.green.constant.AliYunGreenConstants;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
+import java.util.List;
 
 /**
- * 检测结果
+ * 检测返回结果
  *
  * @author :    quansheng.zhang
- * @date :    2019/12/2 23:29
+ * @date :    2019/12/3 21:23
  */
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@EqualsAndHashCode(callSuper = true)
-public class SceneResult extends BaseSceneData {
+public class SceneResult implements Serializable {
     /**
-     * 检测场景
+     * 错误码，和HTTP的status code一致。
      */
-    private String scene;
+    private int code;
     /**
-     * suggestion == pass 未命中垃圾  suggestion == block 命中了垃圾，可以通过label字段查看命中的垃圾分类
+     * 错误描述信息。
      */
-    private String suggestion;
-
+    private String msg;
     /**
-     * 检测结果的分类
+     * 对应请求的dataId。
      */
-    private String label;
+    private String dataId;
     /**
-     * 结果为该分类的概率，取值范围为[0.00-100.00]。值越高，表示越有可能属于该分类。
-     * 说明 分值仅供参考，您需要关注label和suggestion内容。
+     * 该检测任务的ID。
      */
-    private float rate;
+    private String taskId;
+    /**
+     * 对应请求的内容.
+     */
+    private String content;
+    /**
+     * 如果检测文本命中您自定义关键词词库中的词，该字段会返回，并将命中的关键词替换为“*”。
+     */
+    private String filteredContent;
+    /**
+     * 返回结果。调用成功时（code=200），返回结果中包含一个或多个元素
+     */
+    private List<Result> results;
 
     /**
      * 检测是否通过
@@ -41,6 +50,14 @@ public class SceneResult extends BaseSceneData {
      * @return 是否通过
      */
     public boolean pass() {
-        return "pass".equalsIgnoreCase(this.suggestion);
+        if (AliYunGreenConstants.OK == this.code && CollectionUtil.isNotEmpty(results)) {
+            for (Result result : results) {
+                if (!"pass".equalsIgnoreCase(result.getSuggestion())) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
     }
 }
