@@ -1,7 +1,10 @@
 package com.zhengcheng.green.service;
 
 import com.zhengcheng.green.dto.SceneResult;
+import com.zhengcheng.green.dto.TextSceneData;
 import lombok.NonNull;
+
+import java.util.List;
 
 /**
  * IAliYunGreenService
@@ -20,4 +23,11 @@ public interface IAliYunGreenService {
      */
     SceneResult antispam(@NonNull String dataId, @NonNull String content);
 
+    /**
+     * 批量文本垃圾检测
+     *
+     * @param textSceneDataList 待检测的文本数据
+     * @return 检测结果
+     */
+    List<SceneResult> batchAntispam(List<TextSceneData> textSceneDataList);
 }

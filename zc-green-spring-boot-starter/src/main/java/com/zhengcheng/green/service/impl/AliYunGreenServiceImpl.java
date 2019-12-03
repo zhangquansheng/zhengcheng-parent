@@ -15,6 +15,7 @@ import com.aliyuncs.profile.IClientProfile;
 import com.google.common.collect.Lists;
 import com.zhengcheng.green.constant.AliYunGreenConstants;
 import com.zhengcheng.green.dto.SceneResult;
+import com.zhengcheng.green.dto.TextSceneData;
 import com.zhengcheng.green.properties.AcsProperties;
 import com.zhengcheng.green.service.IAliYunGreenService;
 import lombok.RequiredArgsConstructor;
@@ -51,6 +52,18 @@ public class AliYunGreenServiceImpl implements IAliYunGreenService {
 
     @Override
     public SceneResult antispam(String dataId, String content) {
+        TextSceneData textSceneData = new TextSceneData();
+        textSceneData.setDataId(dataId);
+        textSceneData.setContent(content);
+        List<SceneResult> sceneResultList = this.batchAntispam(Lists.newArrayList(textSceneData));
+        if (CollectionUtil.isNotEmpty(sceneResultList)) {
+            return sceneResultList.get(0);
+        }
+        return new SceneResult();
+    }
+
+    @Override
+    public List<SceneResult> batchAntispam(List<TextSceneData> textSceneDataList) {
         TextScanRequest textScanRequest = new TextScanRequest();
         textScanRequest.setAcceptFormat(FormatType.JSON);
         textScanRequest.setHttpContentType(FormatType.JSON);
@@ -59,10 +72,12 @@ public class AliYunGreenServiceImpl implements IAliYunGreenService {
         textScanRequest.setRegionId(acsProperties.getRegionId());
         List<Map<String, Object>> tasks = new ArrayList<>();
         Map<String, Object> task1 = new LinkedHashMap<>();
-        task1.put("dataId", dataId);
-        //待检测的文本，长度不超过10000个字符
-        task1.put("content", content);
-        tasks.add(task1);
+        for (TextSceneData textSceneData : textSceneDataList) {
+            task1.put("dataId", textSceneData.getDataId());
+            //待检测的文本，长度不超过10000个字符
+            task1.put("content", textSceneData.getContent());
+            tasks.add(task1);
+        }
         JSONObject data = new JSONObject();
         // 检测场景，文本垃圾检测传递：antispam
         String scene = "antispam";
@@ -80,17 +95,14 @@ public class AliYunGreenServiceImpl implements IAliYunGreenService {
                     JSONArray taskResults = scrResponse.getJSONArray("data");
                     for (Object taskResult : taskResults) {
                         if (AliYunGreenConstants.OK == ((JSONObject) taskResult).getInteger(AliYunGreenConstants.CODE)) {
-                            List<SceneResult> sceneResultList = JSONArray.parseArray(((JSONObject) taskResult).getString("results"), SceneResult.class);
-                            if (CollectionUtil.isNotEmpty(sceneResultList)) {
-                                return sceneResultList.get(0);
-                            }
+                            return JSONArray.parseArray(((JSONObject) taskResult).getString("results"), SceneResult.class);
                         }
                     }
                 }
             }
         } catch (ClientException e) {
-            log.error("antispam fail,dataId:{},message:{}", dataId, e.getMessage(), e);
+            log.error("antispam fail,textSceneData:{},message:{}", JSON.toJSONString(textSceneDataList), e.getMessage(), e);
         }
-        return new SceneResult(scene, "");
+        return new ArrayList<>();
     }
 }

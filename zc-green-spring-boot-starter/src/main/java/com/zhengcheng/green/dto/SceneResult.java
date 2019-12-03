@@ -2,6 +2,7 @@ package com.zhengcheng.green.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
@@ -10,10 +11,11 @@ import lombok.NoArgsConstructor;
  * @author :    quansheng.zhang
  * @date :    2019/12/2 23:29
  */
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
-public class SceneResult {
+@EqualsAndHashCode(callSuper = true)
+public class SceneResult extends BaseSceneData {
     /**
      * 检测场景
      */
