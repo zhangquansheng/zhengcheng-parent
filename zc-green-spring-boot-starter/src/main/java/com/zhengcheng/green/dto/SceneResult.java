@@ -22,4 +22,13 @@ public class SceneResult {
      * suggestion == pass 未命中垃圾  suggestion == block 命中了垃圾，可以通过label字段查看命中的垃圾分类
      */
     private String suggestion;
+
+    /**
+     * 检测是否通过
+     *
+     * @return 是否通过
+     */
+    public boolean pass() {
+        return "pass".equalsIgnoreCase(this.suggestion);
+    }
 }
