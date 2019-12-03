@@ -26,6 +26,16 @@ public class SceneResult extends BaseSceneData {
     private String suggestion;
 
     /**
+     * 检测结果的分类
+     */
+    private String label;
+    /**
+     * 结果为该分类的概率，取值范围为[0.00-100.00]。值越高，表示越有可能属于该分类。
+     * 说明 分值仅供参考，您需要关注label和suggestion内容。
+     */
+    private float rate;
+
+    /**
      * 检测是否通过
      *
      * @return 是否通过
