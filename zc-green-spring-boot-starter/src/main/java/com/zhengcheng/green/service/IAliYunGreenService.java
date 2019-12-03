@@ -1,5 +1,6 @@
 package com.zhengcheng.green.service;
 
+import com.zhengcheng.green.dto.ImageSceneData;
 import com.zhengcheng.green.dto.SceneResult;
 import com.zhengcheng.green.dto.TextSceneData;
 import lombok.NonNull;
@@ -30,4 +31,16 @@ public interface IAliYunGreenService {
      * @return 检测结果
      */
     List<SceneResult> batchAntispam(List<TextSceneData> textSceneDataList);
+
+    /**
+     * 批量图片同步检测
+     *
+     * @param scenes             设置要检测的场景, 计费是按照该处传递的场景进行
+     *                           一次请求中可以同时检测多张图片，每张图片可以同时检测多个风险场景，计费按照场景计算
+     *                           例如：检测2张图片，场景传递porn、terrorism，计费会按照2张图片鉴黄，2张图片暴恐检测计算
+     *                           porn: porn表示色情场景检测
+     * @param imageSceneDataList 待检测的图片数据
+     * @return
+     */
+    List<SceneResult> batchImageSyncScan(List<String> scenes, List<ImageSceneData> imageSceneDataList);
 }
