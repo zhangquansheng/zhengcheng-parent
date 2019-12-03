@@ -26,3 +26,5 @@
 **示例代码**
 
 ## 图片审核
+
+### [同步检测](https://help.aliyun.com/document_detail/70292.html?spm=a2c4g.11186623.6.618.6b031e7fBt51sn)
