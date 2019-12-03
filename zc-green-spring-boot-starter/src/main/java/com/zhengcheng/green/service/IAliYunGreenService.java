@@ -1,8 +1,9 @@
 package com.zhengcheng.green.service;
 
 import com.zhengcheng.green.dto.ImageSceneData;
-import com.zhengcheng.green.dto.SceneResult;
+import com.zhengcheng.green.dto.ImageSceneResult;
 import com.zhengcheng.green.dto.TextSceneData;
+import com.zhengcheng.green.dto.TextSceneResult;
 import lombok.NonNull;
 
 import java.util.List;
@@ -22,7 +23,7 @@ public interface IAliYunGreenService {
      * @param content 待检测的文本，长度不超过10000个字符
      * @return 检测结果
      */
-    SceneResult antispam(@NonNull String dataId, @NonNull String content);
+    TextSceneResult antispam(@NonNull String dataId, @NonNull String content);
 
     /**
      * 批量文本垃圾检测
@@ -30,7 +31,7 @@ public interface IAliYunGreenService {
      * @param textSceneDataList 待检测的文本数据
      * @return 检测结果
      */
-    List<SceneResult> batchAntispam(List<TextSceneData> textSceneDataList);
+    List<TextSceneResult> batchAntispam(List<TextSceneData> textSceneDataList);
 
     /**
      * 批量图片同步检测
@@ -42,5 +43,5 @@ public interface IAliYunGreenService {
      * @param imageSceneDataList 待检测的图片数据
      * @return
      */
-    List<SceneResult> batchImageSyncScan(List<String> scenes, List<ImageSceneData> imageSceneDataList);
+    List<ImageSceneResult> batchImageSyncScan(List<String> scenes, List<ImageSceneData> imageSceneDataList);
 }

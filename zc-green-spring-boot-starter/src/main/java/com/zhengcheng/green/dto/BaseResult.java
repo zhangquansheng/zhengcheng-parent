@@ -1,19 +1,19 @@
 package com.zhengcheng.green.dto;
 
-import com.alibaba.fastjson.JSONObject;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.List;
 
 /**
- * Result
+ * BaseResult
  *
  * @author :    quansheng.zhang
- * @date :    2019/12/3 21:19
+ * @date :    2019/12/3 22:07
  */
 @Data
-public class Result implements Serializable {
+public class BaseResult implements Serializable {
+    private static final long serialVersionUID = 8583148192728079260L;
+
     /**
      * 检测场景，和调用请求中的场景对应。
      */
@@ -33,12 +33,4 @@ public class Result implements Serializable {
      * 结果为该分类的概率，取值范围为[0.00-100.00]。值越高，表示越有可能属于该分类。
      */
     private float rate;
-    /**
-     * 附加信息，扩展字段。
-     */
-    private JSONObject extras;
-    /**
-     * 命中风险的详细信息，一条文本可能命中多条风险详情
-     */
-    private List<Detail> details;
 }
