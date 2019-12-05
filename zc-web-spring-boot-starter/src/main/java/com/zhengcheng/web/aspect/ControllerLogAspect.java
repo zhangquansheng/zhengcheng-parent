@@ -1,5 +1,6 @@
 package com.zhengcheng.web.aspect;
 
+import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.Method;
 import com.alibaba.fastjson.JSON;
 import com.zhengcheng.common.web.Result;
@@ -65,7 +66,10 @@ public class ControllerLogAspect {
                     sb.append(" | param:").append(JSON.toJSONString(parameterMap));
                 }
             } else {
-                sb.append(" | param:").append(request.getQueryString());
+                String queryString = request.getQueryString();
+                if (StrUtil.isNotBlank(queryString)) {
+                    sb.append(" | param:").append(queryString);
+                }
             }
         } catch (Exception e) {
             sb.append("|Exception:").append(e.getMessage());

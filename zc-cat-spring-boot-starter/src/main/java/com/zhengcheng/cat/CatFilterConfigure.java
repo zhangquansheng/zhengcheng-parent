@@ -1,9 +1,11 @@
 package com.zhengcheng.cat;
 
 import com.dianping.cat.servlet.CatFilter;
+import com.zhengcheng.cat.plugins.CatMybatisInterceptor;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
 
 /**
@@ -12,6 +14,7 @@ import org.springframework.context.annotation.Configuration;
  * @author :    quansheng.zhang
  * @date :    2019/12/4 23:27
  */
+@Import({CatMybatisInterceptor.class})
 @Configuration
 public class CatFilterConfigure {
 
