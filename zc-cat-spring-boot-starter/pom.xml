@@ -12,7 +12,7 @@
     <artifactId>zc-cat-spring-boot-starter</artifactId>
     <packaging>jar</packaging>
     <name>zc-cat-spring-boot-starter</name>
-    <description>CAT通用组件</description>
+    <description>CAT监控通用组件</description>
 
     <dependencies>
         <dependency>
