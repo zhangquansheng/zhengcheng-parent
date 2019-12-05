@@ -12,6 +12,6 @@
 
 ## 常见问题
 
-1. java.lang.IllegalArgumentException: warning no match for this type name: 
+1. java.lang.IllegalArgumentException: warning no match for this type name: 原因： SpringAop注解的时候,写错了类名会导致的这个问题
      
-    SpringAop注解的时候,写错了类名会导致的这个问题
+   
