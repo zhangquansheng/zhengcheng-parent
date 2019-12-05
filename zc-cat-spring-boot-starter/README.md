@@ -10,3 +10,8 @@
     
 [windows 下 war 包部署开发环境](https://www.cnblogs.com/harrychinese/p/dianping-cat-server-setup.html)
 
+## 常见问题
+
+1. java.lang.IllegalArgumentException: warning no match for this type name: 
+
+SpringAop注解的时候,写错了类名会导致的这个问题
