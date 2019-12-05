@@ -1,6 +1,5 @@
 package com.zhengcheng.cat.plugins;
 
-import com.alibaba.druid.pool.DruidDataSource;
 import com.dianping.cat.Cat;
 import com.dianping.cat.message.Message;
 import com.dianping.cat.message.Transaction;
@@ -43,7 +42,7 @@ public class CatMybatisInterceptor implements Interceptor {
 
     private static final Pattern PARAMETER_PATTERN = Pattern.compile("\\?");
     private static final String MYSQL_DEFAULT_URL = "jdbc:mysql://UUUUUKnown:3306/%s?useUnicode=true";
-    private Executor target;
+    Executor target;
 
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
@@ -67,9 +66,7 @@ public class CatMybatisInterceptor implements Interceptor {
 
     private String getMethodName(MappedStatement mappedStatement) {
         String[] strArr = mappedStatement.getId().split("\\.");
-        String methodName = strArr[strArr.length - 2] + "." + strArr[strArr.length - 1];
-
-        return methodName;
+        return strArr[strArr.length - 2] + "." + strArr[strArr.length - 1];
     }
 
     private String getSql(Invocation invocation, MappedStatement mappedStatement) {
@@ -80,64 +77,54 @@ public class CatMybatisInterceptor implements Interceptor {
 
         BoundSql boundSql = mappedStatement.getBoundSql(parameter);
         Configuration configuration = mappedStatement.getConfiguration();
-        String sql = sqlResolve(configuration, boundSql);
-
-        return sql;
+        return sqlResolve(configuration, boundSql);
     }
 
     private Object doFinish(Invocation invocation, Transaction t) throws InvocationTargetException, IllegalAccessException {
-        Object returnObj = null;
         try {
-            returnObj = invocation.proceed();
+            Object returnObj = invocation.proceed();
             t.setStatus(Transaction.SUCCESS);
+            return returnObj;
         } catch (Exception e) {
             Cat.logError(e);
             throw e;
         } finally {
             t.complete();
         }
-
-        return returnObj;
     }
 
 
     private String getSQLDatabaseUrlByStatement(MappedStatement mappedStatement) {
-        String url = null;
         DataSource dataSource = null;
         try {
             Configuration configuration = mappedStatement.getConfiguration();
             Environment environment = configuration.getEnvironment();
             dataSource = environment.getDataSource();
 
-            url = switchDataSource(dataSource);
-
-            return url;
+            return switchDataSource(dataSource);
         } catch (NoSuchFieldException | IllegalAccessException | NullPointerException e) {
             Cat.logError(e);
         }
-
-        Cat.logError(new Exception("UnSupport type of DataSource : " + dataSource.getClass().toString()));
+        if (dataSource != null && dataSource.getClass() != null) {
+            Cat.logError(new Exception("UnSupport type of DataSource : " + dataSource.getClass().toString()));
+        }
         return MYSQL_DEFAULT_URL;
     }
 
     private String switchDataSource(DataSource dataSource) throws NoSuchFieldException, IllegalAccessException {
         String url = null;
 
-        if (dataSource instanceof DruidDataSource) {
-            url = ((DruidDataSource) dataSource).getUrl();
-        } else if (dataSource instanceof PooledDataSource) {
+        if (dataSource instanceof PooledDataSource) {
             Field dataSource1 = dataSource.getClass().getDeclaredField("dataSource");
             dataSource1.setAccessible(true);
             UnpooledDataSource dataSource2 = (UnpooledDataSource) dataSource1.get(dataSource);
             url = dataSource2.getUrl();
-        } else {
-            //other dataSource expand
         }
 
         return url;
     }
 
-    public String sqlResolve(Configuration configuration, BoundSql boundSql) {
+    private String sqlResolve(Configuration configuration, BoundSql boundSql) {
         Object parameterObject = boundSql.getParameterObject();
         List<ParameterMapping> parameterMappings = boundSql.getParameterMappings();
         String sql = boundSql.getSql().replaceAll("[\\s]+", " ");
@@ -170,7 +157,7 @@ public class CatMybatisInterceptor implements Interceptor {
     }
 
     private String resolveParameterValue(Object obj) {
-        String value = null;
+        String value;
         if (obj instanceof String) {
             value = "'" + obj.toString() + "'";
         } else if (obj instanceof Date) {
