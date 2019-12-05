@@ -1,2 +1,3 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.zhengcheng.cat.CatFilterConfigure
+  com.zhengcheng.cat.CatFilterConfiguration,\
+  com.zhengcheng.cat.CatMybatisConfiguration

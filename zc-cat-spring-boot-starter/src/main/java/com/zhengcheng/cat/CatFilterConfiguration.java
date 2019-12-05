@@ -1,12 +1,9 @@
 package com.zhengcheng.cat;
 
 import com.dianping.cat.servlet.CatFilter;
-import com.zhengcheng.cat.plugins.CatMybatisInterceptor;
-import com.zhengcheng.cat.plugins.redis.RedisPluginTemplate;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 
 
 /**
@@ -15,9 +12,8 @@ import org.springframework.context.annotation.Import;
  * @author :    quansheng.zhang
  * @date :    2019/12/4 23:27
  */
-@Import({CatMybatisInterceptor.class, RedisPluginTemplate.class})
 @Configuration
-public class CatFilterConfigure {
+public class CatFilterConfiguration {
 
     @Bean
     public FilterRegistrationBean catFilter() {
