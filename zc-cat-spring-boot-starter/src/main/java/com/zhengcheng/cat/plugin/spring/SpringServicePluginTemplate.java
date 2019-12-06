@@ -1,15 +1,13 @@
 package com.zhengcheng.cat.plugin.spring;
 
-import java.util.StringTokenizer;
-
-import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
-
 import com.dianping.cat.Cat;
 import com.dianping.cat.message.Transaction;
 import com.zhengcheng.cat.plugin.AbstractPluginTemplate;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+
+import java.util.StringTokenizer;
 
 /**
  * SpringServicePluginTemplate
@@ -37,8 +35,7 @@ public abstract class SpringServicePluginTemplate extends AbstractPluginTemplate
             type.append(".");
         }
         type.append("Service");
-        Transaction transaction = Cat.newTransaction(type.toString(), pjp.getSignature().toShortString());
-        return transaction;
+        return Cat.newTransaction(type.toString(), pjp.getSignature().toShortString());
     }
 
     @Override
