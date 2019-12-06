@@ -7,8 +7,6 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 
-import java.util.StringTokenizer;
-
 /**
  * SpringServicePluginTemplate
  *
@@ -27,15 +25,10 @@ public class SpringServicePluginTemplate extends AbstractPluginTemplate {
 
     @Override
     protected Transaction beginLog(ProceedingJoinPoint pjp) {
-        StringBuilder type = new StringBuilder();
-        String packageStr = pjp.getSignature().getDeclaringType().getPackage().getName();
-        StringTokenizer st = new StringTokenizer(packageStr, ".");
-        for (int i = 0; i < 2; i++) {
-            type.append(st.nextToken());
-            type.append(".");
-        }
-        type.append("Service");
-        return Cat.newTransaction(type.toString(), pjp.getSignature().toShortString());
+        StringBuilder sb = new StringBuilder();
+        String className = pjp.getSignature().getDeclaringType().getSimpleName();
+        String methodName = pjp.getSignature().getName();
+        return Cat.newTransaction("Service", sb.append(className).append(".").append(methodName).toString());
     }
 
     @Override
