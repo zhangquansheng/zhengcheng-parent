@@ -53,7 +53,7 @@
         <sentinel-datasource-apollo.version>1.6.3</sentinel-datasource-apollo.version>
         <spring-cloud-starter-alibaba-sentinel.version>0.2.2.RELEASE</spring-cloud-starter-alibaba-sentinel.version>
         <xxl-job-core.version>2.0.2</xxl-job-core.version>
-        <cornerstone.version>0.2.3</cornerstone.version>
+        <cornerstone.version>0.2.0-alpha</cornerstone.version>
         <apollo.client.version>1.4.0</apollo.client.version>
         <swagger2.version>2.8.0</swagger2.version>
         <shardingsphere.version>4.0.0-RC2</shardingsphere.version>
@@ -71,6 +71,10 @@
         <dependency>
             <groupId>com.ctrip.framework.apollo</groupId>
             <artifactId>apollo-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.ctrip.framework</groupId>
+            <artifactId>cornerstone</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -275,6 +279,11 @@
                 <groupId>com.ctrip.framework.apollo</groupId>
                 <artifactId>apollo-core</artifactId>
                 <version>${apollo.client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ctrip.framework</groupId>
+                <artifactId>cornerstone</artifactId>
+                <version>${cornerstone.version}</version>
             </dependency>
             <!-- Ctrip Dependencies End -->
             <!-- commons  Dependencies Start -->
