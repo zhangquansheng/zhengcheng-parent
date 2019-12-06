@@ -93,10 +93,10 @@ public class OkHttpClientPluginTemplate extends ClientPluginTemplate<Map<String,
 
     @Override
     public void endLog(Transaction transaction, Object retVal, Object... params) {
-        Object[] addrs = ((Response) retVal).headers().get(getServerAddrDataKey()).toArray();
+        Object[] adders = ((Response) retVal).headers().get(getServerAddrDataKey()).toArray();
         Object[] domains = ((Response) retVal).headers().get(getServerDomainDataKey()).toArray();
-        if (addrs.length == 1) {
-            logServerAddr(String.valueOf(addrs[0]));
+        if (adders.length == 1) {
+            logServerAddr(String.valueOf(adders[0]));
         }
         if (domains.length == 1) {
             logServerDomain(String.valueOf(domains[0]));
