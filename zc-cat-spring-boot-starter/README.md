@@ -10,8 +10,28 @@
     
 [windows 下 war 包部署开发环境](https://www.cnblogs.com/harrychinese/p/dianping-cat-server-setup.html)
 
+## optional属性的作用
+
+官方文档的说法
+```
+What if we dont want project D and its dependencies to be added to Project A's classpath because we know some of Project-D's dependencies (maybe Project-E for example) was missing from the repository, and you don't need/want the functionality in Project-B that depends on Project-D anyway. In this case, Project-B's developers could provide a dependency on Project-D that is <optional>true</optional>, like this:
+
+<dependency>
+  <groupId>sample.ProjectD</groupId>
+  <artifactId>ProjectD</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <optional>true</optional>
+</dependency>
+
+```
+
+简单的来说，就是引用不会传递。
+
+
 ## 常见问题
 
-1. java.lang.IllegalArgumentException: warning no match for this type name: 原因： SpringAop注解的时候,写错了类名会导致的这个问题
+### java.lang.IllegalArgumentException: warning no match for this type name:
+
+原因： SpringAop注解的时候,写错了类名会导致的这个问题
      
    
