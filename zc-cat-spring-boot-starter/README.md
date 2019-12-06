@@ -13,9 +13,11 @@
 ## 埋点
 
 - spring boot 
-- mybatis 
+- mybatis
+  > 需要使用MybatisPlus或者zc-db-spring-boot-starter
 - SpringService
 - feign-okhttp
+  > 需要使用 feign.okhttp.OkHttpClient 或者 zc-feign-spring-boot-stater
 
 
 ## optional属性的作用

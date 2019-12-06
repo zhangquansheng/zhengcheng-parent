@@ -6,10 +6,12 @@ import com.zhengcheng.cat.plugin.constant.CatPluginConstants;
 import com.zhengcheng.cat.plugin.remote.ClientPluginTemplate;
 import feign.Client;
 import feign.Response;
+import feign.okhttp.OkHttpClient;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -26,11 +28,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * @date :    2019/12/6 10:24
  */
 @Slf4j
+@ConditionalOnClass({OkHttpClient.class})
 @Aspect
 public class OkHttpClientPluginTemplate extends ClientPluginTemplate<Map<String, Collection<String>>> {
 
     private static final ThreadLocal<AtomicBoolean> ENTERED = ThreadLocal.withInitial(() -> new AtomicBoolean(false));
-
 
     @Override
     @Around("execution(* feign.okhttp.OkHttpClient.execute(..))")

@@ -1,6 +1,8 @@
 package com.zhengcheng.cat;
 
+import com.baomidou.mybatisplus.autoconfigure.MybatisPlusProperties;
 import com.zhengcheng.cat.plugin.CatMybatisInterceptor;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -11,6 +13,7 @@ import org.springframework.context.annotation.Configuration;
  * @date :    2019/12/5 23:53
  */
 @Configuration
+@ConditionalOnClass({MybatisPlusProperties.class})
 public class CatMybatisConfiguration {
 
     public CatMybatisConfiguration() {
