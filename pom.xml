@@ -13,7 +13,7 @@
     <groupId>com.zhengcheng</groupId>
     <artifactId>zhengcheng-parent</artifactId>
     <packaging>pom</packaging>
-    <version>3.6.0</version>
+    <version>3.7.0</version>
 
     <name>zhengcheng-parent</name>
 
@@ -71,10 +71,6 @@
         <dependency>
             <groupId>com.ctrip.framework.apollo</groupId>
             <artifactId>apollo-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.ctrip.framework</groupId>
-            <artifactId>cornerstone</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -382,7 +378,6 @@
         </dependencies>
     </dependencyManagement>
 
-    <!-- 云效-->
     <distributionManagement>
         <repository>
             <id>rdc-releases</id>
@@ -393,19 +388,6 @@
             <url>https://repo.rdc.aliyun.com/repository/106415-snapshot-yTYLma/</url>
         </snapshotRepository>
     </distributionManagement>
-
-    <!--<distributionManagement>-->
-    <!--<repository>-->
-    <!--<id>releases</id>-->
-    <!--<name>Releases</name>-->
-    <!--<url>http://localhost:8081/repository/maven-releases/</url>-->
-    <!--</repository>-->
-    <!--<snapshotRepository>-->
-    <!--<id>snapshots</id>-->
-    <!--<name>Snapshot</name>-->
-    <!--<url>http://localhost:8081/repository/maven-snapshots/</url>-->
-    <!--</snapshotRepository>-->
-    <!--</distributionManagement>-->
 
     <build>
         <outputDirectory>${project.basedir}/target/classes/</outputDirectory>
