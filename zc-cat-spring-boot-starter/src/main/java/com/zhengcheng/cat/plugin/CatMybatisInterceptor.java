@@ -1,4 +1,4 @@
-package com.zhengcheng.cat.plugins;
+package com.zhengcheng.cat.plugin;
 
 import com.dianping.cat.Cat;
 import com.dianping.cat.message.Message;

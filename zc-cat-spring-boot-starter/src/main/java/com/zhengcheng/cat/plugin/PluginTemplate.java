@@ -1,4 +1,4 @@
-package com.zhengcheng.cat.plugins;
+package com.zhengcheng.cat.plugin;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;

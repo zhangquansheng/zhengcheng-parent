@@ -1,6 +1,6 @@
 package com.zhengcheng.cat;
 
-import com.zhengcheng.cat.plugins.CatMybatisInterceptor;
+import com.zhengcheng.cat.plugin.CatMybatisInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
