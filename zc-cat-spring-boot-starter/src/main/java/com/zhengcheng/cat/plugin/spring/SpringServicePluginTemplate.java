@@ -16,7 +16,7 @@ import java.util.StringTokenizer;
  * @date :    2019/12/6 9:17
  */
 @Aspect
-public abstract class SpringServicePluginTemplate extends AbstractPluginTemplate {
+public class SpringServicePluginTemplate extends AbstractPluginTemplate {
 
     @Override
     @Around("execution(* (@org.springframework.stereotype.Service *).*(..))")
