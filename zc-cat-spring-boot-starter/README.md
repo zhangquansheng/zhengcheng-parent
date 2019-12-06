@@ -10,6 +10,14 @@
     
 [windows 下 war 包部署开发环境](https://www.cnblogs.com/harrychinese/p/dianping-cat-server-setup.html)
 
+## 埋点
+
+- spring boot 
+- mybatis 
+- SpringService
+- feign-okhttp
+
+
 ## optional属性的作用
 
 官方文档的说法
