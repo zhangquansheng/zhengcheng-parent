@@ -6,6 +6,7 @@ import com.zhengcheng.cat.plugin.AbstractPluginTemplate;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
 
 /**
  * SpringServicePluginTemplate
@@ -16,12 +17,15 @@ import org.aspectj.lang.annotation.Aspect;
 @Aspect
 public class SpringServicePluginTemplate extends AbstractPluginTemplate {
 
+    @Pointcut("execution(* (@org.springframework.stereotype.Service *).*(..))")
+    public void serviceMethodPointcut() {
+    }
+
     @Override
-    @Around("execution(* (@org.springframework.stereotype.Service *).*(..))")
+    @Around("serviceMethodPointcut()")
     public Object doAround(ProceedingJoinPoint pjp) throws Throwable {
         return super.doAround(pjp);
     }
-
 
     @Override
     protected Transaction beginLog(ProceedingJoinPoint pjp) {

@@ -1,4 +1,4 @@
-package com.zhengcheng.cat.plugin;
+package com.zhengcheng.cat.plugin.mybatis;
 
 import com.dianping.cat.Cat;
 import com.dianping.cat.message.Message;

@@ -1,7 +1,7 @@
 package com.zhengcheng.cat;
 
 import com.baomidou.mybatisplus.autoconfigure.MybatisPlusProperties;
-import com.zhengcheng.cat.plugin.CatMybatisInterceptor;
+import com.zhengcheng.cat.plugin.mybatis.CatMybatisInterceptor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
