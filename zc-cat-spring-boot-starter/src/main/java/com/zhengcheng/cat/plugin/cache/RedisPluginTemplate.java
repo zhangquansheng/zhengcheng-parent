@@ -8,8 +8,11 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
+
+import java.lang.reflect.Method;
 
 /**
  * RedisPluginTemplate
@@ -34,8 +37,9 @@ public class RedisPluginTemplate extends AbstractPluginTemplate {
 
     @Override
     protected Transaction beginLog(ProceedingJoinPoint pjp) {
-        System.out.println(pjp.getArgs());
-        return Cat.newTransaction("Cache.Redis", pjp.getSignature().getName());
+        MethodSignature joinPointObject = (MethodSignature) pjp.getSignature();
+        Method method = joinPointObject.getMethod();
+        return Cat.newTransaction("Cache.Redis", method.getName());
     }
 
     @Override
