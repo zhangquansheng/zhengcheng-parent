@@ -1,5 +1,6 @@
 package com.zhengcheng.web.aspect;
 
+import cn.hutool.core.text.StrBuilder;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.Method;
 import com.alibaba.fastjson.JSON;
@@ -47,7 +48,7 @@ public class ControllerLogAspect {
     }
 
     private String getMethodInfo(JoinPoint point) {
-        StringBuilder sb = new StringBuilder();
+        StrBuilder sb = StrBuilder.create();
         try {
             HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
             String method = request.getMethod();
