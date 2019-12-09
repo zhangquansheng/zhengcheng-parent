@@ -31,5 +31,4 @@ public class FeignInterceptor implements RequestInterceptor {
         }
     }
 
-
 }
