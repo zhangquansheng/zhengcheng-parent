@@ -3,6 +3,7 @@ package com.zhengcheng.green;
 import com.zhengcheng.green.properties.AcsProperties;
 import com.zhengcheng.green.service.IAliYunGreenService;
 import com.zhengcheng.green.service.impl.AliYunGreenServiceImpl;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,6 +19,7 @@ import org.springframework.context.annotation.Configuration;
 public class GreenAutoConfiguration {
 
     @Bean
+    @ConditionalOnMissingBean
     public IAliYunGreenService aliYunSmsService(AcsProperties acsProperties) {
         return new AliYunGreenServiceImpl(acsProperties);
     }

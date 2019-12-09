@@ -6,6 +6,7 @@ import com.aliyun.openservices.ons.api.PropertyKeyConst;
 import com.zhengcheng.mq.factory.ConsumerFactory;
 import com.zhengcheng.mq.properties.ConsumerProperties;
 import com.zhengcheng.mq.runner.ConsumerRunner;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
@@ -31,6 +32,7 @@ import java.util.Properties;
 public class ConsumerAutoConfiguration {
 
     @Bean
+    @ConditionalOnMissingBean
     public Consumer consumer(ConsumerProperties consumerProperties) {
         Properties properties = new Properties();
         properties.setProperty(PropertyKeyConst.GROUP_ID, consumerProperties.getId());
