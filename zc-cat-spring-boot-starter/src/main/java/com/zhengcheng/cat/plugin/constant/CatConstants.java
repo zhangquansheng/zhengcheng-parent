@@ -20,4 +20,8 @@ public class CatConstants {
 
     public static final String TYPE_SQL_DATABASE = "TYPE_SQL_DATABASE";
 
+    /**
+     * 客户端调用的服务名称 -> 最好是Cat.getManager().getDomain()获取
+     */
+    public static final String APPLICATION_KEY = "application.name";
 }
