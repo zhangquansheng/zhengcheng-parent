@@ -39,6 +39,19 @@ What if we dont want project D and its dependencies to be added to Project A's c
 
 简单的来说，就是引用不会传递。
 
+## 插件
+
+### Logback配置
+
+如果需要使用Cat自定义的Appender，需要在logback.xml中添加如下配置：
+
+```
+    <appender name="CatAppender" class="com.dianping.cat.logback.CatLogbackAppender"></appender>
+
+    <root level="info">
+        <appender-ref ref="CatAppender" />
+    </root>
+```
 
 ## 常见问题
 

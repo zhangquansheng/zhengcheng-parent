@@ -3,11 +3,13 @@ package com.zhengcheng.cat.plugin.aspect;
 import cn.hutool.core.text.StrBuilder;
 import com.dianping.cat.Cat;
 import com.dianping.cat.message.Transaction;
+import com.zhengcheng.cat.plugin.AbstractPluginTemplate;
 import com.zhengcheng.cat.plugin.annotation.CatTransaction;
 import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 
 /**
@@ -17,10 +19,20 @@ import org.aspectj.lang.reflect.MethodSignature;
  * @date :    2019/12/9 13:24
  */
 @Aspect
-public class CatAspect {
+public class CatAspect extends AbstractPluginTemplate {
 
-    @Around("@annotation(com.zhengcheng.cat.plugin.annotation.CatTransaction)")
-    public Object around(ProceedingJoinPoint pjp) throws Throwable {
+    @Pointcut("@annotation(com.zhengcheng.cat.plugin.annotation.CatTransaction)")
+    public void catTransactionPointcut() {
+    }
+
+    @Override
+    @Around("catTransactionPointcut()")
+    public Object doAround(ProceedingJoinPoint pjp) throws Throwable {
+        return super.doAround(pjp);
+    }
+
+    @Override
+    protected Transaction beginLog(ProceedingJoinPoint pjp) {
         CatTransaction catTransaction = ((MethodSignature) pjp.getSignature()).getMethod().getAnnotation(CatTransaction.class);
         StrBuilder builder = StrBuilder.create();
         builder.append(pjp.getSignature().getDeclaringType().getSimpleName());
@@ -29,16 +41,11 @@ public class CatAspect {
         if (StringUtils.isNotBlank(catTransaction.name())) {
             builder.append(catTransaction.name());
         }
-        Transaction t = Cat.newTransaction(catTransaction.type(), builder.toString());
-        try {
-            Object result = pjp.proceed();
-            t.setStatus(Transaction.SUCCESS);
-            return result;
-        } catch (Throwable e) {
-            t.setStatus(e);
-            throw e;
-        } finally {
-            t.complete();
-        }
+        return Cat.newTransaction(catTransaction.type(), builder.toString());
+    }
+
+    @Override
+    protected void endLog(Transaction transaction, Object retVal, Object... params) {
+
     }
 }
