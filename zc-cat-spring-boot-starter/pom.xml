@@ -49,6 +49,11 @@
             <artifactId>spring-cloud-starter-openfeign</artifactId>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-okhttp</artifactId>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 
     <build>

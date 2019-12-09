@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
  * @date :    2019/6/29 16:07
  */
 @Configuration
-@ConditionalOnClass(Feign.class)
+@ConditionalOnClass({Feign.class})
 @AutoConfigureBefore(FeignAutoConfiguration.class)
 public class FeignOkHttpConfig {
 

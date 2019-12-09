@@ -1,5 +1,6 @@
 package com.zhengcheng.cat.plugin.spring;
 
+import cn.hutool.core.text.StrBuilder;
 import com.dianping.cat.Cat;
 import com.dianping.cat.message.Transaction;
 import com.zhengcheng.cat.plugin.AbstractPluginTemplate;
@@ -29,7 +30,7 @@ public class SpringServicePluginTemplate extends AbstractPluginTemplate {
 
     @Override
     protected Transaction beginLog(ProceedingJoinPoint pjp) {
-        StringBuilder sb = new StringBuilder();
+        StrBuilder sb = StrBuilder.create();
         String className = pjp.getSignature().getDeclaringType().getSimpleName();
         String methodName = pjp.getSignature().getName();
         return Cat.newTransaction("Service", sb.append(className).append(".").append(methodName).toString());
