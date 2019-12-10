@@ -8,6 +8,9 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.util.CollectionUtils;
+
+import java.util.List;
 
 /**
  * RedisPluginTemplate
@@ -28,11 +31,21 @@ public class RedisPluginTemplate extends AbstractPluginTemplate {
     @Override
     protected Transaction beginLog(ProceedingJoinPoint pjp) {
         String methodName = pjp.getSignature().getName();
-        return Cat.newTransaction("Cache.Redis", methodName);
+        if (this.methodFilterCheck(methodName)) {
+            return null;
+        } else {
+            return Cat.newTransaction("Cache.Redis", methodName);
+        }
     }
 
     @Override
     protected void endLog(Transaction transaction, Object retVal, Object... params) {
 
+    }
+
+    private boolean methodFilterCheck(String methodName) {
+        String[] filters = new String[]{"rawKey", "rawHashValue", "keySerializer", "rawHashKey", "hashKeySerializer", "execute", "toString", "hashCode", "hashValueSerializer", "valueSerializer", "stringSerializer", "getOperations", "rawString", "rawValue", "rawValues", "rawHashKeys", "rawKeys", "deserializeValues", "deserializeTupleValues", "deserializeTuple", "rawTupleValues", "deserializeHashKeys", "deserializeHashValues", "deserializeHashMap", "deserializeKey", "deserializeKeys", "deserializeValue", "deserializeString", "deserializeHashKey", "deserializeHashValue", "deserializeGeoResults"};
+        List<String> list = CollectionUtils.arrayToList(filters);
+        return list.contains(methodName);
     }
 }
