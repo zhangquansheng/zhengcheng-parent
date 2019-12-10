@@ -4,14 +4,10 @@ import cn.hutool.core.text.StrBuilder;
 import com.dianping.cat.Cat;
 import com.dianping.cat.message.Transaction;
 import com.zhengcheng.cat.plugin.AbstractPluginTemplate;
-import com.zhengcheng.cat.plugin.common.CatMsgConstants;
-import com.zhengcheng.cat.plugin.common.CatMsgContext;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.web.context.request.RequestAttributes;
-import org.springframework.web.context.request.RequestContextHolder;
 
 /**
  * FeignPluginTemplate
@@ -29,7 +25,6 @@ public class FeignPluginTemplate extends AbstractPluginTemplate {
     @Override
     @Around("feignClientPointcut()")
     public Object doAround(ProceedingJoinPoint pjp) throws Throwable {
-        this.createMessageTree();
         return super.doAround(pjp);
     }
 
@@ -44,18 +39,5 @@ public class FeignPluginTemplate extends AbstractPluginTemplate {
     @Override
     protected void endLog(Transaction transaction, Object retVal, Object... params) {
 
-    }
-
-    /**
-     * 统一设置消息编号的messageId
-     */
-    private void createMessageTree() {
-        CatMsgContext context = new CatMsgContext();
-        Cat.logRemoteCallClient(context);
-        RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
-        requestAttributes.setAttribute(Cat.Context.PARENT, context.getProperty(Cat.Context.PARENT), 0);
-        requestAttributes.setAttribute(Cat.Context.ROOT, context.getProperty(Cat.Context.ROOT), 0);
-        requestAttributes.setAttribute(Cat.Context.CHILD, context.getProperty(Cat.Context.CHILD), 0);
-        requestAttributes.setAttribute(CatMsgConstants.APPLICATION_KEY, Cat.getManager().getDomain(), 0);
     }
 }
