@@ -8,6 +8,8 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.cloud.openfeign.FeignClient;
 
 /**
  * FeignPluginTemplate
@@ -16,6 +18,7 @@ import org.aspectj.lang.annotation.Pointcut;
  * @date :    2019/12/9 21:51
  */
 @Aspect
+@ConditionalOnClass({FeignClient.class})
 public class FeignPluginTemplate extends AbstractPluginTemplate {
 
     @Pointcut("@within(org.springframework.cloud.openfeign.FeignClient)")

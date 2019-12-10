@@ -53,6 +53,42 @@ What if we dont want project D and its dependencies to be added to Project A's c
     </root>
 ```
 
+## [AOP实现原理](https://gitee.com/zhangquansheng/interview/blob/master/frame/Proxy.md)
+
+### 基于注解的Spring AOP开发
+
+#### 切入点指示符
+
+为了方法通知应用到相应过滤的目标方法上，SpringAOP提供了匹配表达式，这些表达式也叫切入点指示符
+
+##### 通配符
+
+在定义匹配表达式时，通配符几乎随处可见，如 *  ..  + ，它们的含义如下：
+
+- .. ：匹配方法定义中的任意数量的参数，此外还匹配类定义中的任意数量包
+
+```
+//任意返回值，任意名称，任意参数的公共方法
+execution(public * *(..))
+//匹配com.zejian.dao包及其子包中所有类中的所有方法
+within(com.zejian.dao..*)
+```
+- ＋ ：匹配给定类的任意子类
+
+ ```
+//匹配实现了DaoUser接口的所有子类的方法
+within(com.zejian.dao.DaoUser+)
+```
+
+- * ：匹配任意数量的字符
+
+ ```
+//匹配com.zejian.service包及其子包中所有类的所有方法
+within(com.zejian.service..*)
+//匹配以set开头，参数为int类型，任意返回值的方法
+execution(* set*(int))
+ ```
+
 ## 常见问题
 
 ### java.lang.IllegalArgumentException: warning no match for this type name:

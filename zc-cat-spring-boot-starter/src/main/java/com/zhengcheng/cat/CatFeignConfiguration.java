@@ -5,6 +5,9 @@ import com.zhengcheng.cat.context.CatMsgConstants;
 import com.zhengcheng.cat.context.CatMsgContext;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * 适用于使用feign调用其他SpringCloud微服务的调用链上下文传递场景
@@ -15,6 +18,8 @@ import feign.RequestTemplate;
  * @author soar
  * @date 2019-01-10
  */
+@Configuration
+@ConditionalOnClass({RequestInterceptor.class, FeignClient.class})
 public class CatFeignConfiguration implements RequestInterceptor {
 
     @Override
