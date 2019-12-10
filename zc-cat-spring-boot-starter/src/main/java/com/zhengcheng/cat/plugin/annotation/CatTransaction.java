@@ -16,7 +16,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 public @interface CatTransaction {
 
-    String type() default "Handler";
+    String type() default "CatTransaction";
 
     String name() default "";
 }
