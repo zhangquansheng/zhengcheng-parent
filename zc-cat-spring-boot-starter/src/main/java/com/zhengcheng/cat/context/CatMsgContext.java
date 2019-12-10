@@ -1,4 +1,4 @@
-package com.zhengcheng.cat.plugin.common;
+package com.zhengcheng.cat.context;
 
 import com.dianping.cat.Cat;
 
@@ -9,7 +9,7 @@ import java.util.Map;
  * CatMsgContext
  *
  * @author :    zhangquansheng
- * @date :    2019/12/10 9:19
+ * @date :    2019/12/10 11:23
  */
 public class CatMsgContext implements Cat.Context {
 

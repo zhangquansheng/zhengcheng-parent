@@ -1,6 +1,6 @@
 package com.zhengcheng.cat;
 
-import com.dianping.cat.servlet.CatFilter;
+import com.zhengcheng.cat.context.CatContextServletFilter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +17,7 @@ public class CatFilterConfiguration {
     @Bean
     public FilterRegistrationBean catFilter() {
         FilterRegistrationBean registration = new FilterRegistrationBean();
-        CatFilter filter = new CatFilter();
+        CatContextServletFilter filter = new CatContextServletFilter();
         registration.setFilter(filter);
         registration.addUrlPatterns("/*");
         registration.setName("cat-filter");

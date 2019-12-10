@@ -1,6 +1,7 @@
 package com.zhengcheng.feign.interceptor;
 
 import feign.RequestInterceptor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -12,6 +13,7 @@ import org.springframework.security.oauth2.provider.authentication.OAuth2Authent
  * @author :    qunsheng.zhang
  * @date :    2019/3/24 13:57
  */
+@Slf4j
 public class OAuth2FeignRequestInterceptor implements RequestInterceptor {
 
     private final String AUTHORIZATION_HEADER = "Authorization";
@@ -23,7 +25,11 @@ public class OAuth2FeignRequestInterceptor implements RequestInterceptor {
         Authentication authentication = securityContext.getAuthentication();
         if (authentication != null && authentication.getDetails() instanceof OAuth2AuthenticationDetails) {
             OAuth2AuthenticationDetails details = (OAuth2AuthenticationDetails) authentication.getDetails();
-            requestTemplate.header(AUTHORIZATION_HEADER, String.format("%s %s", BEARER_TOKEN_TYPE, details.getTokenValue()));
+            String value = String.format("%s %s", BEARER_TOKEN_TYPE, details.getTokenValue());
+            requestTemplate.header(AUTHORIZATION_HEADER, value);
+            if (log.isDebugEnabled()) {
+                log.debug("put feign header  [{}] = [{}]", BEARER_TOKEN_TYPE, value);
+            }
         }
     }
 }
