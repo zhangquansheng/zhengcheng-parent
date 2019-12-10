@@ -13,6 +13,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
@@ -58,7 +59,7 @@ public class ControllerLogAspect {
             if (Method.POST.toString().equalsIgnoreCase(method)) {
                 Object[] args = point.getArgs();
                 if (args.length > 0) {
-                    if (args[0] instanceof Serializable) {
+                    if (args[0] instanceof Serializable && !(args[0] instanceof MultipartFile)) {
                         sb.append(" | args:").append(JSON.toJSONString(args[0]));
                     }
                 }
