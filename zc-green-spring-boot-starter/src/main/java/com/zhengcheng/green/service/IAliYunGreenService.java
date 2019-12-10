@@ -4,7 +4,6 @@ import com.zhengcheng.green.dto.ImageSceneData;
 import com.zhengcheng.green.dto.ImageSceneResult;
 import com.zhengcheng.green.dto.TextSceneData;
 import com.zhengcheng.green.dto.TextSceneResult;
-import lombok.NonNull;
 
 import java.util.List;
 
@@ -23,13 +22,13 @@ public interface IAliYunGreenService {
      * @param content 待检测的文本，长度不超过10000个字符
      * @return 检测结果
      */
-    TextSceneResult antispam(@NonNull String dataId, @NonNull String content);
+    TextSceneResult antispam(String dataId, String content);
 
     /**
      * 批量文本垃圾检测
      *
      * @param textSceneDataList 待检测的文本数据
-     * @return 检测结果
+     * @return 检测结果集
      */
     List<TextSceneResult> batchAntispam(List<TextSceneData> textSceneDataList);
 
@@ -41,7 +40,7 @@ public interface IAliYunGreenService {
      *                           例如：检测2张图片，场景传递porn、terrorism，计费会按照2张图片鉴黄，2张图片暴恐检测计算
      *                           porn: porn表示色情场景检测
      * @param imageSceneDataList 待检测的图片数据
-     * @return
+     * @return 检测结果集
      */
     List<ImageSceneResult> batchImageSyncScan(List<String> scenes, List<ImageSceneData> imageSceneDataList);
 }
