@@ -70,21 +70,21 @@ What if we dont want project D and its dependencies to be added to Project A's c
 ```
 //任意返回值，任意名称，任意参数的公共方法
 execution(public * *(..))
-//匹配com.zejian.dao包及其子包中所有类中的所有方法
-within(com.zejian.dao..*)
+//匹配com.zhengcheng.dao包及其子包中所有类中的所有方法
+within(com.zhengcheng.dao..*)
 ```
 - 匹配给定类的任意子类 +
 
  ```
-//匹配实现了DaoUser接口的所有子类的方法
-within(com.zejian.dao.DaoUser+)
+//匹配实现了UserDao接口的所有子类的方法
+within(com.zhengcheng.dao.UserDao+)
 ```
 
 - 匹配任意数量的字符 *
 
  ```
-//匹配com.zejian.service包及其子包中所有类的所有方法
-within(com.zejian.service..*)
+//匹配com.zhengcheng.service包及其子包中所有类的所有方法
+within(com.zhengcheng.service..*)
 //匹配以set开头，参数为int类型，任意返回值的方法
 execution(* set*(int))
  ```
