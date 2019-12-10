@@ -40,3 +40,8 @@ zc-cat-jdbc-spring-boot-starter | CAT监控通用组件[部署文档](https://gi
 @ConditionalOnResource |	Classpath里有指定的资源
 @ConditionalOnWebApplication |	这是一个Web应用程序
 @ConditionalOnNotWebApplication |	这不是一个Web应用程序
+
+### idea使用maven相关插件
+
+- [mvn] -N versions:update-child-modules 根据parent的版本，更新module的版本号
+- [mvn] clean source:jar deploy  打包发布源码到远程仓库，原因：idea右侧maven生命周期deploy时是没有打包源码操作的，所以需要输入命令先打包源码source:jar
