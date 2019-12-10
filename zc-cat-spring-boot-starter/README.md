@@ -65,7 +65,7 @@ What if we dont want project D and its dependencies to be added to Project A's c
 
 在定义匹配表达式时，通配符几乎随处可见，如 *  ..  + ，它们的含义如下：
 
-- .. ：匹配方法定义中的任意数量的参数，此外还匹配类定义中的任意数量包
+- 匹配方法定义中的任意数量的参数，此外还匹配类定义中的任意数量包 ..
 
 ```
 //任意返回值，任意名称，任意参数的公共方法
@@ -73,14 +73,14 @@ execution(public * *(..))
 //匹配com.zejian.dao包及其子包中所有类中的所有方法
 within(com.zejian.dao..*)
 ```
-- ＋ ：匹配给定类的任意子类
+- 匹配给定类的任意子类 +
 
  ```
 //匹配实现了DaoUser接口的所有子类的方法
 within(com.zejian.dao.DaoUser+)
 ```
 
-- * ：匹配任意数量的字符
+- 匹配任意数量的字符 *
 
  ```
 //匹配com.zejian.service包及其子包中所有类的所有方法
