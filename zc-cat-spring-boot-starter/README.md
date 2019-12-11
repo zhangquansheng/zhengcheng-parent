@@ -196,8 +196,9 @@ private void myPointcut7(){}
 
 ## 常见问题
 
-### java.lang.IllegalArgumentException: warning no match for this type name:
+- java.lang.IllegalArgumentException: warning no match for this type name: 原因： SpringAop注解的时候,写错了类名会导致的这个问题
 
-原因： SpringAop注解的时候,写错了类名会导致的这个问题
-     
+- 显示“有问题的CAT服务器[ip]”,请核查一下配置文件以及客户端路由中，都修改为内网ip
+
+- CAT的TOMCAT启动以后，重启请不要使用./shutdown.sh ，使用 ps -ef|grep tomcat 关闭(kill -9 )所有cat启动的进程
    
