@@ -1,5 +1,6 @@
-package com.zhengcheng.web.properties;
+package com.zhengcheng.web.property;
 
+import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
@@ -8,22 +9,12 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @author :    quansheng.zhang
  * @date :    2019/3/19 21:06
  */
+@Data
 @ConfigurationProperties(
         prefix = "spring.mvc.custom"
 )
 public class CustomMvcProperties {
 
     private String mobileMaskType = "none";
-
-    public CustomMvcProperties() {
-    }
-
-    public String getMobileMaskType() {
-        return this.mobileMaskType;
-    }
-
-    public void setMobileMaskType(String mobileMaskType) {
-        this.mobileMaskType = mobileMaskType;
-    }
 
 }

@@ -6,7 +6,7 @@ import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import com.zhengcheng.web.aspect.ControllerLogAspect;
 import com.zhengcheng.web.filter.MobileContextValueFilter;
-import com.zhengcheng.web.properties.CustomMvcProperties;
+import com.zhengcheng.web.property.CustomMvcProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;

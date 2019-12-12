@@ -98,5 +98,6 @@
       <option name="ignoreAnonymousInnerClasses" value="false" />
       <option name="superClassString" value="java.awt.Component" />
     </inspection_tool>
+    <inspection_tool class="SpringJavaAutowiredFieldsWarningInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
   </profile>
 </component>
