@@ -4,16 +4,16 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * ExecutorProperties
+ * ThreadPoolProperties
  *
  * @author :    zhangquansheng
  * @date :    2019/12/12 12:53
  */
 @Data
 @ConfigurationProperties(
-        prefix = "executor"
+        prefix = "thread.pool"
 )
-public class ExecutorProperties {
+public class ThreadPoolProperties {
 
     private int corePoolSize = 10;
 
