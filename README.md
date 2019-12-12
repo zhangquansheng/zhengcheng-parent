@@ -27,7 +27,7 @@ zc-cat-jdbc-spring-boot-starter | CAT监控通用组件[部署文档](https://gi
 
 ### 常见问题
 
-* 因为使用了携程VI，请在启动命令中加入-Denv=pro，其中pro是代表当前的环境，一般有dev、test、uat、pro
+* 因为使用了[携程VI](https://github.com/ctripcorp/vi)，请在启动命令中加入-Denv=pro，其中pro是代表当前的环境，一般有dev、test、uat、pro
 
 
 ### SpringBoot提供的条件化注解：
