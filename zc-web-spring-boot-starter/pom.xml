@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
     <artifactId>zc-web-spring-boot-starter</artifactId>
-    <description>Web模块通用组件</description>
+    <description>WEB模块通用组件</description>
 
     <dependencies>
         <dependency>
