@@ -22,6 +22,8 @@
   > 需要使用 feign.okhttp.OkHttpClient 或者 zc-feign-spring-boot-stater
 
 
+CAT服务端，客户端对机器均有一定的配置要求。
+
 ## optional属性的作用
 
 官方文档的说法
