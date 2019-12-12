@@ -17,9 +17,9 @@ public class ThreadPoolProperties {
 
     private int corePoolSize = 10;
 
-    private int maxPoolSize = 15;
+    private int maxPoolSize = 20;
 
-    private int queueCapacity = 20;
+    private int queueCapacity = 1000;
 
-    private int keepAliveSeconds = 60;
+    private int keepAliveSeconds = 300;
 }
