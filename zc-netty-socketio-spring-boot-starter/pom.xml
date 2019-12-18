@@ -13,6 +13,13 @@
     <artifactId>zc-netty-socketio-spring-boot-starter</artifactId>
     <description>即时聊天通用组件</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.corundumstudio.socketio</groupId>
+            <artifactId>netty-socketio</artifactId>
+        </dependency>
+    </dependencies>
+
     <build>
         <pluginManagement>
             <plugins>
