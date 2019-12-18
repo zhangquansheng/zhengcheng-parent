@@ -1,5 +1,8 @@
 package com.zhengcheng.socketio;
 
+import com.corundumstudio.socketio.SocketIOServer;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -10,5 +13,20 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class NettySocketAutoConfiguration {
+
+
+    @Value("${im.host}")
+    private String host;
+    @Value("${im.port}")
+    private Integer port;
+
+    @Bean
+    public SocketIOServer socketIOServer() throws Exception {
+        com.corundumstudio.socketio.Configuration socketIoConfig = new com.corundumstudio.socketio.Configuration();
+        socketIoConfig.setHostname(host);
+        socketIoConfig.setPort(port);
+        final SocketIOServer server = new SocketIOServer(socketIoConfig);
+        return server;
+    }
 
 }
