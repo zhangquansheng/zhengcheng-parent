@@ -14,6 +14,7 @@
         <module name="zc-common-spring-boot-starter" />
         <module name="zc-sentinel-spring-boot-starter" />
         <module name="zc-feign-spring-boot-starter" />
+        <module name="zc-netty-socketio-spring-boot-starter" />
         <module name="zc-web-spring-boot-starter" />
         <module name="zc-redis-spring-boot-starter" />
         <module name="zc-cat-spring-boot-starter" />
@@ -47,6 +48,7 @@
       <module name="zc-green-spring-boot-starter" options="-parameters" />
       <module name="zc-job-spring-boot-starter" options="-parameters" />
       <module name="zc-mq-spring-boot-starter" options="-parameters" />
+      <module name="zc-netty-socketio-spring-boot-starter" options="-parameters" />
       <module name="zc-oss-spring-boot-starter" options="-parameters" />
       <module name="zc-redis-spring-boot-starter" options="-parameters" />
       <module name="zc-sentinel-spring-boot-starter" options="-parameters" />
