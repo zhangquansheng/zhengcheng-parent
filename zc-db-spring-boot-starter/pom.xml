@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
     <artifactId>zc-db-spring-boot-starter</artifactId>
-    <description>数据库通用组件</description>
+    <description>Mysql数据库通用组件</description>
 
     <dependencies>
         <dependency>
@@ -18,8 +18,16 @@
             <artifactId>zc-common-spring-boot-starter</artifactId>
         </dependency>
         <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-generator</artifactId>
         </dependency>
     </dependencies>
 

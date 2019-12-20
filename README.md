@@ -11,7 +11,7 @@
 zc-web-spring-boot-starter | [WEB模块通用组件](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-web-spring-boot-starter)
 zc-auth-client-spring-boot-starter | 认证客户端通用组件
 zc-feign-spring-boot-starter | 远程通信通用组件
-zc-db-spring-boot-starter | 数据库通用组件
+zc-db-spring-boot-starter | Mysql数据库通用组件
 zc-mq-spring-boot-starter | 阿里云消息队列通用组件
 zc-redis-spring-boot-starter | 缓存通用组件
 zc-sentinel-spring-boot-starter | 服务降级、熔断和限流通用组件
