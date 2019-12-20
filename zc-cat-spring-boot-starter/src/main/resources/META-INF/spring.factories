@@ -5,5 +5,4 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   com.zhengcheng.cat.plugin.aspect.CatAspect,\
   com.zhengcheng.cat.plugin.logback.CatLogbackAppender,\
   com.zhengcheng.cat.plugin.feign.FeignPluginTemplate,\
-  com.zhengcheng.cat.CatFeignConfiguration,\
-  com.zhengcheng.cat.plugin.cache.RedisPluginTemplate
+  com.zhengcheng.cat.CatFeignConfiguration
