@@ -10,7 +10,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 
 /**
@@ -29,13 +29,10 @@ public class BaseEntity<T extends Model<?>> extends Model<T> {
     private Long id;
     @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     @TableField(fill = FieldFill.INSERT)
-    private Date gmtCreate;
+    private LocalDateTime gmtCreate;
     @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     @TableField(fill = FieldFill.INSERT_UPDATE)
-    private Date gmtModified;
-    @JSONField(serialize = false)
-    @TableField(value = "is_deleted", fill = FieldFill.INSERT)
-    private boolean deleted;
+    private LocalDateTime gmtModified;
 
     @Override
     protected Serializable pkVal() {
