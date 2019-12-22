@@ -8,10 +8,10 @@
 
  name | description
 ---|---
-zc-web-spring-boot-starter | [WEB模块通用组件](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-web-spring-boot-starter)
+zc-web-spring-boot-starter | WEB模块通用组件[使用文档](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-web-spring-boot-starter)
 zc-auth-client-spring-boot-starter | 认证客户端通用组件
 zc-feign-spring-boot-starter | 远程通信通用组件
-zc-db-spring-boot-starter | Mysql数据库通用组件
+zc-db-spring-boot-starter | Mysql数据库通用组件[使用文档](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-db-spring-boot-starter)
 zc-mq-spring-boot-starter | 阿里云消息队列通用组件
 zc-redis-spring-boot-starter | 缓存通用组件
 zc-sentinel-spring-boot-starter | 服务降级、熔断和限流通用组件
@@ -21,7 +21,7 @@ zc-sharding-jdbc-spring-boot-starter | 分库分表通用组件
 zc-common-spring-boot-starter | 公共库通用组件(module之间的公共部分)
 zc-green-spring-boot-starter |  内容安全模块通用组件(阿里云)[使用文档](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-green-spring-boot-starter)
 zc-cat-jdbc-spring-boot-starter | CAT监控通用组件[部署文档](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-cat-spring-boot-starter)
-
+zc-netty-socketio-spring-boot-starter | 即时聊天通用组件
 ## **FAQ**
 
 ### 开发 
