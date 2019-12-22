@@ -30,7 +30,7 @@ zc-cat-jdbc-spring-boot-starter | CAT监控通用组件[部署文档](https://gi
 - [开发手册](https://gitee.com/zhangquansheng/zhengcheng-parent/blob/master/doc/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4java%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C1.40.pdf)
 - [自我修养](https://gitee.com/zhangquansheng/zhengcheng-parent/blob/master/doc/%E9%98%BF%E9%87%8C%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB.pdf)
  
-### 常见问题
+### Apollo 和 VI
 
 * 因为使用了[携程VI](https://github.com/ctripcorp/vi)，请在启动命令中加入-Denv=pro，其中pro是代表当前的环境，一般有dev、test、uat、pro
 
@@ -38,6 +38,8 @@ zc-cat-jdbc-spring-boot-starter | CAT监控通用组件[部署文档](https://gi
 
 - [mvn] -N versions:update-child-modules 根据parent的版本，更新module的版本号
 - [mvn] clean source:jar javadoc:jar deploy -Dmaven.test.skip=true  跳过测试并打包发布源码和注释到远程仓库，必须要使用mvn命令，因为idea右侧maven生命周期deploy时是没有打包源码操作的，所以需要输入命令先打包源码source:jar
+
+## **附录**
 
 ### 联系方式
 
