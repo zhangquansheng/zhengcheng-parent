@@ -50,3 +50,8 @@ zc-cat-jdbc-spring-boot-starter | CAT监控通用组件[部署文档](https://gi
 
 - [mvn] -N versions:update-child-modules 根据parent的版本，更新module的版本号
 - [mvn] clean source:jar javadoc:jar deploy -Dmaven.test.skip=true  跳过测试并打包发布源码和注释到远程仓库，必须要使用mvn命令，因为idea右侧maven生命周期deploy时是没有打包源码操作的，所以需要输入命令先打包源码source:jar
+
+### 联系方式
+
+- Email：952547584@qq.com
+- 微信号：z088600
