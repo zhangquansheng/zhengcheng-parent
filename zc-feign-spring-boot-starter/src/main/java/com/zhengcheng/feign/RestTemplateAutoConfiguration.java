@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
  * @author :    quansheng.zhang
  * @date :    2019/7/28 22:50
  */
-public class RestTemplateAutoConfigure {
+public class RestTemplateAutoConfiguration {
 
     @Bean
     @LoadBalanced

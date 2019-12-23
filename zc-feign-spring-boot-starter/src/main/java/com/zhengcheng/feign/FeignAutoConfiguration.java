@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Import;
  */
 @Import({FeignOkHttpConfig.class})
 @Configuration
-public class FeignAutoConfigure {
+public class FeignAutoConfiguration {
 
     /**
      * Feign 日志级别
