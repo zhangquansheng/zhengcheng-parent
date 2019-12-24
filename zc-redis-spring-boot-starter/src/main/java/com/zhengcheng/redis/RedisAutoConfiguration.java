@@ -35,7 +35,7 @@ import java.util.Map;
 @Import({RedisDistributedLock.class})
 @EnableConfigurationProperties({RedisProperties.class, CacheManagerProperties.class})
 @EnableCaching
-public class RedisAutoConfigure {
+public class RedisAutoConfiguration {
 
     @Autowired
     private CacheManagerProperties cacheManagerProperties;
