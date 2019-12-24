@@ -3,7 +3,7 @@ package com.zhengcheng.db.config;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import org.apache.ibatis.reflection.MetaObject;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  * 自定义填充公共 name 字段
@@ -25,12 +25,12 @@ public class DateMetaObjectHandler implements MetaObjectHandler {
         Object gmtModified = getFieldValByName(GMT_MODIFIED, metaObject);
         Object deleted = getFieldValByName(DELETED, metaObject);
         if (gmtCreate == null || gmtModified == null || deleted == null) {
-            Date date = new Date();
+            LocalDateTime now = LocalDateTime.now();
             if (gmtCreate == null) {
-                setFieldValByName(GMT_CREATE, date, metaObject);
+                setFieldValByName(GMT_CREATE, now, metaObject);
             }
             if (gmtModified == null) {
-                setFieldValByName(GMT_MODIFIED, date, metaObject);
+                setFieldValByName(GMT_MODIFIED, now, metaObject);
             }
             if (deleted == null) {
                 setFieldValByName(DELETED, Boolean.FALSE, metaObject);
@@ -46,6 +46,6 @@ public class DateMetaObjectHandler implements MetaObjectHandler {
     @Override
     public void updateFill(MetaObject metaObject) {
         //mybatis-plus版本2.0.9+
-        setFieldValByName(GMT_MODIFIED, new Date(), metaObject);
+        setFieldValByName(GMT_MODIFIED, LocalDateTime.now(), metaObject);
     }
 }
