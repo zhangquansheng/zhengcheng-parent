@@ -11,6 +11,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.ApplicationContext;
 import org.springframework.util.CollectionUtils;
 
+import javax.annotation.PreDestroy;
 import java.util.List;
 
 /**
@@ -58,7 +59,14 @@ public class ConsumerRunner implements CommandLineRunner {
             });
         }
         consumer.start();
-        log.info("Consumer Started");
+        log.info("Consumer server started");
+    }
+
+    @PreDestroy
+    public void stop() {
+        log.info("Consumer server shutdown");
+        Consumer consumer = applicationContext.getBean(Consumer.class);
+        consumer.shutdown();
     }
 
 }
