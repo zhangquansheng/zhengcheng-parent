@@ -1,6 +1,7 @@
 package com.zhengcheng.mq.runner;
 
-import com.aliyun.openservices.ons.api.*;
+import com.aliyun.openservices.ons.api.Action;
+import com.aliyun.openservices.ons.api.Consumer;
 import com.zhengcheng.mq.factory.ConsumerFactory;
 import com.zhengcheng.mq.handler.IConsumerHandler;
 import com.zhengcheng.mq.properties.ConsumerProperties;
@@ -39,22 +40,19 @@ public class ConsumerRunner implements CommandLineRunner {
         Consumer consumer = applicationContext.getBean(Consumer.class);
         List<SubscriptionTable> subscriptions = consumerProperties.getSubscriptions();
         if (!CollectionUtils.isEmpty(subscriptions)) {
-            subscriptions.stream().forEach(subscriptionTable -> {
+            subscriptions.forEach(subscriptionTable -> {
                 log.info("subscribe topic:{},expression:{}", subscriptionTable.getTopic(), subscriptionTable.getExpression());
-                consumer.subscribe(subscriptionTable.getTopic(), subscriptionTable.getExpression(), new MessageListener() {
-                    @Override
-                    public Action consume(Message message, ConsumeContext context) {
-                        String event = message.getTag();
-                        String body = new String(message.getBody());
-                        IConsumerHandler consumerHandler = consumerFactory.create(event);
-                        if (consumerHandler != null) {
-                            log.info("Receive: event: {}, body: {}", event, body);
-                            return consumerHandler.execute(body);
-                        } else {
-                            log.error("commit message, but create handler IllegalArgumentException, event:{}, body:{}", event, body);
-                        }
-                        return Action.CommitMessage;
+                consumer.subscribe(subscriptionTable.getTopic(), subscriptionTable.getExpression(), (message, context) -> {
+                    String event = message.getTag();
+                    String body = new String(message.getBody());
+                    IConsumerHandler consumerHandler = consumerFactory.create(event);
+                    if (consumerHandler != null) {
+                        log.info("Receive: event: {}, body: {}", event, body);
+                        return consumerHandler.execute(body);
+                    } else {
+                        log.error("commit message, but create handler IllegalArgumentException, event:{}, body:{}", event, body);
                     }
+                    return Action.CommitMessage;
                 });
             });
         }
