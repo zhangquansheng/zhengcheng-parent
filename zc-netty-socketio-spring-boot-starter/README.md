@@ -15,10 +15,10 @@ zhengcheng-parent 升级到最新版本，JDK1.8 ，Redis3.2版本及以上
 pom文件引入
 
 ```
-      <dependency>
-            <groupId>com.zhengcheng</groupId>
-            <artifactId>zc-netty-socketio-spring-boot-starter</artifactId>
-       </dependency>
+  <dependency>
+        <groupId>com.zhengcheng</groupId>
+        <artifactId>zc-netty-socketio-spring-boot-starter</artifactId>
+  </dependency>
 ```
 
 ### **设置**
