@@ -9,9 +9,10 @@ import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationDetails;
 
 /**
- * feign拦截器
+ * Feign OAuth2 拦截器，需要手动配置FeignClient中
  *
- * @author zlt
+ * @author :    quansheng.zhang
+ * @date :    2019/6/29 16:07
  */
 public class FeignInterceptorConfig {
 
