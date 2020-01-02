@@ -37,7 +37,7 @@ mybatis-plus.type-enums-package = com.zhengcheng.user.enums
 
 ## 多数据源配置整合
 
-> [动态数据源](https://mp.baomidou.com/guide/dynamic-datasource.html)
+> 参考[动态数据源](https://mp.baomidou.com/guide/dynamic-datasource.html)
 
 ### 数据源配置
 
