@@ -33,4 +33,6 @@ mybatis-plus.configuration.map-underscore-to-camel-case = true
 mybatis-plus.type-enums-package = com.zhengcheng.user.enums
 ```
 
-更多设置请参考MybatisPlus官方文档
+> 更多设置请参考MybatisPlus官方文档
+
+## 多数据源配置
