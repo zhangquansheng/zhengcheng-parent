@@ -21,7 +21,7 @@ zc-sharding-jdbc-spring-boot-starter | 分库分表通用组件
 zc-common-spring-boot-starter | 公共库通用组件(module之间的公共部分)
 zc-green-spring-boot-starter |  内容安全模块通用组件(阿里云)[使用文档](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-green-spring-boot-starter)
 zc-cat-jdbc-spring-boot-starter | CAT监控通用组件[部署文档](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-cat-spring-boot-starter)
-zc-netty-socketio-spring-boot-starter | 即时聊天通用组件
+zc-netty-socketio-spring-boot-starter | 即时聊天通用组件[使用文档](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-netty-socketio-spring-boot-starter)
 ## **FAQ**
 
 ### 开发 
