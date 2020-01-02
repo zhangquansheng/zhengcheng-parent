@@ -8,7 +8,11 @@
 
 ### **环境准备**
 
-zhengcheng-parent 升级到最新版本，pom文件引入
+zhengcheng-parent 升级到最新版本，Redis3.2版本级以上
+
+### **安装**
+
+pom文件引入
 
 ```
       <dependency>
@@ -16,9 +20,6 @@ zhengcheng-parent 升级到最新版本，pom文件引入
             <artifactId>zc-netty-socketio-spring-boot-starter</artifactId>
        </dependency>
 ```
-
-### **安装**
-
 
 ### **设置**
 
