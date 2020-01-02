@@ -19,7 +19,6 @@ import java.util.Map;
  * @date :    2019/8/13 0:21
  */
 @Slf4j
-@Component
 public class ConsumerFactory implements ApplicationContextAware {
 
     @Autowired
