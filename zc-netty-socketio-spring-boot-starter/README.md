@@ -8,7 +8,7 @@
 
 ### **环境准备**
 
-zhengcheng-parent 升级到最新版本，Redis3.2版本级以上
+zhengcheng-parent 升级到最新版本，JDK1.8 ，Redis3.2版本及以上
 
 ### **安装**
 
