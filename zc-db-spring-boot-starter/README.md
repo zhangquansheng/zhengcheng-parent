@@ -107,4 +107,21 @@ public class MasterMybatisPlusConfig {
 }
 ```
 
+### 配置信息
+
+```
+spring.datasource.hikari.master.hikari.auto-commit=true
+spring.datasource.hikari.master.hikari.connection-test-query=SELECT 1
+spring.datasource.hikari.master.hikari.connection-timeout=30000
+spring.datasource.hikari.master.hikari.idle-timeout=180000
+spring.datasource.hikari.master.hikari.max-lifetime=1800000
+spring.datasource.hikari.master.hikari.maximum-pool-size=10
+spring.datasource.hikari.master.hikari.minimum-idle=5
+spring.datasource.hikari.master.name=master
+spring.datasource.hikari.master.type=com.zaxxer.hikari.HikariDataSource
+spring.datasource.hikari.master.jdbc-url=jdbc:mysql://127.0.0.1:3306/master?useSSL=false&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull
+spring.datasource.hikari.master.username=root
+spring.datasource.hikari.master.password=root
+```
+
 
