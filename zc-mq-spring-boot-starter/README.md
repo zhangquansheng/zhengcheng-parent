@@ -31,9 +31,9 @@ mq.consumer.access-key =
 # AccessKeySecret 阿里云身份验证，在阿里云服务器管理控制台创建
 mq.consumer.secret-key = 
 # 集群订阅方式 (默认)
-mq.consumer.message-model
+mq.consumer.message-model =
 # 设置 TCP 接入域名，进入控制台的实例管理页面的“获取接入点信息”区域查看
-mq.consumer.namesrv-addr
+mq.consumer.namesrv-addr = 
 # 主题
 mq.consumer.subscriptions[0].topic = 
 # 消息过滤表达式
