@@ -130,7 +130,7 @@ spring.datasource.hikari.master.password=root
 
 ## **MySQL官方驱动**主从分离
 
-> [ReplicationDriver](https://dev.mysql.com/doc/refman/5.1/en/connector-j-reference-replication-connection.html)
+> ReplicationDriver
 
 ### 配置信息
 
