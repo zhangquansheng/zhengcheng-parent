@@ -53,3 +53,18 @@ mq.producer.send-timeout =
 
 ## 使用
 
+### 消费者
+
+```
+@Component
+// TAG模式过滤
+@Event({"EVENT_0001"})
+public class DemoHandler implements IConsumerHandler{
+
+     @Override
+     public Action execute(String body){
+        // TODO body是收到的消息，完成消费动作
+        return Action.CommitMessage;
+     }
+}
+```
