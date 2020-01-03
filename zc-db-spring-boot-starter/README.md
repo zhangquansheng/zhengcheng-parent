@@ -130,4 +130,30 @@ spring.datasource.hikari.master.password=root
 
 ## **MySQL官方驱动**主从分离
 
+> Replication协议
+
+### 配置信息
+
+```
+# 改jdbc连接 jdbc:mysql://127.0.0.1:3306/test?characterEncoding=UTF-8
+spring.datasource.url=jdbc:mysql:replication://127.0.0.1:3306,127.0.0.1:3306,127.0.0.1:3306/zc-im?useUnicode=true&characterEncoding=UTF-8&autoReconnect=false&loadBalanceStrategy=random&autoReconnect=true&rewriteBatchedStatements=TRUE&zeroDateTimeBehavior=convertToNull
+# 改驱动类 com.mysql.jdbc.Driver
+spring.datasource.jdbc-driver=com.mysql.jdbc.ReplicationDriver
+```
+
+这种情况下 DataSource.getConnection() 获取的连接，实际上是ReplicationConnection，这个连接是虚拟的，和真实的数据库连接是个1对多的关系，所以记得给每一个MySQL都做上相应的机器授权。
+
+如何来区别本次请求是读是写？其实是通过Connection中的readonly属性传递的。readonly=true的时，走从库查询。
+
+对于Spring来说，就可以使用@Transactional注解来控制这个属性了。一个事务不可能跨两个连接，所以是读是写，有最高层决定。
+
+```
+  // 只读事务，走从库查询
+  @Transactional(readOnly = true)
+```
+
+有些情况下，我们不需要为了一个读写分离，在复杂的查询中增加一个事务的开销，所以本项目中提供了@ReadOnlyConnection注解，作用是把Connection的readonly设置成true。
+
+
+
 
