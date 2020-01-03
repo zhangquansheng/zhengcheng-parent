@@ -128,4 +128,6 @@ spring.datasource.hikari.master.username=root
 spring.datasource.hikari.master.password=root
 ```
 
+## **MySQL官方驱动**主从分离
+
 
