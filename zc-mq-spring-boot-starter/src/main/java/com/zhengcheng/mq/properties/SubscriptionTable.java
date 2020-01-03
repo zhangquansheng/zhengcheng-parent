@@ -12,6 +12,12 @@ import java.io.Serializable;
  */
 @Data
 public class SubscriptionTable implements Serializable {
+    /**
+     * 主题
+     */
     private String topic;
+    /**
+     * 消息过滤表达式
+     */
     private String expression;
 }
