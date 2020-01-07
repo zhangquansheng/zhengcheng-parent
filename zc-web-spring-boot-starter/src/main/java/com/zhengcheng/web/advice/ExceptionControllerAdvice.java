@@ -36,7 +36,7 @@ public class ExceptionControllerAdvice {
     @ExceptionHandler({IllegalArgumentException.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public Result badRequestException(IllegalArgumentException e) {
-        log.error("IllegalArgumentException:", e);
+        log.error("IllegalArgumentException:{}", e.getMessage(), e);
         return Result.create(CodeEnum.BAD_REQUEST.getCode(), CodeEnum.BAD_REQUEST.getMessage(), e);
     }
 
@@ -66,7 +66,7 @@ public class ExceptionControllerAdvice {
     @ExceptionHandler({SQLException.class})
     @ResponseStatus(HttpStatus.OK)
     public Result handleSQLException(SQLException e) {
-        log.error("SQLException:", e);
+        log.error("SQLException:{}", e.getMessage(), e);
         return Result.create(CodeEnum.INTERNAL_SERVER_ERROR.getCode(), "服务运行SQLException异常", e);
     }
 
@@ -77,7 +77,7 @@ public class ExceptionControllerAdvice {
     @ExceptionHandler(BizException.class)
     @ResponseStatus(HttpStatus.OK)
     public Result handleException(BizException e) {
-        log.info("BizException:", e.getMessage());
+        log.info("BizException:{}", e.getMessage());
         return Result.create(e.getCode(), e.getMessage());
     }
 
