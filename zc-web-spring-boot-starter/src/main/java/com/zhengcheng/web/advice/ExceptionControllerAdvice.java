@@ -1,4 +1,4 @@
-package com.zhengcheng.web.interceptor;
+package com.zhengcheng.web.advice;
 
 import com.zhengcheng.common.enumeration.CodeEnum;
 import com.zhengcheng.common.exception.BizException;
@@ -6,7 +6,6 @@ import com.zhengcheng.common.exception.IdempotentException;
 import com.zhengcheng.common.web.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.access.AccessDeniedException;
 import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.HttpMediaTypeNotSupportedException;
@@ -15,6 +14,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.sql.SQLException;
 import java.util.Objects;
@@ -26,6 +26,7 @@ import java.util.Objects;
  * @date :    2019/2/28 21:00
  */
 @Slf4j
+@RestControllerAdvice
 public class ExceptionControllerAdvice {
 
     /**
@@ -57,16 +58,6 @@ public class ExceptionControllerAdvice {
         return Result.create(CodeEnum.UNSUPPORTED_MEDIA_TYPE.getCode(), CodeEnum.UNSUPPORTED_MEDIA_TYPE.getMessage(), e);
     }
 
-    /**
-     * BusinessException 业务异常处理
-     * 返回状态码:200
-     */
-    @ExceptionHandler(AccessDeniedException.class)
-    @ResponseStatus(HttpStatus.OK)
-    public Result handleException(AccessDeniedException e) {
-        log.info("AccessDeniedException:", e.getMessage());
-        return Result.create(CodeEnum.FORBIDDEN.getCode(), CodeEnum.FORBIDDEN.getMessage());
-    }
 
     /**
      * SQLException sql异常处理

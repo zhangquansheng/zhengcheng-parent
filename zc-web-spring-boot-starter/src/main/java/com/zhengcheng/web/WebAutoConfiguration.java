@@ -9,6 +9,7 @@ import com.zhengcheng.web.filter.MobileContextValueFilter;
 import com.zhengcheng.web.property.CustomMvcProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
@@ -31,6 +32,7 @@ import java.util.List;
  */
 @Configuration
 @Import({ControllerLogAspect.class})
+@ComponentScan("com.zhengcheng.web.advice")
 @EnableConfigurationProperties({CustomMvcProperties.class})
 public class WebAutoConfiguration implements WebMvcConfigurer {
 
