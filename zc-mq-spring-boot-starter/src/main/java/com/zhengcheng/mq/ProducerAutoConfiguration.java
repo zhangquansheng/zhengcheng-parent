@@ -32,7 +32,6 @@ public class ProducerAutoConfiguration {
     @ConditionalOnMissingBean
     public Producer producer(ProducerProperties producerProperties) {
         Properties properties = new Properties();
-        properties.setProperty(PropertyKeyConst.ProducerId, producerProperties.getId());
         properties.setProperty(PropertyKeyConst.AccessKey, producerProperties.getAccessKey());
         properties.setProperty(PropertyKeyConst.SecretKey, producerProperties.getSecretKey());
         properties.setProperty(PropertyKeyConst.SendMsgTimeoutMillis, String.valueOf(producerProperties.getSendTimeout()));
