@@ -33,6 +33,7 @@ public class NettySocketAutoConfiguration {
     @Bean
     public SocketIOServer socketIOServer(NettySocketProperties nettySocketProperties) {
         com.corundumstudio.socketio.Configuration config = new com.corundumstudio.socketio.Configuration();
+        config.setOrigin(nettySocketProperties.getOrigin());
         config.setHostname(nettySocketProperties.getHost());
         config.setPort(nettySocketProperties.getPort());
         if (nettySocketProperties.getRedisson().isEnable()) {
