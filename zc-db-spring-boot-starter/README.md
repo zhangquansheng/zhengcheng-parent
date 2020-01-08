@@ -158,7 +158,7 @@ spring.datasource.jdbc-driver=com.mysql.jdbc.ReplicationDriver
 - 4.x
 ```
 spring.datasource.url=jdbc:mysql:replication://127.0.0.1:3306,127.0.0.1:3306,127.0.0.1:3306/db?characterEncoding=UTF-8&useSSL=false&autoReconnect=true&allowMasterDownConnections=true&serverTimezone=GMT%2B8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
-spring.datasource.jdbc-driver=com.mysql.jdbc.ReplicationDriver
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 ```
 
 
