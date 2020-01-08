@@ -131,8 +131,8 @@ spring.datasource.hikari.master.password=root
 
 - 4.x
 
-> mysql-connector-java 5 升级到 mysql-connector-java 6
->
+> mysql-connector-java 5.x 升级到 mysql-connector-java 8.x (6+)
+
 ```
 spring.datasource.url=jdbc:mysql://127.0.0.1:3306/master?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&serverTimezone=GMT%2B8
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
