@@ -113,6 +113,7 @@ public class MasterMybatisPlusConfig {
 
 ### 配置信息
 
+- 3.x
 ```
 spring.datasource.hikari.master.hikari.auto-commit=true
 spring.datasource.hikari.master.hikari.connection-test-query=SELECT 1
@@ -128,11 +129,23 @@ spring.datasource.hikari.master.username=root
 spring.datasource.hikari.master.password=root
 ```
 
+- 4.x
+
+> mysql-connector-java 5 升级到 mysql-connector-java 6
+>
+```
+spring.datasource.url=jdbc:mysql://127.0.0.1:3306/master?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&serverTimezone=GMT%2B8
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+```
+
+
 ## **MySQL官方驱动**主从分离
 
 > ReplicationDriver
 
 ### 配置信息
+
+- 3.x
 
 ```
 # 改jdbc连接 jdbc:mysql://127.0.0.1:3306/test?characterEncoding=UTF-8
