@@ -16,36 +16,31 @@ public class DateMetaObjectHandler implements MetaObjectHandler {
     private final String GMT_MODIFIED = "gmtModified";
     private final String DELETED = "deleted";
 
-    /**
-     * 插入填充，字段为空自动填充
-     */
     @Override
     public void insertFill(MetaObject metaObject) {
-        Object gmtCreate = getFieldValByName(GMT_CREATE, metaObject);
-        Object gmtModified = getFieldValByName(GMT_MODIFIED, metaObject);
-        Object deleted = getFieldValByName(DELETED, metaObject);
-        if (gmtCreate == null || gmtModified == null || deleted == null) {
-            LocalDateTime now = LocalDateTime.now();
-            if (gmtCreate == null) {
-                setFieldValByName(GMT_CREATE, now, metaObject);
-            }
-            if (gmtModified == null) {
-                setFieldValByName(GMT_MODIFIED, now, metaObject);
-            }
-            if (deleted == null) {
-                setFieldValByName(DELETED, Boolean.FALSE, metaObject);
-            }
-        }
+        LocalDateTime now = LocalDateTime.now();
+        this.setFieldValByName(GMT_CREATE, now, metaObject);
+        this.setFieldValByName(GMT_MODIFIED, now, metaObject);
+        this.setFieldValByName(DELETED, Boolean.FALSE, metaObject);
+//        Object gmtCreate = getFieldValByName(GMT_CREATE, metaObject);
+//        Object gmtModified = getFieldValByName(GMT_MODIFIED, metaObject);
+//        Object deleted = getFieldValByName(DELETED, metaObject);
+//        if (gmtCreate == null || gmtModified == null || deleted == null) {
+//            LocalDateTime now = LocalDateTime.now();
+//            if (gmtCreate == null) {
+//                this.setFieldValByName(GMT_CREATE, now, metaObject);
+//            }
+//            if (gmtModified == null) {
+//                this.setFieldValByName(GMT_MODIFIED, now, metaObject);
+//            }
+//            if (deleted == null) {
+//                this.setFieldValByName(DELETED, Boolean.FALSE, metaObject);
+//            }
+//        }
     }
 
-    /**
-     * 更新填充
-     *
-     * @param metaObject
-     */
     @Override
     public void updateFill(MetaObject metaObject) {
-        //mybatis-plus版本2.0.9+
-        setFieldValByName(GMT_MODIFIED, LocalDateTime.now(), metaObject);
+        this.setFieldValByName(GMT_MODIFIED, LocalDateTime.now(), metaObject);
     }
 }
