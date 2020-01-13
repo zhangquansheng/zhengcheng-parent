@@ -2,6 +2,8 @@ package com.zhengcheng.auth.client.interceptor;
 
 import feign.RequestInterceptor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -14,6 +16,7 @@ import org.springframework.security.oauth2.provider.authentication.OAuth2Authent
  * @date :    2019/3/24 13:57
  */
 @Slf4j
+@ConditionalOnClass({RequestInterceptor.class, FeignClient.class})
 public class OAuth2FeignRequestInterceptor implements RequestInterceptor {
 
     private final String AUTHORIZATION_HEADER = "Authorization";
