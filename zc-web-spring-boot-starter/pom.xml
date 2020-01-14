@@ -38,11 +38,6 @@
             <artifactId>cornerstone</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.security.oauth</groupId>
-            <artifactId>spring-security-oauth2</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
             <groupId>com.zhengcheng</groupId>
             <artifactId>zc-common-spring-boot-starter</artifactId>
         </dependency>
