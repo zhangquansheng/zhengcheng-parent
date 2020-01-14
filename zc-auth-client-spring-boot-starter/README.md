@@ -1,6 +1,8 @@
 # 认证客户端通用组件
 
-[`spring-security-oauth`](https://github.com/spring-projects/spring-security-oauth) [`OAuth 2.0 Migration Guide`](https://github.com/spring-projects/spring-security/wiki/OAuth-2.0-Migration-Guide)
+- [`spring-security`](https://github.com/spring-projects/spring-security)
+- [`spring-security-oauth`](https://github.com/spring-projects/spring-security-oauth)
+- [`OAuth 2.0 Migration Guide`](https://github.com/spring-projects/spring-security/wiki/OAuth-2.0-Migration-Guide)
 
 
 ## 其他的实现参考
