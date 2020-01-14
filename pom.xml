@@ -385,11 +385,11 @@
     <distributionManagement>
         <repository>
             <id>rdc-releases</id>
-            <url>https://repo.rdc.aliyun.com/repository/106415-release-OcvxIZ/</url>
+            <url>https://repo.rdc.aliyun.com/repository/109009-release-dsTWgK/</url>
         </repository>
         <snapshotRepository>
             <id>rdc-snapshots</id>
-            <url>https://repo.rdc.aliyun.com/repository/106415-snapshot-yTYLma/</url>
+            <url>https://repo.rdc.aliyun.com/repository/109009-snapshot-Q8xK21/</url>
         </snapshotRepository>
     </distributionManagement>
 
