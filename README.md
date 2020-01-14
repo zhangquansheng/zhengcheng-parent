@@ -4,6 +4,18 @@
 
 `简化开发` `效率至上`
 
+### **环境准备**
+
+- 4.x
+    - `JDK 1.8 or later`
+    - [`Maven 3.2+`](https://maven.apache.org/download.cgi)
+    - [`SpringBoot 2.1.11.RELEASE`](https://spring.io/projects/spring-boot)
+    - [`spring-cloud Greenwich.SR4`](https://cloud.spring.io/spring-cloud-static/Greenwich.SR4/single/spring-cloud.html)
+- 3.12.0
+    - `JDK 1.8 or later`
+    - [`Maven 3.2+`](https://maven.apache.org/download.cgi)
+    - [`SpringBoot 2.0.8.RELEASE`](https://spring.io/projects/spring-boot)
+    - [`SpringCloud Finchley.SR3`](https://cloud.spring.io/spring-cloud-static/Finchley.SR4/single/spring-cloud.html)
 
 ## 组件说明(module)
 
