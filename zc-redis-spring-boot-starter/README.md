@@ -40,3 +40,11 @@ spring:
         min-idle: 0
 ```
 
+### Redis的三个框架：Jedis,Redisson,Lettuce
+
+> SpringBoot2.0默认采用Lettuce客户端来连接Redis服务端的
+
+- Jedis：是Redis的Java实现客户端，提供了比较全面的Redis命令的支持，
+- Redisson：实现了分布式和可扩展的Java数据结构。
+- Lettuce：高级Redis客户端，用于线程安全同步，异步和响应使用，支持集群，Sentinel，管道和编码器。
+
