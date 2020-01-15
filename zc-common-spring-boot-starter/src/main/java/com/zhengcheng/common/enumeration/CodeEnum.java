@@ -21,7 +21,14 @@ public enum CodeEnum {
     UNSUPPORTED_MEDIA_TYPE(415, "不支持当前媒体类型"),
     INTERNAL_SERVER_ERROR(500, "系统升级中，请稍后重试！");
 
+    /**
+     * 编码
+     */
     private Integer code;
+
+    /**
+     * 消息
+     */
     private String message;
 
     CodeEnum(int code, String message) {

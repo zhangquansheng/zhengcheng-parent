@@ -2,6 +2,7 @@ package com.zhengcheng.green.dto;
 
 import com.alibaba.fastjson.JSONObject;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * @date :    2019/12/3 21:19
  */
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class TextResult extends BaseResult {
     /**
      * 附加信息，扩展字段。
