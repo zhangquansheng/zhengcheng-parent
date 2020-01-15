@@ -30,6 +30,5 @@ public class CatFeignConfiguration implements RequestInterceptor {
         requestTemplate.header(CatMsgConstants.CAT_HTTP_HEADER_PARENT_MESSAGE_ID, catContext.getProperty(Cat.Context.PARENT));
         requestTemplate.header(CatMsgConstants.CAT_HTTP_HEADER_CHILD_MESSAGE_ID, catContext.getProperty(Cat.Context.CHILD));
         requestTemplate.header(CatMsgConstants.APPLICATION_KEY, Cat.getManager().getDomain());
-
     }
 }
