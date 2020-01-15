@@ -50,7 +50,7 @@
         <aliyun-java-sdk-green.version>3.5.1</aliyun-java-sdk-green.version>
         <aliyun.ons-client.version>1.8.2.Final</aliyun.ons-client.version>
         <fastjson.version>1.2.61</fastjson.version>
-        <guava.version>27.0.1-jre</guava.version>
+        <guava.version>28.1-jre</guava.version>
         <sentinel-datasource-apollo.version>1.6.3</sentinel-datasource-apollo.version>
         <spring-cloud-starter-alibaba-sentinel.version>0.2.2.RELEASE</spring-cloud-starter-alibaba-sentinel.version>
         <xxl-job-core.version>2.0.2</xxl-job-core.version>

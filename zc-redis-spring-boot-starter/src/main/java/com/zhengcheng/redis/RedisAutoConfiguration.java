@@ -51,10 +51,9 @@ public class RedisAutoConfiguration {
         redisTemplate.setConnectionFactory(factory);
 
         RedisSerializer stringSerializer = new StringRedisSerializer();
-        RedisSerializer redisObjectSerializer = new RedisObjectSerializer();
         redisTemplate.setKeySerializer(stringSerializer);
         redisTemplate.setHashKeySerializer(stringSerializer);
-        redisTemplate.setValueSerializer(redisObjectSerializer);
+        redisTemplate.setValueSerializer(new RedisObjectSerializer());
         redisTemplate.afterPropertiesSet();
         return redisTemplate;
     }
