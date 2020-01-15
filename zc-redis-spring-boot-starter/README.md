@@ -40,6 +40,11 @@ spring:
         min-idle: 0
 ```
 
+### redis 基本操作
+
+- RedisRepository 
+
+
 ### Redis的三个框架：Jedis,Redisson,Lettuce
 
 > SpringBoot2.0默认采用Lettuce客户端来连接Redis服务端的
