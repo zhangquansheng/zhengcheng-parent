@@ -4,7 +4,7 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * Description
+ * 腾讯云属性
  *
  * @author :    zhangquansheng
  * @date :    2020/1/16 17:22

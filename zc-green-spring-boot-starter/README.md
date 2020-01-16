@@ -1,4 +1,4 @@
-# 内容安全模块通用组件(阿里云)
+# 内容安全模块通用组件(阿里云、腾讯云)
 
 > [什么是内容安全](https://help.aliyun.com/document_detail/28417.html?spm=a2c4g.11174283.6.542.51647487jEe3gQ)
 
@@ -117,5 +117,7 @@ aliyun.acs.accessKeySecret = 您的accessKeySecret
       "url": "https://queqiaohui.oss-cn-hangzhou.aliyuncs.com/20191122114705-df1ed5d7-b596-4394-8f50-389693d3bd05.jpg"
     }
 ```
+
+### ITencentcloudCmsService 腾讯云内容安全
 
 
