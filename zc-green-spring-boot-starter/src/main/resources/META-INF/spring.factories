@@ -1,2 +1,3 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.zhengcheng.green.GreenAutoConfiguration
+  com.zhengcheng.green.AliYunGreenAutoConfiguration,\
+  com.zhengcheng.green.TencentcloudAutoConfiguration
