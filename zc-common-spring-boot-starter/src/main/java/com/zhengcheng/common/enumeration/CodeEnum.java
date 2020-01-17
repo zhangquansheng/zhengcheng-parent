@@ -3,7 +3,7 @@ package com.zhengcheng.common.enumeration;
 import lombok.Getter;
 
 /**
- * Result
+ * 统一返回码枚举
  *
  * @author :    quansheng.zhang
  * @date :    2019/2/28 21:00
