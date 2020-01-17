@@ -62,7 +62,7 @@
         <freemarker.version>2.3.29</freemarker.version>
         <hutool.version>5.1.0</hutool.version>
         <weixin-java-tools.version>3.5.0</weixin-java-tools.version>
-        <cat.version>3.0.1</cat.version>
+        <cat.version>3.0.0</cat.version>
         <socketio.version>1.7.17</socketio.version>
         <redisson.version>3.11.6</redisson.version>
     </properties>
