@@ -1,6 +1,8 @@
 # CAT
 
-[`cat`](https://github.com/dianping/cat)  [`vi`](https://github.com/ctripcorp/vi)
+[`cat`](https://github.com/dianping/cat) 
+[`部署`](https://github.com/dianping/cat/wiki/readme_server)
+[`vi`](https://github.com/ctripcorp/vi)
 
 ## 部署点评Cat监控项目
 

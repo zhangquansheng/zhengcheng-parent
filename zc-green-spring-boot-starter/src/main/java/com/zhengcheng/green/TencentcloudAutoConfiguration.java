@@ -17,10 +17,6 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableConfigurationProperties({TencentcloudProperties.class})
-@ConditionalOnProperty(
-        prefix = "tencentcloud",
-        name = "secret-id"
-)
 public class TencentcloudAutoConfiguration {
 
     @Bean

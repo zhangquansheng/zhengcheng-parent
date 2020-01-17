@@ -17,15 +17,11 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableConfigurationProperties({AcsProperties.class})
-@ConditionalOnProperty(
-        prefix = "aliyun.acs",
-        name = "access-key-id"
-)
 public class AliYunGreenAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public IAliYunGreenService aliYunSmsService(AcsProperties acsProperties) {
+    public IAliYunGreenService aliYunGreenService(AcsProperties acsProperties) {
         return new AliYunGreenServiceImpl(acsProperties);
     }
 
