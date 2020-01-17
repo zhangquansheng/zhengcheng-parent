@@ -13,7 +13,7 @@
     <groupId>com.zhengcheng</groupId>
     <artifactId>zhengcheng-parent</artifactId>
     <packaging>pom</packaging>
-    <version>3.13.1</version>
+    <version>3.13.2</version>
 
     <name>zhengcheng-parent</name>
 
@@ -36,7 +36,7 @@
     </modules>
 
     <properties>
-        <module.version>3.13.1</module.version>
+        <module.version>3.13.2</module.version>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -62,7 +62,7 @@
         <freemarker.version>2.3.29</freemarker.version>
         <hutool.version>5.1.0</hutool.version>
         <weixin-java-tools.version>3.5.0</weixin-java-tools.version>
-        <cat.version>3.0.0</cat.version>
+        <cat.version>3.0.1</cat.version>
         <socketio.version>1.7.17</socketio.version>
         <redisson.version>3.11.6</redisson.version>
     </properties>
