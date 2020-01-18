@@ -28,7 +28,7 @@ import java.util.Objects;
 @Slf4j
 @RestControllerAdvice
 public class ExceptionControllerAdvice {
-
+    
     /**
      * IllegalArgumentException异常处理返回json
      * 返回状态码:400

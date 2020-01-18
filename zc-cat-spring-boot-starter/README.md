@@ -14,7 +14,7 @@
     
 [windows 下 war 包部署开发环境](https://www.cnblogs.com/harrychinese/p/dianping-cat-server-setup.html)
 
-- **使用阿里云云效发布失败的解决办法**
+- 使用阿里云云效发布失败的解决办法**【未解决】**
 
 > 需要把cat-mvn-repo.zip下cat所需要的包导入到私服上,请使用**本地仓库迁移**功能
 
