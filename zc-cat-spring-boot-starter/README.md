@@ -6,7 +6,7 @@
 
 ## 持续集成maven打包
 
-使用jenkins或者阿里云云效等持续集成工具，需要把cat-client-3.0.0.jar 和 cornerstone-0.2.1.jar 先导入到依赖的私服中
+**使用jenkins或者阿里云云效等持续集成工具，需要把cat-client-3.0.0.jar 和 cornerstone-0.2.1.jar 先导入到依赖的私服中**
 
 ## 部署点评Cat监控项目
 
