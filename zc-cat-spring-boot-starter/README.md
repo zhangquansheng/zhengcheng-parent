@@ -4,19 +4,20 @@
 [`部署`](https://github.com/dianping/cat/wiki/readme_server)
 [`vi`](https://github.com/ctripcorp/vi)
 
+## 持续集成maven打包
+
+使用jenkins或者阿里云云效等发布功能，需要把cat-client-3.0.0.jar 和 cornerstone-0.2.1.jar 先导入到依赖的私服中
+
 ## 部署点评Cat监控项目
 
 - 使用maven本地编译CAT找不到org.unidal.maven.plugins:codegen-maven-plugin:2.3.2的解决办法
 > 
+    1. 需要把cat-mvn-repo.zip下cat所需要的包放在本地maven仓库中或者私服
     1. 下载codegen-2.3.2.jar放在本地maven仓库中或者私服,需要在这里面下载https://github.com/dianping/cat/tree/mvn-repo
     2. 删除本地仓库的报错位置的 _remote.repositories 文件
     3. 执行mvn命令； mvn clean install -Dmaven.test.skip=true  -U
     
 [windows 下 war 包部署开发环境](https://www.cnblogs.com/harrychinese/p/dianping-cat-server-setup.html)
-
-- 使用阿里云云效发布失败的解决办法**【未解决】**
-
-> 需要把cat-mvn-repo.zip下cat所需要的包导入到私服上,请使用**本地仓库迁移**功能
 
 ## 埋点
 
