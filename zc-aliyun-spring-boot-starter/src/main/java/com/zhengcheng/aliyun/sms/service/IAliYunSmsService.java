@@ -50,6 +50,54 @@ public interface IAliYunSmsService {
                        String templateCode, Map<String, Object> templateParam, String outId);
 
     /**
+     * 批量发送。详情https://help.aliyun.com/document_detail/66041.html
+     *
+     * @param phoneNumberJson 短信接收号码,JSON格式,批量上限为100个手机号码,批量调用相对于单条调用及时性稍有延迟,验证码类型的短信推荐使用单条调用的方式
+     * @param signNameJson    短信签名,JSON格式
+     * @param templateCode    短信模板ID
+     * @return SmsDataDTO
+     */
+    SmsDataDTO sendBatchSms(String phoneNumberJson, String signNameJson,
+                            String templateCode);
+
+    /**
+     * 批量发送。详情https://help.aliyun.com/document_detail/66041.html
+     *
+     * @param phoneNumberJson   短信接收号码,JSON格式,批量上限为100个手机号码,批量调用相对于单条调用及时性稍有延迟,验证码类型的短信推荐使用单条调用的方式
+     * @param signNameJson      短信签名,JSON格式
+     * @param templateCode      短信模板ID
+     * @param templateParamJson 短信模板变量替换JSON串,友情提示:如果JSON中需要带换行符,请参照标准的JSON协议。
+     * @return SmsDataDTO
+     */
+    SmsDataDTO sendBatchSms(String phoneNumberJson, String signNameJson,
+                            String templateCode, String templateParamJson);
+
+    /**
+     * 批量发送。详情https://help.aliyun.com/document_detail/66041.html
+     *
+     * @param phoneNumberJson     短信接收号码,JSON格式,批量上限为100个手机号码,批量调用相对于单条调用及时性稍有延迟,验证码类型的短信推荐使用单条调用的方式
+     * @param signNameJson        短信签名,JSON格式
+     * @param templateCode        短信模板ID
+     * @param templateParamJson   短信模板变量替换JSON串,友情提示:如果JSON中需要带换行符,请参照标准的JSON协议。
+     * @param smsUpExtendCodeJson 上行短信扩展码，JSON数组格式。无特殊需要此字段的用户请忽略此字段。
+     * @return SmsDataDTO
+     */
+    SmsDataDTO sendBatchSms(String phoneNumberJson, String signNameJson,
+                            String templateCode, String templateParamJson,
+                            String smsUpExtendCodeJson);
+
+    /**
+     * 查询发送的短信。https://help.aliyun.com/document_detail/55289.html?spm=a2c4g.11186623.6.648.72a53144NTp88y
+     *
+     * @param currentPage 分页查看发送记录，指定发送记录的的当前页码。
+     * @param pageSize    分页查看发送记录，指定每页显示的短信记录数量。取值范围为1~50。
+     * @param phone       接收短信的手机号码。
+     * @param sendDate    短信发送日期，支持查询最近30天的记录。格式为yyyyMMdd，例如20181225。
+     * @return SendDetailDTO
+     */
+    SendDetailDTO querySendDetails(Long currentPage, Long pageSize, String phone, String sendDate);
+
+    /**
      * 查询发送的短信。https://help.aliyun.com/document_detail/55289.html?spm=a2c4g.11186623.6.648.72a53144NTp88y
      *
      * @param currentPage 分页查看发送记录，指定发送记录的的当前页码。

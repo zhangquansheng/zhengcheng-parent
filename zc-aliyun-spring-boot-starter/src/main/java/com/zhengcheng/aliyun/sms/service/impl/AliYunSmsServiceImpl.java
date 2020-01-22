@@ -88,6 +88,50 @@ public class AliYunSmsServiceImpl implements IAliYunSmsService {
     }
 
     @Override
+    public SmsDataDTO sendBatchSms(String phoneNumberJson, String signNameJson, String templateCode) {
+        return this.sendBatchSms(phoneNumberJson, signNameJson, templateCode, null, null);
+    }
+
+    @Override
+    public SmsDataDTO sendBatchSms(String phoneNumberJson, String signNameJson, String templateCode, String templateParamJson) {
+        return this.sendBatchSms(phoneNumberJson, signNameJson, templateCode, templateParamJson, null);
+    }
+
+    @Override
+    public SmsDataDTO sendBatchSms(String phoneNumberJson, String signNameJson, String templateCode, String templateParamJson, String smsUpExtendCodeJson) {
+        CommonRequest request = new CommonRequest();
+        request.setSysMethod(MethodType.POST);
+        request.setSysDomain(sysDomain);
+        request.setSysVersion(sysVersion);
+        request.setSysAction("SendBatchSms");
+        request.putQueryParameter("PhoneNumberJson", phoneNumberJson);
+        request.putQueryParameter("SignNameJson", signNameJson);
+        request.putQueryParameter("TemplateCode", templateCode);
+        if (StrUtil.isNotBlank(templateParamJson)) {
+            request.putQueryParameter("TemplateParamJson", templateParamJson);
+        }
+        if (StrUtil.isNotBlank(smsUpExtendCodeJson)) {
+            request.putQueryParameter("SmsUpExtendCodeJson", smsUpExtendCodeJson);
+        }
+        try {
+            CommonResponse response = this.getDefaultAcsClient().getCommonResponse(request);
+            if (response != null) {
+                return JSON.parseObject(response.getData(), SmsDataDTO.class);
+            }
+        } catch (ServerException e) {
+            e.printStackTrace();
+        } catch (ClientException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public SendDetailDTO querySendDetails(Long currentPage, Long pageSize, String phone, String sendDate) {
+        return this.querySendDetails(currentPage, pageSize, phone, sendDate, null);
+    }
+
+    @Override
     public SendDetailDTO querySendDetails(Long currentPage, Long pageSize, String phone, String sendDate, String bizId) {
         CommonRequest request = new CommonRequest();
         request.setSysMethod(MethodType.POST);

@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 查询短信发送详情
@@ -32,7 +33,8 @@ public class SendDetailDTO extends SmsDataDTO {
     public static class SmsSendDetailDTOsBean implements Serializable {
 
         private static final long serialVersionUID = 4525949525480562025L;
-        private SmsSendDetailDTOBean smsSendDetailDTO;
+
+        private List<SmsSendDetailDTOBean> smsSendDetailDTO;
 
         @Data
         public static class SmsSendDetailDTOBean {
