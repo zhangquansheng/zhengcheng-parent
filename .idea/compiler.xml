@@ -18,6 +18,7 @@
         <module name="zc-netty-socketio-spring-boot-starter" />
         <module name="zc-web-spring-boot-starter" />
         <module name="zc-redis-spring-boot-starter" />
+        <module name="zc-tencentcloud-spring-boot-starter" />
         <module name="zc-cat-spring-boot-starter" />
         <module name="zc-sharding-jdbc-spring-boot-starter" />
         <module name="zc-green-spring-boot-starter" />
@@ -56,6 +57,7 @@
       <module name="zc-sentinel-spring-boot-starter" options="-parameters" />
       <module name="zc-sharding-jdbc-spring-boot-starter" options="-parameters" />
       <module name="zc-swagger-spring-boot-starter" options="-parameters" />
+      <module name="zc-tencentcloud-spring-boot-starter" options="-parameters" />
       <module name="zc-web-spring-boot-starter" options="-parameters" />
       <module name="zhengcheng-parent" options="-parameters" />
     </option>

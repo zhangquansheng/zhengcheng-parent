@@ -34,6 +34,7 @@
         <module>zc-cat-spring-boot-starter</module>
         <module>zc-netty-socketio-spring-boot-starter</module>
         <module>zc-aliyun-spring-boot-starter</module>
+        <module>zc-tencentcloud-spring-boot-starter</module>
     </modules>
 
     <properties>
