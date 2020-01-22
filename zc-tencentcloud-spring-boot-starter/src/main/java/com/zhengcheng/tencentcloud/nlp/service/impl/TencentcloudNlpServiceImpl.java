@@ -47,6 +47,16 @@ public class TencentcloudNlpServiceImpl implements ITencentcloudNlpService {
     }
 
     @Override
+    public ChatBotResponse chatBot(String query) {
+        return this.chatBot(query, null, null);
+    }
+
+    @Override
+    public ChatBotResponse chatBot(String query, Integer flag) {
+        return this.chatBot(query, flag, null);
+    }
+
+    @Override
     public ChatBotResponse chatBot(String query, Integer flag, String openId) {
         Map<String, Object> params = new HashMap<>(16);
         params.put("Query", query);
