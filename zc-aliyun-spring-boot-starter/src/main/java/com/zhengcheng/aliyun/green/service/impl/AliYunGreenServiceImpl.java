@@ -22,7 +22,7 @@ import com.zhengcheng.aliyun.green.dto.ImageSceneResult;
 import com.zhengcheng.aliyun.green.dto.TextSceneData;
 import com.zhengcheng.aliyun.green.dto.TextSceneResult;
 import com.zhengcheng.aliyun.green.service.IAliYunGreenService;
-import com.zhengcheng.aliyun.properties.AliyunProperties;
+import com.zhengcheng.aliyun.properties.AliYunProperties;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -39,7 +39,7 @@ import java.util.*;
 @RequiredArgsConstructor
 public class AliYunGreenServiceImpl implements IAliYunGreenService {
 
-    private final AliyunProperties aliyunProperties;
+    private final AliYunProperties aliyunProperties;
 
     /**
      * 获取默认客户端

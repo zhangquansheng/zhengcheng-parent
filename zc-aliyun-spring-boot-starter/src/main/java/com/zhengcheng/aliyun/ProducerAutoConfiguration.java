@@ -5,7 +5,7 @@ import com.aliyun.openservices.ons.api.Producer;
 import com.aliyun.openservices.ons.api.PropertyKeyConst;
 import com.zhengcheng.aliyun.mq.properties.ProducerProperties;
 import com.zhengcheng.aliyun.mq.runner.ProducerRunner;
-import com.zhengcheng.aliyun.properties.AliyunProperties;
+import com.zhengcheng.aliyun.properties.AliYunProperties;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -22,7 +22,7 @@ import java.util.Properties;
  * @date :    2019/8/13 0:17
  */
 @Configuration
-@EnableConfigurationProperties({AliyunProperties.class, ProducerProperties.class})
+@EnableConfigurationProperties({AliYunProperties.class, ProducerProperties.class})
 @ConditionalOnProperty(
         prefix = "aliyun.mq.producer",
         name = "id"
@@ -31,10 +31,10 @@ public class ProducerAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public Producer producer(AliyunProperties aliyunProperties, ProducerProperties producerProperties) {
+    public Producer producer(AliYunProperties aliYunProperties, ProducerProperties producerProperties) {
         Properties properties = new Properties();
-        properties.setProperty(PropertyKeyConst.AccessKey, aliyunProperties.getAccessKey());
-        properties.setProperty(PropertyKeyConst.SecretKey, aliyunProperties.getAccessKeySecret());
+        properties.setProperty(PropertyKeyConst.AccessKey, aliYunProperties.getAccessKey());
+        properties.setProperty(PropertyKeyConst.SecretKey, aliYunProperties.getAccessKeySecret());
         properties.setProperty(PropertyKeyConst.SendMsgTimeoutMillis, String.valueOf(producerProperties.getSendTimeout()));
         return ONSFactory.createProducer(properties);
     }

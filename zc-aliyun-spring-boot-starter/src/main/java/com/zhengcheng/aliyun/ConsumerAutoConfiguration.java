@@ -6,7 +6,7 @@ import com.aliyun.openservices.ons.api.PropertyKeyConst;
 import com.zhengcheng.aliyun.mq.factory.ConsumerFactory;
 import com.zhengcheng.aliyun.mq.properties.ConsumerProperties;
 import com.zhengcheng.aliyun.mq.runner.ConsumerRunner;
-import com.zhengcheng.aliyun.properties.AliyunProperties;
+import com.zhengcheng.aliyun.properties.AliYunProperties;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -24,7 +24,7 @@ import java.util.Properties;
  * @date :    2019/8/13 0:17
  */
 @Configuration
-@EnableConfigurationProperties({AliyunProperties.class, ConsumerProperties.class})
+@EnableConfigurationProperties({AliYunProperties.class, ConsumerProperties.class})
 @ConditionalOnProperty(
         prefix = "aliyun.mq.consumer",
         name = "id"
@@ -34,11 +34,11 @@ public class ConsumerAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public Consumer consumer(AliyunProperties aliyunProperties, ConsumerProperties consumerProperties) {
+    public Consumer consumer(AliYunProperties aliYunProperties, ConsumerProperties consumerProperties) {
         Properties properties = new Properties();
         properties.setProperty(PropertyKeyConst.GROUP_ID, consumerProperties.getId());
-        properties.setProperty(PropertyKeyConst.AccessKey, aliyunProperties.getAccessKey());
-        properties.setProperty(PropertyKeyConst.SecretKey, aliyunProperties.getAccessKeySecret());
+        properties.setProperty(PropertyKeyConst.AccessKey, aliYunProperties.getAccessKey());
+        properties.setProperty(PropertyKeyConst.SecretKey, aliYunProperties.getAccessKeySecret());
         properties.put(PropertyKeyConst.NAMESRV_ADDR, consumerProperties.getNamesrvAddr());
         properties.setProperty(PropertyKeyConst.MessageModel, consumerProperties.getMessageModel());
         return ONSFactory.createConsumer(properties);

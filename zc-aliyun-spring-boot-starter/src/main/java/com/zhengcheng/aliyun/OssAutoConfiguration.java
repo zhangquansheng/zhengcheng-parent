@@ -3,7 +3,7 @@ package com.zhengcheng.aliyun;
 import com.aliyun.oss.OSSClient;
 import com.aliyun.oss.common.auth.DefaultCredentialProvider;
 import com.zhengcheng.aliyun.oss.properties.OssProperties;
-import com.zhengcheng.aliyun.properties.AliyunProperties;
+import com.zhengcheng.aliyun.properties.AliYunProperties;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -17,24 +17,18 @@ import org.springframework.context.annotation.Configuration;
  * @date :    2019/10/3 13:40
  */
 @Configuration
-@EnableConfigurationProperties({AliyunProperties.class, OssProperties.class})
+@EnableConfigurationProperties({AliYunProperties.class, OssProperties.class})
 @ConditionalOnProperty(
         prefix = "aliyun",
         name = "endpoint"
 )
 public class OssAutoConfiguration {
 
-    /**
-     * 阿里云文件存储client
-     *
-     * @param aliyunProperties aliyun属性
-     * @return
-     */
     @Bean
     @ConditionalOnMissingBean
-    public OSSClient ossClient(AliyunProperties aliyunProperties) {
-        OSSClient ossClient = new OSSClient(aliyunProperties.getEndpoint()
-                , new DefaultCredentialProvider(aliyunProperties.getAccessKey(), aliyunProperties.getAccessKeySecret())
+    public OSSClient ossClient(AliYunProperties aliYunProperties) {
+        OSSClient ossClient = new OSSClient(aliYunProperties.getEndpoint()
+                , new DefaultCredentialProvider(aliYunProperties.getAccessKey(), aliYunProperties.getAccessKeySecret())
                 , null);
         return ossClient;
     }

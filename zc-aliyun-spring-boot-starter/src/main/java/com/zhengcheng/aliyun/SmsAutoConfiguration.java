@@ -1,6 +1,6 @@
 package com.zhengcheng.aliyun;
 
-import com.zhengcheng.aliyun.properties.AliyunProperties;
+import com.zhengcheng.aliyun.properties.AliYunProperties;
 import com.zhengcheng.aliyun.sms.service.IAliYunSmsService;
 import com.zhengcheng.aliyun.sms.service.impl.AliYunSmsServiceImpl;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -15,12 +15,12 @@ import org.springframework.context.annotation.Configuration;
  * @date :    2020/1/22 12:58
  */
 @Configuration
-@EnableConfigurationProperties({AliyunProperties.class})
+@EnableConfigurationProperties({AliYunProperties.class})
 public class SmsAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public IAliYunSmsService aliYunSmsService(AliyunProperties aliyunProperties) {
-        return new AliYunSmsServiceImpl(aliyunProperties);
+    public IAliYunSmsService aliYunSmsService(AliYunProperties aliYunProperties) {
+        return new AliYunSmsServiceImpl(aliYunProperties);
     }
 }

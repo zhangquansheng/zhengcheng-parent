@@ -10,7 +10,7 @@ import com.aliyuncs.IAcsClient;
 import com.aliyuncs.exceptions.ClientException;
 import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.profile.IClientProfile;
-import com.zhengcheng.aliyun.properties.AliyunProperties;
+import com.zhengcheng.aliyun.properties.AliYunProperties;
 import com.zhengcheng.aliyun.sms.service.IAliYunSmsService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -27,7 +27,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class AliYunSmsServiceImpl implements IAliYunSmsService {
 
-    private final AliyunProperties aliyunProperties;
+    private final AliYunProperties aliyunProperties;
 
     /**
      * 获取默认客户端
