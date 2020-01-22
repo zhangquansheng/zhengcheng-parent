@@ -8,7 +8,7 @@ import java.util.Map;
  * @author :    zhangquansheng
  * @date :    2020/1/22 11:24
  */
-public interface IAliyunSmsService {
+public interface IAliYunSmsService {
 
     /**
      * 发送短信。详情https://help.aliyun.com/document_detail/55284.html?spm=a2c4g.11186623.6.647.71163520UlAX5d
