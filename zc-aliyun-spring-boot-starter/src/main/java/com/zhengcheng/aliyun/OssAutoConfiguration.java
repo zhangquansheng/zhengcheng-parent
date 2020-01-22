@@ -5,6 +5,7 @@ import com.aliyun.oss.common.auth.DefaultCredentialProvider;
 import com.zhengcheng.aliyun.properties.AliyunProperties;
 import com.zhengcheng.aliyun.properties.OssProperties;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,6 +18,10 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableConfigurationProperties({AliyunProperties.class, OssProperties.class})
+@ConditionalOnProperty(
+        prefix = "aliyun",
+        name = "endpoint"
+)
 public class OssAutoConfiguration {
 
     /**
