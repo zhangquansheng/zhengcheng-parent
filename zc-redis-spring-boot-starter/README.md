@@ -40,10 +40,10 @@ spring:
         min-idle: 0
 ```
 
-### redis 基本操作
+### 基本操作
 
 - RedisRepository 
-
+- RedisBloomFilter
 
 ### Redis的三个框架：Jedis,Redisson,Lettuce
 

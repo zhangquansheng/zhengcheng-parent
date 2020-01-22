@@ -2,6 +2,7 @@ package com.zhengcheng.redis;
 
 import com.zhengcheng.redis.lock.RedisDistributedLock;
 import com.zhengcheng.redis.properties.CacheManagerProperties;
+import com.zhengcheng.redis.template.RedisBloomFilter;
 import com.zhengcheng.redis.template.RedisRepository;
 import com.zhengcheng.redis.util.RedisObjectSerializer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,6 +57,18 @@ public class RedisAutoConfiguration {
         redisTemplate.setValueSerializer(new RedisObjectSerializer());
         redisTemplate.afterPropertiesSet();
         return redisTemplate;
+    }
+
+    /**
+     * Redis BloomFilter 布隆过滤器.
+     *
+     * @param redisTemplate the redis template
+     * @return 布隆过滤器
+     */
+    @Bean
+    @ConditionalOnMissingBean
+    public RedisBloomFilter redisBloomFilter(RedisTemplate<String, Object> redisTemplate) {
+        return new RedisBloomFilter(redisTemplate);
     }
 
     /**
