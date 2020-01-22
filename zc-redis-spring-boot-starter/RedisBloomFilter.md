@@ -18,8 +18,8 @@
 
 - `JDK 1.8 or later`
 - `Maven 3.2+`
-- `SpringBoot 2.1.2.RELEASE`
-- `SpringCloud Greenwich.RELEASE`
+- `SpringBoot 2.0.8.RELEASE`
+- `SpringCloud Finchley.SR3`
 - `guava 28.2-jre`
 - 测服环境的redis服务器配置未知
 - 
