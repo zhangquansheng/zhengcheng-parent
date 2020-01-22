@@ -8,9 +8,12 @@ import com.aliyuncs.CommonResponse;
 import com.aliyuncs.DefaultAcsClient;
 import com.aliyuncs.IAcsClient;
 import com.aliyuncs.exceptions.ClientException;
+import com.aliyuncs.exceptions.ServerException;
+import com.aliyuncs.http.MethodType;
 import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.profile.IClientProfile;
 import com.zhengcheng.aliyun.properties.AliYunProperties;
+import com.zhengcheng.aliyun.sms.dto.SendDetailDTO;
 import com.zhengcheng.aliyun.sms.dto.SmsDataDTO;
 import com.zhengcheng.aliyun.sms.service.IAliYunSmsService;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +30,10 @@ import java.util.Map;
 @Slf4j
 @RequiredArgsConstructor
 public class AliYunSmsServiceImpl implements IAliYunSmsService {
+
+    private final String sysDomain = "dysmsapi.aliyuncs.com";
+
+    private final String sysVersion = "2017-05-25";
 
     private final AliYunProperties aliyunProperties;
 
@@ -53,8 +60,8 @@ public class AliYunSmsServiceImpl implements IAliYunSmsService {
     @Override
     public SmsDataDTO sendSms(String phone, String signName, String templateCode, Map<String, Object> templateParam, String outId) {
         CommonRequest request = new CommonRequest();
-        request.setSysDomain("dysmsapi.aliyuncs.com");
-        request.setSysVersion("2017-05-25");
+        request.setSysDomain(sysDomain);
+        request.setSysVersion(sysVersion);
         request.setSysAction("SendSms");
         // 接收短信的手机号码
         request.putQueryParameter("PhoneNumbers", phone);
@@ -72,11 +79,37 @@ public class AliYunSmsServiceImpl implements IAliYunSmsService {
         try {
             CommonResponse commonResponse = this.getDefaultAcsClient().getCommonResponse(request);
             if (commonResponse != null) {
-                String data = commonResponse.getData();
-                return JSON.parseObject(data, SmsDataDTO.class);
+                return JSON.parseObject(commonResponse.getData(), SmsDataDTO.class);
             }
         } catch (ClientException e) {
             log.error("sendSms ClientException: [{}]", e.getMessage(), e);
+        }
+        return null;
+    }
+
+    @Override
+    public SendDetailDTO querySendDetails(Long currentPage, Long pageSize, String phone, String sendDate, String bizId) {
+        CommonRequest request = new CommonRequest();
+        request.setSysMethod(MethodType.POST);
+        request.setSysDomain(sysDomain);
+        request.setSysVersion(sysVersion);
+        request.setSysAction("QuerySendDetails");
+        request.putQueryParameter("PhoneNumber", phone);
+        request.putQueryParameter("SendDate", sendDate);
+        request.putQueryParameter("PageSize", String.valueOf(pageSize));
+        request.putQueryParameter("CurrentPage", String.valueOf(currentPage));
+        if (StrUtil.isNotBlank(bizId)) {
+            request.putQueryParameter("BizId", bizId);
+        }
+        try {
+            CommonResponse response = this.getDefaultAcsClient().getCommonResponse(request);
+            if (response != null) {
+                return JSON.parseObject(response.getData(), SendDetailDTO.class);
+            }
+        } catch (ServerException e) {
+            log.error("querySendDetails ServerException: [{}]", e.getMessage(), e);
+        } catch (ClientException e) {
+            log.error("querySendDetails ClientException: [{}]", e.getMessage(), e);
         }
         return null;
     }
