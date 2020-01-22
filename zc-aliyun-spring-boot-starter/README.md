@@ -20,8 +20,10 @@
 在配置文件中增加：
 
 ```
-aliyun.accessKeyId = 您的accessKeyId
-aliyun.accessKeySecret = 您的accessKeySecret
+aliyun.access-key=您的accessKeyId
+aliyun.access-key-secret=您的accessKeySecret
+aliyun.region-id=cn-hangzhou
+aliyun.endpoint=
 ```
 
 ## 文本反垃圾
