@@ -38,7 +38,7 @@ public class SmsDataDTO implements Serializable {
      *
      * @return 是否发送成功
      */
-    private boolean isSuccess() {
+    public boolean isSuccess() {
         String successCode = "OK";
         return successCode.equals(this.code);
     }

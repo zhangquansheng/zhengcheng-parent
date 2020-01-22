@@ -41,6 +41,16 @@ public class AliYunSmsServiceImpl implements IAliYunSmsService {
     }
 
     @Override
+    public SmsDataDTO sendSms(String phone, String signName, String templateCode) {
+        return this.sendSms(phone, signName, templateCode, null, null);
+    }
+
+    @Override
+    public SmsDataDTO sendSms(String phone, String signName, String templateCode, Map<String, Object> templateParam) {
+        return this.sendSms(phone, signName, templateCode, templateParam, null);
+    }
+
+    @Override
     public SmsDataDTO sendSms(String phone, String signName, String templateCode, Map<String, Object> templateParam, String outId) {
         CommonRequest request = new CommonRequest();
         request.setSysDomain("dysmsapi.aliyuncs.com");
