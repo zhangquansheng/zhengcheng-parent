@@ -12,7 +12,7 @@ import java.util.List;
  * @date :    2019/12/3 22:09
  */
 @Data
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = false)
 public class ImageResult extends BaseResult {
     /**
      * 图片中含有二维码时，返回图片中所有二维码包含的文本信息。
