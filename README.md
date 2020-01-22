@@ -35,6 +35,8 @@ zc-common-spring-boot-starter | 公共库通用组件(module之间的公共部�
 zc-green-spring-boot-starter |  内容安全模块通用组件(阿里云、腾讯云)[使用文档](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-green-spring-boot-starter)
 zc-cat-jdbc-spring-boot-starter | CAT监控通用组件[部署文档](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-cat-spring-boot-starter)
 zc-netty-socketio-spring-boot-starter | 即时聊天通用组件[使用文档](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-netty-socketio-spring-boot-starter)
+zc-aliyun-spring-boot-starter | 阿里云通用组件[使用文档](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-netty-socketio-spring-boot-starter)
+zc-tencentcloud-spring-boot-starter | 腾讯云通用组件[使用文档](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-netty-socketio-spring-boot-starter)
 
 ### 三方包
 
