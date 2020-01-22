@@ -1,5 +1,7 @@
 package com.zhengcheng.aliyun.sms.service;
 
+import com.zhengcheng.aliyun.sms.dto.SmsDataDTO;
+
 import java.util.Map;
 
 /**
@@ -19,7 +21,7 @@ public interface IAliYunSmsService {
      * @param templateParam 模板中的变量替换JSON串,如模板内容为"亲爱的${name},您的验证码为${code}"时
      * @param outId         outId为提供给业务方扩展字段,最终在短信回执消息中将此值带回给调用者
      */
-    void sendSms(String phone, String signName,
-                 String templateCode, Map<String, Object> templateParam, String outId);
+    SmsDataDTO sendSms(String phone, String signName,
+                       String templateCode, Map<String, Object> templateParam, String outId);
 
 }

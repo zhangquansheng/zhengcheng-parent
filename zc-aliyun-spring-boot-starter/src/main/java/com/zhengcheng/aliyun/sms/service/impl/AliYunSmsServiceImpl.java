@@ -11,6 +11,7 @@ import com.aliyuncs.exceptions.ClientException;
 import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.profile.IClientProfile;
 import com.zhengcheng.aliyun.properties.AliYunProperties;
+import com.zhengcheng.aliyun.sms.dto.SmsDataDTO;
 import com.zhengcheng.aliyun.sms.service.IAliYunSmsService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -40,7 +41,7 @@ public class AliYunSmsServiceImpl implements IAliYunSmsService {
     }
 
     @Override
-    public void sendSms(String phone, String signName, String templateCode, Map<String, Object> templateParam, String outId) {
+    public SmsDataDTO sendSms(String phone, String signName, String templateCode, Map<String, Object> templateParam, String outId) {
         CommonRequest request = new CommonRequest();
         request.setSysDomain("dysmsapi.aliyuncs.com");
         request.setSysVersion("2017-05-25");
@@ -62,10 +63,11 @@ public class AliYunSmsServiceImpl implements IAliYunSmsService {
             CommonResponse commonResponse = this.getDefaultAcsClient().getCommonResponse(request);
             if (commonResponse != null) {
                 String data = commonResponse.getData();
-                System.out.println(data);
+                return JSON.parseObject(data, SmsDataDTO.class);
             }
         } catch (ClientException e) {
             log.error("sendSms ClientException: [{}]", e.getMessage(), e);
         }
+        return null;
     }
 }
