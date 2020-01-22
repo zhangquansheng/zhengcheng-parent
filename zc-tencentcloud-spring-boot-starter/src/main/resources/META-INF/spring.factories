@@ -1,2 +1,3 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.zhengcheng.tencentcloud.CmsAutoConfiguration
+  com.zhengcheng.tencentcloud.CmsAutoConfiguration,\
+  com.zhengcheng.tencentcloud.NlpAutoConfiguration
