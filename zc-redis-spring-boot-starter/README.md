@@ -2,6 +2,7 @@
 
 ## **简介**（Introduction）
 
+缓存基本操作，redis的布隆过滤器，CacheManager
 
 ## **入门篇**
 
@@ -43,7 +44,7 @@ spring:
 ### 基本操作
 
 - RedisRepository 
-- RedisBloomFilter
+- [RedisBloomFilter](https://gitee.com/zhangquansheng/zhengcheng-parent/blob/master/zc-redis-spring-boot-starter/RedisBloomFilter.md)
 
 ### Redis的三个框架：Jedis,Redisson,Lettuce
 
