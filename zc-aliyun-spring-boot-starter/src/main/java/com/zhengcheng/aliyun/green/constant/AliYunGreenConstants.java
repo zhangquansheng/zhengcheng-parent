@@ -1,4 +1,4 @@
-package com.zhengcheng.aliyun.constant;
+package com.zhengcheng.aliyun.green.constant;
 
 /**
  * 全局公共常量

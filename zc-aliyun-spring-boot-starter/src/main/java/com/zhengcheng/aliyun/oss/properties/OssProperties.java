@@ -1,4 +1,4 @@
-package com.zhengcheng.aliyun.properties;
+package com.zhengcheng.aliyun.oss.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

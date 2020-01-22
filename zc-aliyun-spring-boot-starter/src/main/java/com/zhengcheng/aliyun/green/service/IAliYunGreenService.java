@@ -1,10 +1,10 @@
-package com.zhengcheng.aliyun.service;
+package com.zhengcheng.aliyun.green.service;
 
 
-import com.zhengcheng.aliyun.dto.ImageSceneData;
-import com.zhengcheng.aliyun.dto.ImageSceneResult;
-import com.zhengcheng.aliyun.dto.TextSceneData;
-import com.zhengcheng.aliyun.dto.TextSceneResult;
+import com.zhengcheng.aliyun.green.dto.ImageSceneData;
+import com.zhengcheng.aliyun.green.dto.ImageSceneResult;
+import com.zhengcheng.aliyun.green.dto.TextSceneData;
+import com.zhengcheng.aliyun.green.dto.TextSceneResult;
 
 import java.util.List;
 

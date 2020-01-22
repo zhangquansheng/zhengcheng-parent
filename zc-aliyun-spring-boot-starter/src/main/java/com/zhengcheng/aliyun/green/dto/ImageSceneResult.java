@@ -1,7 +1,7 @@
-package com.zhengcheng.aliyun.dto;
+package com.zhengcheng.aliyun.green.dto;
 
 import cn.hutool.core.collection.CollectionUtil;
-import com.zhengcheng.aliyun.constant.AliYunGreenConstants;
+import com.zhengcheng.aliyun.green.constant.AliYunGreenConstants;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

@@ -1,4 +1,4 @@
-package com.zhengcheng.aliyun.service.impl;
+package com.zhengcheng.aliyun.green.service.impl;
 
 import cn.hutool.core.collection.CollectionUtil;
 import com.alibaba.fastjson.JSON;
@@ -16,13 +16,13 @@ import com.aliyuncs.http.ProtocolType;
 import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.profile.IClientProfile;
 import com.google.common.collect.Lists;
-import com.zhengcheng.aliyun.constant.AliYunGreenConstants;
-import com.zhengcheng.aliyun.dto.ImageSceneData;
-import com.zhengcheng.aliyun.dto.ImageSceneResult;
-import com.zhengcheng.aliyun.dto.TextSceneData;
-import com.zhengcheng.aliyun.dto.TextSceneResult;
+import com.zhengcheng.aliyun.green.constant.AliYunGreenConstants;
+import com.zhengcheng.aliyun.green.dto.ImageSceneData;
+import com.zhengcheng.aliyun.green.dto.ImageSceneResult;
+import com.zhengcheng.aliyun.green.dto.TextSceneData;
+import com.zhengcheng.aliyun.green.dto.TextSceneResult;
 import com.zhengcheng.aliyun.properties.AliyunProperties;
-import com.zhengcheng.aliyun.service.IAliYunGreenService;
+import com.zhengcheng.aliyun.green.service.IAliYunGreenService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 

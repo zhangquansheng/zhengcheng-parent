@@ -1,4 +1,4 @@
-package com.zhengcheng.aliyun.dto;
+package com.zhengcheng.aliyun.green.dto;
 
 import lombok.Data;
 
