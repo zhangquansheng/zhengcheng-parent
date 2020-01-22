@@ -21,8 +21,8 @@ import com.zhengcheng.aliyun.green.dto.ImageSceneData;
 import com.zhengcheng.aliyun.green.dto.ImageSceneResult;
 import com.zhengcheng.aliyun.green.dto.TextSceneData;
 import com.zhengcheng.aliyun.green.dto.TextSceneResult;
-import com.zhengcheng.aliyun.properties.AliyunProperties;
 import com.zhengcheng.aliyun.green.service.IAliYunGreenService;
+import com.zhengcheng.aliyun.properties.AliyunProperties;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -50,7 +50,6 @@ public class AliYunGreenServiceImpl implements IAliYunGreenService {
         IClientProfile profile = DefaultProfile.getProfile(aliyunProperties.getRegionId(), aliyunProperties.getAccessKey(), aliyunProperties.getAccessKeySecret());
         return new DefaultAcsClient(profile);
     }
-
 
     @Override
     public TextSceneResult antispam(String dataId, String content) {
