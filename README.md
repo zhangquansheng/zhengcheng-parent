@@ -26,6 +26,7 @@ zc-auth-client-spring-boot-starter | 认证客户端通用组件
 zc-feign-spring-boot-starter | 远程通信通用组件
 zc-db-spring-boot-starter | Mysql数据库通用组件[使用文档](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-db-spring-boot-starter)
 zc-mq-spring-boot-starter | 阿里云消息队列通用组件[使用文档](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-mq-spring-boot-starter)
+zc-oss-spring-boot-starter | 阿里云OSS通用组件
 zc-redis-spring-boot-starter | 缓存通用组件[使用文档](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-redis-spring-boot-starter)
 zc-sentinel-spring-boot-starter | 服务降级、熔断和限流通用组件
 zc-job-spring-boot-starter | XXL-JOB定时任务通用组件
@@ -35,8 +36,8 @@ zc-common-spring-boot-starter | 公共库通用组件(module之间的公共部�
 zc-green-spring-boot-starter |  内容安全模块通用组件(阿里云、腾讯云)[使用文档](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-green-spring-boot-starter)
 zc-cat-jdbc-spring-boot-starter | CAT监控通用组件[部署文档](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-cat-spring-boot-starter)
 zc-netty-socketio-spring-boot-starter | 即时聊天通用组件[使用文档](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-netty-socketio-spring-boot-starter)
-zc-aliyun-spring-boot-starter | 阿里云通用组件[使用文档](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-netty-socketio-spring-boot-starter)
-zc-tencentcloud-spring-boot-starter | 腾讯云通用组件[使用文档](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-netty-socketio-spring-boot-starter)
+zc-aliyun-spring-boot-starter | 阿里云通用组件[使用文档](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-aliyun-spring-boot-starter)
+zc-tencentcloud-spring-boot-starter | 腾讯云通用组件[使用文档](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-tencentcloud-spring-boot-starter)
 
 ### 三方包
 
