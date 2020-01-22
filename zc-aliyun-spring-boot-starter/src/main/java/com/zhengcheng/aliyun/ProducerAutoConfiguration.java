@@ -24,7 +24,7 @@ import java.util.Properties;
 @Configuration
 @EnableConfigurationProperties({AliyunProperties.class, ProducerProperties.class})
 @ConditionalOnProperty(
-        prefix = "mq.producer",
+        prefix = "aliyun.mq.producer",
         name = "id"
 )
 public class ProducerAutoConfiguration {

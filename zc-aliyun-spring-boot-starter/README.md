@@ -120,4 +120,45 @@ aliyun.endpoint=
     }
 ```
 
+## 消息队列
+
+### **设置**
+
+```
+# 您在控制台创建的 Group ID
+aliyun.mq.consumer.id = 
+# 集群订阅方式 (默认)
+aliyun.mq.consumer.message-model =
+# 设置 TCP 接入域名，进入控制台的实例管理页面的“获取接入点信息”区域查看
+aliyun.mq.consumer.namesrv-addr = 
+# 主题
+aliyun.mq.consumer.subscriptions[0].topic = 
+# 消息过滤表达式
+aliyun.mq.consumer.subscriptions[0].expression = 
+```
+
+```
+# 您在控制台创建的 Group ID
+aliyun.mq.producer.id = 
+# 发送消息超时时间
+aliyun.mq.producer.send-timeout = 
+```
+
+### 使用
+
+#### 消费者
+
+```
+@Component
+// TAG模式过滤
+@Event({"EVENT_0001"})
+public class DemoHandler implements IConsumerHandler{
+
+     @Override
+     public Action execute(String body){
+        // TODO body是收到的消息，完成消费动作
+        return Action.CommitMessage;
+     }
+}
+```
 
