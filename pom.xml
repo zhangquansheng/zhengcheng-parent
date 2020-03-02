@@ -13,7 +13,7 @@
     <groupId>com.zhengcheng</groupId>
     <artifactId>zhengcheng-parent</artifactId>
     <packaging>pom</packaging>
-    <version>3.14.0</version>
+    <version>3.15.0</version>
 
     <name>zhengcheng-parent</name>
 
@@ -38,7 +38,7 @@
     </modules>
 
     <properties>
-        <module.version>3.14.0</module.version>
+        <module.version>3.15.0</module.version>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
