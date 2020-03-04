@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * 腾讯云内容安全
+ * 腾讯云内容安全自动配置
  *
  * @author :    zhangquansheng
  * @date :    2020/1/16 17:54
