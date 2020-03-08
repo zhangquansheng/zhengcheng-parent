@@ -82,7 +82,7 @@ public class AliYunOssServiceImpl implements IAliYunOssService {
 
     @Override
     public URL generatePreSignedUrl(long expireTime, String key) throws ClientException {
-        Date expiration = new Date(new Date().getTime() + expireTime * 1000);
+        Date expiration = new Date(System.currentTimeMillis() + expireTime * 1000);
         // 生成以GET方法访问的签名URL，访客可以直接通过浏览器访问相关内容。
         return client.generatePresignedUrl(ossProperties.getBucketName(), key, expiration);
     }

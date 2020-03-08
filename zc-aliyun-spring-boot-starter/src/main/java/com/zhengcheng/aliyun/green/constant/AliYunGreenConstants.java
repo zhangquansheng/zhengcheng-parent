@@ -18,9 +18,9 @@ public interface AliYunGreenConstants {
     /**
      * 超时时间, 服务端全链路处理超时时间为10秒
      */
-    Integer connectTimeout = 3000;
+    Integer CONNECT_TIMEOUT = 3000;
     /**
      * ReadTimeout小于服务端处理的时间，程序中会获得一个read timeout异常
      */
-    Integer readTimeout = 10000;
+    Integer READ_TIMEOUT = 10000;
 }

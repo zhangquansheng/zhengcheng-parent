@@ -20,7 +20,7 @@ public class SmsAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public IAliYunSmsService aliYunSmsService(AliYunProperties aliYunProperties) {
-        return new AliYunSmsServiceImpl(aliYunProperties);
+    public IAliYunSmsService aliYunSmsService(AliYunProperties aliyunProperties) {
+        return new AliYunSmsServiceImpl(aliyunProperties);
     }
 }

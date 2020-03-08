@@ -86,8 +86,8 @@ public class AliYunGreenServiceImpl implements IAliYunGreenService {
         data.put("tasks", tasks);
         textScanRequest.setHttpContent(data.toJSONString().getBytes(StandardCharsets.UTF_8), "UTF-8", FormatType.JSON);
         // 请务必设置超时时间
-        textScanRequest.setConnectTimeout(AliYunGreenConstants.connectTimeout);
-        textScanRequest.setReadTimeout(AliYunGreenConstants.readTimeout);
+        textScanRequest.setConnectTimeout(AliYunGreenConstants.CONNECT_TIMEOUT);
+        textScanRequest.setReadTimeout(AliYunGreenConstants.READ_TIMEOUT);
         try {
             HttpResponse httpResponse = this.getDefaultAcsClient().doAction(textScanRequest);
             if (httpResponse.isSuccess()) {
@@ -128,8 +128,8 @@ public class AliYunGreenServiceImpl implements IAliYunGreenService {
         httpBody.put("tasks", tasks);
         imageSyncScanRequest.setHttpContent(org.apache.commons.codec.binary.StringUtils.getBytesUtf8(httpBody.toJSONString()),
                 "UTF-8", FormatType.JSON);
-        imageSyncScanRequest.setConnectTimeout(AliYunGreenConstants.connectTimeout);
-        imageSyncScanRequest.setReadTimeout(AliYunGreenConstants.readTimeout);
+        imageSyncScanRequest.setConnectTimeout(AliYunGreenConstants.CONNECT_TIMEOUT);
+        imageSyncScanRequest.setReadTimeout(AliYunGreenConstants.READ_TIMEOUT);
         List<ImageSceneResult> sceneResultList = new ArrayList<>();
         try {
             HttpResponse httpResponse = this.getDefaultAcsClient().doAction(imageSyncScanRequest);

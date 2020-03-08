@@ -119,11 +119,11 @@ public class AliYunSmsServiceImpl implements IAliYunSmsService {
                 return JSON.parseObject(response.getData(), SmsDataDTO.class);
             }
         } catch (ServerException e) {
-            e.printStackTrace();
+            log.error("sendBatchSms ServerException: [{}]", e.getMessage(), e);
         } catch (ClientException e) {
-            e.printStackTrace();
+            log.error("sendBatchSms ClientException: [{}]", e.getMessage(), e);
         }
-        return null;
+        return new SmsDataDTO();
     }
 
     @Override
@@ -155,6 +155,6 @@ public class AliYunSmsServiceImpl implements IAliYunSmsService {
         } catch (ClientException e) {
             log.error("querySendDetails ClientException: [{}]", e.getMessage(), e);
         }
-        return null;
+        return new SendDetailDTO();
     }
 }
