@@ -1,3 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.zhengcheng.mq.ProducerAutoConfiguration,\
-com.zhengcheng.mq.ConsumerAutoConfiguration

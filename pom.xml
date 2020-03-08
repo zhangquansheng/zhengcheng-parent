@@ -22,15 +22,12 @@
         <module>zc-feign-spring-boot-starter</module>
         <module>zc-common-spring-boot-starter</module>
         <module>zc-db-spring-boot-starter</module>
-        <module>zc-mq-spring-boot-starter</module>
         <module>zc-redis-spring-boot-starter</module>
         <module>zc-sentinel-spring-boot-starter</module>
         <module>zc-job-spring-boot-starter</module>
         <module>zc-swagger-spring-boot-starter</module>
         <module>zc-sharding-jdbc-spring-boot-starter</module>
         <module>zc-auth-client-spring-boot-starter</module>
-        <module>zc-oss-spring-boot-starter</module>
-        <module>zc-green-spring-boot-starter</module>
         <module>zc-cat-spring-boot-starter</module>
         <module>zc-netty-socketio-spring-boot-starter</module>
         <module>zc-aliyun-spring-boot-starter</module>
@@ -121,11 +118,6 @@
             </dependency>
             <dependency>
                 <groupId>com.zhengcheng</groupId>
-                <artifactId>zc-mq-spring-boot-starter</artifactId>
-                <version>${module.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.zhengcheng</groupId>
                 <artifactId>zc-redis-spring-boot-starter</artifactId>
                 <version>${module.version}</version>
             </dependency>
@@ -147,16 +139,6 @@
             <dependency>
                 <groupId>com.zhengcheng</groupId>
                 <artifactId>zc-auth-client-spring-boot-starter</artifactId>
-                <version>${module.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.zhengcheng</groupId>
-                <artifactId>zc-oss-spring-boot-starter</artifactId>
-                <version>${module.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.zhengcheng</groupId>
-                <artifactId>zc-green-spring-boot-starter</artifactId>
                 <version>${module.version}</version>
             </dependency>
             <dependency>
