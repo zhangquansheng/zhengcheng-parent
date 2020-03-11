@@ -13,6 +13,10 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = "aliyun.oss")
 public class OssProperties {
     /**
+     * 端点，Endpoint以杭州（http://oss-cn-hangzhou.aliyuncs.com）为例，其它Region请按实际情况填写
+     */
+    private String endpoint;
+    /**
      * bucket名称
      */
     private String bucketName;

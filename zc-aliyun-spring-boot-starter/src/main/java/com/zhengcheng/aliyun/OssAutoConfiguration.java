@@ -28,9 +28,9 @@ public class OssAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public OSSClient ossClient(AliYunProperties aliYunProperties) {
-        return new OSSClient(aliYunProperties.getEndpoint()
-                , new DefaultCredentialProvider(aliYunProperties.getAccessKey(), aliYunProperties.getAccessKeySecret())
+    public OSSClient ossClient(AliYunProperties aliYunProperties, OssProperties ossProperties) {
+        return new OSSClient(ossProperties.getEndpoint()
+                , new DefaultCredentialProvider(aliYunProperties.getAccessKeyId(), aliYunProperties.getAccessKeySecret())
                 , null);
     }
 

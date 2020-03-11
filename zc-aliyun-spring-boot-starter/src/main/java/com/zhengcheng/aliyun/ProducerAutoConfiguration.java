@@ -33,7 +33,7 @@ public class ProducerAutoConfiguration {
     @ConditionalOnMissingBean
     public Producer producer(AliYunProperties aliYunProperties, ProducerProperties producerProperties) {
         Properties properties = new Properties();
-        properties.setProperty(PropertyKeyConst.AccessKey, aliYunProperties.getAccessKey());
+        properties.setProperty(PropertyKeyConst.AccessKey, aliYunProperties.getAccessKeyId());
         properties.setProperty(PropertyKeyConst.SecretKey, aliYunProperties.getAccessKeySecret());
         properties.setProperty(PropertyKeyConst.SendMsgTimeoutMillis, String.valueOf(producerProperties.getSendTimeout()));
         return ONSFactory.createProducer(properties);

@@ -13,16 +13,9 @@
     <file url="file://$PROJECT_DIR$/zc-db-spring-boot-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-feign-spring-boot-starter" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-feign-spring-boot-starter/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-green-spring-boot-starter" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-green-spring-boot-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-job-spring-boot-starter" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-job-spring-boot-starter/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-mq-spring-boot-starter" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-mq-spring-boot-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-netty-socketio-spring-boot-starter/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-oss-spring-boot-starter" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-oss-spring-boot-starter/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-oss-spring-boot-starter/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-redis-spring-boot-starter" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-redis-spring-boot-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-sentinel-spring-boot-starter" charset="UTF-8" />

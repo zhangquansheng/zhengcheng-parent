@@ -11,8 +11,6 @@ import com.aliyuncs.green.model.v20180509.ImageSyncScanRequest;
 import com.aliyuncs.green.model.v20180509.TextScanRequest;
 import com.aliyuncs.http.FormatType;
 import com.aliyuncs.http.HttpResponse;
-import com.aliyuncs.http.MethodType;
-import com.aliyuncs.http.ProtocolType;
 import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.profile.IClientProfile;
 import com.google.common.collect.Lists;
@@ -47,7 +45,7 @@ public class AliYunGreenServiceImpl implements IAliYunGreenService {
      * @return IAcsClient
      */
     private IAcsClient getDefaultAcsClient() {
-        IClientProfile profile = DefaultProfile.getProfile(aliyunProperties.getRegionId(), aliyunProperties.getAccessKey(), aliyunProperties.getAccessKeySecret());
+        IClientProfile profile = DefaultProfile.getProfile("cn-hangzhou", aliyunProperties.getAccessKeyId(), aliyunProperties.getAccessKeySecret());
         return new DefaultAcsClient(profile);
     }
 
@@ -66,11 +64,7 @@ public class AliYunGreenServiceImpl implements IAliYunGreenService {
     @Override
     public List<TextSceneResult> batchAntispam(List<TextSceneData> textSceneDataList) {
         TextScanRequest textScanRequest = new TextScanRequest();
-        textScanRequest.setAcceptFormat(FormatType.JSON);
         textScanRequest.setHttpContentType(FormatType.JSON);
-        textScanRequest.setMethod(MethodType.POST);
-        textScanRequest.setEncoding("UTF-8");
-        textScanRequest.setRegionId(aliyunProperties.getRegionId());
         List<Map<String, Object>> tasks = new ArrayList<>();
         for (TextSceneData textSceneData : textSceneDataList) {
             Map<String, Object> task = new LinkedHashMap<>();
@@ -86,8 +80,6 @@ public class AliYunGreenServiceImpl implements IAliYunGreenService {
         data.put("tasks", tasks);
         textScanRequest.setHttpContent(data.toJSONString().getBytes(StandardCharsets.UTF_8), "UTF-8", FormatType.JSON);
         // 请务必设置超时时间
-        textScanRequest.setConnectTimeout(AliYunGreenConstants.CONNECT_TIMEOUT);
-        textScanRequest.setReadTimeout(AliYunGreenConstants.READ_TIMEOUT);
         try {
             HttpResponse httpResponse = this.getDefaultAcsClient().doAction(textScanRequest);
             if (httpResponse.isSuccess()) {
@@ -105,13 +97,7 @@ public class AliYunGreenServiceImpl implements IAliYunGreenService {
     @Override
     public List<ImageSceneResult> batchImageSyncScan(List<String> scenes, List<ImageSceneData> imageSceneDataList) {
         ImageSyncScanRequest imageSyncScanRequest = new ImageSyncScanRequest();
-        // 指定api返回格式
-        imageSyncScanRequest.setAcceptFormat(FormatType.JSON);
-        // 指定请求方法
-        imageSyncScanRequest.setMethod(MethodType.POST);
-        imageSyncScanRequest.setEncoding("utf-8");
         //支持http和https
-        imageSyncScanRequest.setProtocol(ProtocolType.HTTP);
         JSONObject httpBody = new JSONObject();
         httpBody.put("scenes", scenes);
 
@@ -126,10 +112,7 @@ public class AliYunGreenServiceImpl implements IAliYunGreenService {
             tasks.add(task);
         }
         httpBody.put("tasks", tasks);
-        imageSyncScanRequest.setHttpContent(org.apache.commons.codec.binary.StringUtils.getBytesUtf8(httpBody.toJSONString()),
-                "UTF-8", FormatType.JSON);
-        imageSyncScanRequest.setConnectTimeout(AliYunGreenConstants.CONNECT_TIMEOUT);
-        imageSyncScanRequest.setReadTimeout(AliYunGreenConstants.READ_TIMEOUT);
+        imageSyncScanRequest.setHttpContent(org.apache.commons.codec.binary.StringUtils.getBytesUtf8(httpBody.toJSONString()), "UTF-8", FormatType.JSON);
         List<ImageSceneResult> sceneResultList = new ArrayList<>();
         try {
             HttpResponse httpResponse = this.getDefaultAcsClient().doAction(imageSyncScanRequest);

@@ -19,11 +19,17 @@
 
 在配置文件中增加：
 
+阿里云API的密钥配置
 ```
-aliyun.access-key=您的accessKeyId
+aliyun.access-key-id=您的accessKeyId
 aliyun.access-key-secret=您的accessKeySecret
-aliyun.region-id=cn-hangzhou
-aliyun.endpoint=
+```
+
+阿里云OSS属性配置
+```
+aliyun.oss.endpoint=
+aliyun.oss.bucket-name=
+aliyun.oss.domain=
 ```
 
 ## 文本反垃圾

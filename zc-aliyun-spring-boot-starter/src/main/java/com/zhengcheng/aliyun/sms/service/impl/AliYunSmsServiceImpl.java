@@ -43,7 +43,7 @@ public class AliYunSmsServiceImpl implements IAliYunSmsService {
      * @return IAcsClient
      */
     private IAcsClient getDefaultAcsClient() {
-        IClientProfile profile = DefaultProfile.getProfile(aliyunProperties.getRegionId(), aliyunProperties.getAccessKey(), aliyunProperties.getAccessKeySecret());
+        IClientProfile profile = DefaultProfile.getProfile("cn-hangzhou", aliyunProperties.getAccessKeyId(), aliyunProperties.getAccessKeySecret());
         return new DefaultAcsClient(profile);
     }
 

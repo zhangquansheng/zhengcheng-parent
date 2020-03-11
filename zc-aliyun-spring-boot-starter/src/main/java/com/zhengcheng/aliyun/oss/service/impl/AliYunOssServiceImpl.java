@@ -55,7 +55,7 @@ public class AliYunOssServiceImpl implements IAliYunOssService {
         String encodedPolicy = BinaryUtil.toBase64String(binaryData);
         String postSignature = client.calculatePostSignature(postPolicy);
         PostObjectPolicyDTO postObjectPolicyDTO = new PostObjectPolicyDTO();
-        postObjectPolicyDTO.setAccessid(aliyunProperties.getAccessKey());
+        postObjectPolicyDTO.setAccessid(aliyunProperties.getAccessKeyId());
         postObjectPolicyDTO.setPolicy(encodedPolicy);
         postObjectPolicyDTO.setSignature(postSignature);
         postObjectPolicyDTO.setDir(dir);

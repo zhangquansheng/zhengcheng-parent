@@ -37,7 +37,7 @@ public class ConsumerAutoConfiguration {
     public Consumer consumer(AliYunProperties aliYunProperties, ConsumerProperties consumerProperties) {
         Properties properties = new Properties();
         properties.setProperty(PropertyKeyConst.GROUP_ID, consumerProperties.getId());
-        properties.setProperty(PropertyKeyConst.AccessKey, aliYunProperties.getAccessKey());
+        properties.setProperty(PropertyKeyConst.AccessKey, aliYunProperties.getAccessKeyId());
         properties.setProperty(PropertyKeyConst.SecretKey, aliYunProperties.getAccessKeySecret());
         properties.put(PropertyKeyConst.NAMESRV_ADDR, consumerProperties.getNamesrvAddr());
         properties.setProperty(PropertyKeyConst.MessageModel, consumerProperties.getMessageModel());
