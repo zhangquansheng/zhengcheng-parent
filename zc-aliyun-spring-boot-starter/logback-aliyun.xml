@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+        </filter>
+        <encoder>
+            <pattern>%date [%thread] %-5level [%logger{50}] %file:%line - %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- 读取apollo配置中心设置的变量 -->
+    <springProperty scope="context" name="aliyun.access-key-id" source="aliyun.access-key-id"/>
+    <springProperty scope="context" name="aliyun.access-key-secret" source="aliyun.access-key-secret"/>
+
+    <springProperty scope="context" name="aliyun.log.endpoint" source="aliyun.log.endpoint"/>
+
+    <springProperty scope="context" name="aliyun.log.project" source="aliyun.log.project"/>
+    <springProperty scope="context" name="aliyun.log.log-store" source="aliyun.log.log-store"/>
+
+    <springProperty scope="context" name="aliyun.log.topic" source="aliyun.log.topic"/>
+
+
+    <springProperty scope="context" name="aliyun.log.total-size-in-bytes" source="aliyun.log.total-size-in-bytes" defaultValue="104857600"/>
+    <springProperty scope="context" name="aliyun.log.max-block-ms" source="aliyun.log.max-block-ms" defaultValue="60000"/>
+    <springProperty scope="context" name="aliyun.log.io-thread-count" source="aliyun.log.io-thread-count" defaultValue="8"/>
+    <springProperty scope="context" name="aliyun.log.batch-size-threshold-in-bytes" source="aliyun.log.batch-size-threshold-in-bytes" defaultValue="524288"/>
+    <springProperty scope="context" name="aliyun.log.batch-count-threshold" source="aliyun.log.batch-count-threshold" defaultValue="4096"/>
+    <springProperty scope="context" name="aliyun.log.linger-ms" source="aliyun.log.linger-ms" defaultValue="2000"/>
+    <springProperty scope="context" name="aliyun.log.retries" source="aliyun.log.retries" defaultValue="10"/>
+    <springProperty scope="context" name="aliyun.log.base-retry-backoff-ms" source="aliyun.log.base-retry-backoff-ms" defaultValue="100"/>
+    <springProperty scope="context" name="aliyun.log.max-retry-backoff-ms" source="aliyun.log.max-retry-backoff-ms" defaultValue="100"/>
+
+    <appender name="ALIYUN_LOG" class="com.aliyun.openservices.log.logback.LoghubAppender">
+        <!-- 账号及网络配置 -->
+        <accessKeyId>${aliyun.access-key-id}</accessKeyId>
+        <accessKeySecret>${aliyun.access-key-secret}</accessKeySecret>
+
+        <endpoint>${aliyun.log.endpoint}</endpoint>
+
+        <!-- sls 项目配置 -->
+        <project>${aliyun.log.project}</project>
+        <logStore>${aliyun.log.log-store}</logStore>
+        <!--必选项 (end)-->
+
+        <!--&lt;!&ndash; 可选项 &ndash;&gt;-->
+        <topic>${aliyun.log.topic}</topic>
+
+        <!-- 可选项 详见 '参数说明'-->
+        <totalSizeInBytes>${aliyun.log.total-size-in-bytes}</totalSizeInBytes>
+        <maxBlockMs>${aliyun.log.max-block-ms}</maxBlockMs>
+        <ioThreadCount>${aliyun.log.io-thread-count}</ioThreadCount>
+        <batchSizeThresholdInBytes>${aliyun.log.batch-size-threshold-in-bytes}</batchSizeThresholdInBytes>
+        <batchCountThreshold>${aliyun.log.batch-count-threshold}</batchCountThreshold>
+        <lingerMs>${aliyun.log.linger-ms}</lingerMs>
+        <retries>${aliyun.log.retries}</retries>
+        <baseRetryBackoffMs>${aliyun.log.base-retry-backoff-ms}</baseRetryBackoffMs>
+        <maxRetryBackoffMs>${aliyun.log.max-retry-backoff-ms}</maxRetryBackoffMs>
+
+        <mdcFields>THREAD_ID,MDC_KEY</mdcFields>
+
+        <encoder>
+            <pattern>%date [%thread] %-5level [%logger{50}] %file:%line - %msg%n</pattern>
+            <charset>UTF-8</charset> <!-- 此处设置字符集 -->
+        </encoder>
+
+    </appender>
+
+    <!-- 可用来获取StatusManager中的状态 -->
+    <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener"/>
+
+    <root level="info">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="ALIYUN_LOG"/>
+    </root>
+
+</configuration>
