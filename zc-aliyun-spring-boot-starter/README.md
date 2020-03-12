@@ -192,8 +192,8 @@ public class DemoHandler implements IConsumerHandler{
 | aliyun.access-key-id | String | 无 | 您的accessKeyId，**必填** |
 | aliyun.access-key-secret | String | 无 | 您的accessKeySecret，**必填** |
 | aliyun.log.endpoint | String | 无 | 日志服务的 HTTP 地址 **必填**|
-| aliyun.log.project | String | kk-log-proj | 日志服务的 project 名 **必填**|
-| aliyun.log.log-store | String | apps-shanghai | 日志服务的 logStore 名 **必填**|
+| aliyun.log.project | String | 无 | 日志服务的 project 名 **必填**|
+| aliyun.log.log-store | String | 无 | 日志服务的 logStore 名 **必填**|
 | aliyun.log.topic | String | 无 | 日志主题，**必填** |
 | aliyun.log.total-size-in-bytes | int | 100 * 1024 * 1024 | 单个producer实例能缓存的日志大小上限，默认为100MB。 |
 | aliyun.log.max-block-ms | long | 60*1000 | 如果producer可用空间不足，调用者在send方法上的最大阻塞时间，默认为60秒。如果超过这个时间后所需空间仍无法得到满足，send方法会抛出TimeoutException。如果将该值设为0，当所需空间无法得到满足时，send方法会立即抛出TimeoutException。如果您希望send方法一直阻塞直到所需空间得到满足，可将该值设为负数。 |
