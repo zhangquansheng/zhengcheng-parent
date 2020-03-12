@@ -4,7 +4,6 @@ import com.zhengcheng.aliyun.green.service.IAliYunGreenService;
 import com.zhengcheng.aliyun.green.service.impl.AliYunGreenServiceImpl;
 import com.zhengcheng.aliyun.properties.AliYunProperties;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,10 +16,6 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableConfigurationProperties({AliYunProperties.class})
-@ConditionalOnProperty(
-        prefix = "aliyun",
-        name = "region-id"
-)
 public class GreenAutoConfiguration {
 
     @Bean

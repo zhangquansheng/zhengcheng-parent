@@ -196,7 +196,7 @@ public class DemoHandler implements IConsumerHandler{
 | aliyun.log.log-store | String | 无 | 日志服务的 logStore 名 **必填**|
 | aliyun.log.topic | String | 无 | 日志主题，**必填** |
 | aliyun.log.total-size-in-bytes | int | 100 * 1024 * 1024 | 单个producer实例能缓存的日志大小上限，默认为100MB。 |
-| aliyun.log.max-block-ms | long | 60*1000 | <font size=5> 如果producer可用空间不足，调用者在send方法上的最大阻塞时间，默认为60秒。如果超过这个时间后所需空间仍无法得到满足，send方法会抛出TimeoutException。如果将该值设为0，当所需空间无法得到满足时，send方法会立即抛出TimeoutException。如果您希望send方法一直阻塞直到所需空间得到满足，可将该值设为负数。 </font>|
+| aliyun.log.max-block-ms | long | 60*1000 | 如果producer可用空间不足，调用者在send方法上的最大阻塞时间，默认为60秒。如果超过这个时间后所需空间仍无法得到满足，send方法会抛出TimeoutException。如果将该值设为0，当所需空间无法得到满足时，send方法会立即抛出TimeoutException。如果您希望send方法一直阻塞直到所需空间得到满足，可将该值设为负数。|
 | aliyun.log.io-thread-count | int | availableProcessors | 执行日志发送任务的线程池大小，默认为可用处理器个数。 |
 | aliyun.log.batch-size-threshold-in-bytes | int | 512 * 1024 | 当一个ProducerBatch中缓存的日志大小大于等于batchSizeThresholdInBytes时，该batch将被发送，默认为512KB，最大可设置成5MB。 |
 | aliyun.log.batch-count-threshold | int | 4096 | 当一个ProducerBatch中缓存的日志条数大于等于batchCountThreshold时，该batch将被发送，默认为4096，最大可设置成40960。 |

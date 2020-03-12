@@ -21,7 +21,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableConfigurationProperties({AliYunProperties.class, OssProperties.class})
 @ConditionalOnProperty(
-        prefix = "aliyun",
+        prefix = "aliyun.oss",
         name = "endpoint"
 )
 public class OssAutoConfiguration {
