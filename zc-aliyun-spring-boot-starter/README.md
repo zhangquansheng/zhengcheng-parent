@@ -17,7 +17,7 @@
 
 ### 初始化
 
-阿里云API的密钥配置
+阿里云API的密钥**属性配置**
 
 ```
 aliyun.access-key-id=您的accessKeyId
@@ -26,7 +26,7 @@ aliyun.access-key-secret=您的accessKeySecret
 
 ### 阿里云对象存储 OSS
 
-阿里云OSS属性配置
+**属性配置**
 
 ```
 aliyun.oss.endpoint=
@@ -132,7 +132,7 @@ aliyun.oss.domain=
 
 ### 消息队列
 
-属性配置
+**属性配置**
 
 ```
 # 您在控制台创建的 Group ID
@@ -174,7 +174,7 @@ public class DemoHandler implements IConsumerHandler{
 
 ### 阿里云短信服务 SMS
 
-属性配置
+**属性配置**
 
 ```
 aliyun.sms.region-id =  cn-hangzhou
@@ -196,6 +196,15 @@ aliyun.sms.region-id =  cn-hangzhou
         <groupId>com.aliyun.openservices</groupId>
         <artifactId>aliyun-log-logback-appender</artifactId>
     </dependency>
+```
+
+**属性配置**
+
+```
+aliyun.log.endpoint = cn-shanghai.log.aliyuncs.com
+aliyun.log.project = 
+aliyun.log.log-store = 
+aliyun.log.topic = 
 ```
 
 #### 配置参数
