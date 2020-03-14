@@ -2,7 +2,7 @@
 
 ## **简介**（Introduction）
 
-`阿里云OSS`，`文本内容安全`，`消息队列 RocketMQ 版`，`阿里云短信服务`,`日志服务`
+`阿里云对象存储 OSS`，`文本内容安全`，`消息队列 RocketMQ 版`，`阿里云短信服务 SMS`,`日志服务`
 
 ### **安装**
 
@@ -15,17 +15,19 @@
     </dependency>
 ```
 
-## 初始化
-
-在配置文件中增加：
+### 初始化
 
 阿里云API的密钥配置
+
 ```
 aliyun.access-key-id=您的accessKeyId
 aliyun.access-key-secret=您的accessKeySecret
 ```
 
+### 阿里云对象存储 OSS
+
 阿里云OSS属性配置
+
 ```
 aliyun.oss.endpoint=
 aliyun.oss.bucket-name=
