@@ -16,8 +16,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
 /**
@@ -36,12 +36,12 @@ public class AliYunOssServiceImpl implements IAliYunOssService {
     private final OSSClient client;
 
     @Override
-    public PostObjectPolicyDTO getPostObjectPolicy() throws UnsupportedEncodingException {
+    public PostObjectPolicyDTO getPostObjectPolicy() {
         return this.getPostObjectPolicy(30, "");
     }
 
     @Override
-    public PostObjectPolicyDTO getPostObjectPolicy(long expireTime, String dir) throws UnsupportedEncodingException {
+    public PostObjectPolicyDTO getPostObjectPolicy(long expireTime, String dir) {
         long expireEndTime = System.currentTimeMillis() + expireTime * 1000;
         Date expiration = new Date(expireEndTime);
         PolicyConditions policyConditions = new PolicyConditions();
@@ -51,7 +51,7 @@ public class AliYunOssServiceImpl implements IAliYunOssService {
         }
 
         String postPolicy = client.generatePostPolicy(expiration, policyConditions);
-        byte[] binaryData = postPolicy.getBytes("utf-8");
+        byte[] binaryData = postPolicy.getBytes(StandardCharsets.UTF_8);
         String encodedPolicy = BinaryUtil.toBase64String(binaryData);
         String postSignature = client.calculatePostSignature(postPolicy);
         PostObjectPolicyDTO postObjectPolicyDTO = new PostObjectPolicyDTO();

@@ -15,6 +15,7 @@ import com.aliyuncs.profile.IClientProfile;
 import com.zhengcheng.aliyun.properties.AliYunProperties;
 import com.zhengcheng.aliyun.sms.dto.SendDetailDTO;
 import com.zhengcheng.aliyun.sms.dto.SmsDataDTO;
+import com.zhengcheng.aliyun.sms.properties.SmsProperties;
 import com.zhengcheng.aliyun.sms.service.IAliYunSmsService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -37,13 +38,15 @@ public class AliYunSmsServiceImpl implements IAliYunSmsService {
 
     private final AliYunProperties aliyunProperties;
 
+    private final SmsProperties smsProperties;
+
     /**
      * 获取默认客户端
      *
      * @return IAcsClient
      */
     private IAcsClient getDefaultAcsClient() {
-        IClientProfile profile = DefaultProfile.getProfile("cn-hangzhou", aliyunProperties.getAccessKeyId(), aliyunProperties.getAccessKeySecret());
+        IClientProfile profile = DefaultProfile.getProfile(StrUtil.isBlank(smsProperties.getRegionId()) ? "cn-hangzhou" : smsProperties.getRegionId(), aliyunProperties.getAccessKeyId(), aliyunProperties.getAccessKeySecret());
         return new DefaultAcsClient(profile);
     }
 
