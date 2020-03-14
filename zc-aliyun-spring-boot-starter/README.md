@@ -2,7 +2,7 @@
 
 ## **简介**（Introduction）
 
-`阿里云对象存储 OSS`，`文本内容安全`，`消息队列 RocketMQ 版`，`阿里云短信服务 SMS`,`日志服务`
+`阿里云对象存储 OSS`，`内容安全`，`消息队列 RocketMQ 版`，`阿里云短信服务 SMS`,`日志服务`
 
 ### **安装**
 
@@ -34,7 +34,9 @@ aliyun.oss.bucket-name=
 aliyun.oss.domain=
 ```
 
-## 文本反垃圾
+### 内容安全
+
+#### 文本反垃圾
 
 > 使用文本反垃圾接口对文本内容进行色情、暴恐、涉政等风险识别。目前仅支持同步检测。一次请求可以检测多条文本，也可以检测单条文本；
 
@@ -89,9 +91,9 @@ aliyun.oss.domain=
 ```
 
 
-## 图片审核
+#### 图片审核
 
-### [同步检测](https://help.aliyun.com/document_detail/70292.html?spm=a2c4g.11186623.6.618.6b031e7fBt51sn)
+> [同步检测](https://help.aliyun.com/document_detail/70292.html?spm=a2c4g.11186623.6.618.6b031e7fBt51sn)
 
 **示例代码**
 ```
@@ -128,9 +130,9 @@ aliyun.oss.domain=
     }
 ```
 
-## 消息队列
+### 消息队列
 
-### **设置**
+属性配置
 
 ```
 # 您在控制台创建的 Group ID
@@ -152,9 +154,9 @@ aliyun.mq.producer.id =
 aliyun.mq.producer.send-timeout = 
 ```
 
-### 使用
+#### 使用
 
-#### 消费者
+##### 消费者
 
 ```
 @Component
@@ -170,7 +172,16 @@ public class DemoHandler implements IConsumerHandler{
 }
 ```
 
-## Logback 日志投递到阿里云日志服务
+### 阿里云短信服务 SMS
+
+属性配置
+
+```
+aliyun.sms.region-id =  cn-hangzhou
+```
+
+
+### Logback 日志投递到阿里云日志服务
 
 > 配置文件  [logback-aliyun.xml](https://gitee.com/zhangquansheng/zhengcheng-parent/blob/master/zc-aliyun-spring-boot-starter/logback-aliyun.xml)
 
@@ -187,7 +198,7 @@ public class DemoHandler implements IConsumerHandler{
     </dependency>
 ```
 
-### 配置参数
+#### 配置参数
 
 | 参数 | 类型 | 默认值 | 说明 |
 | :--- | :---: | :---: | --- |
