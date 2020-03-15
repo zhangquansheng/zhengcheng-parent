@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="zc-auth-client-spring-boot-starter" />
+        <module name="zc-async-spring-boot-starter" />
         <module name="zc-db-spring-boot-starter" />
         <module name="zc-common-spring-boot-starter" />
         <module name="zc-aliyun-spring-boot-starter" />
@@ -43,6 +44,7 @@
       <module name="mvcspringbootstarter" options="-parameters" />
       <module name="swagger-spring-boot-starter" options="-parameters" />
       <module name="zc-aliyun-spring-boot-starter" options="-parameters" />
+      <module name="zc-async-spring-boot-starter" options="-parameters" />
       <module name="zc-auth-client-spring-boot-starter" options="-parameters" />
       <module name="zc-cat-spring-boot-starter" options="-parameters" />
       <module name="zc-common-spring-boot-starter" options="-parameters" />

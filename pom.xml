@@ -32,6 +32,7 @@
         <module>zc-netty-socketio-spring-boot-starter</module>
         <module>zc-aliyun-spring-boot-starter</module>
         <module>zc-tencentcloud-spring-boot-starter</module>
+        <module>zc-async-spring-boot-starter</module>
     </modules>
 
     <properties>
@@ -161,6 +162,11 @@
             <dependency>
                 <groupId>com.zhengcheng</groupId>
                 <artifactId>zc-tencentcloud-spring-boot-starter</artifactId>
+                <version>${module.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zc-async-spring-boot-starter</artifactId>
                 <version>${module.version}</version>
             </dependency>
             <dependency>
