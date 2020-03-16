@@ -1,5 +1,6 @@
 package com.zhengcheng.async;
 
+import com.zhengcheng.async.executor.VisibleThreadPoolTaskExecutor;
 import com.zhengcheng.async.properties.ExecutorProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -26,8 +27,8 @@ public class AsyncAutoConfiguration {
     private ExecutorProperties executorProperties;
 
     @Bean
-    public Executor defaultExecutor() {
-        ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+    public Executor asyncServiceExecutor() {
+        ThreadPoolTaskExecutor executor = new VisibleThreadPoolTaskExecutor();
         executor.setCorePoolSize(executorProperties.getCorePoolSize());
         executor.setMaxPoolSize(executorProperties.getMaxPoolSize());
         executor.setQueueCapacity(executorProperties.getQueueCapacity());
