@@ -4,6 +4,14 @@
 
 `简化开发` `效率至上`
 
+## 当前最新版本
+
+    <parent>
+        <groupId>com.zhengcheng</groupId>
+        <artifactId>zhengcheng-parent</artifactId>
+        <version>3.18.0</version>
+    </parent>
+
 ### **环境准备**
 
 - 4.x
