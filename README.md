@@ -40,6 +40,8 @@ zc-async-spring-boot-starter | 多线程通用组件[使用文档](https://gitee
 ### 三方包
 
 - Java工具类库[hutool](https://hutool.cn/docs/#/)
+- [MyBatis-Plus](https://mp.baomidou.com/)为简化开发而生
+- [XXL-JOB](http://www.xuxueli.com/xxl-job/)分布式任务调度平台
 
 ### 开发 
 
