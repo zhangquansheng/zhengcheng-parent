@@ -27,7 +27,7 @@ public class ExecutorProperties {
     /**
      * 允许线程的空闲时间(秒)：当超过了核心线程出之外的线程在空闲时间到达之后会被销毁
      */
-    private int keepAliveSeconds = 60;
+    private int keepAliveSeconds = 300;
     /**
      * 设置线程池中任务的等待时间，如果超过这个时候还没有销毁就强制销毁，以确保应用最后能够被关闭，而不是阻塞住
      */

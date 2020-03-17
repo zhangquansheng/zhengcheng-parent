@@ -21,13 +21,13 @@ import java.util.concurrent.ThreadPoolExecutor;
 @EnableAsync
 @Configuration
 @EnableConfigurationProperties(ExecutorProperties.class)
-public class AsyncAutoConfiguration {
+public class ThreadPoolAutoConfiguration {
 
     @Autowired
     private ExecutorProperties executorProperties;
 
     @Bean
-    public Executor asyncServiceExecutor() {
+    public Executor taskExecutor() {
         ThreadPoolTaskExecutor executor = new VisibleThreadPoolTaskExecutor();
         executor.setCorePoolSize(executorProperties.getCorePoolSize());
         executor.setMaxPoolSize(executorProperties.getMaxPoolSize());

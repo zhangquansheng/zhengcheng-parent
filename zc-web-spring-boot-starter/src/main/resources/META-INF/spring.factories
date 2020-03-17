@@ -1,3 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.zhengcheng.web.WebAutoConfiguration,\
-  com.zhengcheng.web.ThreadPoolAutoConfiguration
+  com.zhengcheng.web.WebAutoConfiguration
