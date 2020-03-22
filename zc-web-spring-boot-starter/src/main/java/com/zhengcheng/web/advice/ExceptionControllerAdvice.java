@@ -12,7 +12,6 @@ import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -28,39 +27,44 @@ import java.util.Objects;
 @Slf4j
 @RestControllerAdvice
 public class ExceptionControllerAdvice {
-    
+
     /**
-     * IllegalArgumentException异常处理返回json
-     * 返回状态码:400
+     * IllegalArgumentException
+     * 返回状态码:200
      */
     @ExceptionHandler({IllegalArgumentException.class})
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseStatus(HttpStatus.OK)
+//    @ResponseStatus(HttpStatus.BAD_REQUEST)
     public Result badRequestException(IllegalArgumentException e) {
         log.error("IllegalArgumentException:{}", e.getMessage(), e);
         return Result.create(CodeEnum.BAD_REQUEST.getCode(), CodeEnum.BAD_REQUEST.getMessage(), e);
     }
 
     /**
-     * 返回状态码:405
+     * HttpRequestMethodNotSupportedException
+     * 返回状态码:200
      */
     @ExceptionHandler({HttpRequestMethodNotSupportedException.class})
-    @ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED)
+    @ResponseStatus(HttpStatus.OK)
+//    @ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED)
     public Result handleHttpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException e) {
         return Result.create(CodeEnum.METHOD_NOT_ALLOWED.getCode(), CodeEnum.METHOD_NOT_ALLOWED.getMessage(), e);
     }
 
     /**
-     * 返回状态码:415
+     * HttpMediaTypeNotSupportedException
+     * 返回状态码:200
      */
     @ExceptionHandler({HttpMediaTypeNotSupportedException.class})
-    @ResponseStatus(HttpStatus.UNSUPPORTED_MEDIA_TYPE)
+    @ResponseStatus(HttpStatus.OK)
+//    @ResponseStatus(HttpStatus.UNSUPPORTED_MEDIA_TYPE)
     public Result handleHttpMediaTypeNotSupportedException(HttpMediaTypeNotSupportedException e) {
         return Result.create(CodeEnum.UNSUPPORTED_MEDIA_TYPE.getCode(), CodeEnum.UNSUPPORTED_MEDIA_TYPE.getMessage(), e);
     }
 
 
     /**
-     * SQLException sql异常处理
+     * SQLException
      * 返回状态码:200
      */
     @ExceptionHandler({SQLException.class})
@@ -102,8 +106,12 @@ public class ExceptionControllerAdvice {
         return Result.errorMessage(e.getMessage());
     }
 
+    /**
+     * BindException
+     * 返回状态码:200
+     */
     @ExceptionHandler(BindException.class)
-    @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
     public Result bindExceptionHandler(BindException e) {
         String errorMsg = e.getAllErrors().stream().map(objectError -> {
             if (objectError instanceof FieldError) {
@@ -115,8 +123,12 @@ public class ExceptionControllerAdvice {
         return Result.errorMessage(errorMsg);
     }
 
+    /**
+     * MethodArgumentNotValidException
+     * 返回状态码:200
+     */
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
     public Result methodArgumentNotValidExceptionHandler(MethodArgumentNotValidException e) {
         String errorMsg = e.getBindingResult().getAllErrors().stream().map(objectError -> {
             if (objectError instanceof FieldError) {
