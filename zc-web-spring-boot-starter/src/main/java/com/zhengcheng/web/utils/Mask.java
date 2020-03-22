@@ -1,4 +1,4 @@
-package com.zhengcheng.web.util;
+package com.zhengcheng.web.utils;
 
 
 import org.apache.commons.lang3.StringUtils;
