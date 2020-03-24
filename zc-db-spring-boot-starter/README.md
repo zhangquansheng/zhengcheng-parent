@@ -21,9 +21,9 @@ pom文件引入
   </dependency>
 ```
 
-在启动类上加入Mapper扫码注解，注意修改成你的mapper路径
+默认加入Mapper扫码注解，注意你的mapper路径
 ```
-@MapperScan(basePackages = "com.zhengcheng.user.mapper*")
+@MapperScan(basePackages = "com.zhengcheng.**.mapper*")
 ```
 
 ### **设置**

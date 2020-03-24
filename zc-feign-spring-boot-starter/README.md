@@ -21,6 +21,11 @@ pom文件引入
   </dependency>
 ```
 
+默认加入Feign扫码注解，注意你的FeignClient路径
+```
+@EnableFeignClients("com.zhengcheng.**.feign.**")
+```
+
 ### **设置**
 
 ```
