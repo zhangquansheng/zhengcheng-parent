@@ -4,6 +4,7 @@ import com.alibaba.fastjson.serializer.SerializeFilter;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
 import com.zhengcheng.web.aspect.ControllerLogAspect;
 import com.zhengcheng.web.filter.MobileContextValueFilter;
 import com.zhengcheng.web.property.CustomMvcProperties;
@@ -17,6 +18,7 @@ import org.springframework.http.converter.FormHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.xml.SourceHttpMessageConverter;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -30,6 +32,8 @@ import java.util.List;
  * @author :    quansheng.zhang
  * @date :    2019/1/26 7:59
  */
+@EnableWebMvc
+@EnableApolloConfig
 @Configuration
 @Import({ControllerLogAspect.class})
 @ComponentScan("com.zhengcheng.web.advice")
