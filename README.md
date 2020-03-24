@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.zhengcheng</groupId>
         <artifactId>zhengcheng-parent</artifactId>
-        <version>3.18.0</version>
+        <version>3.19.0</version>
     </parent>
 
 ### **环境准备**
