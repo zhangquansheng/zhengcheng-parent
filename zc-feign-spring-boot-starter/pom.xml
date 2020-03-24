@@ -32,6 +32,11 @@
         </dependency>
         <dependency>
             <groupId>com.zhengcheng</groupId>
+            <artifactId>zc-common-spring-boot-starter</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.zhengcheng</groupId>
             <artifactId>zc-cat-spring-boot-starter</artifactId>
             <optional>true</optional>
         </dependency>

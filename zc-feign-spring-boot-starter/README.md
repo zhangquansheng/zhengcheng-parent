@@ -1,15 +1,47 @@
-package com.zhengcheng.feign.config;
+# 远程通信通用组件
 
-import cn.hutool.core.util.IdUtil;
-import com.zhengcheng.feign.FeignAutoConfiguration;
-import feign.RequestInterceptor;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.oauth2.common.OAuth2AccessToken;
-import org.springframework.security.oauth2.provider.OAuth2Authentication;
-import org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationDetails;
+## **简介**（Introduction）
 
+基于 `Feign` `OKHttp`
+
+## **入门篇**
+
+### **环境准备**
+
+zhengcheng-parent 升级到最新版本，JDK1.8
+
+### **安装**
+
+pom文件引入
+
+```
+  <dependency>
+        <groupId>com.zhengcheng</groupId>
+        <artifactId>zc-feign-spring-boot-starter</artifactId>
+  </dependency>
+```
+
+### **设置**
+
+```
+feign.httpclient.enabled = false
+feign.okhttp.enabled = true
+feign.okhttp3.read-timeout.milliseconds = 3000
+feign.okhttp3.connect-timeout.milliseconds = 3000
+feign.okhttp3.write-timeout.milliseconds = 60000
+```
+
+> 更多设置请参考[Feign官方文档]
+
+### 使用requestId就可以方便服务方实现幂等
+
+```
+header 中 requestId 为uuid，在接口可以基于分布式事务实现幂等
+```
+
+### Feign OAuth2 拦截器，需要手动配置FeignClient中
+
+```
 /**
  * Feign OAuth2 拦截器，需要手动配置FeignClient中
  *
@@ -37,3 +69,4 @@ public class FeignInterceptorConfig {
         return requestInterceptor;
     }
 }
+```
