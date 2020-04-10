@@ -12,7 +12,7 @@
         <version>3.19.0</version>
     </parent>
 
-## 更新日志
+## [更新日志](https://gitee.com/zhangquansheng/zhengcheng-parent/blob/master/CHANGELOG.md)
 
 ### **环境准备**
 
