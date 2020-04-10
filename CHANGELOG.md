@@ -4,6 +4,7 @@
 - `SpringCloud` 升级到 `Greenwich.SR4`
 - `SpringBoot` 升级到 `2.1.11.RELEASE`
 - 去掉 `MobileMask` 注解
+- 取消 `feign` 重试 
 
 ## [v3.19.0] 2020.4.10
 - 其他
