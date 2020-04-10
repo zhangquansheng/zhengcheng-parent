@@ -5,6 +5,7 @@
 - `SpringBoot` 升级到 `2.1.11.RELEASE`
 - 去掉 `MobileMask` 注解
 - 取消 `feign` 重试 
+- 去掉 `fastjson`，经常有漏洞，总是更新
 
 ## [v3.19.0] 2020.4.10
 - 其他
