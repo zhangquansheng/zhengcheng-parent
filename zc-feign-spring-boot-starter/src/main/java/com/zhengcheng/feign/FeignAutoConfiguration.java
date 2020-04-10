@@ -5,6 +5,7 @@ import com.zhengcheng.feign.config.FeignOkHttpConfig;
 import feign.Logger;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
+import feign.Retryer;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
@@ -37,5 +38,13 @@ public class FeignAutoConfiguration implements RequestInterceptor {
     public void apply(RequestTemplate requestTemplate) {
         // 一些接口的调用需要实现幂等，比如消息发送，如果使用requestId就可以方便服务方实现幂等
         requestTemplate.header(FeignAutoConfiguration.REQUEST_ID, IdUtil.fastSimpleUUID());
+    }
+
+    /**
+     * 取消重试
+     */
+    @Bean
+    Retryer feignRetry() {
+        return Retryer.NEVER_RETRY;
     }
 }
