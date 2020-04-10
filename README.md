@@ -4,13 +4,18 @@
 
 `简化开发` `效率至上`
 
-## 当前最新版本
+## 当前稳定版本
 
+
+
+### 3.x
+```
     <parent>
         <groupId>com.zhengcheng</groupId>
         <artifactId>zhengcheng-parent</artifactId>
         <version>3.19.0</version>
     </parent>
+```
 
 ## [更新日志](https://gitee.com/zhangquansheng/zhengcheng-parent/blob/master/CHANGELOG.md)
 
