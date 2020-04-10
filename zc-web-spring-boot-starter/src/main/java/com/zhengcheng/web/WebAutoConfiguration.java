@@ -1,15 +1,10 @@
 package com.zhengcheng.web;
 
-import com.alibaba.fastjson.serializer.SerializeFilter;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
 import com.zhengcheng.web.aspect.ControllerLogAspect;
-import com.zhengcheng.web.filter.MobileContextValueFilter;
-import com.zhengcheng.web.property.CustomMvcProperties;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -22,7 +17,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,18 +32,15 @@ import java.util.List;
 @Configuration
 @Import({ControllerLogAspect.class})
 @ComponentScan("com.zhengcheng.web.advice")
-@EnableConfigurationProperties({CustomMvcProperties.class})
 public class WebAutoConfiguration implements WebMvcConfigurer {
 
     public WebAutoConfiguration() {
     }
 
-    @Autowired
-    private CustomMvcProperties customMvcProperties;
 
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-        converters.add(new StringHttpMessageConverter(Charset.forName("UTF-8")));
+        converters.add(new StringHttpMessageConverter(StandardCharsets.UTF_8));
         //需要定义一个Convert转换消息的对象
         FastJsonHttpMessageConverter fastJsonHttpMessageConverter = new FastJsonHttpMessageConverter();
         //下面这个contextType是需要添加；不然后面会报 * 不能匹配所有的contextType类型；
@@ -75,7 +67,6 @@ public class WebAutoConfiguration implements WebMvcConfigurer {
         fastJsonHttpMessageConverter.setSupportedMediaTypes(supportedMediaTypes);
         FastJsonConfig fastJsonConfig = new FastJsonConfig();
         fastJsonConfig.setSerializerFeatures(SerializerFeature.PrettyFormat, SerializerFeature.DisableCircularReferenceDetect);
-        fastJsonConfig.setSerializeFilters(new SerializeFilter[]{new MobileContextValueFilter(customMvcProperties.getMobileMaskType())});
         fastJsonHttpMessageConverter.setFastJsonConfig(fastJsonConfig);
         converters.add(fastJsonHttpMessageConverter);
         converters.add(new FormHttpMessageConverter());

@@ -1,4 +1,4 @@
-package com.zhengcheng.web.utils;
+package com.zhengcheng.web.util;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author :    quansheng.zhang
  * @date :    2019/10/6 20:26
  */
-public class IpAddressUtil {
+public class IpAddressUtils {
     /**
      * 获取Ip地址
      *
