@@ -15,7 +15,7 @@ import java.io.Serializable;
  * @date :    2019/9/30 1:51
  */
 @Data
-public class PageRequest implements Serializable {
+public class PageRequestCommand implements Serializable {
 
     private static final long serialVersionUID = -4615660391238931778L;
 
