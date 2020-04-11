@@ -1,6 +1,6 @@
 ﻿# CHANGELOG
 
-## [v4.1.0] 2020.4.10
+## [v4.1.0] 2020.4.11
 - `SpringCloud` 升级到 `Greenwich.SR4`
 - `SpringBoot` 升级到 `2.1.11.RELEASE`
 - `fastjson` 升级 `1.2.68`
