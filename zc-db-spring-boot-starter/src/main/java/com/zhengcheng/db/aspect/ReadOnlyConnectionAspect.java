@@ -33,7 +33,7 @@ public class ReadOnlyConnectionAspect {
     @Around("readOnlyConnectionPointcut()")
     public Object around(ProceedingJoinPoint pjp) throws Throwable {
         Connection connection = dataSource.getConnection();
-        if (!Objects.isNull(connection)) {
+        if (Objects.nonNull(connection)) {
             connection.setReadOnly(true);
         }
         return pjp.proceed();

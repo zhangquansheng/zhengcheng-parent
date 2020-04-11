@@ -14,6 +14,7 @@ import org.springframework.context.annotation.Import;
  */
 @Import(DateMetaObjectHandler.class)
 public class DefaultMybatisPlusConfig {
+
     /**
      * 分页插件，自动识别数据库类型
      */
