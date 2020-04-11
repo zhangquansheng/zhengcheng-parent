@@ -14,6 +14,7 @@ import org.springframework.util.CollectionUtils;
 
 import javax.annotation.PreDestroy;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * ConsumerRunner
@@ -36,7 +37,7 @@ public class ConsumerRunner implements CommandLineRunner {
     private ConsumerFactory consumerFactory;
 
     @Override
-    public void run(String... strings) throws Exception {
+    public void run(String... strings) {
         Consumer consumer = applicationContext.getBean(Consumer.class);
         List<SubscriptionTable> subscriptions = consumerProperties.getSubscriptions();
         if (!CollectionUtils.isEmpty(subscriptions)) {
@@ -46,7 +47,7 @@ public class ConsumerRunner implements CommandLineRunner {
                     String event = message.getTag();
                     String body = new String(message.getBody());
                     IConsumerHandler consumerHandler = consumerFactory.create(event);
-                    if (consumerHandler != null) {
+                    if (Objects.nonNull(consumerHandler)) {
                         log.info("Receive: event: {}, body: {}", event, body);
                         return consumerHandler.execute(body);
                     } else {

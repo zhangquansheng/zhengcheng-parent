@@ -16,7 +16,6 @@ public interface IConsumerHandler {
      *
      * @param body 消息data
      * @return 执行结果，成功则消费消息成功，否则消费消息失败
-     * @throws Exception
      */
     Action execute(String body);
 }
