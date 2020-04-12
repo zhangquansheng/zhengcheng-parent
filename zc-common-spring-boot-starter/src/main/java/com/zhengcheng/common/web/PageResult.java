@@ -1,7 +1,6 @@
 package com.zhengcheng.common.web;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,7 +13,6 @@ import java.util.List;
  * @author :    uansheng.zhang
  * @date :    2019/9/30 1:51
  */
-@Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,24 +22,15 @@ public class PageResult<T> implements Serializable {
     /**
      * 页码，从1开始
      */
-    private Integer pageNo;
-
+    private Long pageNo;
     /**
      * 页面大小
      */
-    private Integer pageSize;
-
-
+    private Long pageSize;
     /**
      * 总数
      */
     private Long total;
-
-    /**
-     * 总页数
-     */
-    private Integer totalPages;
-
     /**
      * 数据
      */
