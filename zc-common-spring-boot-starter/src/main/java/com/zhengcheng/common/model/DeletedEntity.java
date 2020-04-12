@@ -1,6 +1,5 @@
 package com.zhengcheng.common.model;
 
-import com.alibaba.fastjson.annotation.JSONField;
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
@@ -16,7 +15,6 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 public class DeletedEntity extends BaseEntity {
 
-    @JSONField(serialize = false)
     @TableField(value = "is_deleted", fill = FieldFill.INSERT)
     private boolean deleted;
 }
