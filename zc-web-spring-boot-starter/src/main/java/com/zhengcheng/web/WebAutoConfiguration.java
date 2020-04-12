@@ -3,7 +3,6 @@ package com.zhengcheng.web;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
-import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
 import com.zhengcheng.web.aspect.ControllerLogAspect;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -28,7 +27,6 @@ import java.util.List;
  * @date :    2019/1/26 7:59
  */
 @EnableWebMvc
-@EnableApolloConfig
 @Configuration
 @Import({ControllerLogAspect.class})
 @ComponentScan("com.zhengcheng.web.advice")
