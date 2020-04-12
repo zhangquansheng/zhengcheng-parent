@@ -23,10 +23,10 @@ public class ResponseUtil {
     /**
      * 通过流写到前端
      *
-     * @param response
+     * @param response   HttpServletResponse
      * @param httpStatus 返回状态码
      * @param result     返回信息
-     * @throws IOException
+     * @throws IOException 异常
      */
     public static void responseWriter(HttpServletResponse response, int httpStatus, Result result) throws IOException {
         response.setStatus(httpStatus);
