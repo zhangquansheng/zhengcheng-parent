@@ -3,7 +3,7 @@ package com.zhengcheng.web.aspect;
 import cn.hutool.core.text.StrBuilder;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.Method;
-import com.alibaba.fastjson.JSON;
+import cn.hutool.json.JSONUtil;
 import com.zhengcheng.common.web.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
@@ -60,12 +60,12 @@ public class ControllerLogAspect {
                 Object[] args = point.getArgs();
                 if (args.length > 0) {
                     if (args[0] instanceof Serializable && !(args[0] instanceof MultipartFile)) {
-                        sb.append(" | args:").append(JSON.toJSONString(args[0]));
+                        sb.append(" | args:").append(JSONUtil.toJsonStr(args[0]));
                     }
                 }
                 Map<String, String[]> parameterMap = request.getParameterMap();
                 if (parameterMap != null && parameterMap.size() > 0) {
-                    sb.append(" | param:").append(JSON.toJSONString(parameterMap));
+                    sb.append(" | param:").append(JSONUtil.toJsonStr(parameterMap));
                 }
             } else {
                 String queryString = request.getQueryString();

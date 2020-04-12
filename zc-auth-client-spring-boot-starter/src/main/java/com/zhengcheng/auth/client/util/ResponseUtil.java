@@ -1,6 +1,6 @@
 package com.zhengcheng.auth.client.util;
 
-import com.alibaba.fastjson.JSON;
+import cn.hutool.json.JSONUtil;
 import com.zhengcheng.common.web.Result;
 import org.springframework.http.MediaType;
 
@@ -34,7 +34,7 @@ public class ResponseUtil {
         try (
                 Writer writer = response.getWriter()
         ) {
-            writer.write(JSON.toJSONString(result));
+            writer.write(JSONUtil.toJsonStr(result));
             writer.flush();
         }
     }
