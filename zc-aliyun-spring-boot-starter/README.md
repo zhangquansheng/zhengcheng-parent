@@ -159,9 +159,8 @@ aliyun.mq.producer.send-timeout =
 ##### 消费者
 
 ```
-@Component
 // TAG模式过滤
-@Event({"EVENT_0001"})
+@Event(tags={"EVENT_0001"})
 public class DemoHandler implements IConsumerHandler{
 
      @Override
@@ -184,19 +183,6 @@ aliyun.sms.region-id =  cn-hangzhou
 ### Logback 日志投递到阿里云日志服务
 
 > 配置文件  [logback-aliyun.xml](https://gitee.com/zhangquansheng/zhengcheng-parent/blob/master/zc-aliyun-spring-boot-starter/logback-aliyun.xml)
-
-在 Maven 工程中使用
-
-```
-    <dependency>
-        <groupId>com.google.protobuf</groupId>
-        <artifactId>protobuf-java</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>com.aliyun.openservices</groupId>
-        <artifactId>aliyun-log-logback-appender</artifactId>
-    </dependency>
-```
 
 **属性配置**
 
