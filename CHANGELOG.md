@@ -1,5 +1,10 @@
 ﻿# CHANGELOG
 
+## TODO LIST
+- `Event` 模仿 `KafkaListener` 的写法，可以直接在方法上，这样简化代码的class个数 
+- 自定义注解：签名校验，例如微信支付接口的签名校验
+
+
 ## [v4.1.0] 2020.4.11
 - `SpringCloud` 升级到 `Greenwich.SR4`
 - `SpringBoot` 升级到 `2.1.11.RELEASE`
@@ -20,6 +25,7 @@ spring:
 - 去掉 `MobileMask` 注解
 - 取消 `feign` 重试 
 - 增加分页返回结果 `PageResult`
+- 修改 `Event` 为组合Component的注解
 
 ## [v3.19.0] 2020.4.10
 - 其他

@@ -44,8 +44,8 @@ public class ConsumerFactory implements ApplicationContextAware {
         Map<String, Object> evenMap = applicationContext.getBeansWithAnnotation(Event.class);
         evenMap.forEach((k, v) -> {
             Class<IConsumerHandler> consumerHandlerClass = (Class<IConsumerHandler>) v.getClass();
-            for (String e : consumerHandlerClass.getAnnotation(Event.class).value()) {
-                consumerHandlerBeanMap.put(e, consumerHandlerClass);
+            for (String tag : consumerHandlerClass.getAnnotation(Event.class).tags()) {
+                consumerHandlerBeanMap.put(tag, consumerHandlerClass);
             }
         });
     }
