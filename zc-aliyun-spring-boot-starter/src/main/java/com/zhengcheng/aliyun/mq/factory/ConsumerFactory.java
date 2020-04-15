@@ -104,7 +104,8 @@ public class ConsumerFactory implements ApplicationContextAware {
 
 
                     for (String tag : tags) {
-                        consumerHandlerBeanMap.put(tag, (Class<IConsumerHandler>) new MethodConsumerHandler(bean, method).getClass());
+                        IConsumerHandler consumerHandler = new MethodConsumerHandler(bean, method);
+                        consumerHandlerBeanMap.put(tag, (Class<IConsumerHandler>) consumerHandler.getClass());
                     }
                 }
             }
