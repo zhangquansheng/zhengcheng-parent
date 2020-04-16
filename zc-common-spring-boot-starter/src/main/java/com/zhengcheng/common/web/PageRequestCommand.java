@@ -6,8 +6,6 @@ import com.google.common.collect.Lists;
 import lombok.Data;
 import org.apache.logging.log4j.util.Strings;
 
-import java.io.Serializable;
-
 /**
  * 分页请求参数
  *
@@ -15,9 +13,7 @@ import java.io.Serializable;
  * @date :    2019/9/30 1:51
  */
 @Data
-public class PageRequestCommand implements Serializable {
-
-    private static final long serialVersionUID = -4615660391238931778L;
+public class PageRequestCommand {
 
     private Integer current = 1;
 
