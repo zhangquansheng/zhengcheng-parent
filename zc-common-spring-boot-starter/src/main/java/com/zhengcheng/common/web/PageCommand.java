@@ -11,11 +11,11 @@ import java.io.Serializable;
 /**
  * 分页请求参数
  *
- * @author :    uansheng.zhang
+ * @author :    quansheng.zhang
  * @date :    2019/9/30 1:51
  */
 @Data
-public class PageRequestCommand implements Serializable {
+public class PageCommand implements Serializable {
 
     private static final long serialVersionUID = -2370551336156689540L;
 
