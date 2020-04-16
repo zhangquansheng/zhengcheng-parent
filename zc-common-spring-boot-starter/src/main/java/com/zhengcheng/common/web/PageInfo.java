@@ -37,17 +37,11 @@ public class PageInfo<T> implements Serializable {
      */
     private List<T> list;
 
-    /**
-     * 设置 分页信息
-     *
-     * @param page IPage
-     */
-    public static PageInfo setPage(IPage page, List list) {
-        PageInfo pageInfo = new PageInfo<>();
-        pageInfo.setPageNo(page.getCurrent());
-        pageInfo.setPageSize(page.getSize());
-        pageInfo.setTotal(page.getTotal());
-        pageInfo.setList(list);
-        return pageInfo;
+    public static <T> PageInfo<T> create(IPage page, List<T> list) {
+        return new PageInfo<>(page.getCurrent(), page.getSize(), page.getTotal(), list);
+    }
+
+    public static <T> PageInfo<T> create(IPage<T> page) {
+        return new PageInfo<>(page.getCurrent(), page.getSize(), page.getTotal(), page.getRecords());
     }
 }
