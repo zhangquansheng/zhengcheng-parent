@@ -36,11 +36,11 @@ public class Result<T> implements Serializable {
     }
 
     public static <T> Result<T> successData(T data) {
-        return successData(null, data);
+        return successData(CodeEnum.SUCCESS.getMessage(), data);
     }
 
     public static <T> Result<T> success() {
-        return successMessage(null);
+        return successMessage(CodeEnum.SUCCESS.getMessage());
     }
 
     public static <T> Result<T> errorData(String message, T data) {
@@ -48,11 +48,11 @@ public class Result<T> implements Serializable {
     }
 
     public static <T> Result<T> error() {
-        return errorMessage(null);
+        return errorMessage(CodeEnum.ERROR.getMessage());
     }
 
     public static <T> Result<T> errorData(T data) {
-        return errorData(null, data);
+        return errorData(CodeEnum.ERROR.getMessage(), data);
     }
 
     public static <T> Result<T> errorMessage(String message) {
