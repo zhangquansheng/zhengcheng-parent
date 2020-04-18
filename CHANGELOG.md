@@ -25,8 +25,8 @@ spring:
 ```
 - 去掉 `MobileMask` 注解
 - 取消 `feign` 重试 
-- 增加分页返回结果 `PageResult`
-- 修改 `Event` 为组合Component的注解
+- 增加分页返回结果 `PageInfo`
+- 修改 `Event` 为组合 `Component` 的注解
 - 新增 `RocketmqListener` 的注解，可以直接在方法上，减少代码中Class的个数 
 
 ## [v3.19.0] 2020.4.10
