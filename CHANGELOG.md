@@ -1,8 +1,10 @@
 ﻿# CHANGELOG
 
 ## TODO LIST
-- 自定义注解：签名校验，例如微信支付接口的签名校验
 
+
+## [v4.2.0] 2020.4.18
+- 签名校验，例如微信支付接口的签名校验 `SignAuthInterceptor`
 
 ## [v4.1.0] 2020.4.11
 - `SpringCloud` 升级到 `Greenwich.SR4`
