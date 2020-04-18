@@ -6,8 +6,14 @@
 
 ## 当前稳定版本
 
-
-
+### 4.x
+```
+    <parent>
+        <groupId>com.zhengcheng</groupId>
+        <artifactId>zhengcheng-parent</artifactId>
+        <version>4.1.0</version>
+    </parent>
+```
 ### 3.x
 ```
     <parent>
