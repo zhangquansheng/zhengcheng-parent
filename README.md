@@ -11,7 +11,7 @@
     <parent>
         <groupId>com.zhengcheng</groupId>
         <artifactId>zhengcheng-parent</artifactId>
-        <version>4.1.0</version>
+        <version>4.2.0</version>
     </parent>
 ```
 ### 3.x
