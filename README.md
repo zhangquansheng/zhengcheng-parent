@@ -4,7 +4,7 @@
 
 `简化开发` `效率至上`
 
-## 当前稳定版本
+## 当前稳定版本  [**更新日志**](https://gitee.com/zhangquansheng/zhengcheng-parent/blob/master/CHANGELOG.md)
 
 ### 4.x
 ```
@@ -23,7 +23,6 @@
     </parent>
 ```
 
-## [更新日志](https://gitee.com/zhangquansheng/zhengcheng-parent/blob/master/CHANGELOG.md)
 
 
 ### **环境准备**
