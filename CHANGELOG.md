@@ -1,5 +1,17 @@
 ﻿# CHANGELOG
 
+## TODO LIST
+- SignAuthInterceptor  使用SDK  的sample和例子，简化对接成本
+- Elasticsearch 深入研究，面试，实战
+- 代码在线生成器
+- SOLID 架构设计 深入学习
+- cache aside pattern / redis 深入总结
+
+### 强烈提醒
+- 需要花费很长时间的事情，需要慎重考虑一下在去做
+
+
+
 
 ## [v4.2.0] 2020.4.18
 - **zc-web-springboot-starter 聚合通用组件，定制化Springboot2.x 开发的最小框架支持**,[Sample项目](https://gitee.com/zhangquansheng/magic/tree/alibaba/)
@@ -32,6 +44,7 @@
 ```
 - 微信开发工具升级 `3.7.0` [微信开发 Java SDK（开发工具包）](https://gitee.com/binary/weixin-java-tools)
 - hutool 升级到 `5.3.2`
+
 
 
 
