@@ -1,6 +1,5 @@
 package com.zhengcheng.web;
 
-import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
 import com.zhengcheng.web.aspect.ControllerLogAspect;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -16,7 +15,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @date :    2019/1/26 7:59
  */
 @EnableWebMvc
-@EnableApolloConfig
 @Configuration
 @Import({ControllerLogAspect.class})
 @ComponentScan("com.zhengcheng.web.advice")

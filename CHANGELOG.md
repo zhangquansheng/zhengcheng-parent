@@ -1,10 +1,34 @@
 ﻿# CHANGELOG
 
-## TODO LIST
-
 
 ## [v4.2.0] 2020.4.18
-- 签名校验，例如微信支付接口的签名校验 `SignAuthInterceptor`
+- 接口签名校验，例如微信支付接口的签名校验 `SignAuthInterceptor`
+- 去掉 `WebAutoConfiguration` 上 `@EnableApolloConfig`的配置，交给开发者自主选择
+- 去掉 `apollo` 配置中心依赖包，交给开发者自主选择
+```
+        <dependency>
+            <groupId>com.ctrip.framework.apollo</groupId>
+            <artifactId>apollo-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.ctrip.framework.apollo</groupId>
+            <artifactId>apollo-core</artifactId>
+        </dependency>
+```
+- 去掉 `VI` 依赖包，交给开发者自主选择
+```
+        <dependency>
+            <groupId>com.ctrip.framework</groupId>
+            <artifactId>cornerstone</artifactId>
+        </dependency>
+```
+- 去掉 `eureka-client`，交给开发者自主选择(`@EnableEurekaClient`)
+```
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+```
 
 ## [v4.1.0] 2020.4.11
 - `SpringCloud` 升级到 `Greenwich.SR4`
