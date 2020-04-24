@@ -29,7 +29,7 @@
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 ```
-- 微信开发工具升级 `3.7.0` (微信开发 Java SDK（开发工具包）)[https://gitee.com/binary/weixin-java-tools]
+- 微信开发工具升级 `3.7.0` [微信开发 Java SDK（开发工具包）](https://gitee.com/binary/weixin-java-tools)
 
 ## [v4.1.0] 2020.4.11
 - `SpringCloud` 升级到 `Greenwich.SR4`
