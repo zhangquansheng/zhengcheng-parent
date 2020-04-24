@@ -2,6 +2,7 @@
 
 
 ## [v4.2.0] 2020.4.18
+- **zc-web-springboot-starter 聚合通用组件，定制化Springboot2.x 开发的最小框架支持**
 - 接口签名校验，例如微信支付接口的签名校验 `SignAuthInterceptor`
 - 去掉 `WebAutoConfiguration` 上 `@EnableApolloConfig`的配置，交给开发者自主选择
 - 去掉 `apollo` 配置中心依赖包，交给开发者自主选择
@@ -30,6 +31,9 @@
         </dependency>
 ```
 - 微信开发工具升级 `3.7.0` [微信开发 Java SDK（开发工具包）](https://gitee.com/binary/weixin-java-tools)
+
+
+
 
 ## [v4.1.0] 2020.4.11
 - `SpringCloud` 升级到 `Greenwich.SR4`
