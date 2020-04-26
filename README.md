@@ -4,6 +4,8 @@
 
 `简化开发` `效率至上`
 
+## [Sample项目](https://gitee.com/zhangquansheng/magic)
+
 ## 当前稳定版本  [**更新日志**](https://gitee.com/zhangquansheng/zhengcheng-parent/blob/master/CHANGELOG.md)
 
 ### 4.x
