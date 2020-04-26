@@ -89,7 +89,7 @@ zc-async-spring-boot-starter | 多线程通用组件[使用文档](https://gitee
 
 ### 技术分享
 
-- Spring Cloud Feign OkHttp Hystrix 常见问题&深入源码分析
+- [Spring Cloud Feign OkHttp Hystrix 常见问题&深入源码分析](https://note.youdao.com/ynoteshare1/index.html?id=a82b76dab8172efc5bf7e7b4cfcd6af9&type=note)
 
 ### 联系方式
 
