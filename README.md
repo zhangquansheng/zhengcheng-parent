@@ -71,7 +71,9 @@ zc-async-spring-boot-starter | 多线程通用组件[使用文档](https://gitee
 - [代码分层](https://gitee.com/zhangquansheng/zhengcheng-parent/blob/master/doc/%E4%BB%A3%E7%A0%81%E5%88%86%E5%B1%82%E7%9A%84%E7%90%86%E8%A7%A3.md)
 - [开发手册](https://gitee.com/zhangquansheng/zhengcheng-parent/blob/master/doc/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4java%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C1.40.pdf)
 - [自我修养](https://gitee.com/zhangquansheng/zhengcheng-parent/blob/master/doc/%E9%98%BF%E9%87%8C%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB.pdf)
- 
+- [java 开发规范](https://note.youdao.com/ynoteshare1/index.html?id=70e5dc1447c436a9689b15f9947cdeff&type=note)
+
+
 ### Apollo 和 VI
 
 * 因为使用了[携程VI](https://github.com/ctripcorp/vi)，请在启动命令中加入-Denv=pro，其中pro是代表当前的环境，一般有dev、test、uat、pro
