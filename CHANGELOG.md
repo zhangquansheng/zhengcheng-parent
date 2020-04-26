@@ -44,7 +44,7 @@
 ```
 - 微信开发工具升级 `3.7.0` [微信开发 Java SDK（开发工具包）](https://gitee.com/binary/weixin-java-tools)
 - hutool 升级到 `5.3.2`
-
+- 增加`PageResult` 分页结果
 
 
 
