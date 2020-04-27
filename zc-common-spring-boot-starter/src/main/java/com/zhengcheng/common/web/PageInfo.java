@@ -23,11 +23,11 @@ public class PageInfo<T> implements Serializable {
     /**
      * 页码，从1开始
      */
-    private Long pageNo;
+    private Integer pageNo;
     /**
      * 页面大小
      */
-    private Long pageSize;
+    private Integer pageSize;
     /**
      * 总数
      */
@@ -38,10 +38,14 @@ public class PageInfo<T> implements Serializable {
     private List<T> list;
 
     public static <T> PageInfo<T> create(IPage page, List<T> list) {
-        return new PageInfo<>(page.getCurrent(), page.getSize(), page.getTotal(), list);
+        return new PageInfo<>(new Long(page.getCurrent()).intValue(), new Long(page.getSize()).intValue(), page.getTotal(), list);
     }
 
     public static <T> PageInfo<T> create(IPage<T> page) {
-        return new PageInfo<>(page.getCurrent(), page.getSize(), page.getTotal(), page.getRecords());
+        return new PageInfo<>(new Long(page.getCurrent()).intValue(), new Long(page.getSize()).intValue(), page.getTotal(), page.getRecords());
+    }
+
+    public static <T> PageInfo<T> empty(PageCommand pageCommand) {
+        return new PageInfo<>(pageCommand.getCurrent(), pageCommand.getSize(), 0L, null);
     }
 }
