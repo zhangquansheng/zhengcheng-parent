@@ -3,7 +3,7 @@
 ## TODO LIST
 - SignAuthInterceptor  使用SDK  的sample和例子，简化对接成本
 - Elasticsearch 深入研究，面试，实战
-- 代码在线生成器
+- [代码在线生成器](https://gitee.com/zhangquansheng/magic/tree/4.2.0-springboot-code-gen/)
 - SOLID 架构设计 深入学习
 - cache aside pattern / redis 深入总结
 - 技术分享整理
