@@ -22,8 +22,10 @@ public class RedissonDistributedLock extends AbstractDistributedLock {
 
     @Override
     public boolean lock(String key, long expire, int retryTimes, long sleepMillis) {
+        // 可重入锁（Reentrant Lock）
         RLock lock = redissonClient.getLock(key);
         try {
+            // 尝试加锁，最多等待retryTimes * sleepMillis 毫秒，上锁以后 expire 毫秒自动解锁
             return lock.tryLock(retryTimes * sleepMillis, expire, TimeUnit.MILLISECONDS);
         } catch (InterruptedException e) {
             return false;
