@@ -112,6 +112,7 @@ public class MasterMybatisPlusConfig {
 ```
 
 ### 配置信息
+> 数据库连接池使用hikari，[hikari和druid比较](https://github.com/brettwooldridge/HikariCP/issues/232)
 
 - 3.x
 ```
