@@ -2,7 +2,7 @@
 
 ## **简介**（Introduction）
 
-缓存基本操作，redis的布隆过滤器，CacheManager
+分布式锁，redis的布隆过滤器，CacheManager
 
 ## **入门篇**
 
@@ -41,7 +41,13 @@ spring:
         min-idle: 0
 ```
 
-### 基本操作
+### 分布式锁
+> 分布式锁抽象类: `AbstractDistributedLock`
+
+
+
+
+### Redis 布隆过滤器
 
 - [RedisBloomFilter](https://gitee.com/zhangquansheng/zhengcheng-parent/blob/master/zc-redis-spring-boot-starter/RedisBloomFilter.md)
 
@@ -50,7 +56,7 @@ spring:
 > SpringBoot2.0默认采用Lettuce客户端来连接Redis服务端的
 
 - Jedis：是Redis的Java实现客户端，提供了比较全面的Redis命令的支持，
-- Redisson：实现了分布式和可扩展的Java数据结构。
+- Redisson：实现了分布式和可扩展的Java数据结构。redisson官方发布了[redisson-spring-boot-starter](https://github.com/redisson/redisson/tree/master/redisson-spring-boot-starter#spring-boot-starter)
 - Lettuce：高级Redis客户端，用于线程安全同步，异步和响应使用，支持集群，Sentinel，管道和编码器。
 
 ### CacheManager
