@@ -41,8 +41,10 @@ spring:
         min-idle: 0
 ```
 
-### 分布式锁
-> 分布式锁抽象类: `AbstractDistributedLock`
+### 分布式锁 
+AbstractDistributedLock 的实现类有：
+- RedissonDistributedLock : Redisson 分布式锁
+- RedisDistributedLock : Redis 分布式锁
 
 
 
