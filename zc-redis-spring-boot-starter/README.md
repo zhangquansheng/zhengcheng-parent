@@ -45,7 +45,7 @@ spring:
 AbstractDistributedLock 的实现类有：
 - RedissonDistributedLock : Redisson 分布式锁
 - RedisDistributedLock : Redis 分布式锁
-- CuratorDistributedLock : Curator实现zk分布式锁工具类
+- CuratorDistributedLock : Curator实现zk分布式锁
 
 
 
