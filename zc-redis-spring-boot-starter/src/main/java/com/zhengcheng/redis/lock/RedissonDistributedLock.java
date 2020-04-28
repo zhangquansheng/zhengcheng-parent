@@ -16,7 +16,8 @@ public class RedissonDistributedLock extends AbstractDistributedLock {
 
     private RedissonClient redissonClient;
 
-    public void setRedissonClient(RedissonClient redissonClient) {
+    public RedissonDistributedLock(RedissonClient redissonClient) {
+        super();
         this.redissonClient = redissonClient;
     }
 
