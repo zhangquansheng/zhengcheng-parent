@@ -3,7 +3,6 @@ package com.zhengcheng.redis;
 import com.zhengcheng.redis.lock.RedisDistributedLock;
 import com.zhengcheng.redis.properties.CacheManagerProperties;
 import com.zhengcheng.redis.template.RedisBloomFilter;
-import com.zhengcheng.redis.template.RedisRepository;
 import com.zhengcheng.redis.util.RedisObjectSerializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -33,7 +32,6 @@ import java.util.Map;
  * @author :    quansheng.zhang
  * @date :    2019/8/12 22:41
  */
-@Import({RedisDistributedLock.class})
 @EnableConfigurationProperties({RedisProperties.class, CacheManagerProperties.class})
 @EnableCaching
 public class RedisAutoConfiguration {
@@ -69,18 +67,6 @@ public class RedisAutoConfiguration {
     @ConditionalOnMissingBean
     public RedisBloomFilter redisBloomFilter(RedisTemplate<String, Object> redisTemplate) {
         return new RedisBloomFilter(redisTemplate);
-    }
-
-    /**
-     * Redis repository redis repository.
-     *
-     * @param redisTemplate the redis template
-     * @return the redis repository
-     */
-    @Bean
-    @ConditionalOnMissingBean
-    public RedisRepository redisRepository(RedisTemplate<String, Object> redisTemplate) {
-        return new RedisRepository(redisTemplate);
     }
 
     @Bean(name = "cacheManager")

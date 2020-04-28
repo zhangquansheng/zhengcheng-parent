@@ -2,13 +2,11 @@ package com.zhengcheng.redis.lock;
 
 import com.zhengcheng.common.lock.AbstractDistributedLock;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.connection.RedisStringCommands;
 import org.springframework.data.redis.connection.ReturnType;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.types.Expiration;
-import org.springframework.stereotype.Component;
 
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
@@ -20,11 +18,9 @@ import java.util.concurrent.TimeUnit;
  * @date :    2019/8/12 22:41
  */
 @Slf4j
-@Component
 public class RedisDistributedLock extends AbstractDistributedLock {
 
-    @Autowired
-    private RedisTemplate<String, Object> redisTemplate;
+    private final RedisTemplate<String, Object> redisTemplate;
 
     private ThreadLocal<String> lockFlag = new ThreadLocal<>();
 

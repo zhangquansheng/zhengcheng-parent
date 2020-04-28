@@ -43,7 +43,6 @@ spring:
 
 ### 基本操作
 
-- RedisRepository 
 - [RedisBloomFilter](https://gitee.com/zhangquansheng/zhengcheng-parent/blob/master/zc-redis-spring-boot-starter/RedisBloomFilter.md)
 
 ### Redis的三个框架：Jedis,Redisson,Lettuce
