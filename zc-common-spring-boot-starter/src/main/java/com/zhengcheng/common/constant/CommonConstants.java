@@ -19,4 +19,14 @@ public interface CommonConstants {
      * 锁KEY的前缀
      */
     String LOCK_KEY_PREFIX = "LOCK_KEY:";
+
+    /**
+     * 路径ID
+     */
+    String TRACE_ID = "X-ZHENGCHENG-TRACE-ID";
+
+    /**
+     * 请求ID
+     */
+    String REQUEST_ID = "requestId";
 }

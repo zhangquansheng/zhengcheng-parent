@@ -1,7 +1,9 @@
 package com.zhengcheng.common.web;
 
+import com.zhengcheng.common.constant.CommonConstants;
 import com.zhengcheng.common.enumeration.CodeEnum;
 import lombok.Data;
+import org.slf4j.MDC;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -18,6 +20,7 @@ public class Result<T> implements Serializable {
     private Integer code;
     private String message;
     private T data;
+    private String requestId;
 
     public static <T> Result<T> create(Integer code, String message) {
         return new Result(code, message, null);
@@ -71,6 +74,7 @@ public class Result<T> implements Serializable {
         this.code = code;
         this.message = message;
         this.data = data;
+        this.requestId = MDC.get(CommonConstants.TRACE_ID);
     }
 
     public boolean suc() {

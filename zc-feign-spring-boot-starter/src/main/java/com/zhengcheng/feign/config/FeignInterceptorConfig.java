@@ -1,7 +1,5 @@
 package com.zhengcheng.feign.config;
 
-import cn.hutool.core.util.IdUtil;
-import com.zhengcheng.feign.FeignAutoConfiguration;
 import feign.RequestInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.Authentication;
@@ -30,7 +28,6 @@ public class FeignInterceptorConfig {
                 if (authentication instanceof OAuth2Authentication) {
                     OAuth2AuthenticationDetails details = (OAuth2AuthenticationDetails) authentication.getDetails();
                     template.header("Authorization", OAuth2AccessToken.BEARER_TYPE + " " + details.getTokenValue());
-                    template.header(FeignAutoConfiguration.REQUEST_ID, IdUtil.fastSimpleUUID());
                 }
             }
         };

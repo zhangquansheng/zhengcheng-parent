@@ -1,13 +1,22 @@
 package com.zhengcheng.feign;
 
 import cn.hutool.core.util.IdUtil;
+import com.netflix.hystrix.strategy.HystrixPlugins;
+import com.netflix.hystrix.strategy.concurrency.HystrixConcurrencyStrategy;
+import com.netflix.hystrix.strategy.eventnotifier.HystrixEventNotifier;
+import com.netflix.hystrix.strategy.executionhook.HystrixCommandExecutionHook;
+import com.netflix.hystrix.strategy.metrics.HystrixMetricsPublisher;
+import com.netflix.hystrix.strategy.properties.HystrixPropertiesStrategy;
+import com.zhengcheng.common.constant.CommonConstants;
 import com.zhengcheng.feign.config.FeignOkHttpConfig;
+import com.zhengcheng.feign.strategy.MdcHystrixConcurrencyStrategy;
 import feign.Logger;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
-import feign.Retryer;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.cloud.openfeign.FeignLoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -18,13 +27,12 @@ import org.springframework.context.annotation.Import;
  * @author :    quansheng.zhang
  * @date :    2019/7/28 21:31
  */
+@Slf4j
 @Import({FeignOkHttpConfig.class})
 @EnableFeignClients("com.zhengcheng.**.feign.**")
 @ConditionalOnClass(RequestInterceptor.class)
 @Configuration
 public class FeignAutoConfiguration implements RequestInterceptor {
-
-    public static final String REQUEST_ID = "requestId";
 
     /**
      * Feign 日志级别
@@ -34,17 +42,45 @@ public class FeignAutoConfiguration implements RequestInterceptor {
         return Logger.Level.FULL;
     }
 
+    /**
+     * 自定义INFO日志
+     */
+    @Bean
+    FeignLoggerFactory infoFeignLoggerFactory() {
+        return new InfoFeignLoggerFactory();
+    }
+
     @Override
     public void apply(RequestTemplate requestTemplate) {
         // 一些接口的调用需要实现幂等，比如消息发送，如果使用requestId就可以方便服务方实现幂等
-        requestTemplate.header(FeignAutoConfiguration.REQUEST_ID, IdUtil.fastSimpleUUID());
+        requestTemplate.header(CommonConstants.REQUEST_ID, IdUtil.fastSimpleUUID());
     }
 
-    /**
-     * 取消重试
-     */
-    @Bean
-    Retryer feignRetry() {
-        return Retryer.NEVER_RETRY;
+    public FeignAutoConfiguration() {
+        try {
+            HystrixConcurrencyStrategy mdcTarget = new MdcHystrixConcurrencyStrategy();
+            HystrixConcurrencyStrategy strategy = HystrixPlugins.getInstance().getConcurrencyStrategy();
+            if (strategy instanceof MdcHystrixConcurrencyStrategy) {
+                return;
+            }
+            HystrixCommandExecutionHook commandExecutionHook = HystrixPlugins
+                    .getInstance().getCommandExecutionHook();
+            HystrixEventNotifier eventNotifier = HystrixPlugins.getInstance()
+                    .getEventNotifier();
+            HystrixMetricsPublisher metricsPublisher = HystrixPlugins.getInstance()
+                    .getMetricsPublisher();
+            HystrixPropertiesStrategy propertiesStrategy = HystrixPlugins.getInstance()
+                    .getPropertiesStrategy();
+
+            HystrixPlugins.reset();
+            HystrixPlugins.getInstance().registerConcurrencyStrategy(mdcTarget);
+            HystrixPlugins.getInstance()
+                    .registerCommandExecutionHook(commandExecutionHook);
+            HystrixPlugins.getInstance().registerEventNotifier(eventNotifier);
+            HystrixPlugins.getInstance().registerMetricsPublisher(metricsPublisher);
+            HystrixPlugins.getInstance().registerPropertiesStrategy(propertiesStrategy);
+        } catch (Exception e) {
+            log.error("Failed to register Hystrix Concurrency Strategy", e);
+        }
     }
 }

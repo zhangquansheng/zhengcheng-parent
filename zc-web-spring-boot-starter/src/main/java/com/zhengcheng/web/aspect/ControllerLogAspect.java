@@ -39,11 +39,12 @@ public class ControllerLogAspect {
 
     @Around("controllerMethodPointcut()")
     public Object around(ProceedingJoinPoint pjp) throws Throwable {
+        log.info("请求开始[{}]", this.getMethodInfo(pjp));
         long beginTime = System.currentTimeMillis();
         Object retObj = pjp.proceed();
         long costMs = System.currentTimeMillis() - beginTime;
         if (retObj instanceof Result) {
-            log.info("{}请求结束，耗时：{}ms", this.getMethodInfo(pjp), costMs);
+            log.info("返回结果:[{}]，耗时：{}ms", JSONUtil.toJsonStr(retObj), costMs);
         }
         return retObj;
     }

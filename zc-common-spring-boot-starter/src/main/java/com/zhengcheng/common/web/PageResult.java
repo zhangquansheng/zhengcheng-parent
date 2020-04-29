@@ -1,7 +1,9 @@
 package com.zhengcheng.common.web;
 
+import com.zhengcheng.common.constant.CommonConstants;
 import com.zhengcheng.common.enumeration.CodeEnum;
 import lombok.Data;
+import org.slf4j.MDC;
 
 import java.io.Serializable;
 import java.util.List;
@@ -22,6 +24,7 @@ public class PageResult<T> implements Serializable {
     private Integer code;
     private String message;
     private List<T> data;
+    private String requestId;
 
     public static <T> PageResult<T> successData(Long total, List<T> data) {
         PageResult<T> pageResult = new PageResult<>();
@@ -29,6 +32,7 @@ public class PageResult<T> implements Serializable {
         pageResult.setCode(CodeEnum.SUCCESS.getCode());
         pageResult.setMessage(CodeEnum.SUCCESS.getMessage());
         pageResult.setData(data);
+        pageResult.setRequestId(MDC.get(CommonConstants.TRACE_ID));
         return pageResult;
     }
 
