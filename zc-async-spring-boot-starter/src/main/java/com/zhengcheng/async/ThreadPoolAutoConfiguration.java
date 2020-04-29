@@ -1,5 +1,6 @@
 package com.zhengcheng.async;
 
+import com.zhengcheng.async.decorator.MdcTaskDecorator;
 import com.zhengcheng.async.executor.VisibleThreadPoolTaskExecutor;
 import com.zhengcheng.async.properties.ExecutorProperties;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,8 @@ public class ThreadPoolAutoConfiguration {
         executor.setKeepAliveSeconds(executorProperties.getKeepAliveSeconds());
         executor.setAwaitTerminationSeconds(executorProperties.getAwaitTerminationSeconds());
         executor.setThreadNamePrefix(executorProperties.getThreadNamePrefix());
+        // 添加装饰器，为mdc traceId
+        executor.setTaskDecorator(new MdcTaskDecorator());
         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
         //执行初始化
         executor.initialize();
