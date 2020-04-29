@@ -9,7 +9,6 @@
 - 技术分享整理
 - 增加zk分布式锁，分布式锁实现方式的性能对比和使用场景整理
 - 如何保证kafka消息不丢失（结合实际业务场景）
-- Feign日志打印 INFO 
 - [最终一致性的实现方案](http://note.youdao.com/noteshare?id=53594daefb9d2eff4cd9c353d5963f92&sub=DD547814891346F0BEF0115B425D47C2)
 
 ### 强烈提醒
@@ -19,7 +18,8 @@
 
 
 ## [v4.2.0] 2020.4.18
-- 增加MDC链路traceId，返回值也增加request_id，方便问题定位，参考腾讯云
+- Feign日志打印成INFO，**方便线上问题定位**
+- 增加MDC链路traceId，返回值也增加request_id，方便线上问题定位，参考腾讯云
 - **zc-web-springboot-starter 聚合通用组件，定制化Springboot2.x 开发的最小框架支持**,[Sample项目](https://gitee.com/zhangquansheng/magic/tree/alibaba/)
 - 接口签名校验，例如微信支付接口的签名校验 `SignAuthInterceptor`
 - 去掉 `WebAutoConfiguration` 上 `@EnableApolloConfig`的配置，交给开发者自主选择
