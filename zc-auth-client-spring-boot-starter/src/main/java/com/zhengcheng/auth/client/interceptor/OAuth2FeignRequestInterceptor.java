@@ -1,5 +1,7 @@
 package com.zhengcheng.auth.client.interceptor;
 
+import cn.hutool.core.util.IdUtil;
+import com.zhengcheng.common.constant.CommonConstants;
 import feign.RequestInterceptor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -30,6 +32,7 @@ public class OAuth2FeignRequestInterceptor implements RequestInterceptor {
             OAuth2AuthenticationDetails details = (OAuth2AuthenticationDetails) authentication.getDetails();
             String value = String.format("%s %s", BEARER_TOKEN_TYPE, details.getTokenValue());
             requestTemplate.header(AUTHORIZATION_HEADER, value);
+            requestTemplate.header(CommonConstants.REQUEST_ID, IdUtil.fastSimpleUUID());
             if (log.isDebugEnabled()) {
                 log.debug("put feign header  [{}] = [{}]", BEARER_TOKEN_TYPE, value);
             }
