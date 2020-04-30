@@ -13,7 +13,7 @@
     <groupId>com.zhengcheng</groupId>
     <artifactId>zhengcheng-parent</artifactId>
     <packaging>pom</packaging>
-    <version>4.2.1</version>
+    <version>4.3.0</version>
 
     <name>zhengcheng-parent</name>
 
@@ -32,11 +32,10 @@
         <module>zc-netty-socketio-spring-boot-starter</module>
         <module>zc-aliyun-spring-boot-starter</module>
         <module>zc-tencentcloud-spring-boot-starter</module>
-        <module>zc-async-spring-boot-starter</module>
     </modules>
 
     <properties>
-        <module.version>4.2.1</module.version>
+        <module.version>4.3.0</module.version>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -163,11 +162,6 @@
             <dependency>
                 <groupId>com.zhengcheng</groupId>
                 <artifactId>zc-tencentcloud-spring-boot-starter</artifactId>
-                <version>${module.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.zhengcheng</groupId>
-                <artifactId>zc-async-spring-boot-starter</artifactId>
                 <version>${module.version}</version>
             </dependency>
             <dependency>

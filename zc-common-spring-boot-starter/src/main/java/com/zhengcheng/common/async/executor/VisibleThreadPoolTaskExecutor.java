@@ -1,4 +1,4 @@
-package com.zhengcheng.async.executor;
+package com.zhengcheng.common.async.executor;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;

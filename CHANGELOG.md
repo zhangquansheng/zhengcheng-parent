@@ -1,6 +1,7 @@
 ﻿# CHANGELOG
 
 ## TODO LIST
+
 - SignAuthInterceptor  使用SDK  的sample和例子，简化对接成本
 - Elasticsearch 深入研究，面试，实战
 - [代码在线生成器](https://gitee.com/zhangquansheng/magic/tree/4.2.0-springboot-code-gen/)
@@ -17,7 +18,9 @@
 
 
 
-## [v4.2.0] 2020.4.18
+## [v4.3.0] 2020.4.18
+
+- 删除zc-async-spring-boot-starter,异步线程池的配置简化并交给开发者
 - Feign日志打印成INFO，**方便线上问题定位**
 - 增加MDC链路traceId，返回值也增加request_id，方便线上问题定位，参考腾讯云
 - **zc-web-springboot-starter 聚合通用组件，定制化Springboot2.x 开发的最小框架支持**,[Sample项目](https://gitee.com/zhangquansheng/magic/tree/alibaba/)

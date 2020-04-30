@@ -1,4 +1,4 @@
-package com.zhengcheng.async.properties;
+package com.zhengcheng.common.async.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
