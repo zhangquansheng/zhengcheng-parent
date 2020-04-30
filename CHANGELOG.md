@@ -20,6 +20,7 @@
 
 ## [v4.3.0] 2020.4.18
 
+- 新增`ExecutorMdcTaskBuilder` ({@link ThreadPoolTaskExecutor} 建造者) 打印MDC的线程池任务建造者
 - 删除zc-async-spring-boot-starter,异步线程池的配置简化并交给开发者
 - Feign日志打印成INFO，**方便线上问题定位**
 - 增加MDC链路traceId，返回值也增加request_id，方便线上问题定位，参考腾讯云
