@@ -1,15 +1,14 @@
 package com.zhengcheng.async;
 
-import com.zhengcheng.async.decorator.MdcTaskDecorator;
 import com.zhengcheng.async.executor.VisibleThreadPoolTaskExecutor;
 import com.zhengcheng.async.properties.ExecutorProperties;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
-import java.util.concurrent.Executor;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
@@ -23,14 +22,11 @@ import java.util.concurrent.ThreadPoolExecutor;
 @Configuration
 public class ThreadPoolAutoConfiguration {
 
-    private final ExecutorProperties executorProperties;
+    @Autowired
+    private ExecutorProperties executorProperties;
 
-    public ThreadPoolAutoConfiguration(ExecutorProperties executorProperties) {
-        this.executorProperties = executorProperties;
-    }
-
-    @Bean
-    public Executor taskExecutor() {
+    @Bean(name = "taskExecutor")
+    public ThreadPoolTaskExecutor taskExecutor() {
         ThreadPoolTaskExecutor executor = new VisibleThreadPoolTaskExecutor();
         executor.setCorePoolSize(executorProperties.getCorePoolSize());
         executor.setMaxPoolSize(executorProperties.getMaxPoolSize());
@@ -38,7 +34,6 @@ public class ThreadPoolAutoConfiguration {
         executor.setKeepAliveSeconds(executorProperties.getKeepAliveSeconds());
         executor.setAwaitTerminationSeconds(executorProperties.getAwaitTerminationSeconds());
         executor.setThreadNamePrefix(executorProperties.getThreadNamePrefix());
-        executor.setTaskDecorator(new MdcTaskDecorator());
         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
         //执行初始化
         executor.initialize();
