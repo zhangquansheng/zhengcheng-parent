@@ -58,7 +58,6 @@ zc-cat-spring-boot-starter | CAT监控通用组件[部署文档](https://gitee.c
 zc-netty-socketio-spring-boot-starter | 即时聊天通用组件[使用文档](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-netty-socketio-spring-boot-starter)
 zc-aliyun-spring-boot-starter | 阿里云通用组件(OSS，短信服务，Rocketmq消息队列，内容安全，日志服务，DTS)[使用文档](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-aliyun-spring-boot-starter)
 zc-tencentcloud-spring-boot-starter | 腾讯云通用组件（云对象存储 COS，内容安全，自然语言自动配置）[使用文档](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-tencentcloud-spring-boot-starter)
-zc-async-spring-boot-starter | 多线程通用组件[使用文档](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-async-spring-boot-starter)
 
 ### 三方包
 
