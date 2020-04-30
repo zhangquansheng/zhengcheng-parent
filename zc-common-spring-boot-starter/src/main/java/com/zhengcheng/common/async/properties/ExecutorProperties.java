@@ -1,7 +1,6 @@
 package com.zhengcheng.common.async.properties;
 
 import lombok.Data;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * Executor属性配置
@@ -10,7 +9,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @date :    2020/3/15 12:53
  */
 @Data
-@ConfigurationProperties(prefix = "zc.executor")
 public class ExecutorProperties {
     /**
      * 核心线程数：线程池创建时候初始化的线程数
