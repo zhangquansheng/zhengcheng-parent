@@ -22,6 +22,7 @@ public class ExecutorConfig {
 }
 ```
 其中[ExecutorMdcTaskBuilder](https://gitee.com/zhangquansheng/zhengcheng-parent/blob/master/zc-common-spring-boot-starter/src/main/java/com/zhengcheng/common/async/builder/ExecutorMdcTaskBuilder.java)为since4.3.0，作用是ThreadPoolTaskExecutor建造者，打印MDC的线程池任务建造者
+
 属性配置
 ```
 # 核心线程数：线程池创建时候初始化的线程数
