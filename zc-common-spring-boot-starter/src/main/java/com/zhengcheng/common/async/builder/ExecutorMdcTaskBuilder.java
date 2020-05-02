@@ -11,9 +11,11 @@ import java.util.concurrent.ThreadPoolExecutor;
  *
  * @author :    quansheng.zhang
  * @date :    2020/4/30 19:42
+ * @since : 4.3.0
  */
 public class ExecutorMdcTaskBuilder implements cn.hutool.core.builder.Builder<ThreadPoolTaskExecutor> {
 
+    private static final long serialVersionUID = 9148979860793449313L;
     /**
      * 核心线程数：线程池创建时候初始化的线程数
      */
