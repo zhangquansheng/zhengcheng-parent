@@ -88,7 +88,7 @@ zc-tencentcloud-spring-boot-starter | 腾讯云通用组件（云对象存储 CO
 
 ### 技术分享
 
-- [Spring Cloud Feign OkHttp Hystrix 常见问题&深入源码分析](https://note.youdao.com/ynoteshare1/index.html?id=a82b76dab8172efc5bf7e7b4cfcd6af9&type=note)
+- [今日头条](https://www.toutiao.com/i6796811016547074574/)
 
 ### 联系方式
 
