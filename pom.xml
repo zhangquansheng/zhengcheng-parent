@@ -64,7 +64,7 @@
         <hutool.version>5.3.2</hutool.version>
         <weixin-java-tools.version>3.7.0</weixin-java-tools.version>
         <cat.version>3.0.0</cat.version>
-        <socketio.version>1.7.17</socketio.version>
+        <socketio.version>1.7.18</socketio.version>
         <redisson.version>3.11.6</redisson.version>
         <protobuf-java.version>3.11.4</protobuf-java.version>
         <aliyun-log-logback-appender.version>0.1.15</aliyun-log-logback-appender.version>
