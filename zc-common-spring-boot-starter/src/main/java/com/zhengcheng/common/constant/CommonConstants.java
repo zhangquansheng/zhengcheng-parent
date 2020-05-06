@@ -7,6 +7,28 @@ package com.zhengcheng.common.constant;
  * @date :    2019/2/28 21:00
  */
 public interface CommonConstants {
+
+    /**
+     * 本地环境
+     */
+    String ENV_LOCAL = "LOCAL";
+    /**
+     * 开发环境
+     */
+    String ENV_DEV = "DEV";
+    /**
+     * 测试环境
+     */
+    String ENV_FAT = "FAT";
+    /**
+     * 预生产环境
+     */
+    String ENV_UAT = "UAT";
+    /**
+     * 生产环境
+     */
+    String ENV_PRO = "PRO";
+
     /**
      * token请求头名称
      */
