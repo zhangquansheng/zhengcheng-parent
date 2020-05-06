@@ -11,8 +11,8 @@ import lombok.Getter;
 @Getter
 public enum CodeEnum {
 
-    SUCCESS(200, "操作成功"),
-    ERROR(1, "操作失败"),
+    SUCCESS(200, "请求成功"),
+    ERROR(1, "请求失败"),
     FALLBACK(2, "接口访问超时"),
     BAD_REQUEST(400, "请求有误，通常由于请求参数不正确导致，请仔细检查请求参数"),
     UNAUTHORIZED(401, "登录信息已过期"),
