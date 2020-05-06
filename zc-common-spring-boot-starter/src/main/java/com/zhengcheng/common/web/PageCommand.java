@@ -2,6 +2,7 @@ package com.zhengcheng.common.web;
 
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.collect.Lists;
 import lombok.Data;
 import org.apache.logging.log4j.util.Strings;
@@ -27,6 +28,7 @@ public class PageCommand implements Serializable {
 
     private boolean asc = true;
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     public Page getPage() {
         Page page = new Page(this.current == null ? 1 : this.current, this.size == null ? 10 : this.size);
         if (Strings.isNotBlank(this.sortField)) {
