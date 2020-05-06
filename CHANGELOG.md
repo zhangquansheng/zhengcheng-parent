@@ -9,7 +9,7 @@
 - SOLID 架构设计 深入学习
 - cache aside pattern / redis 深入总结
 - 技术分享整理
-- 增加zk分布式锁，分布式锁实现方式的性能对比和使用场景整理
+- 增加zk分布式锁，分布式锁实现方式的性能对比和使用场景整理 ZookeeperLock
 - 如何保证kafka消息不丢失（结合实际业务场景）
 - [最终一致性的实现方案](http://note.youdao.com/noteshare?id=53594daefb9d2eff4cd9c353d5963f92&sub=DD547814891346F0BEF0115B425D47C2)
 

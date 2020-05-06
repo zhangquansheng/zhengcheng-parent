@@ -68,6 +68,7 @@
         <redisson.version>3.11.6</redisson.version>
         <protobuf-java.version>3.11.4</protobuf-java.version>
         <aliyun-log-logback-appender.version>0.1.15</aliyun-log-logback-appender.version>
+        <curator.version>2.7.1</curator.version>
     </properties>
 
     <dependencies>
@@ -403,6 +404,11 @@
                 <groupId>org.redisson</groupId>
                 <artifactId>redisson</artifactId>
                 <version>${redisson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-recipes</artifactId>
+                <version>${curator.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
