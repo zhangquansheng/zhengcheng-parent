@@ -17,6 +17,7 @@ import java.util.Objects;
 @Data
 public class Result<T> implements Serializable {
     private static final long serialVersionUID = 1129940056717037765L;
+
     private Integer code;
     private String message;
     private T data;
