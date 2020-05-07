@@ -3,7 +3,6 @@
 ## TODO LIST
 
 - 建造者设计模式的熟悉（常见的设计模式总结）
-- SignAuthInterceptor  使用SDK  的sample和例子，简化对接成本
 - Elasticsearch 深入研究，面试，实战
 - [代码在线生成器](https://gitee.com/zhangquansheng/magic/tree/4.2.0-springboot-code-gen/)
 - SOLID 架构设计 深入学习
@@ -16,6 +15,9 @@
 ### 强烈提醒
 - **需要花费很长时间的事情，需要慎重考虑一下在去做**
 
+## [v4.3.0] 2020.5.7
+- `SignAuthInterceptor`  使用SDK  的sample和例子，简化对接成本
+- 增加 `SignAuthUtils` 工具类
 
 
 

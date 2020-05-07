@@ -74,7 +74,7 @@ public class SignAuthInterceptor implements HandlerInterceptor {
     private String signature(String timestamp, String nonceStr, HttpServletRequest request) throws UnsupportedEncodingException {
         Map<String, Object> params = new HashMap<>(16);
         Enumeration<String> enumeration = request.getParameterNames();
-        if (enumeration.hasMoreElements()) {
+        while (enumeration.hasMoreElements()) {
             String name = enumeration.nextElement();
             String value = request.getParameter(name);
             params.put(name, URLEncoder.encode(value, CommonConstants.UTF8));
