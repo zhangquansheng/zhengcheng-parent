@@ -19,6 +19,7 @@
 - `SignAuthInterceptor` 简化对接成本;
     - [SignAuthFeignConfig](https://gitee.com/zhangquansheng/magic/blob/4.2.0-springboot-code-gen/src/main/java/com/zhengcheng/magic/common/config/SignAuthFeignConfig.java)
 - 增加 `SignAuthUtils` 工具类
+- `zc-feign-spring-boot-starter` 远程通信通用组件，默认配置中增加SignAuth的参数，详细见`com.zhengcheng.feign.FeignAutoConfiguration`,其中默认的秘钥为：security.api.key，请在配置文件中写入你的配置，否则默认为 `zhengcheng` 
 
 
 
