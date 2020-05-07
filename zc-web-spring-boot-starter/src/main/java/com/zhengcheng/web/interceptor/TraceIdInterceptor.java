@@ -5,7 +5,6 @@ import cn.hutool.core.util.StrUtil;
 import com.zhengcheng.common.constant.CommonConstants;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 
@@ -22,8 +21,11 @@ import javax.servlet.http.HttpServletResponse;
 @Slf4j
 public class TraceIdInterceptor implements HandlerInterceptor {
 
-    @Value("${spring.application.name}")
-    private String name;
+    private String applicationName;
+
+    public TraceIdInterceptor(String applicationName) {
+        this.applicationName = applicationName;
+    }
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
@@ -40,7 +42,7 @@ public class TraceIdInterceptor implements HandlerInterceptor {
             request.setAttribute(CommonConstants.TRACE_ID, traceId);
         }
         MDC.put(CommonConstants.TRACE_ID, traceId);
-        log.info("applicationName:[{}], clientIp:[{}], X-Forwarded-For:[{}]", name, remoteIp, xForwardedForHeader);
+        log.info("applicationName:[{}], clientIp:[{}], X-Forwarded-For:[{}]", applicationName, remoteIp, xForwardedForHeader);
         return true;
     }
 
