@@ -22,6 +22,11 @@ import org.springframework.cloud.openfeign.FeignLoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.common.OAuth2AccessToken;
+import org.springframework.security.oauth2.provider.OAuth2Authentication;
+import org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationDetails;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -64,6 +69,7 @@ public class FeignAutoConfiguration implements RequestInterceptor {
         // 一些接口的调用需要实现幂等，比如消息发送，如果使用requestId就可以方便服务方实现幂等
         requestTemplate.header(CommonConstants.REQUEST_ID, IdUtil.fastSimpleUUID());
 
+        // API接口防止参数篡改和重放攻击
         Map<String, Collection<String>> queries = requestTemplate.queries();
         Map<String, Object> params = new HashMap<>(64);
         for (Map.Entry<String, Collection<String>> query : queries.entrySet()) {
@@ -79,6 +85,15 @@ public class FeignAutoConfiguration implements RequestInterceptor {
         requestTemplate.header(CommonConstants.SIGN_AUTH_TIMESTAMP, timestamp);
         requestTemplate.header(CommonConstants.SIGN_AUTH_NONCE_STR, nonceStr);
         requestTemplate.header(CommonConstants.SIGN_AUTH_SIGNATURE, sign);
+
+        // Feign OAuth2 拦截器
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null) {
+            if (authentication instanceof OAuth2Authentication) {
+                OAuth2AuthenticationDetails details = (OAuth2AuthenticationDetails) authentication.getDetails();
+                requestTemplate.header("Authorization", OAuth2AccessToken.BEARER_TYPE + " " + details.getTokenValue());
+            }
+        }
     }
 
     public FeignAutoConfiguration() {
