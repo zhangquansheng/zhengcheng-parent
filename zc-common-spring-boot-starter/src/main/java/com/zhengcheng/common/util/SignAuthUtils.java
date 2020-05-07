@@ -43,10 +43,10 @@ public class SignAuthUtils {
      * @param timestamp 时间戳
      * @param nonceStr  随机字符串
      * @param key       秘钥
-     * @return
+     * @return Md5的签名
      */
     public static String signMd5(String qs, String timestamp, String nonceStr, String key) {
-        return SecureUtil.md5(String.format("%s&%=%s&%=%s&s=%s",
+        return SecureUtil.md5(String.format("%s&%s=%s&%s=%s&%s=%s",
                 qs,
                 CommonConstants.SIGN_AUTH_TIMESTAMP, timestamp,
                 CommonConstants.SIGN_AUTH_NONCE_STR, nonceStr,
