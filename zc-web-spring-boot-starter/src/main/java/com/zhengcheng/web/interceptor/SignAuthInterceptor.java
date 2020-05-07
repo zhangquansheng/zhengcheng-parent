@@ -6,6 +6,7 @@ import cn.hutool.core.text.StrBuilder;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.crypto.SecureUtil;
 import com.google.common.collect.Lists;
+import com.zhengcheng.common.constant.CommonConstants;
 import com.zhengcheng.common.exception.BizException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -13,6 +14,8 @@ import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
@@ -67,13 +70,13 @@ public class SignAuthInterceptor implements HandlerInterceptor {
         return true;
     }
 
-    private String signature(String timestamp, String nonceStr, HttpServletRequest request) {
+    private String signature(String timestamp, String nonceStr, HttpServletRequest request) throws UnsupportedEncodingException {
         Map<String, Object> params = new HashMap<>(16);
         Enumeration<String> enumeration = request.getParameterNames();
         if (enumeration.hasMoreElements()) {
             String name = enumeration.nextElement();
             String value = request.getParameter(name);
-            params.put(name, value);
+            params.put(name, URLEncoder.encode(value, CommonConstants.UTF8));
         }
         String qs = this.sortQueryParamString(params);
         return SecureUtil.md5(String.format("%s&timestamp=%s&nonceStr=%s&key=%s", qs, timestamp, nonceStr, key)).toLowerCase();

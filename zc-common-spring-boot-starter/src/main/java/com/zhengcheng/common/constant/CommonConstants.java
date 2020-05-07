@@ -28,7 +28,10 @@ public interface CommonConstants {
      * 生产环境
      */
     String ENV_PRO = "PRO";
-
+    /**
+     * 编码
+     */
+    String UTF8 = "UTF-8";
     /**
      * token请求头名称
      */
