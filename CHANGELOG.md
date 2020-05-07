@@ -16,7 +16,8 @@
 - **需要花费很长时间的事情，需要慎重考虑一下在去做**
 
 ## [v4.3.0] 2020.5.7
-- `SignAuthInterceptor`  使用SDK  的sample和例子，简化对接成本
+- `SignAuthInterceptor` 简化对接成本;
+    -[SignAuthFeignConfig](https://gitee.com/zhangquansheng/magic/blob/4.2.0-springboot-code-gen/src/main/java/com/zhengcheng/magic/common/config/SignAuthFeignConfig.java)
 - 增加 `SignAuthUtils` 工具类
 
 
