@@ -8,6 +8,7 @@ package com.zhengcheng.common.constant;
  */
 public interface CommonConstants {
 
+    /**------------------------环境变量------------------------*/
     /**
      * 本地环境
      */
@@ -28,6 +29,8 @@ public interface CommonConstants {
      * 生产环境
      */
     String ENV_PRO = "PRO";
+
+
     /**
      * 编码
      */
@@ -54,4 +57,25 @@ public interface CommonConstants {
      * 请求ID
      */
     String REQUEST_ID = "requestId";
+
+    /**------------------------签名验证------------------------*/
+    /**
+     * 时间戳
+     */
+    String SIGN_AUTH_TIMESTAMP = "timestamp";
+    /**
+     * 随机字符串
+     */
+    String SIGN_AUTH_NONCE_STR = "nonceStr";
+
+    /**
+     * 签名
+     */
+    String SIGN_AUTH_SIGNATURE = "signature";
+
+    /**
+     * 签名秘钥
+     */
+    String SIGN_AUTH_KEY = "key";
+
 }

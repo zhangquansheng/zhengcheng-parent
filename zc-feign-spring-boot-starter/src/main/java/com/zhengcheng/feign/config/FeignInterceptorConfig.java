@@ -14,6 +14,7 @@ import org.springframework.security.oauth2.provider.authentication.OAuth2Authent
  * @author :    quansheng.zhang
  * @date :    2019/6/29 16:07
  */
+@Deprecated
 public class FeignInterceptorConfig {
 
     /**

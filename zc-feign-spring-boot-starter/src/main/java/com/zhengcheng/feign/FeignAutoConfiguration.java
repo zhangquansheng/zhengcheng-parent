@@ -63,19 +63,13 @@ public class FeignAutoConfiguration implements RequestInterceptor {
             if (strategy instanceof MdcHystrixConcurrencyStrategy) {
                 return;
             }
-            HystrixCommandExecutionHook commandExecutionHook = HystrixPlugins
-                    .getInstance().getCommandExecutionHook();
-            HystrixEventNotifier eventNotifier = HystrixPlugins.getInstance()
-                    .getEventNotifier();
-            HystrixMetricsPublisher metricsPublisher = HystrixPlugins.getInstance()
-                    .getMetricsPublisher();
-            HystrixPropertiesStrategy propertiesStrategy = HystrixPlugins.getInstance()
-                    .getPropertiesStrategy();
-
+            HystrixCommandExecutionHook commandExecutionHook = HystrixPlugins.getInstance().getCommandExecutionHook();
+            HystrixEventNotifier eventNotifier = HystrixPlugins.getInstance().getEventNotifier();
+            HystrixMetricsPublisher metricsPublisher = HystrixPlugins.getInstance().getMetricsPublisher();
+            HystrixPropertiesStrategy propertiesStrategy = HystrixPlugins.getInstance().getPropertiesStrategy();
             HystrixPlugins.reset();
             HystrixPlugins.getInstance().registerConcurrencyStrategy(mdcTarget);
-            HystrixPlugins.getInstance()
-                    .registerCommandExecutionHook(commandExecutionHook);
+            HystrixPlugins.getInstance().registerCommandExecutionHook(commandExecutionHook);
             HystrixPlugins.getInstance().registerEventNotifier(eventNotifier);
             HystrixPlugins.getInstance().registerMetricsPublisher(metricsPublisher);
             HystrixPlugins.getInstance().registerPropertiesStrategy(propertiesStrategy);

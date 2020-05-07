@@ -2,12 +2,10 @@ package com.zhengcheng.web.interceptor;
 
 import cn.hutool.core.date.DateUnit;
 import cn.hutool.core.date.DateUtil;
-import cn.hutool.core.text.StrBuilder;
 import cn.hutool.core.util.StrUtil;
-import cn.hutool.crypto.SecureUtil;
-import com.google.common.collect.Lists;
 import com.zhengcheng.common.constant.CommonConstants;
 import com.zhengcheng.common.exception.BizException;
+import com.zhengcheng.common.util.SignAuthUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -16,7 +14,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.util.*;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -41,11 +42,11 @@ public class SignAuthInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response, Object handler) throws Exception {
         // 获取时间戳
-        String timestamp = request.getHeader("timestamp");
+        String timestamp = request.getHeader(CommonConstants.SIGN_AUTH_TIMESTAMP);
         // 获取随机字符串
-        String nonceStr = request.getHeader("nonceStr");
+        String nonceStr = request.getHeader(CommonConstants.SIGN_AUTH_NONCE_STR);
         // 获取签名
-        String signature = request.getHeader("signature");
+        String signature = request.getHeader(CommonConstants.SIGN_AUTH_SIGNATURE);
 
         // 判断时间是否大于xx秒(防止重放攻击)
         long NONCE_STR_TIMEOUT_SECONDS = 60L;
@@ -78,26 +79,7 @@ public class SignAuthInterceptor implements HandlerInterceptor {
             String value = request.getParameter(name);
             params.put(name, URLEncoder.encode(value, CommonConstants.UTF8));
         }
-        String qs = this.sortQueryParamString(params);
-        return SecureUtil.md5(String.format("%s&timestamp=%s&nonceStr=%s&key=%s", qs, timestamp, nonceStr, key)).toLowerCase();
-    }
-
-    /**
-     * 按照字母顺序进行升序排序
-     *
-     * @param params 请求参数 。注意请求参数中不能包含key
-     * @return 排序后结果
-     */
-    private String sortQueryParamString(Map<String, Object> params) {
-        List<String> listKeys = Lists.newArrayList(params.keySet());
-        Collections.sort(listKeys);
-        StrBuilder content = StrBuilder.create();
-        for (String param : listKeys) {
-            content.append(param).append("=").append(params.get(param).toString()).append("&");
-        }
-        if (content.length() > 0) {
-            return content.subString(0, content.length() - 1);
-        }
-        return content.toString();
+        String qs = SignAuthUtils.sortQueryParamString(params);
+        return SignAuthUtils.signMd5(qs, timestamp, nonceStr, key);
     }
 }
