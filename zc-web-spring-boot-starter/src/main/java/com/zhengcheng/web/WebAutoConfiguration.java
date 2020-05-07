@@ -2,11 +2,9 @@ package com.zhengcheng.web;
 
 import com.zhengcheng.web.aspect.ControllerLogAspect;
 import com.zhengcheng.web.interceptor.TraceIdInterceptor;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -27,11 +25,6 @@ public class WebAutoConfiguration implements WebMvcConfigurer {
     public WebAutoConfiguration() {
     }
 
-    @Bean
-    public HandlerInterceptor getTraceIdInterceptor() {
-        return new TraceIdInterceptor();
-    }
-
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
@@ -44,7 +37,7 @@ public class WebAutoConfiguration implements WebMvcConfigurer {
     //添加拦截
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(getTraceIdInterceptor())//路径拦截器
+        registry.addInterceptor(new TraceIdInterceptor())//路径拦截器
                 .addPathPatterns("/**")//拦截的请求路径
                 .excludePathPatterns("/error")//排除的请求路径
                 .excludePathPatterns("/static/*");
