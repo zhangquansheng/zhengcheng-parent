@@ -17,7 +17,7 @@
 
 ## [v4.3.0] 2020.5.7
 - `SignAuthInterceptor` 简化对接成本;
-    -[SignAuthFeignConfig](https://gitee.com/zhangquansheng/magic/blob/4.2.0-springboot-code-gen/src/main/java/com/zhengcheng/magic/common/config/SignAuthFeignConfig.java)
+    - [SignAuthFeignConfig](https://gitee.com/zhangquansheng/magic/blob/4.2.0-springboot-code-gen/src/main/java/com/zhengcheng/magic/common/config/SignAuthFeignConfig.java)
 - 增加 `SignAuthUtils` 工具类
 
 
