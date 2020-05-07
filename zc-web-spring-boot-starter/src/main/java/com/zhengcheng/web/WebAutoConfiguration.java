@@ -2,6 +2,7 @@ package com.zhengcheng.web;
 
 import com.zhengcheng.web.aspect.ControllerLogAspect;
 import com.zhengcheng.web.interceptor.TraceIdInterceptor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -22,6 +23,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @ComponentScan("com.zhengcheng.web.advice")
 public class WebAutoConfiguration implements WebMvcConfigurer {
 
+    @Value("${spring.application.name}")
+    private String name;
+
     public WebAutoConfiguration() {
     }
 
@@ -37,7 +41,7 @@ public class WebAutoConfiguration implements WebMvcConfigurer {
     //添加拦截
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new TraceIdInterceptor())//路径拦截器
+        registry.addInterceptor(new TraceIdInterceptor(name))//路径拦截器
                 .addPathPatterns("/**")//拦截的请求路径
                 .excludePathPatterns("/error")//排除的请求路径
                 .excludePathPatterns("/static/*");
