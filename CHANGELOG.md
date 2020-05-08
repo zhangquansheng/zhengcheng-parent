@@ -17,7 +17,7 @@
 - **对未来乐观**
 - **延迟满足，坚持**
 
-## [v4.3.0] 2020.5.7
+## [v4.4.0] 2020.5.7
 - `SignAuthInterceptor` 简化对接成本;
     - [SignAuthFeignConfig](https://gitee.com/zhangquansheng/magic/blob/4.2.0-springboot-code-gen/src/main/java/com/zhengcheng/magic/common/config/SignAuthFeignConfig.java)
 - 增加 `SignAuthUtils` 工具类
@@ -26,7 +26,7 @@
 - 删除 `FeignInterceptorConfig` , 默认配置中增加 Feign OAuth2 拦截器
 - `TraceIdInterceptor` 增加 `applicationName` 构造参数，修复无法打印项目名的问题
 
-## [v4.4.0] 2020.4.18
+## [v4.3.0] 2020.4.18
 
 - 新增`ExecutorMdcTaskBuilder` ({@link ThreadPoolTaskExecutor} 建造者) 打印MDC的线程池任务建造者
 - 删除zc-async-spring-boot-starter,异步线程池的配置简化并交给开发者
