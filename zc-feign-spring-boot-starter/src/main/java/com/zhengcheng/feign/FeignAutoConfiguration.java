@@ -8,18 +8,29 @@ import com.netflix.hystrix.strategy.executionhook.HystrixCommandExecutionHook;
 import com.netflix.hystrix.strategy.metrics.HystrixMetricsPublisher;
 import com.netflix.hystrix.strategy.properties.HystrixPropertiesStrategy;
 import com.zhengcheng.common.constant.CommonConstants;
+import com.zhengcheng.common.util.SignAuthUtils;
 import com.zhengcheng.feign.config.FeignOkHttpConfig;
 import com.zhengcheng.feign.strategy.MdcHystrixConcurrencyStrategy;
 import feign.Logger;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.cloud.openfeign.FeignLoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.common.OAuth2AccessToken;
+import org.springframework.security.oauth2.provider.OAuth2Authentication;
+import org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationDetails;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Feign统一配置
@@ -33,6 +44,9 @@ import org.springframework.context.annotation.Import;
 @ConditionalOnClass(RequestInterceptor.class)
 @Configuration
 public class FeignAutoConfiguration implements RequestInterceptor {
+
+    @Value("${security.api.key:zhengcheng}")
+    private String key;
 
     /**
      * Feign 日志级别
@@ -54,6 +68,32 @@ public class FeignAutoConfiguration implements RequestInterceptor {
     public void apply(RequestTemplate requestTemplate) {
         // 一些接口的调用需要实现幂等，比如消息发送，如果使用requestId就可以方便服务方实现幂等
         requestTemplate.header(CommonConstants.REQUEST_ID, IdUtil.fastSimpleUUID());
+
+        // API接口防止参数篡改和重放攻击
+        Map<String, Collection<String>> queries = requestTemplate.queries();
+        Map<String, Object> params = new HashMap<>(64);
+        for (Map.Entry<String, Collection<String>> query : queries.entrySet()) {
+            for (String value : query.getValue()) {
+                params.put(query.getKey(), value);
+            }
+        }
+        String timestamp = String.valueOf(System.currentTimeMillis() / 1000);
+        String nonceStr = IdUtil.fastSimpleUUID();
+        String qs = SignAuthUtils.sortQueryParamString(params);
+        String sign = SignAuthUtils.signMd5(qs, timestamp, nonceStr, key);
+
+        requestTemplate.header(CommonConstants.SIGN_AUTH_TIMESTAMP, timestamp);
+        requestTemplate.header(CommonConstants.SIGN_AUTH_NONCE_STR, nonceStr);
+        requestTemplate.header(CommonConstants.SIGN_AUTH_SIGNATURE, sign);
+
+        // Feign OAuth2 拦截器
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null) {
+            if (authentication instanceof OAuth2Authentication) {
+                OAuth2AuthenticationDetails details = (OAuth2AuthenticationDetails) authentication.getDetails();
+                requestTemplate.header("Authorization", OAuth2AccessToken.BEARER_TYPE + " " + details.getTokenValue());
+            }
+        }
     }
 
     public FeignAutoConfiguration() {

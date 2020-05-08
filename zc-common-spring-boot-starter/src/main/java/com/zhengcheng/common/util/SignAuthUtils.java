@@ -48,15 +48,10 @@ public class SignAuthUtils {
      * @return Md5的签名
      */
     public static String signMd5(String qs, String timestamp, String nonceStr, String key) {
-        String md5Str = String.format("%s&%s=%s&%s=%s&%s=%s",
+        return SecureUtil.md5(String.format("%s&%s=%s&%s=%s&%s=%s",
                 qs,
                 CommonConstants.SIGN_AUTH_TIMESTAMP, timestamp,
                 CommonConstants.SIGN_AUTH_NONCE_STR, nonceStr,
-                CommonConstants.SIGN_AUTH_KEY, key);
-        if (log.isDebugEnabled()) {
-            log.debug("签名MD5的字符串为:{}", md5Str);
-        }
-        log.info("md5Str------------->{}", md5Str);
-        return SecureUtil.md5(md5Str).toLowerCase();
+                CommonConstants.SIGN_AUTH_KEY, key)).toLowerCase();
     }
 }
