@@ -15,11 +15,12 @@
 
 ### 强烈提醒
 - **需要花费很长时间的事情，需要慎重考虑一下在去做**
+- **对未来乐观**
 
 
 
 
-## [v4.3.0] 2020.4.18
+## [v4.4.0] 2020.4.18
 
 - 新增`ExecutorMdcTaskBuilder` ({@link ThreadPoolTaskExecutor} 建造者) 打印MDC的线程池任务建造者
 - 删除zc-async-spring-boot-starter,异步线程池的配置简化并交给开发者
