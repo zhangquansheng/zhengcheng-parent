@@ -1,14 +1,15 @@
 package com.zhengcheng.common.constant;
 
+import com.baomidou.mybatisplus.core.toolkit.StringPool;
+
 /**
  * 全局公共常量
  *
  * @author :    quansheng.zhang
  * @date :    2019/2/28 21:00
  */
-public interface CommonConstants {
+public interface CommonConstants extends StringPool {
 
-    /**------------------------环境变量------------------------*/
     /**
      * 本地环境
      */
@@ -30,11 +31,6 @@ public interface CommonConstants {
      */
     String ENV_PRO = "PRO";
 
-
-    /**
-     * 编码
-     */
-    String UTF8 = "UTF-8";
     /**
      * token请求头名称
      */
@@ -58,7 +54,6 @@ public interface CommonConstants {
      */
     String REQUEST_ID = "requestId";
 
-    /**------------------------签名验证------------------------*/
     /**
      * 时间戳
      */
@@ -78,4 +73,11 @@ public interface CommonConstants {
      */
     String SIGN_AUTH_KEY = "key";
 
+    String UNKNOWN = "unknown";
+
+    String LOCAL_HOST_IPV4 = "127.0.0.1";
+
+    String LOCAL_HOST_IPV6 = "0:0:0:0:0:0:0:1";
+
+    Integer IPS_MAX_LENGTH = 15;
 }
