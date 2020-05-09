@@ -2,6 +2,7 @@
 
 ## TODO LIST
 
+- [Java 两级缓存框架](https://gitee.com/ld/J2Cache) 的深入研究
 - 建造者设计模式的熟悉（常见的设计模式总结）
 - Elasticsearch 深入研究，面试，实战
 - [代码在线生成器](https://gitee.com/zhangquansheng/magic/tree/4.2.0-springboot-code-gen/)
@@ -17,6 +18,7 @@
 - **对未来乐观**
 - **延迟满足，坚持**
 
+
 ## [v4.4.0] 2020.5.7
 - `SignAuthInterceptor` 简化对接成本;
     - [SignAuthFeignConfig](https://gitee.com/zhangquansheng/magic/blob/4.2.0-springboot-code-gen/src/main/java/com/zhengcheng/magic/common/config/SignAuthFeignConfig.java)
@@ -25,7 +27,7 @@
 - 技术分享 [API接口防止参数篡改和重放攻击](https://note.youdao.com/ynoteshare1/index.html?id=ed15f29e7ad1ff2d15a1236231283bc7&type=note)
 - 删除 `FeignInterceptorConfig` , 默认配置中增加 Feign OAuth2 拦截器
 - `TraceIdInterceptor` 增加 `applicationName` 构造参数，修复无法打印项目名的问题
-- [Java 两级缓存框架](https://gitee.com/ld/J2Cache) 的深入研究
+
 
 ## [v4.3.0] 2020.4.18
 
