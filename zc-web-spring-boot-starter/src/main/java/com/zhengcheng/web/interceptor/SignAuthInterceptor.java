@@ -77,7 +77,7 @@ public class SignAuthInterceptor implements HandlerInterceptor {
         while (enumeration.hasMoreElements()) {
             String name = enumeration.nextElement();
             String value = request.getParameter(name);
-            params.put(name, URLEncoder.encode(value, CommonConstants.UTF8));
+            params.put(name, URLEncoder.encode(value, CommonConstants.UTF_8));
         }
         String qs = SignAuthUtils.sortQueryParamString(params);
         return SignAuthUtils.signMd5(qs, timestamp, nonceStr, key);
