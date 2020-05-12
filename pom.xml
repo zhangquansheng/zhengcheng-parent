@@ -436,6 +436,7 @@
                     <include>**/*.crt</include>
                     <include>**/*.key</include>
                     <include>**/*.factories</include>
+                    <include>**/*.lua</include>
                 </includes>
                 <filtering>false</filtering>
             </resource>
@@ -456,6 +457,7 @@
                     <include>**/*.otf</include>
                     <include>**/banner.*</include>
                     <include>**/*.factories</include>
+                    <include>**/*.lua</include>
                 </includes>
                 <filtering>false</filtering>
             </resource>
