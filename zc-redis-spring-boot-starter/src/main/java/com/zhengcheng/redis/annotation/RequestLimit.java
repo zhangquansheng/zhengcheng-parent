@@ -1,6 +1,7 @@
 package com.zhengcheng.redis.annotation;
 
 import org.springframework.core.Ordered;
+import org.springframework.core.annotation.AliasFor;
 import org.springframework.core.annotation.Order;
 
 import java.lang.annotation.*;
@@ -16,6 +17,12 @@ import java.lang.annotation.*;
 @Documented
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public @interface RequestLimit {
+
+    @AliasFor("name")
+    String value() default "";
+
+    @AliasFor("value")
+    String name() default "";
 
     /**
      * 允许访问的最大次数
