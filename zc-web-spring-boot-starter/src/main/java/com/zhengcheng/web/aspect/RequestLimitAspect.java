@@ -2,8 +2,8 @@ package com.zhengcheng.web.aspect;
 
 import cn.hutool.core.util.StrUtil;
 import com.zhengcheng.common.constant.CommonConstants;
-import com.zhengcheng.common.web.CodeEnum;
 import com.zhengcheng.common.exception.BizException;
+import com.zhengcheng.common.web.CodeEnum;
 import com.zhengcheng.redis.annotation.RequestLimit;
 import com.zhengcheng.web.util.IpAddressUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -12,8 +12,10 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
+import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -29,6 +31,8 @@ import java.util.Objects;
  */
 @Slf4j
 @Aspect
+@Component
+@ConditionalOnClass({DefaultRedisScript.class, StringRedisTemplate.class})
 public class RequestLimitAspect {
 
     @Autowired

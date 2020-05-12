@@ -30,6 +30,10 @@ public class Result<T> implements Serializable {
         return new Result(code, message, data);
     }
 
+    public static <T> Result<T> create(CodeEnum codeEnum) {
+        return new Result(codeEnum.getCode(), codeEnum.getMessage(), null);
+    }
+
     public static <T> Result<T> successData(String message, T data) {
         return create(CodeEnum.SUCCESS.getCode(), message, data);
     }
