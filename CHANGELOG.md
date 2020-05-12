@@ -20,6 +20,9 @@
 
 
 ## [v4.4.0] 2020.5.7
+
+- 增加`RequestLimit`注解，实现接口访问量控制
+- `CuratorDistributedLock`  `RedisBloomFilter` `BloomFilterHelper` 即将作废
 - `SignAuthInterceptor` 简化对接成本;
     - [SignAuthFeignConfig](https://gitee.com/zhangquansheng/magic/blob/4.2.0-springboot-code-gen/src/main/java/com/zhengcheng/magic/common/config/SignAuthFeignConfig.java)
 - 增加 `SignAuthUtils` 工具类

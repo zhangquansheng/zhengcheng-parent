@@ -1,6 +1,7 @@
 package com.zhengcheng.common.constant;
 
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
+import lombok.Getter;
 
 /**
  * 全局公共常量
@@ -10,26 +11,21 @@ import com.baomidou.mybatisplus.core.toolkit.StringPool;
  */
 public interface CommonConstants extends StringPool {
 
-    /**
-     * 本地环境
-     */
-    String ENV_LOCAL = "LOCAL";
-    /**
-     * 开发环境
-     */
-    String ENV_DEV = "DEV";
-    /**
-     * 测试环境
-     */
-    String ENV_FAT = "FAT";
-    /**
-     * 预生产环境
-     */
-    String ENV_UAT = "UAT";
-    /**
-     * 生产环境
-     */
-    String ENV_PRO = "PRO";
+    @Getter
+    enum EnvEnum {
+        LOCAL("LOCAL", "本地环境"),
+        DEV("DEV", "开发环境"),
+        FAT("FAT", "测试环境"),
+        UAT("UAT", "预生产环境"),
+        PRO("PRO", "生产环境");
+        private final String value;
+        private final String desc;
+
+        EnvEnum(final String value, final String desc) {
+            this.value = value;
+            this.desc = desc;
+        }
+    }
 
     /**
      * token请求头名称
@@ -42,7 +38,12 @@ public interface CommonConstants extends StringPool {
     /**
      * 锁KEY的前缀
      */
-    String LOCK_KEY_PREFIX = "LOCK_KEY:";
+    String LOCK_KEY_PREFIX = "zc:lock:";
+
+    /**
+     * 接口限流缓存KEY的前缀
+     */
+    String REQUEST_LIMIT_KEY_PREFIX = "zc:rl:";
 
     /**
      * 路径ID

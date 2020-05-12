@@ -1,7 +1,6 @@
 package com.zhengcheng.common.web;
 
 import com.zhengcheng.common.constant.CommonConstants;
-import com.zhengcheng.common.enumeration.CodeEnum;
 import lombok.Data;
 import org.slf4j.MDC;
 

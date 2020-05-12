@@ -1,7 +1,7 @@
 package com.zhengcheng.auth.client.util;
 
 import com.zhengcheng.auth.client.dto.CurrentUserDTO;
-import com.zhengcheng.common.enumeration.CodeEnum;
+import com.zhengcheng.common.web.CodeEnum;
 import com.zhengcheng.common.exception.BizException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.context.SecurityContextHolder;

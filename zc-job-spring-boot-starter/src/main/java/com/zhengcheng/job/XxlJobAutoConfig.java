@@ -32,7 +32,7 @@ public class XxlJobAutoConfig {
         Assert.notNull(xxlJobExecutorProperties.getAdminAddresses(), "xxl.job.executor.admin-addresses is not null");
         XxlJobSpringExecutor xxlJobSpringExecutor = new XxlJobSpringExecutor();
         xxlJobSpringExecutor.setAdminAddresses(xxlJobExecutorProperties.getAdminAddresses());
-        xxlJobSpringExecutor.setAppName(StringUtils.isEmpty(xxlJobExecutorProperties.getAppName()) ? appProperties.getName() : xxlJobExecutorProperties.getAppName());
+        xxlJobSpringExecutor.setAppname(StringUtils.isEmpty(xxlJobExecutorProperties.getAppName()) ? appProperties.getName() : xxlJobExecutorProperties.getAppName());
         xxlJobSpringExecutor.setIp(xxlJobExecutorProperties.getIp());
         xxlJobSpringExecutor.setPort(xxlJobExecutorProperties.getPort());
         xxlJobSpringExecutor.setAccessToken(xxlJobExecutorProperties.getAccessToken());

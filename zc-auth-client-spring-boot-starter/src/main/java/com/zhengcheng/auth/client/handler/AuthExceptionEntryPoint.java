@@ -1,7 +1,7 @@
 package com.zhengcheng.auth.client.handler;
 
 import com.zhengcheng.auth.client.util.ResponseUtil;
-import com.zhengcheng.common.enumeration.CodeEnum;
+import com.zhengcheng.common.web.CodeEnum;
 import com.zhengcheng.common.web.Result;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.AuthenticationException;

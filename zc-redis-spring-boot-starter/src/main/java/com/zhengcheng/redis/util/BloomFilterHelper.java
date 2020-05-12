@@ -13,6 +13,7 @@ import java.nio.charset.Charset;
  * @author :    zhangquansheng
  * @date :    2020/1/19 15:16
  */
+@Deprecated
 @Configurable
 public class BloomFilterHelper<T> {
 

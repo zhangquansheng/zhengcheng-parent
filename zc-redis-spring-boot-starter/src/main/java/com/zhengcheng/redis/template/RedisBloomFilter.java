@@ -14,6 +14,7 @@ import java.util.List;
  * @author :    zhangquansheng
  * @date :    2020/1/19 15:17
  */
+@Deprecated
 public class RedisBloomFilter<T> {
 
     /**

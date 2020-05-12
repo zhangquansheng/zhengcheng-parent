@@ -42,6 +42,7 @@ spring:
 ```
 
 ### 分布式锁 
+
 AbstractDistributedLock 的实现类有：
 - RedissonDistributedLock : Redisson 分布式锁
 - RedisDistributedLock : Redis 分布式锁
@@ -67,3 +68,5 @@ AbstractDistributedLock 的实现类有：
 
 > [Caching 官方文档](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-caching)
 
+### RequestLimit 
+> springboot + redis + lua 实现访问量控制

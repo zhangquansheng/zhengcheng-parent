@@ -1,4 +1,4 @@
-package com.zhengcheng.common.enumeration;
+package com.zhengcheng.common.web;
 
 import lombok.Getter;
 
@@ -21,6 +21,7 @@ public enum CodeEnum {
     METHOD_NOT_ALLOWED(405, "不支持当前请求方法"),
     UNSUPPORTED_MEDIA_TYPE(415, "不支持当前媒体类型"),
     INTERNAL_SERVER_ERROR(500, "系统升级中，请稍后重试！"),
+    REQUEST_EXCEED_LIMIT(501, "您的网络可能有问题，请稍后重试!"),
     DB_FAILED(580, "数据库操作失败"),
     EXCEED_QUOTA(588, "请求频率超出配额");
 

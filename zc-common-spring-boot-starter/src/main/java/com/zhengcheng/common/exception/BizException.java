@@ -1,7 +1,7 @@
 package com.zhengcheng.common.exception;
 
 
-import com.zhengcheng.common.enumeration.CodeEnum;
+import com.zhengcheng.common.web.CodeEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -42,5 +42,9 @@ public class BizException extends RuntimeException {
         super(message, cause);
         this.code = code;
         this.message = message;
+    }
+
+    public BizException(CodeEnum codeEnum) {
+        this(codeEnum.getCode(), codeEnum.getMessage());
     }
 }

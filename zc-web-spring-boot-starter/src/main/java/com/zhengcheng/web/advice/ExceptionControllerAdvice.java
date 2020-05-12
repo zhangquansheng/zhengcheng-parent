@@ -1,6 +1,6 @@
 package com.zhengcheng.web.advice;
 
-import com.zhengcheng.common.enumeration.CodeEnum;
+import com.zhengcheng.common.web.CodeEnum;
 import com.zhengcheng.common.exception.BizException;
 import com.zhengcheng.common.exception.IdempotentException;
 import com.zhengcheng.common.web.Result;

@@ -11,6 +11,7 @@ import org.apache.curator.framework.CuratorFramework;
  * @author :    zhangquansheng
  * @date :    2020/4/28 10:54
  */
+@Deprecated
 @Slf4j
 public class CuratorDistributedLock extends AbstractDistributedLock {
 

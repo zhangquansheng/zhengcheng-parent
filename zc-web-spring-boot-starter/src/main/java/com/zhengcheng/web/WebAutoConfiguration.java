@@ -1,6 +1,7 @@
 package com.zhengcheng.web;
 
 import com.zhengcheng.web.aspect.ControllerLogAspect;
+import com.zhengcheng.web.aspect.RequestLimitAspect;
 import com.zhengcheng.web.interceptor.TraceIdInterceptor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.ComponentScan;
@@ -19,7 +20,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  */
 @EnableWebMvc
 @Configuration
-@Import({ControllerLogAspect.class})
+@Import({ControllerLogAspect.class, RequestLimitAspect.class})
 @ComponentScan("com.zhengcheng.web.advice")
 public class WebAutoConfiguration implements WebMvcConfigurer {
 
