@@ -15,6 +15,7 @@ import org.springframework.scripting.support.ResourceScriptSource;
 
 import java.lang.reflect.Method;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -45,7 +46,10 @@ public class LuaRedisConfiguration implements ApplicationContextAware {
             Method[] methods = bean.getClass().getDeclaredMethods();
             for (Method method : methods) {
                 RequestLimit requestLimit = AnnotationUtils.findAnnotation(method, RequestLimit.class);
-                assert requestLimit != null;
+                if (Objects.isNull(requestLimit)) {
+                    continue;
+                }
+
                 String name = requestLimit.name();
                 if (StrUtil.isBlank(name)) {
                     continue;
