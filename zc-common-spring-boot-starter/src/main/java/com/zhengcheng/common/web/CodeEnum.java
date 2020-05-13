@@ -19,9 +19,9 @@ public enum CodeEnum {
     FORBIDDEN(403, "没有权限请求当前方法"),
     NOT_FOUND(404, "资源未找到"),
     METHOD_NOT_ALLOWED(405, "不支持当前请求方法"),
+    REQUEST_EXCEED_LIMIT(406, "您的网络可能有问题，请稍后重试!"),
     UNSUPPORTED_MEDIA_TYPE(415, "不支持当前媒体类型"),
     INTERNAL_SERVER_ERROR(500, "系统升级中，请稍后重试！"),
-    REQUEST_EXCEED_LIMIT(501, "您的网络可能有问题，请稍后重试!"),
     DB_FAILED(580, "数据库操作失败"),
     EXCEED_QUOTA(588, "请求频率超出配额");
 
