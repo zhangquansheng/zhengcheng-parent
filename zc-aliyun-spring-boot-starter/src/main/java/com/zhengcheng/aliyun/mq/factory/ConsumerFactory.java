@@ -73,9 +73,13 @@ public class ConsumerFactory implements ApplicationContextAware {
         }
 
         // init consumer handler from method
-        String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
-        for (String beanDefinitionName : beanDefinitionNames) {
-            Object bean = applicationContext.getBean(beanDefinitionName);
+        // https://blog.csdn.net/weixin_42173397/article/details/82220747
+        // String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
+        String[] beanNames = applicationContext.getBeanNamesForType(Object.class, false, true);
+
+        for (String beanName : beanNames) {
+            Object bean = applicationContext.getBean(beanName);
+
             Method[] methods = bean.getClass().getDeclaredMethods();
             for (Method method : methods) {
                 RocketmqListener rocketmqListener = AnnotationUtils.findAnnotation(method, RocketmqListener.class);
@@ -106,6 +110,7 @@ public class ConsumerFactory implements ApplicationContextAware {
                     for (String tag : tags) {
                         IConsumerHandler consumerHandler = new MethodConsumerHandler(bean, method);
                         consumerHandlerBeanMap.put(tag, (Class<IConsumerHandler>) consumerHandler.getClass());
+                        log.info("Generating unique consumer tag: {}", tag);
                     }
                 }
             }
