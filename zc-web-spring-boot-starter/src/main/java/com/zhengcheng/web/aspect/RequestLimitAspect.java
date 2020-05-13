@@ -15,6 +15,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
@@ -37,6 +38,7 @@ import java.util.Objects;
 @Aspect
 @Component
 @ConditionalOnClass({DefaultRedisScript.class, StringRedisTemplate.class})
+@DependsOn("redisScript")
 public class RequestLimitAspect {
 
     @Autowired
