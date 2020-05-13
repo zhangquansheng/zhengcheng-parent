@@ -5,7 +5,6 @@ import com.zhengcheng.common.constant.CommonConstants;
 import com.zhengcheng.common.exception.BizException;
 import com.zhengcheng.common.web.CodeEnum;
 import com.zhengcheng.redis.annotation.RequestLimit;
-import com.zhengcheng.web.util.IpAddressUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
@@ -20,10 +19,7 @@ import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
 import java.util.Collections;
 import java.util.Objects;
@@ -53,19 +49,9 @@ public class RequestLimitAspect {
 
     @Before("pointcut()")
     public void doBefore(JoinPoint joinPoint) {
-        ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-        if (Objects.isNull(requestAttributes)) {
-            return;
-        }
-        HttpServletRequest request = requestAttributes.getRequest();
-
         try {
-
             // 获取封装了署名信息的对象,在该对象中可以获取到目标方法名,所属类的Class等信息
             Signature signature = joinPoint.getSignature();
-            // 获取传入目标方法的参数对象
-            Object[] args = joinPoint.getArgs();
-
             //拦截的方法名称
             String methodName = signature.getName();
             //拦截的放参数类型
@@ -74,14 +60,16 @@ public class RequestLimitAspect {
             // 必须要用AnnotationUtils，才能获取到 name 和 value上@AliasFor(互为别名)的作用
             // AOP原理
             RequestLimit requestLimit = AnnotationUtils.findAnnotation(method, RequestLimit.class);
+            if (Objects.isNull(requestLimit)) {
+                return;
+            }
 
             String name = requestLimit.name();
             if (StrUtil.isBlank(name)) {
                 // 获取当前方法名和参数
                 name = method.toGenericString().replaceAll(" ", "");
             }
-            String ip = IpAddressUtils.getIpAddress(request);
-            String key = StrUtil.format("{}{}:{}", CommonConstants.REQUEST_LIMIT_KEY_PREFIX, name, ip);
+            String key = StrUtil.format("{}{}", CommonConstants.REQUEST_LIMIT_KEY_PREFIX, name);
             if (log.isDebugEnabled()) {
                 log.debug("限流接口的KEY:[{}]", key);
             }
