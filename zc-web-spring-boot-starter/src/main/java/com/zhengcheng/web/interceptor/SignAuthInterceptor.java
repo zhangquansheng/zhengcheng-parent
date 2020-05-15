@@ -13,7 +13,6 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
@@ -76,8 +75,7 @@ public class SignAuthInterceptor implements HandlerInterceptor {
         Enumeration<String> enumeration = request.getParameterNames();
         while (enumeration.hasMoreElements()) {
             String name = enumeration.nextElement();
-            String value = request.getParameter(name);
-            params.put(name, URLEncoder.encode(value, CommonConstants.UTF_8));
+            params.put(name, request.getParameter(name));
         }
         String qs = SignAuthUtils.sortQueryParamString(params);
         return SignAuthUtils.signMd5(qs, timestamp, nonceStr, key);
