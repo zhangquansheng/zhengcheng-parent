@@ -11,7 +11,6 @@
 - 技术分享整理
 - 增加zk分布式锁，分布式锁实现方式的性能对比和使用场景整理 ZookeeperLock
 - 如何保证kafka消息不丢失（结合实际业务场景）
-- [最终一致性的实现方案](http://note.youdao.com/noteshare?id=53594daefb9d2eff4cd9c353d5963f92&sub=DD547814891346F0BEF0115B425D47C2)
 
 ### 强烈提醒
 - **需要花费很长时间的事情，需要慎重考虑一下在去做**
@@ -30,6 +29,7 @@
 - 技术分享 [API接口防止参数篡改和重放攻击](https://note.youdao.com/ynoteshare1/index.html?id=ed15f29e7ad1ff2d15a1236231283bc7&type=note)
 - 删除 `FeignInterceptorConfig` , 默认配置中增加 Feign OAuth2 拦截器
 - `TraceIdInterceptor` 增加 `applicationName` 构造参数，修复无法打印项目名的问题
+- [最终一致性的实现方案](http://note.youdao.com/noteshare?id=53594daefb9d2eff4cd9c353d5963f92&sub=DD547814891346F0BEF0115B425D47C2)
 
 
 ## [v4.3.0] 2020.4.18
