@@ -28,6 +28,7 @@ import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationDetails;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -79,12 +80,16 @@ public class FeignAutoConfiguration implements RequestInterceptor {
         }
         String timestamp = String.valueOf(System.currentTimeMillis() / 1000);
         String nonceStr = IdUtil.fastSimpleUUID();
-        String qs = SignAuthUtils.sortQueryParamString(params);
-        String sign = SignAuthUtils.signMd5(qs, timestamp, nonceStr, key);
+        try {
+            String qs = SignAuthUtils.sortQueryParamString(params);
+            String sign = SignAuthUtils.signMd5(qs, timestamp, nonceStr, key);
+            requestTemplate.header(CommonConstants.SIGN_AUTH_SIGNATURE, sign);
+        } catch (UnsupportedEncodingException e) {
+            log.error(e.getMessage(), e);
+        }
 
         requestTemplate.header(CommonConstants.SIGN_AUTH_TIMESTAMP, timestamp);
         requestTemplate.header(CommonConstants.SIGN_AUTH_NONCE_STR, nonceStr);
-        requestTemplate.header(CommonConstants.SIGN_AUTH_SIGNATURE, sign);
 
         // Feign OAuth2 拦截器
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
