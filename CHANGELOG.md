@@ -7,7 +7,7 @@
 - [Java 两级缓存框架](https://gitee.com/ld/J2Cache) 的深入研究
 - 建造者设计模式的熟悉（常见的设计模式总结）
 - Elasticsearch 深入研究，面试，实战
-- [代码在线生成器](https://gitee.com/zhangquansheng/magic/tree/4.2.0-springboot-code-gen/)
+- [代码在线生成器](https://gitee.com/zhangquansheng/magic/tree/springboot-code-gen/)
 - SOLID 架构设计 深入学习
 - cache aside pattern / redis 深入总结
 - 技术分享整理
@@ -25,7 +25,7 @@
 - 增加`RequestLimit`注解，实现接口访问量控制
 - `CuratorDistributedLock`  `RedisBloomFilter` `BloomFilterHelper` 即将作废
 - `SignAuthInterceptor` 简化对接成本;
-    - [SignAuthFeignConfig](https://gitee.com/zhangquansheng/magic/blob/4.2.0-springboot-code-gen/src/main/java/com/zhengcheng/magic/common/config/SignAuthFeignConfig.java)
+    - [SignAuthFeignConfig](https://gitee.com/zhangquansheng/magic/blob/springboot-code-gen/src/main/java/com/zhengcheng/magic/common/config/SignAuthFeignConfig.java)
 - 增加 `SignAuthUtils` 工具类
 - `zc-feign-spring-boot-starter` 远程通信通用组件，默认配置中增加SignAuth的参数，详细见`com.zhengcheng.feign.FeignAutoConfiguration`,其中默认的秘钥为：security.api.key，请在配置文件中写入秘钥，默认为 `zhengcheng` 
 - 技术分享 [API接口防止参数篡改和重放攻击](https://note.youdao.com/ynoteshare1/index.html?id=ed15f29e7ad1ff2d15a1236231283bc7&type=note)
