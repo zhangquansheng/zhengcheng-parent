@@ -2,6 +2,8 @@
 
 ## TODO LIST
 
+- kafka 在Springboot2.x 的最佳实战
+- redis 在Springboot2.x 的最佳实战
 - [Java 两级缓存框架](https://gitee.com/ld/J2Cache) 的深入研究
 - 建造者设计模式的熟悉（常见的设计模式总结）
 - Elasticsearch 深入研究，面试，实战
