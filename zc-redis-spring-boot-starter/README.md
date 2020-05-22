@@ -2,7 +2,7 @@
 
 ## **简介**（Introduction）
 
-SpringBoot整合Redis, 分布式锁， redis的布隆过滤器， CacheManager
+SpringBoot整合Redis、分布式锁、 CacheManager
 
 ## **入门篇**
 
@@ -44,13 +44,6 @@ AbstractDistributedLock 的实现类有：
 - RedisDistributedLock : Redis 分布式锁
 - CuratorDistributedLock : Curator实现zk分布式锁
 
-> todo 性能对比
-
-
-### Redis 布隆过滤器
-> 已弃用
-
-- [RedisBloomFilter](https://gitee.com/zhangquansheng/zhengcheng-parent/blob/master/zc-redis-spring-boot-starter/RedisBloomFilter.md)
 
 ### Redis的三个框架：Jedis,Redisson,Lettuce
 
@@ -64,5 +57,32 @@ AbstractDistributedLock 的实现类有：
 
 > [Caching 官方文档](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-caching)
 
+```
+spring.cache.cache-names=cache1,cache2
+spring.cache.caffeine.spec=maximumSize=500,expireAfterAccess=600s
+```
+
 ### RequestLimit 
 > springboot + redis + lua 实现访问量控制
+
+### J2Cache
+```
+   <dependency>
+        <groupId>net.oschina.j2cache</groupId>
+        <artifactId>j2cache-core</artifactId>
+        <exclusions>
+            <exclusion>
+                <artifactId>slf4j-api</artifactId>
+                <groupId>org.slf4j</groupId>
+            </exclusion>
+            <exclusion>
+                <artifactId>slf4j-simple</artifactId>
+                <groupId>org.slf4j</groupId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+    <dependency>
+        <groupId>net.oschina.j2cache</groupId>
+        <artifactId>j2cache-spring-boot2-starter</artifactId>
+    </dependency>
+```

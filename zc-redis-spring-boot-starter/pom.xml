@@ -45,24 +45,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <dependency>
-            <groupId>net.oschina.j2cache</groupId>
-            <artifactId>j2cache-core</artifactId>
-            <exclusions>
-                <exclusion>
-                    <artifactId>slf4j-api</artifactId>
-                    <groupId>org.slf4j</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>slf4j-simple</artifactId>
-                    <groupId>org.slf4j</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>net.oschina.j2cache</groupId>
-            <artifactId>j2cache-spring-boot2-starter</artifactId>
-        </dependency>
     </dependencies>
 
     <build>
