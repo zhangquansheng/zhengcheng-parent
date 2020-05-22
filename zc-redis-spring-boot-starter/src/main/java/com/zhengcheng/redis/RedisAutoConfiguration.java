@@ -3,7 +3,6 @@ package com.zhengcheng.redis;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -13,14 +12,10 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 /**
  * redis 配置类
  * https://docs.spring.io/spring-data/data-redis/docs/current/reference/html/#redis
- * <p>
- * 内存级缓存 Springboot2.x 使用 Caffeine
- * https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-caching
  *
  * @author :    quansheng.zhang
  * @date :    2019/8/12 22:41
  */
-@EnableCaching
 public class RedisAutoConfiguration {
 
     /**
