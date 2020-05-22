@@ -61,6 +61,12 @@ AbstractDistributedLock 的实现类有：
 > Caffeine是基于JAVA 1.8 Version的高性能缓存库。Caffeine提供的内存缓存使用参考Google guava的API。Caffeine是基于Google Guava Cache设计经验上改进的成果.
 > **Caffeine效率明显的高于其他缓存**
 
+
+使用业务场景：
+> 就算是使用了redis缓存，也会存在一定程度的网络传输上的消耗，在实际应用当中，会存在一些变更频率非常低的数据，
+> 就可以直接缓存在应用内部，对于一些实时性要求不太高的数据，也可以在应用内部缓存一定时间，减少对redis的访问，提高响应速度。
+
+
 示例配置：  
 ```
 spring.cache.type=caffeine
