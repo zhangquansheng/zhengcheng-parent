@@ -58,6 +58,10 @@ AbstractDistributedLock 的实现类有：
 > [Caching 官方文档](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-caching)
 
 推荐使用 `caffeine` 性能最优
+> Caffeine是基于JAVA 1.8 Version的高性能缓存库。Caffeine提供的内存缓存使用参考Google guava的API。Caffeine是基于Google Guava Cache设计经验上改进的成果
+> Caffeine效率明显的高于其他缓存
+
+配置：  
 ```
 spring.cache.type=caffeine
 spring.cache.caffeine.spec=initialCapacity=10,maximumSize=200,expireAfterWrite=3s
