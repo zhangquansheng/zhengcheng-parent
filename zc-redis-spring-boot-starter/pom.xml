@@ -5,7 +5,7 @@
     <parent>
         <artifactId>zhengcheng-parent</artifactId>
         <groupId>com.zhengcheng</groupId>
-        <version>4.4.0</version>
+        <version>4.5.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
@@ -40,8 +40,8 @@
             <artifactId>curator-recipes</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.tencentcloudapi</groupId>
-            <artifactId>tencentcloud-sdk-java</artifactId>
+            <groupId>net.oschina.j2cache</groupId>
+            <artifactId>j2cache-core</artifactId>
         </dependency>
     </dependencies>
 

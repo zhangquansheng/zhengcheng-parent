@@ -2,13 +2,9 @@
 
 ## **简介**（Introduction）
 
-分布式锁，redis的布隆过滤器，CacheManager
+SpringBoot整合Redis, 分布式锁， redis的布隆过滤器， CacheManager
 
 ## **入门篇**
-
-
-### **环境准备**
-
 
 ### **安装**
 
@@ -48,11 +44,11 @@ AbstractDistributedLock 的实现类有：
 - RedisDistributedLock : Redis 分布式锁
 - CuratorDistributedLock : Curator实现zk分布式锁
 
-#### 性能对比
-
+> todo 性能对比
 
 
 ### Redis 布隆过滤器
+> 已弃用
 
 - [RedisBloomFilter](https://gitee.com/zhangquansheng/zhengcheng-parent/blob/master/zc-redis-spring-boot-starter/RedisBloomFilter.md)
 

@@ -19,6 +19,9 @@
 - **对未来乐观**
 - **延迟满足，坚持**
 
+## [v4.5.0] 2020.5.22
+- 增加[J2Cache —— 基于内存和 Redis 的两级 Java 缓存框架](https://gitee.com/ld/J2Cache)
+- 修改`RedisTemplate<String, Object>` value的序列化方式（不兼容老版本，有可能出现value反序列化异常）
 
 ## [v4.4.0] 2020.5.7
 

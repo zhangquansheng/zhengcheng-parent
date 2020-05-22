@@ -1,10 +1,11 @@
 package com.zhengcheng.redis;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zhengcheng.redis.properties.CacheManagerProperties;
-import com.zhengcheng.redis.template.RedisBloomFilter;
 import com.zhengcheng.redis.util.RedisObjectSerializer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cache.CacheManager;
@@ -12,16 +13,13 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.script.DefaultRedisScript;
+import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
-import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
-import org.springframework.scripting.support.ResourceScriptSource;
 
 import java.time.Duration;
 import java.util.HashMap;
@@ -29,6 +27,7 @@ import java.util.Map;
 
 /**
  * redis 配置类
+ * https://docs.spring.io/spring-data/data-redis/docs/current/reference/html/#redis
  *
  * @author :    quansheng.zhang
  * @date :    2019/8/12 22:41
@@ -43,31 +42,32 @@ public class RedisAutoConfiguration {
     /**
      * RedisTemplate配置
      *
-     * @param factory
+     * @param factory RedisConnectionFactory
      */
     @Bean
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory) {
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(factory);
 
-        RedisSerializer stringSerializer = new StringRedisSerializer();
-        redisTemplate.setKeySerializer(stringSerializer);
-        redisTemplate.setHashKeySerializer(stringSerializer);
-        redisTemplate.setValueSerializer(new RedisObjectSerializer());
+        //创建 Jackson2JsonRedisSerializer 序列方式，对象类型使用 Object 类型，
+        Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<>(Object.class);
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
+        objectMapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
+        //设置一下 jackJson 的 ObjectMapper 对象参数
+        jackson2JsonRedisSerializer.setObjectMapper(objectMapper);
+
+        // key 序列化规则
+        redisTemplate.setKeySerializer(new StringRedisSerializer());
+        // value 序列化规则
+        redisTemplate.setValueSerializer(jackson2JsonRedisSerializer);
+        // hash key 序列化规则
+        redisTemplate.setHashKeySerializer(new StringRedisSerializer());
+        // hash value 序列化规则
+        redisTemplate.setHashValueSerializer(jackson2JsonRedisSerializer);
+        //属性设置后操作
         redisTemplate.afterPropertiesSet();
         return redisTemplate;
-    }
-
-    /**
-     * Redis BloomFilter 布隆过滤器.
-     *
-     * @param redisTemplate the redis template
-     * @return 布隆过滤器
-     */
-    @Bean
-    @ConditionalOnMissingBean
-    public RedisBloomFilter redisBloomFilter(RedisTemplate<String, Object> redisTemplate) {
-        return new RedisBloomFilter(redisTemplate);
     }
 
     @Bean(name = "cacheManager")
@@ -96,7 +96,7 @@ public class RedisAutoConfiguration {
         return (target, method, objects) -> {
             StringBuilder sb = new StringBuilder();
             sb.append(target.getClass().getName());
-            sb.append(":" + method.getName() + ":");
+            sb.append(":").append(method.getName()).append(":");
             for (Object obj : objects) {
                 sb.append(obj.toString());
             }
