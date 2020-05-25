@@ -32,7 +32,7 @@
         <module>zc-netty-socketio-spring-boot-starter</module>
         <module>zc-aliyun-spring-boot-starter</module>
         <module>zc-tencentcloud-spring-boot-starter</module>
-        <module>zc-dict-client-spring-boot-starter</module>
+        <module>zc-dict-spring-boot-starter</module>
     </modules>
 
     <properties>
@@ -170,7 +170,7 @@
             </dependency>
             <dependency>
                 <groupId>com.zhengcheng</groupId>
-                <artifactId>zc-dict-client-spring-boot-starter</artifactId>
+                <artifactId>zc-dict-spring-boot-starter</artifactId>
                 <version>${module.version}</version>
             </dependency>
             <dependency>

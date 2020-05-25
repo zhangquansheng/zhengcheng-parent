@@ -1,8 +1,10 @@
-package com.zhengcheng.dict.client;
+package com.zhengcheng.dict;
 
 import cn.hutool.core.util.StrUtil;
+import com.zhengcheng.dict.adminservice.DictAdminService;
 import com.zhengcheng.dict.client.service.impl.DictCacheClientImpl;
 import com.zhengcheng.dict.client.service.impl.RedisReceiver;
+import com.zhengcheng.dict.common.DictUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.springframework.beans.factory.annotation.Value;
@@ -28,7 +30,7 @@ import java.time.Duration;
  * @date :    2020/5/25 14:21
  */
 @Slf4j
-@Import({RedisReceiver.class, DictCacheClientImpl.class})
+@Import({RedisReceiver.class, DictCacheClientImpl.class, DictAdminService.class, DictUtils.class})
 @Configuration
 public class DictClientAutoConfiguration {
 

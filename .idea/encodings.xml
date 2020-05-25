@@ -11,8 +11,8 @@
     <file url="file://$PROJECT_DIR$/zc-common-spring-boot-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-db-spring-boot-starter" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-db-spring-boot-starter/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-dict-client-spring-boot-starter/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-dict-client-spring-boot-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-dict-spring-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-dict-spring-boot-starter/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-feign-spring-boot-starter" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-feign-spring-boot-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-job-spring-boot-starter" charset="UTF-8" />
