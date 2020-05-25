@@ -2,8 +2,7 @@ package com.zhengcheng.dict;
 
 import cn.hutool.core.util.StrUtil;
 import com.zhengcheng.dict.adminservice.DictAdminService;
-import com.zhengcheng.dict.client.service.impl.DictCacheClientImpl;
-import com.zhengcheng.dict.client.service.impl.RedisReceiver;
+import com.zhengcheng.dict.client.DictClient;
 import com.zhengcheng.dict.common.DictUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
@@ -30,12 +29,10 @@ import java.time.Duration;
  * @date :    2020/5/25 14:21
  */
 @Slf4j
-@Import({RedisReceiver.class, DictCacheClientImpl.class, DictAdminService.class, DictUtils.class})
+@Import({DictClient.class, DictAdminService.class, DictUtils.class})
 @Configuration
 public class DictClientAutoConfiguration {
 
-    @Value("${zc.dict.redis.pattern-topic}")
-    private String patternTopic;
     @Value("${zc.dict.redis.database}")
     private int database;
     @Value("${zc.dict.redis.timeout}")
@@ -58,12 +55,12 @@ public class DictClientAutoConfiguration {
     /**
      * 消息适配器
      *
-     * @param receiver 接收者
+     * @param dictClient 接收者(字典客户端)
      * @return MessageListenerAdapter
      */
     @Bean
-    public MessageListenerAdapter listenerAdapter(RedisReceiver receiver) {
-        return new MessageListenerAdapter(receiver, "onMessage");
+    public MessageListenerAdapter listenerAdapter(DictClient dictClient) {
+        return new MessageListenerAdapter(dictClient, "onMessage");
     }
 
     @Bean
@@ -71,7 +68,7 @@ public class DictClientAutoConfiguration {
         RedisMessageListenerContainer container = new RedisMessageListenerContainer();
         container.setConnectionFactory(this.getDictConnectionFactory());
         // 可以添加多个 messageListener，配置不同的交换机
-        container.addMessageListener(listenerAdapter, new PatternTopic(patternTopic));
+        container.addMessageListener(listenerAdapter, new PatternTopic(DictUtils.PATTERN_TOPIC));
         return container;
     }
 

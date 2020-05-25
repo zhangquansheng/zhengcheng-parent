@@ -1,7 +1,7 @@
-package com.zhengcheng.dict.client.service.feign.fallback;
+package com.zhengcheng.dict.client.feign.fallback;
 
 import com.zhengcheng.common.web.Result;
-import com.zhengcheng.dict.client.service.feign.DictFeignClient;
+import com.zhengcheng.dict.client.feign.DictFeignClient;
 import feign.hystrix.FallbackFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

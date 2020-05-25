@@ -3,7 +3,7 @@ package com.zhengcheng.dict.adminservice;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import com.github.benmanes.caffeine.cache.Cache;
-import com.zhengcheng.dict.client.domain.DictItemDTO;
+import com.zhengcheng.dict.dto.DictItemDTO;
 import com.zhengcheng.dict.common.DictUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;

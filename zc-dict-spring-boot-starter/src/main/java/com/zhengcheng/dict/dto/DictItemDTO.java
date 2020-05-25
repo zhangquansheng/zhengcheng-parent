@@ -1,4 +1,4 @@
-package com.zhengcheng.dict.client.domain;
+package com.zhengcheng.dict.dto;
 
 import lombok.Data;
 

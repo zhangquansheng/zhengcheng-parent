@@ -1,8 +1,8 @@
-package com.zhengcheng.dict.client.service.feign;
+package com.zhengcheng.dict.client.feign;
 
 import com.zhengcheng.common.web.Result;
-import com.zhengcheng.dict.client.domain.DictItemDTO;
-import com.zhengcheng.dict.client.service.feign.fallback.DictFeignClientFallbackFactory;
+import com.zhengcheng.dict.client.feign.fallback.DictFeignClientFallbackFactory;
+import com.zhengcheng.dict.dto.DictItemDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
