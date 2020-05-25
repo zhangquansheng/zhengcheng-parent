@@ -8,10 +8,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.RedisPassword;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.connection.lettuce.LettucePoolingClientConfiguration;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.listener.PatternTopic;
 import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
@@ -63,7 +65,20 @@ public class DictClientAutoConfiguration {
 
     @Bean
     public RedisMessageListenerContainer container(MessageListenerAdapter listenerAdapter) {
+        RedisMessageListenerContainer container = new RedisMessageListenerContainer();
+        container.setConnectionFactory(this.getDictConnectionFactory());
+        // 可以添加多个 messageListener，配置不同的交换机
+        container.addMessageListener(listenerAdapter, new PatternTopic(patternTopic));
+        return container;
+    }
 
+
+    @Bean("dictStringRedisTemplate")
+    public StringRedisTemplate dictStringRedisTemplate() {
+        return new StringRedisTemplate(this.getDictConnectionFactory());
+    }
+
+    private RedisConnectionFactory getDictConnectionFactory() {
         /* ========= 基本配置 ========= */
         RedisStandaloneConfiguration configuration = new RedisStandaloneConfiguration();
         configuration.setHostName(hostName);
@@ -88,11 +103,6 @@ public class DictClientAutoConfiguration {
         builder.commandTimeout(Duration.ofSeconds(timeout));
         LettuceConnectionFactory connectionFactory = new LettuceConnectionFactory(configuration, builder.build());
         connectionFactory.afterPropertiesSet();
-
-        RedisMessageListenerContainer container = new RedisMessageListenerContainer();
-        container.setConnectionFactory(connectionFactory);
-        // 可以添加多个 messageListener，配置不同的交换机
-        container.addMessageListener(listenerAdapter, new PatternTopic(patternTopic));
-        return container;
+        return connectionFactory;
     }
 }
