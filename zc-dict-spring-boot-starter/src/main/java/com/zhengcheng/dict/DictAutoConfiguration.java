@@ -30,7 +30,7 @@ import java.time.Duration;
 @Slf4j
 @ComponentScan(basePackages = "com.zhengcheng.dict.*")
 @Configuration
-public class DictClientAutoConfiguration {
+public class DictAutoConfiguration {
 
     @Value("${zc.dict.redis.database}")
     private int database;
