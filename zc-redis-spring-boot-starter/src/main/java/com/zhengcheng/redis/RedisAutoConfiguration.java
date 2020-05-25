@@ -7,13 +7,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
-import org.springframework.data.redis.connection.MessageListener;
+import org.springframework.context.annotation.Primary;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.data.redis.listener.ChannelTopic;
-import org.springframework.data.redis.listener.RedisMessageListenerContainer;
-import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
@@ -33,6 +30,7 @@ public class RedisAutoConfiguration extends CachingConfigurerSupport {
      *
      * @param factory RedisConnectionFactory
      */
+    @Primary
     @Bean
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory) {
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
@@ -59,6 +57,7 @@ public class RedisAutoConfiguration extends CachingConfigurerSupport {
         return redisTemplate;
     }
 
+    @Primary
     @Bean
     public StringRedisTemplate template(RedisConnectionFactory connectionFactory) {
         return new StringRedisTemplate(connectionFactory);

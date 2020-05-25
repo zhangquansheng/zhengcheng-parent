@@ -20,6 +20,7 @@
         <module name="zc-tencentcloud-spring-boot-starter" />
         <module name="zc-cat-spring-boot-starter" />
         <module name="zc-sharding-jdbc-spring-boot-starter" />
+        <module name="zc-dict-client-spring-boot-starter" />
         <module name="zc-job-spring-boot-starter" />
       </profile>
     </annotationProcessing>
@@ -50,6 +51,7 @@
       <module name="zc-cat-spring-boot-starter" options="-parameters" />
       <module name="zc-common-spring-boot-starter" options="-parameters" />
       <module name="zc-db-spring-boot-starter" options="-parameters" />
+      <module name="zc-dict-client-spring-boot-starter" options="-parameters" />
       <module name="zc-feign-spring-boot-starter" options="-parameters" />
       <module name="zc-green-spring-boot-starter" options="-parameters" />
       <module name="zc-job-spring-boot-starter" options="-parameters" />
