@@ -28,15 +28,19 @@ public class SignAuthUtils {
      * @param params 请求参数
      * @return 排序后结果
      */
-    public static String sortQueryParamString(Map<String, Object> params) throws UnsupportedEncodingException {
+    public static String sortQueryParamString(Map<String, Object> params) {
         List<String> listKeys = Lists.newArrayList(params.keySet());
         Collections.sort(listKeys);
         StrBuilder content = StrBuilder.create();
         for (String key : listKeys) {
-            String value = URLEncoder.encode(params.get(key).toString(), CommonConstants.UTF_8);
-            // URL中关于空格的编码转换成+或转换成%20的问题 https://www.jianshu.com/p/4a7eb969235d
-            value = value.replaceAll("\\+", "%20");
-            content.append(key).append("=").append(value).append("&");
+            try {
+                String value = URLEncoder.encode(params.get(key).toString(), CommonConstants.UTF_8);
+                // URL中关于空格的编码转换成+或转换成%20的问题 https://www.jianshu.com/p/4a7eb969235d
+                value = value.replaceAll("\\+", "%20");
+                content.append(key).append("=").append(value).append("&");
+            } catch (UnsupportedEncodingException e) {
+                log.error(e.getMessage(), e);
+            }
         }
         if (content.length() > 0) {
             return content.subString(0, content.length() - 1);

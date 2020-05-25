@@ -1,6 +1,7 @@
 package com.zhengcheng.dict.client;
 
 import cn.hutool.core.util.StrUtil;
+import com.zhengcheng.dict.client.service.impl.DictCacheClientImpl;
 import com.zhengcheng.dict.client.service.impl.RedisReceiver;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
@@ -27,7 +28,7 @@ import java.time.Duration;
  * @date :    2020/5/25 14:21
  */
 @Slf4j
-@Import({RedisReceiver.class})
+@Import({RedisReceiver.class, DictCacheClientImpl.class})
 @Configuration
 public class DictClientAutoConfiguration {
 
@@ -88,7 +89,6 @@ public class DictClientAutoConfiguration {
             RedisPassword redisPassword = RedisPassword.of(password);
             configuration.setPassword(redisPassword);
         }
-
 
         /* ========= 连接池通用配置 ========= */
         GenericObjectPoolConfig genericObjectPoolConfig = new GenericObjectPoolConfig();

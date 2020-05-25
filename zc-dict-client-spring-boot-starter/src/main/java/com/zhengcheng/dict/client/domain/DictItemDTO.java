@@ -11,10 +11,13 @@ import java.io.Serializable;
  * @date :    2020/5/25 14:32
  */
 @Data
-public class DictItem implements Serializable {
+public class DictItemDTO implements Serializable {
 
     private static final long serialVersionUID = -8281078526078012435L;
 
+    /**
+     * ID
+     */
     private Long id;
 
     /**
