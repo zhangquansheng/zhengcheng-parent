@@ -1,15 +1,14 @@
 package com.zhengcheng.dict;
 
 import cn.hutool.core.util.StrUtil;
-import com.zhengcheng.dict.adminservice.DictAdminService;
 import com.zhengcheng.dict.client.DictClient;
 import com.zhengcheng.dict.common.DictUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.RedisPassword;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
@@ -29,7 +28,7 @@ import java.time.Duration;
  * @date :    2020/5/25 14:21
  */
 @Slf4j
-@Import({DictClient.class, DictAdminService.class, DictUtils.class})
+@ComponentScan(basePackages = "com.zhengcheng.dict.*")
 @Configuration
 public class DictClientAutoConfiguration {
 

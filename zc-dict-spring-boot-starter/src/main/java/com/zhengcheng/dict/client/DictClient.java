@@ -39,7 +39,7 @@ public class DictClient implements MessageListener {
     public void onMessage(Message message, byte[] bytes) {
         String channel = new String(message.getChannel());
         String body = new String(message.getBody());
-        log.info("channel:{},receive message body: {}", channel, body);
+        log.info("channel:[{}],receive message body: [{}]", channel, body);
         this.del(body);
     }
 
