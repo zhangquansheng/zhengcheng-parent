@@ -70,7 +70,7 @@ public class DictClient implements MessageListener {
      *
      * @param type 类型
      */
-    public void del(String type) {
+    private void del(String type) {
         caffeineCache.invalidate(DictUtils.key(type));
     }
 

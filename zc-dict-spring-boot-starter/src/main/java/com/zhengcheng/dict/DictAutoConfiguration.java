@@ -18,6 +18,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.listener.PatternTopic;
 import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.time.Duration;
 
@@ -28,6 +29,7 @@ import java.time.Duration;
  * @date :    2020/5/25 14:21
  */
 @Slf4j
+@EnableScheduling
 @ComponentScan(basePackages = "com.zhengcheng.dict.*")
 @Configuration
 public class DictAutoConfiguration {
