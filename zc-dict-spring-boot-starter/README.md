@@ -80,5 +80,9 @@ https://docs.spring.io/spring-data/data-redis/docs/current/reference/html/#pubsu
 
 Caffeine是基于JAVA 1.8 Version的高性能缓存库。Caffeine提供的内存缓存使用参考Google guava的API。Caffeine是基于Google Guava Cache设计经验上改进的成果. Caffeine效率明显的高于其他缓存
 
-### 参考文档
-[微服务架构~携程Apollo配置中心架构剖析](https://mp.weixin.qq.com/s/-hUaQPzfsl9Lm3IqQW3VDQ)
+### 其他
+
+- [Sample](https://gitee.com/zhangquansheng/magic/tree/redis/)
+- [微服务架构~携程Apollo配置中心架构剖析](https://mp.weixin.qq.com/s/-hUaQPzfsl9Lm3IqQW3VDQ)
+
+
