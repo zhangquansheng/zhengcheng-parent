@@ -83,6 +83,6 @@ Caffeine是基于JAVA 1.8 Version的高性能缓存库。Caffeine提供的内存
 ### 其他
 
 - [Sample](https://gitee.com/zhangquansheng/magic/tree/redis/)
-- 本架构借鉴了[微服务架构~携程Apollo配置中心架构剖析](https://mp.weixin.qq.com/s/-hUaQPzfsl9Lm3IqQW3VDQ)
+- 本架构设计站在了巨人的肩膀-[微服务架构~携程Apollo配置中心架构剖析](https://mp.weixin.qq.com/s/-hUaQPzfsl9Lm3IqQW3VDQ)
 
 
