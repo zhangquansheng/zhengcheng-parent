@@ -45,7 +45,7 @@ AbstractDistributedLock 的实现类有：
 - CuratorDistributedLock : Curator实现zk分布式锁
 
 
-### Redis的三个框架：Jedis,Redisson,Lettuce
+### Redis的三个框架：Jedis,[Redisson](https://github.com/redisson/redisson/wiki/%E7%9B%AE%E5%BD%95),Lettuce
 
 > SpringBoot2.0默认采用Lettuce客户端来连接Redis服务端的
 
