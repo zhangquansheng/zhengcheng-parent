@@ -74,7 +74,7 @@ spring.cache.caffeine.spec=initialCapacity=10,maximumSize=200,expireAfterWrite=3
 ```
 
 ### RequestLimit 
-> springboot + redis + lua 实现访问量控制
+> [springboot + redis + lua 实现访问量控制](https://note.youdao.com/ynoteshare1/index.html?id=7e651aa1410422934aeb92ad1ca2814c&type=note)
 
 ### [J2Cache](https://gitee.com/ld/J2Cache)
 ```
