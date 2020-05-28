@@ -17,7 +17,7 @@
 - **延迟满足，坚持**
 
 ## [v4.5.0] 2020.5.22
-- [`j2cache-spring-boot2-starter`](https://gitee.com/ld/J2Cache/tree/master/modules/spring-boot2-starter) 
+- [j2cache-spring-boot2-starter](https://gitee.com/ld/J2Cache/tree/master/modules/spring-boot2-starter) 
 - 增加`zc-dict-spring-boot-starter` 数据字典通用组件，[架构设计](https://note.youdao.com/ynoteshare1/index.html?id=1d514d6554d2b1519284df0a01f02bdc&type=note)
 - 内存级缓存 Springboot2.x 使用 `Caffeine`
 - 修改`RedisTemplate<String, Object>` value的序列化方式（不兼容老版本，有可能出现value反序列化异常）
