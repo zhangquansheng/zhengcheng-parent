@@ -12,7 +12,6 @@ import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.UnsupportedEncodingException;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
@@ -39,7 +38,7 @@ public class SignAuthInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request,
-                             HttpServletResponse response, Object handler) throws Exception {
+                             HttpServletResponse response, Object handler) throws Exception{
         // 获取时间戳
         String timestamp = request.getHeader(CommonConstants.SIGN_AUTH_TIMESTAMP);
         // 获取随机字符串
@@ -70,7 +69,7 @@ public class SignAuthInterceptor implements HandlerInterceptor {
         return true;
     }
 
-    private String signature(String timestamp, String nonceStr, HttpServletRequest request) throws UnsupportedEncodingException {
+    private String signature(String timestamp, String nonceStr, HttpServletRequest request) {
         Map<String, Object> params = new HashMap<>(16);
         Enumeration<String> enumeration = request.getParameterNames();
         while (enumeration.hasMoreElements()) {

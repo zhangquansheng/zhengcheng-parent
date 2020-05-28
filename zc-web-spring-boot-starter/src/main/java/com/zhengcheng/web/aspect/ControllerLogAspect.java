@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * 控制层日志打印
@@ -54,7 +55,7 @@ public class ControllerLogAspect {
     private String getMethodInfo(JoinPoint point) {
         StrBuilder sb = StrBuilder.create();
         try {
-            HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+            HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
             String method = request.getMethod();
             String className = point.getSignature().getDeclaringType().getSimpleName();
             String methodName = point.getSignature().getName();

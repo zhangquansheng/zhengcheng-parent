@@ -14,7 +14,6 @@ import com.zhengcheng.feign.strategy.MdcHystrixConcurrencyStrategy;
 import feign.Logger;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
-import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
