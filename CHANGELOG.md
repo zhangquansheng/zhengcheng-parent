@@ -4,13 +4,10 @@
 
 - **kafka 在Springboot2.x 的最佳实战**
 - **redis 在Springboot2.x 的最佳实战**
-- [Java 两级缓存框架](https://gitee.com/ld/J2Cache) 的深入研究
-- 建造者设计模式的熟悉（常见的设计模式总结）
 - Elasticsearch 深入研究，面试，实战
 - [代码在线生成器](https://gitee.com/zhangquansheng/magic/tree/springboot-code-gen/)
 - SOLID 架构设计 深入学习
 - cache aside pattern / redis 深入总结
-- 技术分享整理
 - 增加zk分布式锁，分布式锁实现方式的性能对比和使用场景整理 ZookeeperLock
 - 如何保证kafka消息不丢失（结合实际业务场景）
 
