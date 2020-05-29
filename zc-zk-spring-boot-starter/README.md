@@ -39,11 +39,11 @@ pom文件引入
 
 ### ZooKeeper 可视化工具
 
-### ZooKeeper在kafka中的作用
+### ZooKeeper 在kafka中的作用
 
-### ZooKeeper在Dubbo(分布式服务框架)中的作用 
+### ZooKeeper 在Dubbo(分布式服务框架)中的作用 
 
 > 使用ZooKeeper作为注册中心
 
 
-### ZooKeeper在Elastic-Job(分布式任务)中的作用 
+### ZooKeeper 在Elastic-Job(分布式任务)中的作用 
