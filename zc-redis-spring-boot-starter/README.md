@@ -41,7 +41,7 @@ spring:
 
 DistributedLock 的实现类有：
 - RedissonDistributedLock : Redisson 分布式R锁
-- ZkDistributedLock : ZooKeeper 分布式锁
+- [ZkDistributedLock](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-zk-spring-boot-starter#%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81-zkdistributedlock) : ZooKeeper 分布式锁
 
 
 ### Redis的三个框架：Jedis,[Redisson](https://github.com/redisson/redisson/wiki/%E7%9B%AE%E5%BD%95),Lettuce
