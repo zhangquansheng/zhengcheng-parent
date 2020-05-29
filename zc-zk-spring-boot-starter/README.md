@@ -14,6 +14,25 @@
 
 #### 分布式锁 ZkDistributedLock
 
+##### **属性设置**
+
+```
+curator.zookeeper-connection-string = zk链接地址
+curator.base-sleep-time-ms = 1000 
+curator.max-retries = 3
+```
+
+##### 注入bean
+```
+    @Autowired
+    private CuratorFramework client;
+
+    @Bean
+    public DistributedLock distributedLock() {
+        return new ZkDistributedLock(client);
+    }
+```
+
 - 分布式队列
 - 负载均衡
 - 命名服务......
