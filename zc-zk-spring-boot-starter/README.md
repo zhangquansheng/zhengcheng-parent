@@ -33,6 +33,25 @@ curator.max-retries = 3
     }
 ```
 
+##### Recipes
+```
+    @Autowired
+    private DistributedLock lock;
+
+
+    if ( lock.acquire(maxWait, waitUnit) ) 
+    {
+        try 
+        {
+            // do some work inside of the critical section here
+        }
+        finally
+        {
+            lock.release();
+        }
+    }
+```
+
 - 分布式队列
 - 负载均衡
 - 命名服务......
