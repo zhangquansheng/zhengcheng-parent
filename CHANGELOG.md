@@ -2,13 +2,18 @@
 
 ## TODO LIST
 
+- 简单学习Zookeeper（典型应用场景） 及 Curator
+    - https://blog.csdn.net/u013468915/article/details/80955110
+    - https://blog.csdn.net/u013219624/article/details/83153016
+    - https://cwiki.apache.org/confluence/display/ZOOKEEPER/Index
+    - http://curator.apache.org//
+- 增加zk分布式锁，分布式锁实现方式的性能对比和使用场景整理 ZookeeperLock
 - **kafka 在Springboot2.x 的最佳实战**
 - **redis 在Springboot2.x 的最佳实战**
 - Elasticsearch 深入研究，面试，实战
 - [代码在线生成器](https://gitee.com/zhangquansheng/magic/tree/springboot-code-gen/)
 - SOLID 架构设计 深入学习
 - cache aside pattern / redis 深入总结
-- 增加zk分布式锁，分布式锁实现方式的性能对比和使用场景整理 ZookeeperLock
 - 如何保证kafka消息不丢失（结合实际业务场景）
 
 ### 强烈提醒
