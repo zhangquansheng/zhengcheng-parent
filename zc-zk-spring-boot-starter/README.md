@@ -1,10 +1,10 @@
-# Zookeeper通用组件
+# ZooKeeper通用组件
 
 ## **简介**（Introduction）
 
-[Zookeeper wiki](https://cwiki.apache.org/confluence/display/ZOOKEEPER/Index) 、[Curator](http://curator.apache.org)
+[ZooKeeper wiki](https://cwiki.apache.org/confluence/display/ZooKeeper/Index) 、[Curator](http://curator.apache.org)
 
-### Zookeeper典型应用场景介绍
+### ZooKeeper典型应用场景介绍
 
 > ZooKeeper是一种分布式协调服务
 
@@ -27,5 +27,14 @@ pom文件引入
 
 ### **设置**
 
-### Zookeeper在kafka中的作用
 
+### ZooKeeper 可视化工具
+
+### ZooKeeper在kafka中的作用
+
+### ZooKeeper在Dubbo(分布式服务框架)中的作用 
+
+> 使用ZooKeeper作为注册中心
+
+
+### ZooKeeper在Elastic-Job(分布式任务)中的作用 
