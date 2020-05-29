@@ -4,7 +4,7 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * 阿里云主账号配置
+ * zk curator 配置
  *
  * @author :    zhangquansheng
  * @date :    2020/1/22 9:18
