@@ -4,9 +4,17 @@
 
 > ZooKeeper is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services.
 
+> 它是一个针对大型分布式系统的可靠协调系统，提供的功能包括：配置维护、名字服务、分布式同步、组服务等
+
 [ZooKeeper wiki](https://cwiki.apache.org/confluence/display/ZooKeeper/Index) 、[Curator](http://curator.apache.org)
 
 ### ZooKeeper典型应用场景介绍
+
+- 数据发布与订阅（配置中心）
+- 分布式锁
+- 分布式队列
+- 负载均衡
+- 命名服务......
 
 
 ## **入门篇**
