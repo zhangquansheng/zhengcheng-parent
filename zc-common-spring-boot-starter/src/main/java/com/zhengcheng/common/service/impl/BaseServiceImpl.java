@@ -13,9 +13,11 @@ import com.zhengcheng.common.exception.IdempotentException;
 import com.zhengcheng.common.exception.LockException;
 import com.zhengcheng.common.lock.DistributedLock;
 import com.zhengcheng.common.service.IBaseService;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 /**
  * service实现父类
@@ -23,19 +25,22 @@ import java.util.Objects;
  * @author :    quansheng.zhang
  * @date :    2019/9/23 0:50
  */
+@Slf4j
 public class BaseServiceImpl<M extends BaseMapper<T>, T> extends ServiceImpl<M, T> implements IBaseService<T> {
 
     @Override
     public boolean saveIdempotent(T entity, DistributedLock lock, String lockKey, Wrapper<T> countWrapper, String msg) {
-        if (lock == null) {
+        if (Objects.isNull(lock)) {
             throw new LockException("DistributedLock is null");
         }
         if (StrUtil.isEmpty(lockKey)) {
             throw new LockException("lockKey is null");
         }
         try {
+            // 最大等待时间，默认为5s
+            long MAX_WAIT_MILLIS = 5000;
             //加锁
-            boolean isLock = lock.lock(lockKey);
+            boolean isLock = lock.acquire(lockKey, MAX_WAIT_MILLIS, TimeUnit.MILLISECONDS);
             if (isLock) {
                 //判断记录是否已存在
                 int count = super.count(countWrapper);
@@ -50,8 +55,15 @@ public class BaseServiceImpl<M extends BaseMapper<T>, T> extends ServiceImpl<M, 
             } else {
                 throw new LockException("锁等待超时");
             }
+        } catch (Exception e) {
+            log.error("saveIdempotent acquire lock exception: {}", e.getMessage(), e);
+            throw new LockException("锁等待超时");
         } finally {
-            lock.releaseLock(lockKey);
+            try {
+                lock.release(lockKey);
+            } catch (Exception e) {
+                log.error("saveIdempotent release lock exception: {}", e.getMessage(), e);
+            }
         }
     }
 

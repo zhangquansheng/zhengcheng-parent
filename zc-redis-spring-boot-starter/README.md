@@ -39,19 +39,19 @@ spring:
 
 ### 分布式锁 
 
-AbstractDistributedLock 的实现类有：
-- RedissonDistributedLock : Redisson 分布式锁
-- RedisDistributedLock : Redis 分布式锁
-- CuratorDistributedLock : Curator实现zk分布式锁
+DistributedLock 的实现类有：
+- RedissonDistributedLock : Redisson 分布式R锁
+- ZkDistributedLock : ZooKeeper 分布式锁
 
 
 ### Redis的三个框架：Jedis,[Redisson](https://github.com/redisson/redisson/wiki/%E7%9B%AE%E5%BD%95),Lettuce
 
 > SpringBoot2.0默认采用Lettuce客户端来连接Redis服务端的
 
-- Jedis：是Redis的Java实现客户端，提供了比较全面的Redis命令的支持，
 - Redisson：实现了分布式和可扩展的Java数据结构。redisson官方发布了[redisson-spring-boot-starter](https://github.com/redisson/redisson/tree/master/redisson-spring-boot-starter#spring-boot-starter)
 - Lettuce：高级Redis客户端，用于线程安全同步，异步和响应使用，支持集群，Sentinel，管道和编码器。
+- Jedis：是Redis的Java实现客户端，提供了比较全面的Redis命令的支持
+
 
 ### CacheManager
 

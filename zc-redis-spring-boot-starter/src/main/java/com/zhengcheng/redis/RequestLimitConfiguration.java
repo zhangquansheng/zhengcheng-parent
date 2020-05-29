@@ -27,30 +27,28 @@ public class RequestLimitConfiguration implements ApplicationContextAware {
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         // 验证RequestLimit注解是否配置正确
-        if (Objects.nonNull(applicationContext)) {
-            Set<String> requestLimitSet = new HashSet<>();
-            String[] beanNames = applicationContext.getBeanNamesForType(Object.class, false, true);
+        Set<String> requestLimitSet = new HashSet<>();
+        String[] beanNames = applicationContext.getBeanNamesForType(Object.class, false, true);
 
-            for (String beanName : beanNames) {
-                Object bean = applicationContext.getBean(beanName);
+        for (String beanName : beanNames) {
+            Object bean = applicationContext.getBean(beanName);
 
-                Method[] methods = bean.getClass().getDeclaredMethods();
-                for (Method method : methods) {
-                    RequestLimit requestLimit = AnnotationUtils.findAnnotation(method, RequestLimit.class);
-                    if (Objects.isNull(requestLimit)) {
-                        continue;
-                    }
+            Method[] methods = bean.getClass().getDeclaredMethods();
+            for (Method method : methods) {
+                RequestLimit requestLimit = AnnotationUtils.findAnnotation(method, RequestLimit.class);
+                if (Objects.isNull(requestLimit)) {
+                    continue;
+                }
 
-                    String name = requestLimit.name();
-                    if (StrUtil.isBlank(name)) {
-                        continue;
-                    }
-                    if (requestLimitSet.contains(name)) {
-                        throw new RuntimeException("request-limit[" + name + "] naming conflicts.");
-                    } else {
-                        requestLimitSet.add(name);
-                        log.info("Generating unique request-limit  named: {}", name);
-                    }
+                String name = requestLimit.name();
+                if (StrUtil.isBlank(name)) {
+                    continue;
+                }
+                if (requestLimitSet.contains(name)) {
+                    throw new RuntimeException("request-limit[" + name + "] naming conflicts.");
+                } else {
+                    requestLimitSet.add(name);
+                    log.info("Generating unique request-limit  named: {}", name);
                 }
             }
         }

@@ -1,5 +1,7 @@
 package com.zhengcheng.common.lock;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * 分布式锁顶级接口
  *
@@ -9,82 +11,29 @@ package com.zhengcheng.common.lock;
 public interface DistributedLock {
 
     /**
-     * 默认超时时间
+     * 获取锁
+     *
+     * @param key KEY
+     * @throws Exception 异常
      */
-    long TIMEOUT_MILLIS = 5000;
-
-    /**
-     * 重试次数
-     */
-    int RETRY_TIMES = 100;
-
-    /**
-     * 每次重试后等待的时间
-     */
-    long SLEEP_MILLIS = 100;
+    void acquire(String key) throws Exception;
 
     /**
      * 获取锁
      *
-     * @param key key
+     * @param key      KEY
+     * @param maxWait  最大等待时间
+     * @param waitUnit 等待时间单位
      * @return 成功/失败
+     * @throws Exception 异常
      */
-    boolean lock(String key);
-
-    /**
-     * 获取锁
-     *
-     * @param key        key
-     * @param retryTimes 重试次数
-     * @return 成功/失败
-     */
-    boolean lock(String key, int retryTimes);
-
-    /**
-     * 获取锁
-     *
-     * @param key         key
-     * @param retryTimes  重试次数
-     * @param sleepMillis 获取锁失败的重试间隔
-     * @return 成功/失败
-     */
-    boolean lock(String key, int retryTimes, long sleepMillis);
-
-    /**
-     * 获取锁
-     *
-     * @param key    key
-     * @param expire 获取锁超时时间
-     * @return 成功/失败
-     */
-    boolean lock(String key, long expire);
-
-    /**
-     * 获取锁
-     *
-     * @param key        key
-     * @param expire     获取锁超时时间
-     * @param retryTimes 重试次数
-     * @return 成功/失败
-     */
-    boolean lock(String key, long expire, int retryTimes);
-
-    /**
-     * 获取锁
-     *
-     * @param key         key
-     * @param expire      获取锁超时时间，单位毫秒
-     * @param retryTimes  重试次数
-     * @param sleepMillis 获取锁失败的重试间隔，单位毫秒
-     * @return 成功/失败
-     */
-    boolean lock(String key, long expire, int retryTimes, long sleepMillis);
+    boolean acquire(String key, long maxWait, TimeUnit waitUnit) throws Exception;
 
     /**
      * 释放锁
      *
-     * @param key key值
-     * @return 释放结果
+     * @param key KEY
+     * @throws Exception 异常
      */
-    boolean releaseLock(String key);
+    void release(String key) throws Exception;
 }
