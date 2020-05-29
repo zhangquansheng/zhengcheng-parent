@@ -33,6 +33,7 @@
         <module>zc-aliyun-spring-boot-starter</module>
         <module>zc-tencentcloud-spring-boot-starter</module>
         <module>zc-dict-spring-boot-starter</module>
+        <module>zc-zk-spring-boot-starter</module>
     </modules>
 
     <properties>
@@ -171,6 +172,11 @@
             <dependency>
                 <groupId>com.zhengcheng</groupId>
                 <artifactId>zc-dict-spring-boot-starter</artifactId>
+                <version>${module.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zc-zk-spring-boot-starter</artifactId>
                 <version>${module.version}</version>
             </dependency>
             <dependency>

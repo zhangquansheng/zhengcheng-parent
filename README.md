@@ -58,6 +58,8 @@ zc-netty-socketio-spring-boot-starter | 即时聊天通用组件[使用文档](h
 zc-aliyun-spring-boot-starter | 阿里云通用组件(OSS，短信服务，Rocketmq消息队列，内容安全，日志服务，DTS)[使用文档](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-aliyun-spring-boot-starter)
 zc-tencentcloud-spring-boot-starter | 腾讯云通用组件（云对象存储 COS，内容安全，自然语言自动配置）[使用文档](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-tencentcloud-spring-boot-starter)
 zc-dict-spring-boot-starter | 数据字典通用组件（架构设计）[使用文档](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-dict-spring-boot-starter)
+zc-zk-spring-boot-starter | Zookeeper通用组件
+
 
 ### 三方包
 
