@@ -23,6 +23,7 @@
 
 
 ## [v4.5.0] 2020.5.22
+- 增加 `GlobalResponseBodyAdvice` 统一返回结果处理
 - 增加`ZkDistributedLock` zk分布式锁
 - 增加`zc-zk-spring-boot-starter` Zookeeper通用组件 
 - [j2cache-spring-boot2-starter](https://gitee.com/ld/J2Cache/tree/master/modules/spring-boot2-starter) 
