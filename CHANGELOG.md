@@ -21,6 +21,31 @@
 - **对未来乐观**
 - **延迟满足，坚持**
 
+## [v4.6.0] 2020.06.04
+- 去掉`zc-redis-spring-boot-starter`中`j2cache`,如果需要用，则maven添加:
+```
+    <dependency>
+        <groupId>net.oschina.j2cache</groupId>
+        <artifactId>j2cache-spring-boot2-starter</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>net.oschina.j2cache</groupId>
+        <artifactId>j2cache-core</artifactId>
+        <exclusions>
+            <exclusion>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-simple</artifactId>
+            </exclusion>
+            <exclusion>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+```
+
+
+
 
 ## [v4.5.0] 2020.5.22
 - 增加 `GlobalResponseBodyAdvice` 统一返回结果处理
