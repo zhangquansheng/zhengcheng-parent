@@ -43,6 +43,7 @@
         </exclusions>
     </dependency>
 ```
+- 增加`RedissonAutoConfiguration`配置，增加`RedissonDistributedRLock`的配置
 
 
 
