@@ -78,7 +78,7 @@ public class ExceptionControllerAdvice {
     @ExceptionHandler(BizException.class)
     @ResponseStatus(HttpStatus.OK)
     public Result handleException(BizException e) {
-        log.info("BizException:{}", e.getMessage());
+        log.warn("BizException:{}", e.getMessage());
         return Result.create(e.getCode(), e.getMessage());
     }
 
