@@ -1,6 +1,7 @@
 package com.zhengcheng.feign;
 
 import cn.hutool.core.util.IdUtil;
+import cn.hutool.core.util.StrUtil;
 import com.netflix.hystrix.strategy.HystrixPlugins;
 import com.netflix.hystrix.strategy.concurrency.HystrixConcurrencyStrategy;
 import com.netflix.hystrix.strategy.eventnotifier.HystrixEventNotifier;
@@ -15,6 +16,7 @@ import feign.Logger;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.cloud.openfeign.EnableFeignClients;
@@ -66,8 +68,13 @@ public class FeignAutoConfiguration implements RequestInterceptor {
 
     @Override
     public void apply(RequestTemplate requestTemplate) {
-        // 一些接口的调用需要实现幂等，比如消息发送，如果使用requestId就可以方便服务方实现幂等
-        requestTemplate.header(CommonConstants.REQUEST_ID, IdUtil.fastSimpleUUID());
+        String traceId = MDC.get(CommonConstants.TRACE_ID);
+        if (StrUtil.isEmptyOrUndefined(traceId)) {
+            // 一些接口的调用需要实现幂等，比如消息发送，如果使用requestId就可以方便服务方实现幂等
+            requestTemplate.header(CommonConstants.TRACE_ID, IdUtil.fastSimpleUUID());
+        } else {
+            requestTemplate.header(CommonConstants.TRACE_ID, traceId);
+        }
 
         // API接口防止参数篡改和重放攻击
         Map<String, Collection<String>> queries = requestTemplate.queries();

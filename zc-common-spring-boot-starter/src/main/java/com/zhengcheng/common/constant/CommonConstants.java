@@ -51,11 +51,6 @@ public interface CommonConstants {
     String TRACE_ID = "X-ZHENGCHENG-TRACE-ID";
 
     /**
-     * 请求ID
-     */
-    String REQUEST_ID = "requestId";
-
-    /**
      * 时间戳
      */
     String SIGN_AUTH_TIMESTAMP = "timestamp";

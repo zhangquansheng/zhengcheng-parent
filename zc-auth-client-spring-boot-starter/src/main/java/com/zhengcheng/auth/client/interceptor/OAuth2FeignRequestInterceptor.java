@@ -1,9 +1,11 @@
 package com.zhengcheng.auth.client.interceptor;
 
 import cn.hutool.core.util.IdUtil;
+import cn.hutool.core.util.StrUtil;
 import com.zhengcheng.common.constant.CommonConstants;
 import feign.RequestInterceptor;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.MDC;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.security.core.Authentication;
@@ -32,9 +34,16 @@ public class OAuth2FeignRequestInterceptor implements RequestInterceptor {
             OAuth2AuthenticationDetails details = (OAuth2AuthenticationDetails) authentication.getDetails();
             String value = String.format("%s %s", BEARER_TOKEN_TYPE, details.getTokenValue());
             requestTemplate.header(AUTHORIZATION_HEADER, value);
-            requestTemplate.header(CommonConstants.REQUEST_ID, IdUtil.fastSimpleUUID());
             if (log.isDebugEnabled()) {
                 log.debug("put feign header  [{}] = [{}]", BEARER_TOKEN_TYPE, value);
+            }
+
+            String traceId = MDC.get(CommonConstants.TRACE_ID);
+            if (StrUtil.isEmptyOrUndefined(traceId)) {
+                // 一些接口的调用需要实现幂等，比如消息发送，如果使用requestId就可以方便服务方实现幂等
+                requestTemplate.header(CommonConstants.TRACE_ID, IdUtil.fastSimpleUUID());
+            } else {
+                requestTemplate.header(CommonConstants.TRACE_ID, traceId);
             }
         }
     }
