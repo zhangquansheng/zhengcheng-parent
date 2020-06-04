@@ -4,6 +4,7 @@ import cn.hutool.core.text.StrBuilder;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.Method;
 import cn.hutool.json.JSONUtil;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zhengcheng.common.web.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
@@ -11,6 +12,8 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -29,8 +32,12 @@ import java.util.Objects;
  */
 @Slf4j
 @Aspect
+@ConditionalOnClass({ObjectMapper.class})
 @Component
 public class ControllerLogAspect {
+
+    @Autowired
+    private ObjectMapper objectMapper;
 
     /**
      * 定义拦截规则：
@@ -63,18 +70,21 @@ public class ControllerLogAspect {
             if (Method.POST.toString().equalsIgnoreCase(method)) {
                 Object[] args = point.getArgs();
                 if (args.length > 0) {
-                    if (args[0] instanceof Serializable && !(args[0] instanceof MultipartFile)) {
-                        sb.append(" | args:").append(JSONUtil.toJsonStr(args[0]));
+                    sb.append(" | args:");
+                    for (Object arg : args) {
+                        if (arg instanceof Serializable && !(arg instanceof MultipartFile)) {
+                            sb.append("[").append(objectMapper.writeValueAsString(arg)).append("]");
+                        }
                     }
                 }
                 Map<String, String[]> parameterMap = request.getParameterMap();
                 if (parameterMap != null && parameterMap.size() > 0) {
-                    sb.append(" | param:").append(JSONUtil.toJsonStr(parameterMap));
+                    sb.append(" | param:[").append(objectMapper.writeValueAsString(parameterMap)).append("]");
                 }
             } else {
                 String queryString = request.getQueryString();
                 if (StrUtil.isNotBlank(queryString)) {
-                    sb.append(" | param:").append(queryString);
+                    sb.append(" | param:[").append(queryString).append("]");
                 }
             }
         } catch (Exception e) {
