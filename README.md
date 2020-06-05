@@ -76,6 +76,7 @@ zc-zk-spring-boot-starter | Zookeeper通用组件
 - [自我修养](https://gitee.com/zhangquansheng/zhengcheng-parent/blob/master/doc/%E9%98%BF%E9%87%8C%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB.pdf)
 - [java 开发规范](https://note.youdao.com/ynoteshare1/index.html?id=70e5dc1447c436a9689b15f9947cdeff&type=note)
 - [规范日志打印方式](https://gitee.com/zhangquansheng/zhengcheng-parent/blob/master/LOG.md)
+- [Springboot2.x 整合异步任务（使用建造者模式简化了配置）](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-common-spring-boot-starter)
 
 ### Apollo 和 VI
 
