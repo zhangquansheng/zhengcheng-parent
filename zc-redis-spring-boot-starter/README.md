@@ -37,13 +37,6 @@ spring:
         min-idle: 0
 ```
 
-### 分布式锁 
-
-DistributedLock 的实现类有：
-- RedissonDistributedLock : Redisson 分布式R锁
-- [ZkDistributedLock](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-zk-spring-boot-starter#%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81-zkdistributedlock) : ZooKeeper 分布式锁
-
-
 ### Redis的三个框架：Jedis,[Redisson](https://github.com/redisson/redisson/wiki/%E7%9B%AE%E5%BD%95),Lettuce
 
 > SpringBoot2.0默认采用Lettuce客户端来连接Redis服务端的
@@ -51,6 +44,38 @@ DistributedLock 的实现类有：
 - Redisson：实现了分布式和可扩展的Java数据结构。redisson官方发布了[redisson-spring-boot-starter](https://github.com/redisson/redisson/tree/master/redisson-spring-boot-starter#spring-boot-starter)
 - Lettuce：高级Redis客户端，用于线程安全同步，异步和响应使用，支持集群，Sentinel，管道和编码器。
 - Jedis：是Redis的Java实现客户端，提供了比较全面的Redis命令的支持
+
+### RedissonAutoConfiguration
+
+#### 单机模式
+
+```
+# redisson lock
+redisson.address=redis://127.0.0.1:6379
+redisson.password=123456
+# 默认0
+redisson.database=0 
+# 默认3000
+redisson.timeout=3000
+```
+
+#### 哨兵模式
+
+```
+redisson.master-name=mymaster
+redisson.password=123456
+redisson.sentinel-addresses=127.0.0.1:26379,127.0.0.1:26380,127.0.0.1:26381
+# 默认0
+redisson.database=0 
+# 默认3000
+redisson.timeout=3000
+```
+
+#### 分布式锁 
+
+DistributedLock 的实现类有：
+- RedissonDistributedLock : Redisson 分布式R锁
+- [ZkDistributedLock](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-zk-spring-boot-starter#%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81-zkdistributedlock) : ZooKeeper 分布式锁
 
 
 ### CacheManager
