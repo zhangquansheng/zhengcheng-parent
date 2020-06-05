@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="zc-cache-spring-boot-starter" />
         <module name="zc-auth-client-spring-boot-starter" />
         <module name="zc-zk-spring-boot-starter" />
         <module name="zc-dict-spring-boot-starter" />
@@ -17,7 +18,6 @@
         <module name="zc-feign-spring-boot-starter" />
         <module name="zc-netty-socketio-spring-boot-starter" />
         <module name="zc-web-spring-boot-starter" />
-        <module name="zc-redis-spring-boot-starter" />
         <module name="zc-tencentcloud-spring-boot-starter" />
         <module name="zc-cat-spring-boot-starter" />
         <module name="zc-sharding-jdbc-spring-boot-starter" />
@@ -50,6 +50,7 @@
       <module name="zc-aliyun-spring-boot-starter" options="-parameters" />
       <module name="zc-async-spring-boot-starter" options="-parameters" />
       <module name="zc-auth-client-spring-boot-starter" options="-parameters" />
+      <module name="zc-cache-spring-boot-starter" options="-parameters" />
       <module name="zc-cat-spring-boot-starter" options="-parameters" />
       <module name="zc-common-spring-boot-starter" options="-parameters" />
       <module name="zc-db-spring-boot-starter" options="-parameters" />
@@ -60,7 +61,6 @@
       <module name="zc-mq-spring-boot-starter" options="-parameters" />
       <module name="zc-netty-socketio-spring-boot-starter" options="-parameters" />
       <module name="zc-oss-spring-boot-starter" options="-parameters" />
-      <module name="zc-redis-spring-boot-starter" options="-parameters" />
       <module name="zc-sentinel-spring-boot-starter" options="-parameters" />
       <module name="zc-sharding-jdbc-spring-boot-starter" options="-parameters" />
       <module name="zc-swagger-spring-boot-starter" options="-parameters" />

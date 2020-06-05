@@ -4,7 +4,7 @@ import cn.hutool.core.util.StrUtil;
 import com.zhengcheng.common.constant.CommonConstants;
 import com.zhengcheng.common.exception.BizException;
 import com.zhengcheng.common.web.CodeEnum;
-import com.zhengcheng.redis.annotation.RequestLimit;
+import com.zhengcheng.cache.annotation.RequestLimit;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
@@ -43,7 +43,7 @@ public class RequestLimitAspect {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
-    @Pointcut("@annotation(com.zhengcheng.redis.annotation.RequestLimit)")
+    @Pointcut("@annotation(com.zhengcheng.cache.annotation.RequestLimit)")
     public void pointcut() {
     }
 

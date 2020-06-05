@@ -5,6 +5,9 @@
     <file url="file://$PROJECT_DIR$/zc-aliyun-spring-boot-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-auth-client-spring-boot-starter" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-auth-client-spring-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-cache-spring-boot-starter" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-cache-spring-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-cache-spring-boot-starter/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-cat-spring-boot-starter" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-cat-spring-boot-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-common-spring-boot-starter" charset="UTF-8" />
@@ -18,8 +21,6 @@
     <file url="file://$PROJECT_DIR$/zc-job-spring-boot-starter" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-job-spring-boot-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-netty-socketio-spring-boot-starter/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-redis-spring-boot-starter" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-redis-spring-boot-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-sentinel-spring-boot-starter" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-sentinel-spring-boot-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-sharding-jdbc-spring-boot-starter" charset="UTF-8" />

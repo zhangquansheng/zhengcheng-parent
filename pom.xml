@@ -22,7 +22,7 @@
         <module>zc-feign-spring-boot-starter</module>
         <module>zc-common-spring-boot-starter</module>
         <module>zc-db-spring-boot-starter</module>
-        <module>zc-redis-spring-boot-starter</module>
+        <module>zc-cache-spring-boot-starter</module>
         <module>zc-sentinel-spring-boot-starter</module>
         <module>zc-job-spring-boot-starter</module>
         <module>zc-swagger-spring-boot-starter</module>
@@ -126,7 +126,7 @@
             </dependency>
             <dependency>
                 <groupId>com.zhengcheng</groupId>
-                <artifactId>zc-redis-spring-boot-starter</artifactId>
+                <artifactId>zc-cache-spring-boot-starter</artifactId>
                 <version>${module.version}</version>
             </dependency>
             <dependency>

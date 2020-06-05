@@ -1,4 +1,4 @@
-package com.zhengcheng.redis.lock;
+package com.zhengcheng.cache.lock;
 
 import com.zhengcheng.common.lock.DistributedLock;
 import org.redisson.api.RLock;

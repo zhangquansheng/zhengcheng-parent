@@ -1,4 +1,4 @@
-package com.zhengcheng.redis.properties;
+package com.zhengcheng.cache.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

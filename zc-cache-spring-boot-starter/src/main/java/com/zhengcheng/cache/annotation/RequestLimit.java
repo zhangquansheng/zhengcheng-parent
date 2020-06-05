@@ -1,4 +1,4 @@
-package com.zhengcheng.redis.annotation;
+package com.zhengcheng.cache.annotation;
 
 import org.springframework.core.annotation.AliasFor;
 

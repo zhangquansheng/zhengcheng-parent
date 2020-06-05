@@ -44,7 +44,7 @@
     </dependency>
 ```
 - 增加`RedissonAutoConfiguration`配置，增加`RedissonDistributedRLock`的配置
-
+- `zc-redis-spring-boot-starter` 更名为 `zc-cache-spring-boot-starter`
 
 
 

@@ -1,8 +1,8 @@
-package com.zhengcheng.redis;
+package com.zhengcheng.cache;
 
 import com.zhengcheng.common.lock.DistributedLock;
-import com.zhengcheng.redis.lock.RedissonDistributedRLock;
-import com.zhengcheng.redis.properties.RedissonProperties;
+import com.zhengcheng.cache.lock.RedissonDistributedRLock;
+import com.zhengcheng.cache.properties.RedissonProperties;
 import org.apache.commons.lang3.StringUtils;
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;

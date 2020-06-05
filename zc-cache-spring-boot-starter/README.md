@@ -2,7 +2,7 @@
 
 ## **简介**（Introduction）
 
-SpringBoot整合Redis、分布式锁、 CacheManager
+SpringBoot整合Redis、Redisson分布式锁、Caffeine、 CacheManager
 
 ## **入门篇**
 
