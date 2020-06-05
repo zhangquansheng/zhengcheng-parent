@@ -28,7 +28,7 @@ public class TraceIdInterceptor implements HandlerInterceptor {
     }
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception{
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
         if (HttpMethod.OPTIONS.toString().equalsIgnoreCase(request.getMethod())) {
             return true;
         }
@@ -44,6 +44,11 @@ public class TraceIdInterceptor implements HandlerInterceptor {
         MDC.put(CommonConstants.TRACE_ID, traceId);
         log.info("applicationName:[{}], clientIp:[{}], X-Forwarded-For:[{}]", applicationName, remoteIp, xForwardedForHeader);
         return true;
+    }
+
+    @Override
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object o, Exception e) throws Exception {
+        MDC.clear();
     }
 
 }
