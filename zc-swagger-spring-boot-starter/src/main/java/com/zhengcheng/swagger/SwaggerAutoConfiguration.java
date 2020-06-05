@@ -1,6 +1,7 @@
 package com.zhengcheng.swagger;
 
 import com.zhengcheng.swagger.properties.SwaggerProperties;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,12 +27,14 @@ import java.util.List;
  * @author :    quansheng.zhang
  * @date :    2019/2/2 15:54
  */
+@Slf4j
 @Configuration
 @EnableSwagger2
 @EnableConfigurationProperties({SwaggerProperties.class})
 public class SwaggerAutoConfiguration {
 
     public SwaggerAutoConfiguration() {
+        log.info("Swagger2.8.0 配置成功");
     }
 
     @Bean
@@ -69,7 +72,7 @@ public class SwaggerAutoConfiguration {
         return new ApiKey("Bearer", "Authorization", "header");
     }
 
-    private List<ApiKey> securitySchemes() {
+    private ArrayList securitySchemes() {
         return new ArrayList(Collections.singleton(new ApiKey("Bearer", "Authorization", "header")));
     }
 

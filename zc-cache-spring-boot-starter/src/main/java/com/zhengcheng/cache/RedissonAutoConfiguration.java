@@ -1,8 +1,9 @@
 package com.zhengcheng.cache;
 
-import com.zhengcheng.common.lock.DistributedLock;
 import com.zhengcheng.cache.lock.RedissonDistributedRLock;
 import com.zhengcheng.cache.properties.RedissonProperties;
+import com.zhengcheng.common.lock.DistributedLock;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;
@@ -22,6 +23,7 @@ import org.springframework.context.annotation.Primary;
  * @author :    quansheng.zhang
  * @date :    2020/6/4 22:34
  */
+@Slf4j
 @Configuration
 @ConditionalOnClass(Config.class)
 @EnableConfigurationProperties({RedissonProperties.class})
@@ -46,7 +48,7 @@ public class RedissonAutoConfiguration {
         if (StringUtils.isNotBlank(redissonProperties.getPassword())) {
             serverConfig.setPassword(redissonProperties.getPassword());
         }
-
+        log.info("Redisson 单机模式配置成功");
         return Redisson.create(config);
     }
 
@@ -69,7 +71,7 @@ public class RedissonAutoConfiguration {
         if (StringUtils.isNotBlank(redissonProperties.getPassword())) {
             serverConfig.setPassword(redissonProperties.getPassword());
         }
-
+        log.info("Redisson 哨兵模式配置成功");
         return Redisson.create(config);
     }
 
@@ -83,6 +85,7 @@ public class RedissonAutoConfiguration {
     @Bean
     @ConditionalOnProperty(name = "redisson.lock.enable", havingValue = "true")
     DistributedLock distributedLock(RedissonClient redissonClient) {
+        log.info("Redisson 分布式锁配置成功");
         return new RedissonDistributedRLock(redissonClient);
     }
 }
