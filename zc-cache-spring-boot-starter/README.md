@@ -1,8 +1,8 @@
-# 缓存通用组件(redis)
+# 缓存通用组件
 
 ## **简介**（Introduction）
 
-SpringBoot整合Redis、Redisson分布式锁、Caffeine、 CacheManager
+SpringBoot整合**Redis**、Redisson分布式锁、Caffeine、 CacheManager
 
 ## **入门篇**
 
