@@ -13,7 +13,7 @@ pom文件引入
 ```
   <dependency>
         <groupId>com.zhengcheng</groupId>
-        <artifactId>zc-redis-boot-starter</artifactId>
+        <artifactId>zc-cache-boot-starter</artifactId>
   </dependency>
 ```
 
