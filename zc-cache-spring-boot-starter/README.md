@@ -79,6 +79,42 @@ DistributedLock 的实现类有：
 redisson.lock.enable = true
 ```
 
+#### 布隆过滤器（Bloom Filter)
+
+##### 6.8. 布隆过滤器（Bloom Filter）
+Redisson利用Redis实现了Java分布式布隆过滤器（Bloom Filter）。所含最大比特数量为2^32。
+
+
+```
+RBloomFilter<SomeObject> bloomFilter = redisson.getBloomFilter("sample");
+// 初始化布隆过滤器，预计统计元素数量为55000000，期望误差率为0.03
+bloomFilter.tryInit(55000000L, 0.03);
+bloomFilter.add(new SomeObject("field1Value", "field2Value"));
+bloomFilter.add(new SomeObject("field5Value", "field8Value"));
+bloomFilter.contains(new SomeObject("field1Value", "field8Value"));
+```
+
+###### 6.8.1. 布隆过滤器数据分片（Sharding）
+基于Redis的Redisson集群分布式布隆过滤器通过RClusteredBloomFilter接口，为集群状态下的Redis环境提供了布隆过滤器数据分片的功能。 通过优化后更加有效的算法，通过压缩未使用的比特位来释放集群内存空间。每个对象的状态都将被分布在整个集群中。所含最大比特数量为2^64。在这里可以获取更多的内部信息。
+
+
+```
+RClusteredBloomFilter<SomeObject> bloomFilter = redisson.getClusteredBloomFilter("sample");
+// 采用以下参数创建布隆过滤器
+// expectedInsertions = 255000000
+// falseProbability = 0.03
+bloomFilter.tryInit(255000000L, 0.03);
+bloomFilter.add(new SomeObject("field1Value", "field2Value"));
+bloomFilter.add(new SomeObject("field5Value", "field8Value"));
+bloomFilter.contains(new SomeObject("field1Value", "field8Value"));
+```
+
+该功能仅限于`Redisson PRO`版本。
+
+
+参考[redisson官方文档](https://github.com/redisson/redisson/wiki/6.-%E5%88%86%E5%B8%83%E5%BC%8F%E5%AF%B9%E8%B1%A1#68-%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8bloom-filter)
+
+
 - [ZkDistributedLock](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-zk-spring-boot-starter#%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81-zkdistributedlock) : ZooKeeper 分布式锁
 
 
@@ -102,9 +138,6 @@ spring.cache.type=caffeine
 spring.cache.caffeine.spec=initialCapacity=10,maximumSize=200,expireAfterWrite=3s
 ```
 
-### RequestLimit 
-> [springboot + redis + lua 实现访问量控制](https://note.youdao.com/ynoteshare1/index.html?id=7e651aa1410422934aeb92ad1ca2814c&type=note)
-
 ### [J2Cache](https://gitee.com/ld/J2Cache)
 ```
    <dependency>
@@ -126,3 +159,11 @@ spring.cache.caffeine.spec=initialCapacity=10,maximumSize=200,expireAfterWrite=3
         <artifactId>j2cache-spring-boot2-starter</artifactId>
     </dependency>
 ```
+
+### 最佳实践
+
+- [阿里云 Redis 的开发规范](https://www.infoq.cn/article/K7dB5AFKI9mr5Ugbs_px)
+- RequestLimit [springboot + redis + lua 实现访问量控制](https://note.youdao.com/ynoteshare1/index.html?id=7e651aa1410422934aeb92ad1ca2814c&type=note)
+- Cache Aside Pattern [分布式缓存一致性解决方案(一)](https://note.youdao.com/ynoteshare1/index.html?id=9d61ce30418981ecd838a38d1d839de9&type=note)
+- [value中存储过多的元素-Redis大key多key拆分方案](https://note.youdao.com/ynoteshare1/index.html?id=baed5c72e7e1752e11975523a4be2e74&type=note)
+- [内存缓存（Caffeine）、二级缓存、在实际项目中的应用](https://note.youdao.com/ynoteshare1/index.html?id=1d514d6554d2b1519284df0a01f02bdc&type=note)
