@@ -138,7 +138,7 @@ spring.cache.type=caffeine
 spring.cache.caffeine.spec=initialCapacity=10,maximumSize=200,expireAfterWrite=3s
 ```
 
-### [J2Cache](https://gitee.com/ld/J2Cache)
+### [开源中国 J2Cache二级缓存框架](https://gitee.com/ld/J2Cache)
 ```
    <dependency>
         <groupId>net.oschina.j2cache</groupId>
