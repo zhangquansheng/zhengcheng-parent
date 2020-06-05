@@ -75,6 +75,10 @@ redisson.timeout=3000
 
 DistributedLock 的实现类有：
 - RedissonDistributedLock : Redisson 分布式R锁
+```
+redisson.lock.enable = true
+```
+
 - [ZkDistributedLock](https://gitee.com/zhangquansheng/zhengcheng-parent/tree/master/zc-zk-spring-boot-starter#%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81-zkdistributedlock) : ZooKeeper 分布式锁
 
 
