@@ -3,9 +3,7 @@ package com.zhengcheng.web.aspect;
 import cn.hutool.core.text.StrBuilder;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.Method;
-import cn.hutool.json.JSONUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.zhengcheng.common.web.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -43,19 +41,16 @@ public class ControllerLogAspect {
      * 定义拦截规则：
      * 有@RequestMapping注解的方法。
      */
-    @Pointcut("@within(org.springframework.web.bind.annotation.RequestMapping)")
+    @Pointcut("@within(org.springframework.web.bind.annotation.RequestMapping) && execution(* com.zhengcheng..*.*(..))")
     public void controllerMethodPointcut() {
     }
 
     @Around("controllerMethodPointcut()")
     public Object around(ProceedingJoinPoint pjp) throws Throwable {
-        log.info("请求开始[{}]", this.getMethodInfo(pjp));
         long beginTime = System.currentTimeMillis();
         Object retObj = pjp.proceed();
         long costMs = System.currentTimeMillis() - beginTime;
-        if (retObj instanceof Result) {
-            log.info("返回结果:[{}]，耗时：{}ms", JSONUtil.toJsonStr(retObj), costMs);
-        }
+        log.info("{}请求结束，耗时：{}ms", this.getMethodInfo(pjp), costMs);
         return retObj;
     }
 

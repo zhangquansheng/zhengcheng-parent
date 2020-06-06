@@ -48,7 +48,9 @@ public class RedissonAutoConfiguration {
         if (StringUtils.isNotBlank(redissonProperties.getPassword())) {
             serverConfig.setPassword(redissonProperties.getPassword());
         }
-        log.info("Redisson 单机模式配置成功");
+        if (log.isDebugEnabled()) {
+            log.debug("Redisson 单机模式配置成功");
+        }
         return Redisson.create(config);
     }
 
@@ -71,7 +73,9 @@ public class RedissonAutoConfiguration {
         if (StringUtils.isNotBlank(redissonProperties.getPassword())) {
             serverConfig.setPassword(redissonProperties.getPassword());
         }
-        log.info("Redisson 哨兵模式配置成功");
+        if (log.isDebugEnabled()) {
+            log.debug("Redisson 哨兵模式配置成功");
+        }
         return Redisson.create(config);
     }
 
@@ -85,7 +89,9 @@ public class RedissonAutoConfiguration {
     @Bean
     @ConditionalOnProperty(name = "redisson.lock.enable", havingValue = "true")
     DistributedLock distributedLock(RedissonClient redissonClient) {
-        log.info("Redisson 分布式锁配置成功");
+        if (log.isDebugEnabled()) {
+            log.debug("Redisson 分布式锁配置成功");
+        }
         return new RedissonDistributedRLock(redissonClient);
     }
 }

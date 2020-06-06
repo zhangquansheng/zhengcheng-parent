@@ -1,5 +1,6 @@
 package com.zhengcheng.web;
 
+import com.zhengcheng.swagger.constant.SwaggerConstants;
 import com.zhengcheng.web.interceptor.TraceIdInterceptor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -24,11 +25,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
         "com.zhengcheng.web.aspect"})
 public class WebAutoConfiguration implements WebMvcConfigurer {
 
-    @Value("${spring.application.name}")
+    @Value("${spring.application.name:appName}")
     private String name;
 
     public WebAutoConfiguration() {
-        log.info("Web模块自动配置成功");
+        if (log.isDebugEnabled()) {
+            log.debug("Web模块自动配置成功");
+        }
     }
 
     @Override
@@ -49,9 +52,10 @@ public class WebAutoConfiguration implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new TraceIdInterceptor(name))//路径拦截器
                 .addPathPatterns("/**")  //拦截的请求路径
-                .excludePathPatterns("/static/*")  // 忽略静态文件
-                .excludePathPatterns("/swagger-ui.html", "/swagger-resources",
-                        "/swagger-resources/**", "/webjars/**", "/v2/api-docs",
-                        "/configuration/ui", "/configuration/security"); // 忽略swagger
+                .excludePathPatterns("/static/*")// 忽略静态文件
+                .excludePathPatterns("/")
+                .excludePathPatterns("/csrf")
+                .excludePathPatterns("/error")
+                .excludePathPatterns(SwaggerConstants.PATTERNS);
     }
 }

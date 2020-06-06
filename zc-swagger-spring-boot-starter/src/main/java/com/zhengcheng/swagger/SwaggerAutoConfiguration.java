@@ -34,7 +34,9 @@ import java.util.List;
 public class SwaggerAutoConfiguration {
 
     public SwaggerAutoConfiguration() {
-        log.info("Swagger2.8.0 配置成功");
+        if (log.isDebugEnabled()) {
+            log.debug("Swagger 配置成功");
+        }
     }
 
     @Bean

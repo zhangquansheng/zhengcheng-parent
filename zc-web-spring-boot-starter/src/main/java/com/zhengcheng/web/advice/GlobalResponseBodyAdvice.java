@@ -11,12 +11,14 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 /**
- * 统一返回结果处理
+ * com.zhengcheng 下 ResponseBodyAdvice 统一返回结果处理
  *
  * @author :    quansheng.zhang
  * @date :    2019/2/28 21:00
  */
-@RestControllerAdvice
+@RestControllerAdvice(
+        basePackages = {"com.zhengcheng"}
+)
 public class GlobalResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 
     @Override
