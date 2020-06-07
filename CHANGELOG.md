@@ -2,6 +2,10 @@
 
 ## TODO LIST
 
+- 学习技术文档的编写
+    - https://gitee.com/baomidou/mybatis-plus-doc
+    - https://www.hutool.cn/docs/#/
+    - https://www.vuepress.cn/
 - 简单学习Zookeeper（典型应用场景） 及 Curator
     - https://blog.csdn.net/u013468915/article/details/80955110
     - https://blog.csdn.net/u013219624/article/details/83153016
