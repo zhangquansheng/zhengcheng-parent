@@ -13,7 +13,7 @@ public interface CommonConstants {
 
     @Getter
     enum EnvEnum {
-        DEFAULT("default", "默认环境"),
+        DEFAULT("DEFAULT", "默认环境"),
         LOCAL("LOCAL", "本地环境"),
         DEV("DEV", "开发环境"),
         FAT("FAT", "测试环境"),
