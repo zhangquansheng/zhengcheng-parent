@@ -1,5 +1,6 @@
 package com.zhengcheng.web.advice;
 
+import cn.hutool.json.JSONUtil;
 import com.zhengcheng.common.web.PageResult;
 import com.zhengcheng.common.web.Result;
 import org.springframework.core.MethodParameter;
@@ -28,7 +29,11 @@ public class GlobalResponseBodyAdvice implements ResponseBodyAdvice<Object> {
         if (body instanceof Result || body instanceof PageResult) {
             return body;
         }
-        return Result.successData(body);
+        Result result = Result.successData(body);
+        if (body instanceof String) {
+            return JSONUtil.toJsonStr(result);
+        }
+        return result;
     }
 
     @Override
