@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.zhengcheng.mybatis.util.MybatisHelper,\
+  com.zhengcheng.mybatis.registrar.TableScannerRegistrar
