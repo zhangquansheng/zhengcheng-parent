@@ -79,4 +79,7 @@ public interface BaseMapper<T> {
      */
     @SelectProvider(type = DefaultSqlProvider.class, method = "list")
     List<T> list();
+
 }
+
+

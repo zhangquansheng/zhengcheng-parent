@@ -30,8 +30,8 @@ public class DefaultSqlProvider<T extends BaseEntity> {
     private final static int MAX_SIZE = 1000;
 
     public String insert(BaseEntity baseEntity) {
-        baseEntity.setCreatedAt(LocalDateTime.now());
-        baseEntity.setUpdatedAt(LocalDateTime.now());
+        baseEntity.setGmtCreate(LocalDateTime.now());
+        baseEntity.setGmtModified(LocalDateTime.now());
 
         TableInfo tableInfo = getTableInfo(baseEntity.getClass());
         SQL sql = new SQL();
@@ -80,7 +80,7 @@ public class DefaultSqlProvider<T extends BaseEntity> {
     }
 
     public String updateById(BaseEntity baseEntity) {
-        baseEntity.setUpdatedAt(LocalDateTime.now());
+        baseEntity.setGmtModified(LocalDateTime.now());
 
         TableInfo tableInfo = getTableInfo(baseEntity.getClass());
         SQL sql = new SQL();
@@ -142,5 +142,6 @@ public class DefaultSqlProvider<T extends BaseEntity> {
         }
         return tableInfo;
     }
+
 
 }
