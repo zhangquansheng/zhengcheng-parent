@@ -44,11 +44,6 @@
             <groupId>com.zhengcheng</groupId>
             <artifactId>zc-feign-spring-boot-starter</artifactId>
         </dependency>
-        <!--认证客户端通用组件-->
-        <dependency>
-            <groupId>com.zhengcheng</groupId>
-            <artifactId>zc-auth-client-spring-boot-starter</artifactId>
-        </dependency>
         <!--swagger通用组件-->
         <dependency>
             <groupId>com.zhengcheng</groupId>
