@@ -1,13 +1,13 @@
 # 新征程框架项目
 
-新征程云服务父项目，所有新征程微服务项目的框架支持项目
+新征程云服务父项目，所有`新征程`微服务项目的框架支持项目
 
 ### 4.x
 ```
     <parent>
         <groupId>com.zhengcheng</groupId>
         <artifactId>zhengcheng-parent</artifactId>
-        <version>4.4.0</version>
+        <version>4.6.0</version>
     </parent>
 ```
 ### 3.x
@@ -57,4 +57,9 @@ zc-zk-spring-boot-starter | Zookeeper通用组件
 
 ### 文档 | Documentation
 
-[中文](http://111.229.220.186/)
+- [中文](http://www.zhengcheng.plus/)
+- [zhengcheng.plus](http://www.zhengcheng.plus/)
+
+### License
+    
+`zhengcheng` is under the Apache 2.0 license. See the [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0) file for details.
