@@ -16,12 +16,15 @@ import feign.RequestInterceptor;
 import feign.RequestTemplate;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.cloud.openfeign.FeignLoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * Feign 统一配置
@@ -35,6 +38,24 @@ import org.springframework.context.annotation.Import;
 @ConditionalOnClass(RequestInterceptor.class)
 @Configuration
 public class FeignAutoConfiguration implements RequestInterceptor {
+
+    @Value("${feign.okhttp3.connect-timeout.milliseconds:3000}")
+    private Long connectTimeout;
+    @Value("${feign.okhttp3.read-timeout.milliseconds:3000}")
+    private Long readTimeout;
+    @Value("${feign.okhttp3.write-timeout.milliseconds:60000}")
+    private Long writeTimeout;
+
+    @Bean
+    public okhttp3.OkHttpClient okHttpClient() {
+        return new okhttp3.OkHttpClient.Builder()
+                .connectTimeout(connectTimeout, TimeUnit.MILLISECONDS)
+                .readTimeout(readTimeout, TimeUnit.MILLISECONDS)
+                .writeTimeout(writeTimeout, TimeUnit.MILLISECONDS)
+                // 使用okhttp3.ConnectionPool，Connection:keep-Alive 的时间为5分钟
+                .connectionPool(new okhttp3.ConnectionPool())
+                .build();
+    }
 
     /**
      * Feign 日志级别
