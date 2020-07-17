@@ -34,7 +34,8 @@ public class FeignOkHttpConfig {
                 .readTimeout(readTimeout, TimeUnit.MILLISECONDS)
                 .connectTimeout(connectTimeout, TimeUnit.MILLISECONDS)
                 .writeTimeout(writeTimeout, TimeUnit.MILLISECONDS)
-                .retryOnConnectionFailure(false)
+//                .retryOnConnectionFailure(false)
+                // 使用okhttp3.ConnectionPool，Connection:keep-Alive 的时间为5分钟
                 .connectionPool(new okhttp3.ConnectionPool())
                 .build();
     }
