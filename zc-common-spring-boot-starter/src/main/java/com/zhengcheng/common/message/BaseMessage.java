@@ -19,14 +19,9 @@ public class BaseMessage implements Serializable {
      * 消息ID（作用:防止重复消费）
      */
     private String dataId;
-    /**
-     * 时间戳 秒(s) ,例如：1589783088
-     */
-    private long timestamp;
 
     public BaseMessage() {
         this.dataId = IdUtil.fastSimpleUUID();
-        this.timestamp = System.currentTimeMillis() / 1000;
     }
 
 }
