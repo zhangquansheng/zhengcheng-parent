@@ -8,6 +8,7 @@
         <version>4.7.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
+    <packaging>jar</packaging>
     <artifactId>zc-mybatis-spring-boot-starter</artifactId>
     <description>Mybatis3通过provider注解结合动态sql实现CRUD</description>
 
