@@ -13,7 +13,7 @@
     <groupId>com.zhengcheng</groupId>
     <artifactId>zhengcheng-parent</artifactId>
     <packaging>pom</packaging>
-    <version>4.6.0</version>
+    <version>4.7.0</version>
 
     <name>zhengcheng-parent</name>
 
@@ -43,6 +43,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring.cloud.version>Greenwich.SR4</spring.cloud.version>
+        <!-- spring cloud alibaba 依赖 2.1.x 版本适用于 Spring Boot 2.1.x -->
+        <spring-cloud-alibaba.version>2.1.0.RELEASE</spring-cloud-alibaba.version>
         <mybatis-plus.version>3.3.0</mybatis-plus.version>
         <spring.security.oauth2.version>2.3.8.RELEASE</spring.security.oauth2.version>
         <spring.security.jwt.version>1.0.10.RELEASE</spring.security.jwt.version>
@@ -56,7 +58,6 @@
         <fastjson.version>1.2.70</fastjson.version>
         <guava.version>28.2-jre</guava.version>
         <sentinel-datasource-apollo.version>1.6.3</sentinel-datasource-apollo.version>
-        <spring-cloud-starter-alibaba-sentinel.version>0.2.2.RELEASE</spring-cloud-starter-alibaba-sentinel.version>
         <easyexcel.version>2.1.6</easyexcel.version>
         <xxl-job-core.version>2.2.0</xxl-job-core.version>
         <cornerstone.version>0.2.1</cornerstone.version>
@@ -185,10 +186,19 @@
                 <artifactId>zc-mybatis-spring-boot-starter</artifactId>
                 <version>${module.version}</version>
             </dependency>
+            <!-- spring cloud 依赖 -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- spring cloud alibaba 依赖 -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -304,11 +314,6 @@
                 <groupId>com.alibaba.csp</groupId>
                 <artifactId>sentinel-datasource-apollo</artifactId>
                 <version>${sentinel-datasource-apollo.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
-                <version>${spring-cloud-starter-alibaba-sentinel.version}</version>
             </dependency>
             <!-- xxl-job-core -->
             <dependency>
