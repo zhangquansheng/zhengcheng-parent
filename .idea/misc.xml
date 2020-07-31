@@ -20,6 +20,7 @@
         <option value="$PROJECT_DIR$/mvc-spring-boot-starter/pom.xml" />
         <option value="$PROJECT_DIR$/mvc-springboot-starter/pom.xml" />
         <option value="$PROJECT_DIR$/swagger-spring-boot-starter/pom.xml" />
+        <option value="$PROJECT_DIR$/zc-sentinel-spring-boot-starter/pom.xml" />
       </set>
     </option>
   </component>

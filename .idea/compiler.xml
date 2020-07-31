@@ -10,7 +10,6 @@
         <module name="zc-auth-client-spring-boot-starter" />
         <module name="zc-zk-spring-boot-starter" />
         <module name="zc-dict-spring-boot-starter" />
-        <module name="zc-sentinel-spring-boot-starter" />
         <module name="zc-common-spring-boot-starter" />
         <module name="zc-aliyun-spring-boot-starter" />
         <module name="zc-cache-spring-boot-starter" />
@@ -40,6 +39,7 @@
       <module name="zc-mq-spring-boot-starter" target="1.8" />
       <module name="zc-oss-spring-boot-starter" target="1.8" />
       <module name="zc-redis-spring-boot-starter" target="1.8" />
+      <module name="zc-sentinel-spring-boot-starter" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
