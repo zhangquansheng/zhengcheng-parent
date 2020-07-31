@@ -188,7 +188,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!-- spring cloud alibaba 依赖 -->
+            <!-- spring cloud alibaba 依赖，注意 groupId 是 com.alibaba.cloud 和 org.springframework.cloud 的区别 -->
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
