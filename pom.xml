@@ -44,7 +44,7 @@
         <spring.cloud.version>Greenwich.SR4</spring.cloud.version>
         <!-- spring cloud alibaba 依赖 2.1.x 版本适用于 Spring Boot 2.1.x -->
         <spring-cloud-alibaba.version>2.1.1.RELEASE</spring-cloud-alibaba.version>
-        <mybatis-plus.version>3.3.0</mybatis-plus.version>
+        <mybatis-plus.version>3.3.2</mybatis-plus.version>
         <spring.security.oauth2.version>2.3.8.RELEASE</spring.security.oauth2.version>
         <spring.security.jwt.version>1.0.10.RELEASE</spring.security.jwt.version>
         <jjwt.version>0.7.0</jjwt.version>
