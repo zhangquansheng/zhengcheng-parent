@@ -52,7 +52,7 @@ public class ControllerLogAspect {
         long beginTime = System.currentTimeMillis();
         Object retObj = pjp.proceed();
         long costMs = System.currentTimeMillis() - beginTime;
-        log.info("{} | {} | 耗时：{}ms", pjpMethodInfo, objectMapper.writeValueAsString(retObj), costMs);
+        log.info("{} | {} | cost:{}ms", pjpMethodInfo, objectMapper.writeValueAsString(retObj), costMs);
         return retObj;
     }
 
