@@ -1,9 +1,9 @@
 package com.zhengcheng.web.aspect;
 
 import cn.hutool.core.text.StrBuilder;
-import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.Method;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.zhengcheng.common.constant.CommonConstants;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -41,49 +41,57 @@ public class ControllerLogAspect {
      * 定义拦截规则：
      * 有@RequestMapping注解的方法。
      */
-    @Pointcut("@within(org.springframework.web.bind.annotation.RequestMapping) && execution(* com.zhengcheng..*.*(..))")
+    @Pointcut("@within(org.springframework.web.bind.annotation.RequestMapping)")
     public void controllerMethodPointcut() {
     }
 
     @Around("controllerMethodPointcut()")
     public Object around(ProceedingJoinPoint pjp) throws Throwable {
+        String pjpMethodInfo = this.getMethodInfo(pjp);
+        log.info("{} | {}", pjpMethodInfo, this.getRequestInfo(pjp));
         long beginTime = System.currentTimeMillis();
         Object retObj = pjp.proceed();
         long costMs = System.currentTimeMillis() - beginTime;
-        log.info("{}请求结束，耗时：{}ms", this.getMethodInfo(pjp), costMs);
+        log.info("{} | {} | 耗时：{}ms", pjpMethodInfo, objectMapper.writeValueAsString(retObj), costMs);
         return retObj;
     }
 
     private String getMethodInfo(JoinPoint point) {
         StrBuilder sb = StrBuilder.create();
+        String className = point.getSignature().getDeclaringType().getSimpleName();
+        String methodName = point.getSignature().getName();
+        sb.append(className).append(".").append(methodName);
+        return sb.toString();
+    }
+
+    private String getRequestInfo(JoinPoint point) {
+        StrBuilder sb = StrBuilder.create();
         try {
             HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
+            String xGatewayUid = request.getHeader(CommonConstants.GATEWAY_UID_HEADER);
             String method = request.getMethod();
-            String className = point.getSignature().getDeclaringType().getSimpleName();
-            String methodName = point.getSignature().getName();
-            sb.append(className).append(".").append(methodName);
+            sb.append("method:[").append(method).append("] | ");
+            sb.append("requestPath:[").append(request.getRequestURI()).append("] | ");
+            sb.append("X-GATEWAY-UID:[").append(Objects.isNull(xGatewayUid) ? "" : xGatewayUid).append("] | ");
             if (Method.POST.toString().equalsIgnoreCase(method)) {
                 Object[] args = point.getArgs();
                 if (args.length > 0) {
-                    sb.append(" | args:");
+                    sb.append("args:");
                     for (Object arg : args) {
                         if (arg instanceof Serializable && !(arg instanceof MultipartFile)) {
-                            sb.append("[").append(objectMapper.writeValueAsString(arg)).append("]");
+                            sb.append(objectMapper.writeValueAsString(arg)).append(",");
                         }
                     }
                 }
                 Map<String, String[]> parameterMap = request.getParameterMap();
                 if (parameterMap != null && parameterMap.size() > 0) {
-                    sb.append(" | param:[").append(objectMapper.writeValueAsString(parameterMap)).append("]");
+                    sb.append("param:").append(objectMapper.writeValueAsString(parameterMap));
                 }
             } else {
-                String queryString = request.getQueryString();
-                if (StrUtil.isNotBlank(queryString)) {
-                    sb.append(" | param:[").append(queryString).append("]");
-                }
+                sb.append("queryString:").append(request.getQueryString());
             }
         } catch (Exception e) {
-            sb.append("|Exception:").append(e.getMessage());
+            sb.append("Exception:").append(e.getMessage());
         }
         return sb.toString();
     }

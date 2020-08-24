@@ -52,6 +52,11 @@ public interface CommonConstants {
     String TRACE_ID = "X-ZHENGCHENG-TRACE-ID";
 
     /**
+     * 网关传入到各个服务的用户ID
+     */
+    String GATEWAY_UID_HEADER = "X-GATEWAY-UID";
+
+    /**
      * 时间戳
      */
     String SIGN_AUTH_TIMESTAMP = "timestamp";
