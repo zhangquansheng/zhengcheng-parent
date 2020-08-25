@@ -33,7 +33,6 @@ public class TraceIdInterceptor implements HandlerInterceptor {
             return true;
         }
 
-        String uri = request.getRequestURI();
         String xForwardedForHeader = request.getHeader("X-Forwarded-For");
         String remoteIp = request.getRemoteAddr();
         String traceId = request.getHeader(CommonConstants.TRACE_ID);
