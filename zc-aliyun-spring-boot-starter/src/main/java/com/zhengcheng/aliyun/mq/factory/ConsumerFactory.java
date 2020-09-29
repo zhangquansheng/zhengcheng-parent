@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.core.annotation.AnnotationUtils;
+import org.springframework.lang.Nullable;
 
 import java.lang.reflect.Method;
 import java.util.Map;
@@ -36,6 +37,7 @@ public class ConsumerFactory implements ApplicationContextAware {
      * @param event 事件
      * @return IConsumerHandler
      */
+    @Nullable
     public IConsumerHandler create(String event) {
         Class<IConsumerHandler> consumerHandlerClass = consumerHandlerBeanMap.get(event);
         if (consumerHandlerClass == null) {
@@ -45,7 +47,7 @@ public class ConsumerFactory implements ApplicationContextAware {
     }
 
     @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+    public void setApplicationContext(@Nullable ApplicationContext applicationContext) throws BeansException {
 
         // init ConsumerHandler Repository
         initConsumerHandlerRepository(applicationContext);
@@ -105,7 +107,6 @@ public class ConsumerFactory implements ApplicationContextAware {
                                 "The correct method format like \" public Action execute(String param) \" .");
                     }
                     method.setAccessible(true);
-
 
                     for (String tag : tags) {
                         IConsumerHandler consumerHandler = new MethodConsumerHandler(bean, method);
