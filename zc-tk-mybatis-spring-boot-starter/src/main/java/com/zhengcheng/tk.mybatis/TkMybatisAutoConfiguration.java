@@ -1,8 +1,8 @@
 package com.zhengcheng.tk.mybatis;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import tk.mybatis.spring.annotation.MapperScan;
 
 /**
  * tk.mybatis 配置
