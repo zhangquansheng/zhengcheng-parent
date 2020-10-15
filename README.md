@@ -25,7 +25,7 @@
 - 4.x
     - `JDK 1.8 or later`
     - [Maven 3.2+](https://maven.apache.org/download.cgi)
-    - [SpringBoot 2.1.11.RELEASE](https://spring.io/projects/spring-boot)
+    - [SpringBoot 2.1.13.RELEASE](https://spring.io/projects/spring-boot)
     - [SpringCloud Greenwich.SR4](https://cloud.spring.io/spring-cloud-static/Greenwich.SR4/single/spring-cloud.html)
 - 3.x
     - `JDK 1.8 or later`
