@@ -1,7 +1,7 @@
-package com.zhengcheng.db;
+package com.zhengcheng.mybatis.plus;
 
-import com.zhengcheng.db.aspect.ReadOnlyConnectionAspect;
-import com.zhengcheng.db.config.DefaultMybatisPlusConfig;
+import com.zhengcheng.mybatis.plus.aspect.ReadOnlyConnectionAspect;
+import com.zhengcheng.mybatis.plus.config.DefaultMybatisPlusConfig;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;

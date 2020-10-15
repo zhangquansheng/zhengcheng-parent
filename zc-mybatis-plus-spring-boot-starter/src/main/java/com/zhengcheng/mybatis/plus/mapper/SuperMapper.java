@@ -1,4 +1,4 @@
-package com.zhengcheng.db.mapper;
+package com.zhengcheng.mybatis.plus.mapper;
 
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;

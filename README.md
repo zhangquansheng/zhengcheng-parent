@@ -40,7 +40,7 @@
 zc-web-spring-boot-starter | WEB模块通用组件
 zc-auth-client-spring-boot-starter | 认证客户端通用组件
 zc-feign-spring-boot-starter | 远程通信通用组件
-zc-db-spring-boot-starter | Mysql数据库通用组件
+zc-mybatis-plus-spring-boot-starter | MyBatis-Plus通用组件
 zc-cache-spring-boot-starter | 缓存通用组件
 zc-sentinel-spring-boot-starter | 服务降级、熔断和限流通用组件
 zc-job-spring-boot-starter | XXL-JOB定时任务通用组件

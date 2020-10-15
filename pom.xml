@@ -13,7 +13,7 @@
     <groupId>com.zhengcheng</groupId>
     <artifactId>zhengcheng-parent</artifactId>
     <packaging>pom</packaging>
-    <version>4.7.0</version>
+    <version>4.8.0</version>
 
     <name>zhengcheng-parent</name>
 
@@ -21,7 +21,6 @@
         <module>zc-web-spring-boot-starter</module>
         <module>zc-feign-spring-boot-starter</module>
         <module>zc-common-spring-boot-starter</module>
-        <module>zc-db-spring-boot-starter</module>
         <module>zc-cache-spring-boot-starter</module>
         <module>zc-job-spring-boot-starter</module>
         <module>zc-swagger-spring-boot-starter</module>
@@ -33,11 +32,13 @@
         <module>zc-tencentcloud-spring-boot-starter</module>
         <module>zc-dict-spring-boot-starter</module>
         <module>zc-zk-spring-boot-starter</module>
+        <module>zc-mybatis-plus-spring-boot-starter</module>
+        <module>zc-tk-mybatis-spring-boot-starter</module>
         <module>zc-mybatis-spring-boot-starter</module>
     </modules>
 
     <properties>
-        <module.version>4.7.0</module.version>
+        <module.version>4.8.0</module.version>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -112,7 +113,7 @@
             </dependency>
             <dependency>
                 <groupId>com.zhengcheng</groupId>
-                <artifactId>zc-db-spring-boot-starter</artifactId>
+                <artifactId>zc-mybatis-plus-spring-boot-starter</artifactId>
                 <version>${module.version}</version>
             </dependency>
             <dependency>
@@ -178,6 +179,11 @@
             <dependency>
                 <groupId>com.zhengcheng</groupId>
                 <artifactId>zc-mybatis-spring-boot-starter</artifactId>
+                <version>${module.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zc-tk-mybatis-spring-boot-starter</artifactId>
                 <version>${module.version}</version>
             </dependency>
             <!-- spring cloud 依赖 -->

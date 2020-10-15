@@ -1,4 +1,4 @@
-package com.zhengcheng.db.config;
+package com.zhengcheng.mybatis.plus.config;
 
 import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
