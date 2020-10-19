@@ -45,6 +45,7 @@ public class ConsumerAutoConfiguration {
     }
 
     @Bean
+    @ConditionalOnMissingBean
     public ConsumerRunner consumerRunner(ApplicationContext applicationContext) {
         ConsumerRunner consumerRunner = new ConsumerRunner();
         consumerRunner.setApplicationContext(applicationContext);
