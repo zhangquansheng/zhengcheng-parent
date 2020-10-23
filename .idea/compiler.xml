@@ -8,9 +8,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="zc-job-spring-boot-starter" />
+        <module name="zc-zk-spring-boot-starter" />
         <module name="zc-tk-mybatis-spring-boot-starter" />
         <module name="zc-mybatis-plus-spring-boot-starter" />
-        <module name="zc-sharding-jdbc-spring-boot-starter" />
         <module name="zc-dict-spring-boot-starter" />
         <module name="zc-common-spring-boot-starter" />
         <module name="zc-aliyun-spring-boot-starter" />
@@ -21,7 +21,7 @@
         <module name="zc-web-spring-boot-starter" />
         <module name="zc-tencentcloud-spring-boot-starter" />
         <module name="zc-cat-spring-boot-starter" />
-        <module name="zc-zk-spring-boot-starter" />
+        <module name="zc-sharding-jdbc-spring-boot-starter" />
         <module name="zc-auth-client-spring-boot-starter" />
         <module name="zc-swagger-spring-boot-starter" />
       </profile>
