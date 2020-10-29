@@ -1,4 +1,4 @@
-package com.zhengcheng.core.feign.config;
+package com.zhengcheng.feign.config;
 
 import feign.Feign;
 import org.springframework.beans.factory.annotation.Value;

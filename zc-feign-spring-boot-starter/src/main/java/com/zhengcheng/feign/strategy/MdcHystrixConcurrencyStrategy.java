@@ -1,4 +1,4 @@
-package com.zhengcheng.core.feign.strategy;
+package com.zhengcheng.feign.strategy;
 
 import com.netflix.hystrix.strategy.concurrency.HystrixConcurrencyStrategy;
 import org.slf4j.MDC;

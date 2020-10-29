@@ -1,4 +1,4 @@
-package com.zhengcheng.core.feign;
+package com.zhengcheng.feign;
 
 import feign.Logger;
 import org.slf4j.LoggerFactory;

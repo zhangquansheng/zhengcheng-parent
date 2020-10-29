@@ -1,4 +1,4 @@
-package com.zhengcheng.core.feign;
+package com.zhengcheng.feign;
 
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.core.util.StrUtil;
@@ -9,7 +9,7 @@ import com.netflix.hystrix.strategy.executionhook.HystrixCommandExecutionHook;
 import com.netflix.hystrix.strategy.metrics.HystrixMetricsPublisher;
 import com.netflix.hystrix.strategy.properties.HystrixPropertiesStrategy;
 import com.zhengcheng.common.constant.CommonConstants;
-import com.zhengcheng.core.feign.strategy.MdcHystrixConcurrencyStrategy;
+import com.zhengcheng.feign.strategy.MdcHystrixConcurrencyStrategy;
 import feign.Logger;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
@@ -32,7 +32,6 @@ import org.springframework.context.annotation.Configuration;
 @ConditionalOnClass(RequestInterceptor.class)
 @Configuration
 public class FeignAutoConfiguration implements RequestInterceptor {
-
     /**
      * Feign 日志级别
      */
@@ -80,5 +79,11 @@ public class FeignAutoConfiguration implements RequestInterceptor {
         } catch (Exception e) {
             log.error("Failed to register Hystrix Concurrency Strategy", e);
         }
+
+        log.info("------ Feign 自动配置  ---------------------------------------");
+        log.info("------ Feign 日志级别改为INFO ");
+        log.info("------ Feign RequestInterceptor add header X-ZHENGCHENG-TRACE-ID ");
+        log.info("------ Feign Hystrix线程池隔离下，支持MDC日志链路跟踪");
+        log.info("-----------------------------------------------------------------");
     }
 }

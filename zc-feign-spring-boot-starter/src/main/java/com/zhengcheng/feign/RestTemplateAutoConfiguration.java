@@ -1,4 +1,4 @@
-package com.zhengcheng.core.feign;
+package com.zhengcheng.feign;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
