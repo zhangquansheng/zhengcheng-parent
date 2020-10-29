@@ -18,23 +18,9 @@
     <name>zhengcheng-parent</name>
 
     <modules>
-        <module>zc-web-spring-boot-starter</module>
         <module>zc-feign-spring-boot-starter</module>
         <module>zc-common-spring-boot-starter</module>
-        <module>zc-cache-spring-boot-starter</module>
-        <module>zc-job-spring-boot-starter</module>
-        <module>zc-swagger-spring-boot-starter</module>
-        <module>zc-sharding-jdbc-spring-boot-starter</module>
-        <module>zc-auth-client-spring-boot-starter</module>
-        <module>zc-cat-spring-boot-starter</module>
-        <module>zc-netty-socketio-spring-boot-starter</module>
-        <module>zc-aliyun-spring-boot-starter</module>
-        <module>zc-tencentcloud-spring-boot-starter</module>
-        <module>zc-dict-spring-boot-starter</module>
-        <module>zc-zk-spring-boot-starter</module>
         <module>zc-mybatis-plus-spring-boot-starter</module>
-        <module>zc-tk-mybatis-spring-boot-starter</module>
-        <module>zc-mybatis-spring-boot-starter</module>
     </modules>
 
     <properties>
@@ -100,11 +86,6 @@
             <!-- 自定义 starter -->
             <dependency>
                 <groupId>com.zhengcheng</groupId>
-                <artifactId>zc-web-spring-boot-starter</artifactId>
-                <version>${module.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.zhengcheng</groupId>
                 <artifactId>zc-common-spring-boot-starter</artifactId>
                 <version>${module.version}</version>
             </dependency>
@@ -116,71 +97,6 @@
             <dependency>
                 <groupId>com.zhengcheng</groupId>
                 <artifactId>zc-feign-spring-boot-starter</artifactId>
-                <version>${module.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.zhengcheng</groupId>
-                <artifactId>zc-job-spring-boot-starter</artifactId>
-                <version>${module.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.zhengcheng</groupId>
-                <artifactId>zc-cache-spring-boot-starter</artifactId>
-                <version>${module.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.zhengcheng</groupId>
-                <artifactId>zc-sharding-jdbc-spring-boot-starter</artifactId>
-                <version>${module.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.zhengcheng</groupId>
-                <artifactId>zc-swagger-spring-boot-starter</artifactId>
-                <version>${module.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.zhengcheng</groupId>
-                <artifactId>zc-auth-client-spring-boot-starter</artifactId>
-                <version>${module.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.zhengcheng</groupId>
-                <artifactId>zc-cat-spring-boot-starter</artifactId>
-                <version>${module.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.zhengcheng</groupId>
-                <artifactId>zc-netty-socketio-spring-boot-starter</artifactId>
-                <version>${module.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.zhengcheng</groupId>
-                <artifactId>zc-aliyun-spring-boot-starter</artifactId>
-                <version>${module.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.zhengcheng</groupId>
-                <artifactId>zc-tencentcloud-spring-boot-starter</artifactId>
-                <version>${module.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.zhengcheng</groupId>
-                <artifactId>zc-dict-spring-boot-starter</artifactId>
-                <version>${module.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.zhengcheng</groupId>
-                <artifactId>zc-zk-spring-boot-starter</artifactId>
-                <version>${module.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.zhengcheng</groupId>
-                <artifactId>zc-mybatis-spring-boot-starter</artifactId>
-                <version>${module.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.zhengcheng</groupId>
-                <artifactId>zc-tk-mybatis-spring-boot-starter</artifactId>
                 <version>${module.version}</version>
             </dependency>
             <!-- spring cloud 依赖 -->
