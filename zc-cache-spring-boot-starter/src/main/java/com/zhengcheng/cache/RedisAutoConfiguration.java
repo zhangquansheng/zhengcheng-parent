@@ -1,4 +1,4 @@
-package com.zhengcheng.core.cache;
+package com.zhengcheng.cache;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
@@ -24,6 +24,12 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @Slf4j
 @EnableCaching
 public class RedisAutoConfiguration extends CachingConfigurerSupport {
+
+    public RedisAutoConfiguration() {
+        log.info("------ redis 缓存管理 自动配置  ----------------------------------");
+        log.info("------ @EnableCaching 启动缓存管理 ");
+        log.info("-----------------------------------------------------------------");
+    }
 
     /**
      * RedisTemplate配置

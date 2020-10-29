@@ -10,10 +10,10 @@
         <module name="zc-core-spring-boot-starter" />
         <module name="zc-common-spring-boot-starter" />
         <module name="zc-mybatis-plus-spring-boot-starter" />
+        <module name="zc-cache-spring-boot-starter" />
         <module name="zc-xxl-job-spring-boot-starter" />
         <module name="zc-feign-spring-boot-starter" />
         <module name="zc-swagger-spring-boot-starter" />
-        <module name="zc-redis-spring-boot-starter" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -27,7 +27,6 @@
       <module name="zc-aliyun-spring-boot-starter" target="1.8" />
       <module name="zc-async-spring-boot-starter" target="1.8" />
       <module name="zc-auth-client-spring-boot-starter" target="1.8" />
-      <module name="zc-cache-spring-boot-starter" target="1.8" />
       <module name="zc-cat-spring-boot-starter" target="1.8" />
       <module name="zc-dict-client-spring-boot-starter" target="1.8" />
       <module name="zc-dict-spring-boot-starter" target="1.8" />
@@ -37,6 +36,7 @@
       <module name="zc-mybatis-spring-boot-starter" target="1.8" />
       <module name="zc-netty-socketio-spring-boot-starter" target="1.8" />
       <module name="zc-oss-spring-boot-starter" target="1.8" />
+      <module name="zc-redis-spring-boot-starter" target="1.8" />
       <module name="zc-sentinel-spring-boot-starter" target="1.8" />
       <module name="zc-sharding-jdbc-spring-boot-starter" target="1.8" />
       <module name="zc-tencentcloud-spring-boot-starter" target="1.8" />
