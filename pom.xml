@@ -118,6 +118,11 @@
                 <artifactId>zc-xxl-job-spring-boot-starter</artifactId>
                 <version>${module.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zc-cache-spring-boot-starter</artifactId>
+                <version>${module.version}</version>
+            </dependency>
             <!-- spring cloud 依赖 -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
