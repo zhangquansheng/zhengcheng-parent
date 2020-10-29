@@ -1,5 +1,6 @@
 package com.zhengcheng.mybatis.plus;
 
+import com.zhengcheng.mybatis.plus.aspect.ReadOnlyConnectionAspect;
 import com.zhengcheng.mybatis.plus.config.DateMetaObjectHandler;
 import com.zhengcheng.mybatis.plus.config.DefaultMybatisPlusConfig;
 import lombok.extern.slf4j.Slf4j;
