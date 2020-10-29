@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.zhengcheng.dict.DictAutoConfiguration
+  com.zhengcheng.core.dict.DictAutoConfiguration

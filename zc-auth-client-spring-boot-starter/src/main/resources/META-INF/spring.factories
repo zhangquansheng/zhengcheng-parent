@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.zhengcheng.auth.client.interceptor.OAuth2FeignRequestInterceptor
+  com.zhengcheng.core.auth.client.interceptor.OAuth2FeignRequestInterceptor

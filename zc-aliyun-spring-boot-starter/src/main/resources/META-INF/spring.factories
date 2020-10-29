@@ -1,6 +1,6 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.zhengcheng.aliyun.OssAutoConfiguration,\
-  com.zhengcheng.aliyun.GreenAutoConfiguration,\
-  com.zhengcheng.aliyun.ConsumerAutoConfiguration,\
-  com.zhengcheng.aliyun.ProducerAutoConfiguration,\
-  com.zhengcheng.aliyun.SmsAutoConfiguration
+  com.zhengcheng.core.aliyun.OssAutoConfiguration,\
+  com.zhengcheng.core.aliyun.GreenAutoConfiguration,\
+  com.zhengcheng.core.aliyun.ConsumerAutoConfiguration,\
+  com.zhengcheng.core.aliyun.ProducerAutoConfiguration,\
+  com.zhengcheng.core.aliyun.SmsAutoConfiguration

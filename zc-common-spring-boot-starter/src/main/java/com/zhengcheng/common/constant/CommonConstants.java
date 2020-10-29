@@ -1,6 +1,5 @@
 package com.zhengcheng.common.constant;
 
-import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import lombok.Getter;
 
 /**
@@ -157,5 +156,4 @@ public interface CommonConstants {
 
     String[] EMPTY_ARRAY = new String[0];
 
-    byte[] BYTES_NEW_LINE = StringPool.NEWLINE.getBytes();
 }

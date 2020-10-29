@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.zhengcheng.zk.ZkAutoConfiguration
+  com.zhengcheng.core.zk.ZkAutoConfiguration
