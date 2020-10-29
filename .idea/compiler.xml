@@ -13,6 +13,7 @@
         <module name="zc-xxl-job-spring-boot-starter" />
         <module name="zc-feign-spring-boot-starter" />
         <module name="zc-swagger-spring-boot-starter" />
+        <module name="zc-redis-spring-boot-starter" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -36,7 +37,6 @@
       <module name="zc-mybatis-spring-boot-starter" target="1.8" />
       <module name="zc-netty-socketio-spring-boot-starter" target="1.8" />
       <module name="zc-oss-spring-boot-starter" target="1.8" />
-      <module name="zc-redis-spring-boot-starter" target="1.8" />
       <module name="zc-sentinel-spring-boot-starter" target="1.8" />
       <module name="zc-sharding-jdbc-spring-boot-starter" target="1.8" />
       <module name="zc-tencentcloud-spring-boot-starter" target="1.8" />
@@ -68,6 +68,7 @@
       <module name="zc-mybatis-spring-boot-starter" options="-parameters" />
       <module name="zc-netty-socketio-spring-boot-starter" options="-parameters" />
       <module name="zc-oss-spring-boot-starter" options="-parameters" />
+      <module name="zc-redis-spring-boot-starter" options="-parameters" />
       <module name="zc-sentinel-spring-boot-starter" options="-parameters" />
       <module name="zc-sharding-jdbc-spring-boot-starter" options="-parameters" />
       <module name="zc-swagger-spring-boot-starter" options="-parameters" />

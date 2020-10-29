@@ -2,7 +2,6 @@ package com.zhengcheng.xxl.job.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 
 /**
  * XxlJobProperties
@@ -10,7 +9,6 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
  * @author :    quansheng.zhang
  * @date :    2019/8/5 19:05
  */
-@RefreshScope
 @Data
 @ConfigurationProperties(prefix = "xxl.job.executor")
 public class XxlJobExecutorProperties {

@@ -24,6 +24,7 @@
         <module>zc-mybatis-plus-spring-boot-starter</module>
         <module>zc-swagger-spring-boot-starter</module>
         <module>zc-xxl-job-spring-boot-starter</module>
+        <module>zc-redis-spring-boot-starter</module>
     </modules>
 
     <properties>
