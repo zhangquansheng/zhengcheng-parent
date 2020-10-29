@@ -1,4 +1,4 @@
-package com.zhengcheng.core.job.properties;
+package com.zhengcheng.xxl.job.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -7,7 +7,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 /**
- * AppProperties
+ * apollo - AppProperties
  *
  * @author :    quansheng.zhang
  * @date :    2019/8/5 18:56

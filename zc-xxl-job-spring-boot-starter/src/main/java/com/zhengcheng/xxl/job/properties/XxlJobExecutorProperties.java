@@ -1,4 +1,4 @@
-package com.zhengcheng.core.job.properties;
+package com.zhengcheng.xxl.job.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

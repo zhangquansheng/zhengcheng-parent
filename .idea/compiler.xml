@@ -7,11 +7,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="zc-core-spring-boot-starter" />
         <module name="zc-common-spring-boot-starter" />
+        <module name="zc-mybatis-plus-spring-boot-starter" />
+        <module name="zc-xxl-job-spring-boot-starter" />
         <module name="zc-feign-spring-boot-starter" />
         <module name="zc-swagger-spring-boot-starter" />
-        <module name="zc-mybatis-plus-spring-boot-starter" />
-        <module name="zc-core-spring-boot-starter" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -73,6 +74,7 @@
       <module name="zc-tencentcloud-spring-boot-starter" options="-parameters" />
       <module name="zc-tk-mybatis-spring-boot-starter" options="-parameters" />
       <module name="zc-web-spring-boot-starter" options="-parameters" />
+      <module name="zc-xxl-job-spring-boot-starter" options="-parameters" />
       <module name="zc-zk-spring-boot-starter" options="-parameters" />
       <module name="zhengcheng-parent" options="-parameters" />
     </option>
