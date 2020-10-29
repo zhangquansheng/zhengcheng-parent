@@ -1,4 +1,4 @@
-package com.zhengcheng.core.mybatis.plus.mapper;
+package com.zhengcheng.mybatis.plus.mapper;
 
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;

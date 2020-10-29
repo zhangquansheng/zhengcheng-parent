@@ -1,4 +1,4 @@
-package com.zhengcheng.service;
+package com.zhengcheng.mybatis.plus.service;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.extension.service.IService;

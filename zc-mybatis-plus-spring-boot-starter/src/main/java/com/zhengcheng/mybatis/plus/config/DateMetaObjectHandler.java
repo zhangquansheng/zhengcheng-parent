@@ -1,4 +1,4 @@
-package com.zhengcheng.core.mybatis.plus.config;
+package com.zhengcheng.mybatis.plus.config;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import org.apache.ibatis.reflection.MetaObject;

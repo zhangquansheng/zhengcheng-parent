@@ -1,4 +1,4 @@
-package com.zhengcheng.model;
+package com.zhengcheng.mybatis.plus.model;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -34,6 +34,8 @@ public class BaseEntity<T extends Model<?>> extends Model<T> {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime gmtModified;
+    @TableField(value = "is_deleted", fill = FieldFill.INSERT)
+    private boolean deleted;
 
     @Override
     protected Serializable pkVal() {

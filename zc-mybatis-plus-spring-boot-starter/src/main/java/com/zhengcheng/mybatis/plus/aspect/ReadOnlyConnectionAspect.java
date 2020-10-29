@@ -1,4 +1,4 @@
-package com.zhengcheng.core.mybatis.plus.aspect;
+package com.zhengcheng.mybatis.plus.aspect;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -26,7 +26,7 @@ public class ReadOnlyConnectionAspect {
     @Autowired
     DataSource dataSource;
 
-    @Pointcut("@annotation(com.zhengcheng.core.mybatis.plus.annotation.ReadOnlyConnection)")
+    @Pointcut("@annotation(com.zhengcheng.mybatis.plus.annotation.ReadOnlyConnection)")
     public void readOnlyConnectionPointcut() {
     }
 

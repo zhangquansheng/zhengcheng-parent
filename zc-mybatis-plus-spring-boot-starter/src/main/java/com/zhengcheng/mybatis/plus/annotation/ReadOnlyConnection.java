@@ -1,4 +1,4 @@
-package com.zhengcheng.core.mybatis.plus.annotation;
+package com.zhengcheng.mybatis.plus.annotation;
 
 
 import java.lang.annotation.*;

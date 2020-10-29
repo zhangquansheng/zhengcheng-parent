@@ -1,4 +1,4 @@
-package com.zhengcheng.service.impl;
+package com.zhengcheng.mybatis.plus.service.impl;
 
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
@@ -12,7 +12,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zhengcheng.common.exception.IdempotentException;
 import com.zhengcheng.common.exception.LockException;
 import com.zhengcheng.common.lock.DistributedLock;
-import com.zhengcheng.service.IBaseService;
+import com.zhengcheng.mybatis.plus.service.IBaseService;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.Serializable;

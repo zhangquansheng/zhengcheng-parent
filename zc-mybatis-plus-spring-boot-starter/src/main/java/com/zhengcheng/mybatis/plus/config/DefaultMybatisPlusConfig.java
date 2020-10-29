@@ -1,4 +1,4 @@
-package com.zhengcheng.core.mybatis.plus.config;
+package com.zhengcheng.mybatis.plus.config;
 
 import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Import;
  * @author :    quansheng.zhang
  * @date :    2019/7/28 21:31
  */
-@Import(DateMetaObjectHandler.class)
 public class DefaultMybatisPlusConfig {
 
     /**
