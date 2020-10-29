@@ -25,7 +25,7 @@ public class MybatisPlusAutoConfiguration extends DefaultMybatisPlusConfig {
     public MybatisPlusAutoConfiguration() {
         log.info("------ mybatis-plus 自动配置  ---------------------------------------");
         log.info("------ 事务管理注解 @EnableTransactionManagement 配置成功 ");
-        log.info("------ 数据库表公共字段：id、gmt_create、gmt_modified、is_deleted ");
+        log.info("------ 数据库表公共字段：id、create_time、update_time、is_deleted ");
         log.info("------ MapperScan com.zhengcheng.**.mapper* ");
         log.info("-----------------------------------------------------------------");
     }
