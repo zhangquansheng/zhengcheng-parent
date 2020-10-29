@@ -1,6 +1,7 @@
-package com.zhengcheng.feign.config;
+package com.zhengcheng.feign;
 
 import feign.Feign;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -16,6 +17,7 @@ import java.util.concurrent.TimeUnit;
  * @author :    quansheng.zhang
  * @date :    2019/6/29 16:07
  */
+@Slf4j
 @Configuration
 @ConditionalOnClass({Feign.class})
 @AutoConfigureBefore(FeignAutoConfiguration.class)
@@ -38,5 +40,11 @@ public class FeignOkHttpConfig {
                 // 使用okhttp3.ConnectionPool，Connection:keep-Alive 的时间为5分钟
                 .connectionPool(new okhttp3.ConnectionPool())
                 .build();
+    }
+
+    public FeignOkHttpConfig() {
+        log.info("------ FeignOkHttp 自动配置  ------------------------------------------");
+        log.info("------ 使用okhttp3.ConnectionPool，Connection:keep-Alive 的时间为5分钟。");
+        log.info("-----------------------------------------------------------------------");
     }
 }

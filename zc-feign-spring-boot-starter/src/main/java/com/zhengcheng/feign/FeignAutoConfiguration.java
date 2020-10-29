@@ -16,10 +16,12 @@ import feign.RequestTemplate;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.cloud.openfeign.FeignLoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * Feign 统一配置
@@ -32,6 +34,13 @@ import org.springframework.context.annotation.Configuration;
 @ConditionalOnClass(RequestInterceptor.class)
 @Configuration
 public class FeignAutoConfiguration implements RequestInterceptor {
+
+    @Bean
+    @LoadBalanced
+    RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
+
     /**
      * Feign 日志级别
      */
@@ -84,6 +93,7 @@ public class FeignAutoConfiguration implements RequestInterceptor {
         log.info("------ Feign 日志级别改为INFO ");
         log.info("------ Feign RequestInterceptor add header X-ZHENGCHENG-TRACE-ID ");
         log.info("------ Feign Hystrix线程池隔离下，支持MDC日志链路跟踪");
+        log.info("------ RestTemplate 配置 @LoadBalanced");
         log.info("-----------------------------------------------------------------");
     }
 }
