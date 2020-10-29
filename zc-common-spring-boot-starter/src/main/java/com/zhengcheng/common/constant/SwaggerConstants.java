@@ -1,4 +1,4 @@
-package com.zhengcheng.core.swagger.constant;
+package com.zhengcheng.common.constant;
 
 import java.util.Arrays;
 import java.util.List;

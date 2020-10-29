@@ -1,4 +1,4 @@
-package com.zhengcheng.core.swagger.properties;
+package com.zhengcheng.swagger.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

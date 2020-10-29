@@ -1,3 +1,2 @@
-# Auto Configure
-org.springframework.boot.autoconfigure.EnableAutoConfiguration =  \
-  com.zhengcheng.core.swagger.SwaggerAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.zhengcheng.swagger.SwaggerAutoConfiguration

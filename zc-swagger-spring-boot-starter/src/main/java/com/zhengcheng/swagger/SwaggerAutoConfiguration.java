@@ -1,11 +1,11 @@
-package com.zhengcheng.core.swagger;
+package com.zhengcheng.swagger;
 
-import com.zhengcheng.core.swagger.properties.SwaggerProperties;
+import com.zhengcheng.swagger.properties.SwaggerProperties;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.util.Assert;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.ParameterBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -28,20 +28,18 @@ import java.util.List;
  * @date :    2019/2/2 15:54
  */
 @Slf4j
+@ConditionalOnProperty(prefix = "spring.swagger", name = "enable", havingValue = "true")
 @Configuration
 @EnableSwagger2
 @EnableConfigurationProperties({SwaggerProperties.class})
 public class SwaggerAutoConfiguration {
 
     public SwaggerAutoConfiguration() {
-        if (log.isDebugEnabled()) {
-            log.debug("Swagger 配置成功");
-        }
+        log.info("------ Swagger 2.8.0 自动配置  ---------------------------------------");
     }
 
     @Bean
     public Docket createRestApi(SwaggerProperties swaggerProperties) {
-        Assert.notNull(swaggerProperties.getEnable(), "swagger enable is required");
         List<Parameter> operationParameters = new ArrayList<>();
         operationParameters.add(new ParameterBuilder().name("access_token").description("访问令牌").modelRef(new ModelRef("String")).parameterType("query").required(false).build());
         return new Docket(DocumentationType.SWAGGER_2)

@@ -21,6 +21,7 @@
         <module>zc-feign-spring-boot-starter</module>
         <module>zc-common-spring-boot-starter</module>
         <module>zc-mybatis-plus-spring-boot-starter</module>
+        <module>zc-swagger-spring-boot-starter</module>
     </modules>
 
     <properties>
@@ -97,6 +98,11 @@
             <dependency>
                 <groupId>com.zhengcheng</groupId>
                 <artifactId>zc-feign-spring-boot-starter</artifactId>
+                <version>${module.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zc-swagger-spring-boot-starter</artifactId>
                 <version>${module.version}</version>
             </dependency>
             <!-- spring cloud 依赖 -->
