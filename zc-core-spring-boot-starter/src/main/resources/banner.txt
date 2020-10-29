@@ -8,5 +8,5 @@
                                      __/ |                       __/ |
                                     |___/                       |___/
 Version: 4.8.0
-Gitlab:  https://github.com/zhangquansheng/zhengcheng-parent
+Github:  https://github.com/zhangquansheng/zhengcheng-parent
 Docs:    http://zhengcheng.plus/
