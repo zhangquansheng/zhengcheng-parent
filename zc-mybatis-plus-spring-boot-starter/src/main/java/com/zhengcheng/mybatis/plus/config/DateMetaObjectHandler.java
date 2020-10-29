@@ -13,25 +13,25 @@ import java.time.LocalDateTime;
  */
 public class DateMetaObjectHandler implements MetaObjectHandler {
 
-    private final String GMT_MODIFIED = "gmtModified";
+    private final String CREATE_TIME = "createTime";
+    private final String UPDATE_TIME = "updateTime";
+    private final String DELETED = "deleted";
 
     @Override
     public void insertFill(MetaObject metaObject) {
         LocalDateTime now = LocalDateTime.now();
-        String GMT_CREATE = "gmtCreate";
-        if (metaObject.hasSetter(GMT_CREATE)) {
-            Object gmtCreate = this.getFieldValByName(GMT_CREATE, metaObject);
-            if (gmtCreate == null) {
-                this.setFieldValByName(GMT_CREATE, now, metaObject);
+        if (metaObject.hasSetter(CREATE_TIME)) {
+            Object createTime = this.getFieldValByName(CREATE_TIME, metaObject);
+            if (createTime == null) {
+                this.setFieldValByName(CREATE_TIME, now, metaObject);
             }
         }
-        if (metaObject.hasSetter(GMT_MODIFIED)) {
-            Object gmtModified = this.getFieldValByName(GMT_MODIFIED, metaObject);
-            if (gmtModified == null) {
-                this.setFieldValByName(GMT_MODIFIED, now, metaObject);
+        if (metaObject.hasSetter(UPDATE_TIME)) {
+            Object updateTime = this.getFieldValByName(UPDATE_TIME, metaObject);
+            if (updateTime == null) {
+                this.setFieldValByName(UPDATE_TIME, now, metaObject);
             }
         }
-        String DELETED = "deleted";
         if (metaObject.hasSetter(DELETED)) {
             Object deleted = this.getFieldValByName(DELETED, metaObject);
             if (deleted == null) {
@@ -42,8 +42,8 @@ public class DateMetaObjectHandler implements MetaObjectHandler {
 
     @Override
     public void updateFill(MetaObject metaObject) {
-        if (metaObject.hasSetter(GMT_MODIFIED)) {
-            this.setFieldValByName(GMT_MODIFIED, LocalDateTime.now(), metaObject);
+        if (metaObject.hasSetter(UPDATE_TIME)) {
+            this.setFieldValByName(UPDATE_TIME, LocalDateTime.now(), metaObject);
         }
     }
 }

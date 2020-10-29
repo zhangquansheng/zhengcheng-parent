@@ -30,10 +30,10 @@ public class BaseEntity<T extends Model<?>> extends Model<T> {
     private Long id;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @TableField(fill = FieldFill.INSERT)
-    private LocalDateTime gmtCreate;
+    private LocalDateTime createTime;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @TableField(fill = FieldFill.INSERT_UPDATE)
-    private LocalDateTime gmtModified;
+    private LocalDateTime updateTime;
     @TableField(value = "is_deleted", fill = FieldFill.INSERT)
     private boolean deleted;
 
