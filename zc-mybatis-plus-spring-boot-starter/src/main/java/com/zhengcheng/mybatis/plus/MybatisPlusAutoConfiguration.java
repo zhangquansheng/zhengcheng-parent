@@ -15,15 +15,17 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * @date :    2019/7/28 21:31
  */
 @Slf4j
+@Configuration
 @EnableTransactionManagement
 @MapperScan(basePackages = "com.zhengcheng.**.mapper*")
-@Configuration
 @Import({ReadOnlyConnectionAspect.class, DateMetaObjectHandler.class})
 public class MybatisPlusAutoConfiguration extends DefaultMybatisPlusConfig {
 
     public MybatisPlusAutoConfiguration() {
-        log.info("------扫描com.zhengcheng.**.mapper*---------------------------------");
+        log.info("------事务管理注解 @EnableTransactionManagement 配置成功--------------");
+        log.info("------MapperScan com.zhengcheng.**.mapper*--------------------------");
         log.info("------数据库表公共字段：id、gmt_create、gmt_modified、is_deleted------");
         log.info("------MybatisPlus配置成功--------------------------------------------");
     }
+
 }
