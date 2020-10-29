@@ -15,6 +15,9 @@
     <file url="file://$PROJECT_DIR$/zc-cat-spring-boot-starter/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-common-spring-boot-starter" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-common-spring-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-core-spring-boot-starter" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-core-spring-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-core-spring-boot-starter/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-dict-spring-boot-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-dict-spring-boot-starter/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-feign-spring-boot-starter" charset="UTF-8" />
@@ -38,9 +41,6 @@
     <file url="file://$PROJECT_DIR$/zc-tencentcloud-spring-boot-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-tencentcloud-spring-boot-starter/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-tk-mybatis-spring-boot-starter/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-web-spring-boot-starter" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-web-spring-boot-starter/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-web-spring-boot-starter/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-zk-spring-boot-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-zk-spring-boot-starter/src/main/resources" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />

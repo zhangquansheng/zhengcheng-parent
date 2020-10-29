@@ -1,4 +1,4 @@
-package com.zhengcheng.core.concurrent.async.decorator;
+package com.zhengcheng.core.concurrent.decorator;
 
 import org.slf4j.MDC;
 import org.springframework.core.task.TaskDecorator;

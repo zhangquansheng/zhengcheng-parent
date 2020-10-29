@@ -1,37 +1,42 @@
 package com.zhengcheng.core;
 
+import com.zhengcheng.common.constant.SwaggerConstants;
 import com.zhengcheng.core.web.interceptor.TraceIdInterceptor;
-import com.zhengcheng.core.swagger.constant.SwaggerConstants;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
- * Web模块自动配置
+ * 核心模块自动配置
  *
  * @author :    quansheng.zhang
  * @date :    2019/1/26 7:59
  */
 @Slf4j
+@EnableAsync
 @EnableWebMvc
 @Configuration
 @ComponentScan({
-        "com.zhengcheng.web.advice",
-        "com.zhengcheng.web.aspect"})
-public class WebAutoConfiguration implements WebMvcConfigurer {
+        "com.zhengcheng.core.web.advice",
+        "com.zhengcheng.core.web.aspect"})
+public class CoreAutoConfiguration implements WebMvcConfigurer {
 
     @Value("${spring.application.name:appName}")
     private String name;
 
-    public WebAutoConfiguration() {
-        if (log.isDebugEnabled()) {
-            log.debug("Web模块自动配置成功");
-        }
+    public CoreAutoConfiguration() {
+        log.info("------ 核心模块自动配置 ---------------------------------------");
+        log.info("------ ExceptionControllerAdvice 统一异常处理 ");
+        log.info("------ ControllerLogAspect 控制层日志打印");
+        log.info("------ @EnableWebMvc 启动SpringMvc的配置");
+        log.info("------ @EnableAsync 启动线程池配置");
+        log.info("-----------------------------------------------------------------");
     }
 
     @Override

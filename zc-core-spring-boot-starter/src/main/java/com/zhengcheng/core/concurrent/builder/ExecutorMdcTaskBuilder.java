@@ -1,7 +1,7 @@
-package com.zhengcheng.core.concurrent.async.builder;
+package com.zhengcheng.core.concurrent.builder;
 
-import com.zhengcheng.core.concurrent.async.decorator.MdcTaskDecorator;
-import com.zhengcheng.core.concurrent.async.executor.VisibleThreadPoolTaskExecutor;
+import com.zhengcheng.core.concurrent.decorator.MdcTaskDecorator;
+import com.zhengcheng.core.concurrent.executor.VisibleThreadPoolTaskExecutor;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import java.util.concurrent.ThreadPoolExecutor;

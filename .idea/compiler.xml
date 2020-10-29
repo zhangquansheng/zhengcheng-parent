@@ -11,6 +11,7 @@
         <module name="zc-feign-spring-boot-starter" />
         <module name="zc-swagger-spring-boot-starter" />
         <module name="zc-mybatis-plus-spring-boot-starter" />
+        <module name="zc-core-spring-boot-starter" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -56,6 +57,7 @@
       <module name="zc-cache-spring-boot-starter" options="-parameters" />
       <module name="zc-cat-spring-boot-starter" options="-parameters" />
       <module name="zc-common-spring-boot-starter" options="-parameters" />
+      <module name="zc-core-spring-boot-starter" options="-parameters" />
       <module name="zc-dict-spring-boot-starter" options="-parameters" />
       <module name="zc-feign-spring-boot-starter" options="-parameters" />
       <module name="zc-green-spring-boot-starter" options="-parameters" />
