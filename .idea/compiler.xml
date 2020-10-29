@@ -7,11 +7,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="zc-core-spring-boot-starter" />
         <module name="zc-common-spring-boot-starter" />
         <module name="zc-dict-spring-boot-starter" />
         <module name="zc-zk-spring-boot-starter" />
         <module name="zc-cache-spring-boot-starter" />
+        <module name="zc-web-core-spring-boot-starter" />
         <module name="zc-sharding-jdbc-spring-boot-starter" />
         <module name="zc-xxl-job-spring-boot-starter" />
         <module name="zc-feign-spring-boot-starter" />
@@ -59,7 +59,6 @@
       <module name="zc-cache-spring-boot-starter" options="-parameters" />
       <module name="zc-cat-spring-boot-starter" options="-parameters" />
       <module name="zc-common-spring-boot-starter" options="-parameters" />
-      <module name="zc-core-spring-boot-starter" options="-parameters" />
       <module name="zc-dict-spring-boot-starter" options="-parameters" />
       <module name="zc-feign-spring-boot-starter" options="-parameters" />
       <module name="zc-green-spring-boot-starter" options="-parameters" />
@@ -75,6 +74,7 @@
       <module name="zc-swagger-spring-boot-starter" options="-parameters" />
       <module name="zc-tencentcloud-spring-boot-starter" options="-parameters" />
       <module name="zc-tk-mybatis-spring-boot-starter" options="-parameters" />
+      <module name="zc-web-core-spring-boot-starter" options="-parameters" />
       <module name="zc-web-spring-boot-starter" options="-parameters" />
       <module name="zc-xxl-job-spring-boot-starter" options="-parameters" />
       <module name="zc-zk-spring-boot-starter" options="-parameters" />

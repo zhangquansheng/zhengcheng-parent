@@ -18,7 +18,7 @@
     <name>zhengcheng-parent</name>
 
     <modules>
-        <module>zc-core-spring-boot-starter</module>
+        <module>zc-web-core-spring-boot-starter</module>
         <module>zc-feign-spring-boot-starter</module>
         <module>zc-common-spring-boot-starter</module>
         <module>zc-mybatis-plus-spring-boot-starter</module>
@@ -90,7 +90,7 @@
             <!-- 自定义 starter -->
             <dependency>
                 <groupId>com.zhengcheng</groupId>
-                <artifactId>zc-core-spring-boot-starter</artifactId>
+                <artifactId>zc-web-core-spring-boot-starter</artifactId>
                 <version>${module.version}</version>
             </dependency>
             <dependency>
