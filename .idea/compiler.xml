@@ -8,18 +8,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="zc-sharding-jdbc-spring-boot-starter" />
-        <module name="zc-common-spring-boot-starter" />
-        <module name="zc-tencentcloud-spring-boot-starter" />
-        <module name="zc-auth-client-spring-boot-starter" />
+        <module name="zc-xxl-job-spring-boot-starter" />
         <module name="zc-cache-spring-boot-starter" />
         <module name="zc-web-core-spring-boot-starter" />
-        <module name="zc-dict-spring-boot-starter" />
-        <module name="zc-zk-spring-boot-starter" />
         <module name="zc-feign-spring-boot-starter" />
         <module name="zc-mybatis-plus-spring-boot-starter" />
-        <module name="zc-xxl-job-spring-boot-starter" />
+        <module name="zc-common-spring-boot-starter" />
         <module name="zc-swagger-spring-boot-starter" />
-        <module name="zc-aliyun-spring-boot-starter" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -30,10 +25,13 @@
       <module name="mvc-springboot-starter" target="1.8" />
       <module name="mvcspringbootstarter" target="1.8" />
       <module name="swagger-spring-boot-starter" target="1.8" />
+      <module name="zc-aliyun-spring-boot-starter" target="1.8" />
       <module name="zc-async-spring-boot-starter" target="1.8" />
+      <module name="zc-auth-client-spring-boot-starter" target="1.8" />
       <module name="zc-cat-spring-boot-starter" target="1.8" />
       <module name="zc-db-spring-boot-starter" target="1.8" />
       <module name="zc-dict-client-spring-boot-starter" target="1.8" />
+      <module name="zc-dict-spring-boot-starter" target="1.8" />
       <module name="zc-green-spring-boot-starter" target="1.8" />
       <module name="zc-job-spring-boot-starter" target="1.8" />
       <module name="zc-mq-spring-boot-starter" target="1.8" />
@@ -42,8 +40,11 @@
       <module name="zc-oss-spring-boot-starter" target="1.8" />
       <module name="zc-redis-spring-boot-starter" target="1.8" />
       <module name="zc-sentinel-spring-boot-starter" target="1.8" />
+      <module name="zc-sharding-jdbc-spring-boot-starter" target="1.8" />
+      <module name="zc-tencentcloud-spring-boot-starter" target="1.8" />
       <module name="zc-tk-mybatis-spring-boot-starter" target="1.8" />
       <module name="zc-web-spring-boot-starter" target="1.8" />
+      <module name="zc-zk-spring-boot-starter" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
