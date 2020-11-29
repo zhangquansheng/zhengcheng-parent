@@ -59,7 +59,8 @@
         <weixin-java-tools.version>3.7.0</weixin-java-tools.version>
         <cat.version>3.0.0</cat.version>
         <socketio.version>1.7.18</socketio.version>
-        <redisson.version>3.14.0</redisson.version>
+        <!-- 注意跟 Spring Boot version 的对应关系 -->
+        <redisson.version>3.10.7</redisson.version>
         <protobuf-java.version>3.11.4</protobuf-java.version>
         <aliyun-log-logback-appender.version>0.1.15</aliyun-log-logback-appender.version>
         <curator-recipes.version>4.3.0</curator-recipes.version>
