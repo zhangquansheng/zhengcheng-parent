@@ -4,7 +4,7 @@ package com.zhengcheng.mybatis.plus.annotation;
 import java.lang.annotation.*;
 
 /**
- * Connection中的readonly属性设置成TRUE
+ * Connection中的readonly属性设置成TRUE，等同于 @Transactional(readOnly = true)
  *
  * @author :    quansheng.zhang
  * @date :    2020/01/03 11:18
