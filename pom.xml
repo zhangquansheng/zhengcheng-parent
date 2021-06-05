@@ -59,12 +59,15 @@
         <weixin-java-tools.version>3.7.0</weixin-java-tools.version>
         <cat.version>3.0.0</cat.version>
         <socketio.version>1.7.18</socketio.version>
-        <redisson.version>3.11.6</redisson.version>
+        <!-- 注意跟 Spring Boot version 的对应关系 -->
+        <redisson.version>3.10.7</redisson.version>
         <protobuf-java.version>3.11.4</protobuf-java.version>
         <aliyun-log-logback-appender.version>0.1.15</aliyun-log-logback-appender.version>
         <curator-recipes.version>4.3.0</curator-recipes.version>
         <j2cache-core.version>2.8.2-release</j2cache-core.version>
         <j2cache-spring-boot2-starter.version>2.8.0-release</j2cache-spring-boot2-starter.version>
+        <mapstruct.version>1.4.1.Final</mapstruct.version>
+        <orika.version>1.5.4</orika.version>
     </properties>
 
     <dependencies>
@@ -383,11 +386,6 @@
                 <artifactId>netty-socketio</artifactId>
                 <version>${socketio.version}</version>
             </dependency>
-            <dependency>
-                <groupId>org.redisson</groupId>
-                <artifactId>redisson</artifactId>
-                <version>${redisson.version}</version>
-            </dependency>
             <!-- https://mvnrepository.com/artifact/net.oschina.j2cache/j2cache-core -->
             <dependency>
                 <groupId>net.oschina.j2cache</groupId>
@@ -404,6 +402,40 @@
                 <groupId>org.apache.curator</groupId>
                 <artifactId>curator-recipes</artifactId>
                 <version>${curator-recipes.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct -->
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-jdk8</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/ma.glasnost.orika/orika-core -->
+            <dependency>
+                <groupId>ma.glasnost.orika</groupId>
+                <artifactId>orika-core</artifactId>
+                <version>${orika.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.redisson/redisson -->
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson</artifactId>
+                <version>${redisson.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.redisson/redisson-spring-boot-starter -->
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>${redisson.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
