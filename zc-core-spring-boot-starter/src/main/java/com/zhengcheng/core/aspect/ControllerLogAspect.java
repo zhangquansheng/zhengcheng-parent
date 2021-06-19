@@ -1,4 +1,4 @@
-package com.zhengcheng.core.web.aspect;
+package com.zhengcheng.core.aspect;
 
 import cn.hutool.core.text.StrBuilder;
 import cn.hutool.core.util.StrUtil;

@@ -1,4 +1,4 @@
-package com.zhengcheng.core.web.util;
+package com.zhengcheng.core.util;
 
 import com.zhengcheng.common.constant.CommonConstants;
 import org.apache.commons.lang3.StringUtils;

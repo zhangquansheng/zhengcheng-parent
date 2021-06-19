@@ -1,6 +1,5 @@
 package com.zhengcheng.core.concurrent.builder;
 
-import com.zhengcheng.core.concurrent.decorator.MdcTaskDecorator;
 import com.zhengcheng.core.concurrent.executor.VisibleThreadPoolTaskExecutor;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
@@ -73,7 +72,6 @@ public class ExecutorMdcTaskBuilder implements cn.hutool.core.builder.Builder<Th
         executor.setKeepAliveSeconds(builder.keepAliveSeconds);
         executor.setThreadNamePrefix(builder.threadNamePrefix);
         executor.setAwaitTerminationSeconds(builder.awaitTerminationSeconds);
-        executor.setTaskDecorator(new MdcTaskDecorator());
         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
         //执行初始化
         executor.initialize();

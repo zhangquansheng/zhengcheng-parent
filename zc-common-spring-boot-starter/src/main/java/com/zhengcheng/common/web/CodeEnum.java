@@ -21,7 +21,14 @@ public enum CodeEnum {
     METHOD_NOT_ALLOWED(405, "不支持当前请求方法"),
     REQUEST_EXCEED_LIMIT(406, "您的网络可能有问题，请稍后重试!"),
     UNSUPPORTED_MEDIA_TYPE(415, "不支持当前媒体类型"),
+
     INTERNAL_SERVER_ERROR(500, "系统升级中，请稍后重试！"),
+    ASYNC_REQUEST_TIMEOUT_EXCEPTION(503, "异步请求超时异常！"),
+
+    SERVLET_REQUEST_BINDING_EXCEPTION(540, "Servlet请求绑定异常！"),
+    HTTP_MESSAGE_CONVERSION_EXCEPTION(541, "请求参数异常！"),
+    MAX_UPLOAD_SIZE_EXCEEDED_EXCEPTION(542, "上传文件过大！"),
+
     DB_FAILED(580, "数据库操作失败"),
     EXCEED_QUOTA(588, "请求频率超出配额");
 

@@ -1,4 +1,4 @@
-package com.zhengcheng.core.web.support;
+package com.zhengcheng.core.support;
 
 import com.zhengcheng.common.support.DateEditor;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;

@@ -4,6 +4,8 @@
 
 ## [v5.0.0] 2021.06.19
 
+- 配置中心默认使用`apollo`，并提供`zc.apollo.refresh.name`刷新指定`bean`
+- 去掉`zc-feign-spring-boot-starter`，改成`zc-core-spring-boot-starter`默认配置
 - `zc-web-core-spring-boot-starter` 改成 `zc-core-spring-boot-starter`，新征程微服务核心通用组件。
 - 去掉`zc-auth-client-spring-boot-starter`认证客户端通用组件。
 - 去掉`zc-zk-spring-boot-starter`在日常开发中，很少用到的通用组件。
