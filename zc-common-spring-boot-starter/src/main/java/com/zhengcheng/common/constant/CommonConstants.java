@@ -156,4 +156,11 @@ public interface CommonConstants {
 
     String[] EMPTY_ARRAY = new String[0];
 
+    String ALIYUN_AK_PREFIX = "aliyun";
+
+    String OSS_PREFIX = "oss";
+
+    String ROCKETMQ_DEDUP_PREFIX = "rocketmq.dedup";
+
+    String APP_PREFIX = "app";
 }
