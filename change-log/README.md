@@ -21,9 +21,9 @@
 - 去掉`zc-cat-spring-boot-starter`，监控使用`Apache SkyWalking`[https://skywalking.apache.org/]
 - （重点）提高效率：引入`MapStruct` `Orika`等`Bean`映射工具
 - `BaseMessage` 增加 `timestamp`，为消息幂等使用
-- 增加`zc-tk-mybatis-spring-boot-starter`，集成[MyBatis 通用 Mapper4](https://github.com/abel533/Mapper)
-- 修改`zc-db-spring-boot-starter`为`zc-mybatis-plus-spring-boot-starter`，在`zc-web-spring-boot-starter`中去掉`zc-db-spring-boot-starter`等默认配置
-- ~~`redisson-spring-boot-starter` 使用示例文档~~
+- ~~增加`zc-tk-mybatis-spring-boot-starter`，集成[MyBatis 通用 Mapper4](https://github.com/abel533/Mapper)~~
+- ~~修改`zc-db-spring-boot-starter`为`zc-mybatis-plus-spring-boot-starter`，在`zc-web-spring-boot-starter`中去掉`zc-db-spring-boot-starter`等默认配置~~
+- ~~`redisson-spring-boot-starter`使用示例文档~~
 
 ## [v4.7.0] 2020.08.01
 
