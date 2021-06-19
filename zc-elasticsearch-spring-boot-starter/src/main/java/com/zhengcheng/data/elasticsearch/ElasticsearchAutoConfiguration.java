@@ -1,7 +1,6 @@
 package com.zhengcheng.data.elasticsearch;
 
 import com.zhengcheng.data.elasticsearch.properties.ElasticsearchProperties;
-import com.zhengcheng.data.elasticsearch.registrar.DocumentScannerRegistrar;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpHost;
 import org.apache.http.auth.AuthScope;
@@ -15,7 +14,6 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Scope;
 import org.springframework.util.StringUtils;
 
@@ -27,7 +25,6 @@ import org.springframework.util.StringUtils;
  */
 @Slf4j
 @EnableConfigurationProperties({ElasticsearchProperties.class})
-@Import({ElasticsearchAutoConfiguration.class, DocumentScannerRegistrar.class})
 @Configuration
 public class ElasticsearchAutoConfiguration {
 
