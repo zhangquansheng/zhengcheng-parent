@@ -7,6 +7,9 @@
     <file url="file://$PROJECT_DIR$/zc-cache-spring-boot-starter/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-common-spring-boot-starter" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-common-spring-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-core-spring-boot-starter" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-core-spring-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-core-spring-boot-starter/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-feign-spring-boot-starter" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-feign-spring-boot-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-feign-spring-boot-starter/src/main/resources" charset="UTF-8" />
@@ -16,9 +19,6 @@
     <file url="file://$PROJECT_DIR$/zc-swagger-spring-boot-starter" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-swagger-spring-boot-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-swagger-spring-boot-starter/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-web-core-spring-boot-starter" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-web-core-spring-boot-starter/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-web-core-spring-boot-starter/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-xxl-job-spring-boot-starter" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-xxl-job-spring-boot-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zc-xxl-job-spring-boot-starter/src/main/resources" charset="UTF-8" />
