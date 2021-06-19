@@ -25,6 +25,7 @@
         <module>zc-xxl-job-spring-boot-starter</module>
         <module>zc-cache-spring-boot-starter</module>
         <module>zc-rsa-encrypt-body-spring-boot-starter</module>
+        <module>zc-elasticsearch-spring-boot-starter</module>
     </modules>
 
     <properties>
@@ -146,6 +147,11 @@
             <dependency>
                 <groupId>com.zhengcheng</groupId>
                 <artifactId>zc-rsa-encrypt-body-spring-boot-starter</artifactId>
+                <version>${module.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zc-elasticsearch-spring-boot-starter</artifactId>
                 <version>${module.version}</version>
             </dependency>
             <!-- spring cloud 依赖 -->
