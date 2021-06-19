@@ -9,8 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
-    <artifactId>zc-web-core-spring-boot-starter</artifactId>
-    <description>WEB服务核心模块通用组件</description>
+    <artifactId>zc-core-spring-boot-starter</artifactId>
+    <description>核心模块通用组件</description>
 
     <dependencies>
         <dependency>

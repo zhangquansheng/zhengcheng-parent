@@ -1,8 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.zhengcheng.core.cat.CatFilterConfiguration,\
-  com.zhengcheng.core.cat.CatMybatisConfiguration,\
-  com.zhengcheng.core.cat.plugin.spring.SpringServicePluginTemplate,\
-  com.zhengcheng.core.cat.plugin.aspect.CatAspect,\
-  com.zhengcheng.core.cat.plugin.logback.CatLogbackAppender,\
-  com.zhengcheng.core.cat.plugin.feign.FeignPluginTemplate,\
-  com.zhengcheng.core.cat.CatFeignConfiguration
