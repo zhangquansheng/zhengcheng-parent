@@ -35,7 +35,8 @@
         <spring.cloud.version>Greenwich.SR4</spring.cloud.version>
         <!-- spring cloud alibaba 依赖 2.1.x 版本适用于 Spring Boot 2.1.x -->
         <spring-cloud-alibaba.version>2.1.1.RELEASE</spring-cloud-alibaba.version>
-        <mybatis-plus.version>3.3.2</mybatis-plus.version>
+        <mybatis-plus.version>3.4.2</mybatis-plus.version>
+        <mybatis-spring-boot-starter.version>2.1.3</mybatis-spring-boot-starter.version>
         <spring.security.oauth2.version>2.3.8.RELEASE</spring.security.oauth2.version>
         <spring.security.jwt.version>1.0.10.RELEASE</spring.security.jwt.version>
         <jjwt.version>0.7.0</jjwt.version>
@@ -45,22 +46,21 @@
         <aliyun.ons-client.version>1.8.4.Final</aliyun.ons-client.version>
         <tencentcloud-sdk-java.version>3.0.124</tencentcloud-sdk-java.version>
         <qcloud-cos_api.version>5.6.15</qcloud-cos_api.version>
-        <fastjson.version>1.2.74</fastjson.version>
+        <fastjson.version>1.2.76</fastjson.version>
         <guava.version>28.2-jre</guava.version>
         <sentinel-datasource-apollo.version>1.6.3</sentinel-datasource-apollo.version>
-        <easyexcel.version>2.1.6</easyexcel.version>
+        <easyexcel.version>2.2.8</easyexcel.version>
         <xxl-job-core.version>2.2.0</xxl-job-core.version>
         <cornerstone.version>0.2.1</cornerstone.version>
         <apollo.version>1.5.1</apollo.version>
         <swagger2.version>2.8.0</swagger2.version>
         <shardingsphere.version>4.0.0-RC2</shardingsphere.version>
         <freemarker.version>2.3.29</freemarker.version>
-        <hutool.version>5.3.2</hutool.version>
+        <hutool.version>5.6.1</hutool.version>
         <weixin-java-tools.version>3.7.0</weixin-java-tools.version>
-        <cat.version>3.0.0</cat.version>
         <socketio.version>1.7.18</socketio.version>
-        <!-- 注意跟 Spring Boot version 的对应关系 -->
-        <redisson.version>3.10.7</redisson.version>
+        <!-- 目前`Spring Boot version 2.1.x`对应的`redisson-spring-boot-starter`最高版本是`3.11.5` -->
+        <redisson.version>3.11.5</redisson.version>
         <protobuf-java.version>3.11.4</protobuf-java.version>
         <aliyun-log-logback-appender.version>0.1.15</aliyun-log-logback-appender.version>
         <curator-recipes.version>4.3.0</curator-recipes.version>
@@ -146,7 +146,7 @@
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>2.1.3</version>
+                <version>${mybatis-spring-boot-starter.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
@@ -375,11 +375,6 @@
                 <groupId>com.github.binarywang</groupId>
                 <artifactId>weixin-java-cp</artifactId>
                 <version>${weixin-java-tools.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.dianping.cat</groupId>
-                <artifactId>cat-client</artifactId>
-                <version>${cat.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.corundumstudio.socketio</groupId>
