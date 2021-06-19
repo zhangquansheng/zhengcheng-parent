@@ -67,6 +67,7 @@
         <j2cache-spring-boot2-starter.version>2.8.0-release</j2cache-spring-boot2-starter.version>
         <mapstruct.version>1.4.1.Final</mapstruct.version>
         <orika.version>1.5.4</orika.version>
+        <jackson.version>2.11.4</jackson.version>
     </properties>
 
     <dependencies>
@@ -425,6 +426,11 @@
                 <groupId>org.redisson</groupId>
                 <artifactId>redisson-spring-boot-starter</artifactId>
                 <version>${redisson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
