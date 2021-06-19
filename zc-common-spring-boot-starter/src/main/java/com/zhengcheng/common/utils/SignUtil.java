@@ -1,4 +1,4 @@
-package com.zhengcheng.common.util;
+package com.zhengcheng.common.utils;
 
 import cn.hutool.core.text.StrBuilder;
 import cn.hutool.crypto.SecureUtil;
@@ -19,7 +19,7 @@ import java.util.Map;
  * @date :    2020/5/7 18:54
  */
 @Slf4j
-public class SignAuthUtils {
+public class SignUtil {
 
     /**
      * 按照字顺序进行升序排序

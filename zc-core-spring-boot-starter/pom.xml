@@ -14,28 +14,16 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
             <groupId>com.zhengcheng</groupId>
             <artifactId>zc-common-spring-boot-starter</artifactId>
         </dependency>
         <dependency>
             <groupId>com.zhengcheng</groupId>
-            <artifactId>zc-mybatis-plus-spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.zhengcheng</groupId>
-            <artifactId>zc-cache-spring-boot-starter</artifactId>
+            <artifactId>zc-swagger-spring-boot-starter</artifactId>
         </dependency>
         <dependency>
             <groupId>com.zhengcheng</groupId>
             <artifactId>zc-feign-spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.zhengcheng</groupId>
-            <artifactId>zc-swagger-spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
 
