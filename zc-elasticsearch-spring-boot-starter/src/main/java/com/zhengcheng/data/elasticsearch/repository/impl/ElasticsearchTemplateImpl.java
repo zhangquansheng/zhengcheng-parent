@@ -62,7 +62,7 @@ public class ElasticsearchTemplateImpl<T> implements ElasticsearchTemplate<T> {
 
     @Override
     public PageInfo<T> page(SearchSourceBuilder sourceBuilder, PageCommand pageCommand, Class<T> clazz)
-        throws IOException {
+            throws IOException {
         // 禁止深度分页
         int maxResultWindow = 10000;
         if (pageCommand.getPageSize() * pageCommand.getPageNum() > maxResultWindow) {
@@ -125,7 +125,7 @@ public class ElasticsearchTemplateImpl<T> implements ElasticsearchTemplate<T> {
         DocumentInfo documentInfo = DocumentInfoHelper.getDocumentInfo(t.getClass());
 
         DeleteRequest request =
-            new DeleteRequest(documentInfo.getIndexName(), documentInfo.getIndexType(), documentInfo.getIndexValue(t));
+                new DeleteRequest(documentInfo.getIndexName(), documentInfo.getIndexType(), documentInfo.getIndexValue(t));
         DeleteResponse deleteResponse = client.delete(request, RequestOptions.DEFAULT);
         log.info(StrUtil.format("删除文档记录结果：[{}]", deleteResponse.getResult().toString()));
     }
@@ -167,7 +167,7 @@ public class ElasticsearchTemplateImpl<T> implements ElasticsearchTemplate<T> {
         }
         if (log.isDebugEnabled()) {
             log.debug("\n" + mapper.writerWithDefaultPrettyPrinter()
-                .writeValueAsString(mapper.readValue(sourceBuilder.toString(), Object.class)));
+                    .writeValueAsString(mapper.readValue(sourceBuilder.toString(), Object.class)));
         }
         return client.search(searchRequest, RequestOptions.DEFAULT);
     }
@@ -178,7 +178,7 @@ public class ElasticsearchTemplateImpl<T> implements ElasticsearchTemplate<T> {
     }
 
     private List<T> searchResponseToList(Class<T> clazz, DocumentInfo documentInfo, SearchResponse searchResponse)
-        throws IOException {
+            throws IOException {
         List<T> tList = new ArrayList<>();
         for (SearchHit hit : searchResponse.getHits()) {
             T t = string2Obj(hit.getSourceAsString(), clazz);
@@ -218,37 +218,37 @@ public class ElasticsearchTemplateImpl<T> implements ElasticsearchTemplate<T> {
             for (DocumentFieldInfo documentFieldInfo : documentInfo.getFieldList()) {
                 if (LocalDateTime.class.equals(documentFieldInfo.getPropertyType())) {
                     LocalDateTime localDateTime =
-                        (LocalDateTime)ReflectUtil.getFieldValue(t, documentFieldInfo.getProperty());
+                            (LocalDateTime) ReflectUtil.getFieldValue(t, documentFieldInfo.getProperty());
                     builder.field(documentFieldInfo.getProperty(), LocalDateTimeUtil.formatNormal(localDateTime));
                 } else {
                     builder.field(documentFieldInfo.getProperty(),
-                        ReflectUtil.getFieldValue(t, documentFieldInfo.getProperty()));
+                            ReflectUtil.getFieldValue(t, documentFieldInfo.getProperty()));
                 }
             }
         }
         builder.endObject();
         return new IndexRequest(documentInfo.getIndexName(), documentInfo.getIndexType(), documentInfo.getIndexValue(t))
-            .source(builder);
+                .source(builder);
     }
 
-    @SuppressWarnings("TypeParameterHidesVisibleType")
+    @SuppressWarnings({"TypeParameterHidesVisibleType", "unchecked"})
     private <T> T string2Obj(String str, Class<T> clazz) throws JsonProcessingException {
         if (StringUtils.isEmpty(str) || clazz == null) {
             return null;
         }
 
-        return clazz.equals(String.class) ? (T)str : mapper.readValue(str, clazz);
+        return clazz.equals(String.class) ? (T) str : mapper.readValue(str, clazz);
     }
 
     /**
      * 将 _id 字段的值 设置到 t 的 @Id 注解的属性上
      */
-    private void setId(Class<T> clazz, T t, Object _id, String keyProperty) {
+    private void setId(Class<T> clazz, T t, Object id, String keyProperty) {
         try {
             Field field = clazz.getDeclaredField(keyProperty);
             field.setAccessible(true);
             if (field.get(t) == null) {
-                field.set(t, _id);
+                field.set(t, id);
             }
         } catch (Exception e) {
             log.error("setId error!", e);
