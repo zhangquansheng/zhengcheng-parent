@@ -4,6 +4,10 @@
 
 ## [v5.0.0] 2021.06.19
 
+- elasticsearch-rest-high-level-client
+   - 目前`spring-data-elasticsearch`底层采用`es`官方`TransportClient`，而`es`官方计划放弃`TransportClient`，工具以`es`官方推荐的`RestHighLevelClient`进行封装
+   - 类似于`Mybatis-Plus`一样，能够极大简化`java client API`，并不断更新，让`es`更高级的功能更轻松的使用
+   - 基于`elasticsearch6.4.3`版本进行开发
 - 默认使用`mapstruct`进行对象属性`copy`
 - 增加`zc-rsa-encrypt-body-spring-boot-starter`对接口入参及返回参加密解密（重要的数据，需要加密）
 - `Alibaba Nacos`替换`Eureka`注册中心
