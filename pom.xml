@@ -70,6 +70,7 @@
         <mapstruct.version>1.4.1.Final</mapstruct.version>
         <orika.version>1.5.4</orika.version>
         <jackson.version>2.11.4</jackson.version>
+        <org.mapstruct.version>1.4.1.Final</org.mapstruct.version>
     </properties>
 
     <dependencies>
@@ -197,6 +198,12 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-generator</artifactId>
                 <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.baomidou/dynamic-datasource-spring-boot-starter -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+                <version>3.3.6</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.security.oauth</groupId>
@@ -417,22 +424,23 @@
                 <artifactId>curator-recipes</artifactId>
                 <version>${curator-recipes.version}</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct -->
+            <!-- mapstruct start https://mvnrepository.com/artifact/org.mapstruct/mapstruct -->
             <dependency>
                 <groupId>org.mapstruct</groupId>
                 <artifactId>mapstruct</artifactId>
-                <version>${mapstruct.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.mapstruct</groupId>
-                <artifactId>mapstruct-jdk8</artifactId>
-                <version>${mapstruct.version}</version>
+                <version>${org.mapstruct.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.mapstruct</groupId>
                 <artifactId>mapstruct-processor</artifactId>
-                <version>${mapstruct.version}</version>
+                <version>${org.mapstruct.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-jdk8</artifactId>
+                <version>${org.mapstruct.version}</version>
+            </dependency>
+            <!-- mapstruct end -->
             <!-- https://mvnrepository.com/artifact/ma.glasnost.orika/orika-core -->
             <dependency>
                 <groupId>ma.glasnost.orika</groupId>
