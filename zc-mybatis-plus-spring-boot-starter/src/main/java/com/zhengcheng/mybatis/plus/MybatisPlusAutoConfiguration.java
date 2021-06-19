@@ -1,10 +1,12 @@
 package com.zhengcheng.mybatis.plus;
 
-import com.zhengcheng.mybatis.plus.aspect.ReadOnlyConnectionAspect;
+import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
+import com.zhengcheng.common.constant.CommonConstants;
 import com.zhengcheng.mybatis.plus.config.DateMetaObjectHandler;
-import com.zhengcheng.mybatis.plus.config.DefaultMybatisPlusConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -19,8 +21,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @MapperScan(basePackages = "com.zhengcheng.**.mapper*")
-@Import({ReadOnlyConnectionAspect.class, DateMetaObjectHandler.class})
-public class MybatisPlusAutoConfiguration extends DefaultMybatisPlusConfig {
+@Import(DateMetaObjectHandler.class)
+public class MybatisPlusAutoConfiguration {
 
     public MybatisPlusAutoConfiguration() {
         log.info("------ mybatis-plus 自动配置  ---------------------------------------");
@@ -30,4 +32,18 @@ public class MybatisPlusAutoConfiguration extends DefaultMybatisPlusConfig {
         log.info("-----------------------------------------------------------------");
     }
 
+    /**
+     * 分页插件，自动识别数据库类型
+     */
+    @Bean
+    public PaginationInterceptor paginationInterceptor() {
+        PaginationInterceptor paginationInterceptor = new PaginationInterceptor();
+        paginationInterceptor.setLimit(CommonConstants.DEFAULT_PAGINATION_LIMIT);
+        return paginationInterceptor;
+    }
+
+    @Bean
+    public OptimisticLockerInterceptor optimisticLockerInterceptor() {
+        return new OptimisticLockerInterceptor();
+    }
 }
