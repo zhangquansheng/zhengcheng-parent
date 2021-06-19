@@ -26,6 +26,7 @@
         <module>zc-cache-spring-boot-starter</module>
         <module>zc-rsa-encrypt-body-spring-boot-starter</module>
         <module>zc-elasticsearch-spring-boot-starter</module>
+        <module>zc-rocket-mq-spring-boot-starter</module>
     </modules>
 
     <properties>
@@ -74,6 +75,7 @@
         <org.mapstruct.version>1.4.1.Final</org.mapstruct.version>
         <elasticsearch.version>6.4.3</elasticsearch.version>
         <webmagic.version>0.7.4</webmagic.version>
+        <rocketmq-spring-boot-starter.version>2.2.0</rocketmq-spring-boot-starter.version>
     </properties>
 
     <dependencies>
@@ -152,6 +154,11 @@
             <dependency>
                 <groupId>com.zhengcheng</groupId>
                 <artifactId>zc-elasticsearch-spring-boot-starter</artifactId>
+                <version>${module.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zc-rocket-mq-spring-boot-starter</artifactId>
                 <version>${module.version}</version>
             </dependency>
             <!-- spring cloud 依赖 -->
@@ -487,6 +494,12 @@
                 <groupId>us.codecraft</groupId>
                 <artifactId>webmagic-extension</artifactId>
                 <version>${webmagic.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.rocketmq/rocketmq-spring-boot-starter -->
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-spring-boot-starter</artifactId>
+                <version>${rocketmq-spring-boot-starter.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
