@@ -18,7 +18,7 @@
 - 去掉`zc-auth-client-spring-boot-starter`认证客户端通用组件。
 - 去掉`zc-zk-spring-boot-starter`在日常开发中，很少用到的通用组件。
 - 去掉`zc-aliyun-spring-boot-starter` 、 `zc-tencentcloud-spring-boot-starter`等大而全的通用组件，后续按照业务需要提供组件。
-- 去掉`zc-cat-spring-boot-starter`，监控使用`Apache SkyWalking`[https://skywalking.apache.org/]
+- 去掉`zc-cat-spring-boot-starter`，监控使用[`Apache SkyWalking`](https://skywalking.apache.org/)
 - （重点）提高效率：引入`MapStruct` `Orika`等`Bean`映射工具
 - `BaseMessage` 增加 `timestamp`，为消息幂等使用
 - ~~增加`zc-tk-mybatis-spring-boot-starter`，集成[MyBatis 通用 Mapper4](https://github.com/abel533/Mapper)~~
