@@ -31,9 +31,6 @@ import org.elasticsearch.search.SearchHits;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.elasticsearch.search.fetch.subphase.FetchSourceContext;
 import org.elasticsearch.search.fetch.subphase.highlight.HighlightField;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
 import java.io.IOException;
@@ -51,14 +48,16 @@ import java.util.Objects;
  * @since 2021/6/17 10:16
  */
 @Slf4j
-@ConditionalOnBean({RestHighLevelClient.class})
-@Repository
 public class ElasticsearchTemplateImpl<T> implements ElasticsearchTemplate<T> {
 
-    @Autowired
-    private RestHighLevelClient client;
-    @Autowired
-    private ObjectMapper mapper;
+    private final RestHighLevelClient client;
+
+    private final ObjectMapper mapper;
+
+    public ElasticsearchTemplateImpl(RestHighLevelClient client, ObjectMapper mapper) {
+        this.client = client;
+        this.mapper = mapper;
+    }
 
     @Override
     public PageInfo<T> page(SearchSourceBuilder sourceBuilder, PageCommand pageCommand, Class<T> clazz)

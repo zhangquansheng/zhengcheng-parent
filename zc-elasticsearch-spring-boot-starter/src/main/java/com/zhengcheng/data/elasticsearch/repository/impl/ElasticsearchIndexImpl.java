@@ -17,9 +17,6 @@ import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.xcontent.XContentBuilder;
 import org.elasticsearch.common.xcontent.XContentFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
 
@@ -30,12 +27,13 @@ import java.io.IOException;
  * @since 2021/6/16 20:32
  */
 @Slf4j
-@ConditionalOnBean(RestHighLevelClient.class)
-@Repository
 public class ElasticsearchIndexImpl<T> implements ElasticsearchIndex<T> {
 
-    @Autowired
-    private RestHighLevelClient client;
+    private final RestHighLevelClient client;
+
+    public ElasticsearchIndexImpl(RestHighLevelClient client) {
+        this.client = client;
+    }
 
     @Override
     public void create(Class<T> clazz) throws IOException {
@@ -44,7 +42,7 @@ public class ElasticsearchIndexImpl<T> implements ElasticsearchIndex<T> {
         // https://www.elastic.co/guide/en/elasticsearch/client/java-rest/6.4/java-rest-high-create-index.html
         CreateIndexRequest request = new CreateIndexRequest(documentInfo.getIndexName());
         request.settings(Settings.builder().put("index.number_of_shards", documentInfo.getIndexNumberOfShards())
-            .put("index.number_of_replicas", documentInfo.getIndexNumberOfReplicas()));
+                .put("index.number_of_replicas", documentInfo.getIndexNumberOfReplicas()));
         XContentBuilder builder = XContentFactory.jsonBuilder();
         builder.startObject();
         {
@@ -62,9 +60,9 @@ public class ElasticsearchIndexImpl<T> implements ElasticsearchIndex<T> {
                             if ("text".equals(typeValue)) {
                                 // 指定分词器
                                 builder.field("analyzer",
-                                    getAnalyzer(documentInfo.getAnalyzer(), documentFieldInfo.getAnalyzer()));
+                                        getAnalyzer(documentInfo.getAnalyzer(), documentFieldInfo.getAnalyzer()));
                                 builder.field("search_analyzer", getAnalyzer(documentInfo.getSearchAnalyzer(),
-                                    documentFieldInfo.getSearchAnalyzer()));
+                                        documentFieldInfo.getSearchAnalyzer()));
 
                                 builder.startObject("fields");
                                 {

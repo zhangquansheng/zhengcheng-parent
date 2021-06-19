@@ -1,6 +1,11 @@
 package com.zhengcheng.data.elasticsearch;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zhengcheng.data.elasticsearch.properties.ElasticsearchProperties;
+import com.zhengcheng.data.elasticsearch.repository.ElasticsearchIndex;
+import com.zhengcheng.data.elasticsearch.repository.ElasticsearchTemplate;
+import com.zhengcheng.data.elasticsearch.repository.impl.ElasticsearchIndexImpl;
+import com.zhengcheng.data.elasticsearch.repository.impl.ElasticsearchTemplateImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpHost;
 import org.apache.http.auth.AuthScope;
@@ -10,6 +15,7 @@ import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestClientBuilder;
 import org.elasticsearch.client.RestHighLevelClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -27,6 +33,11 @@ import org.springframework.util.StringUtils;
 @EnableConfigurationProperties({ElasticsearchProperties.class})
 @Configuration
 public class ElasticsearchAutoConfiguration {
+
+    public ElasticsearchAutoConfiguration() {
+        log.info("------ Elasticsearch 6.4.3 自动配置 -------------------");
+        log.info("------ 以 es 官方推荐的 RestHighLevelClient 进行封装 ---");
+    }
 
     /**
      * https://www.elastic.co/guide/en/elasticsearch/client/java-rest/6.4/java-rest-high-getting-started-initialization.html
@@ -84,5 +95,21 @@ public class ElasticsearchAutoConfiguration {
         }
 
         return new RestHighLevelClient(builder);
+    }
+
+    @ConditionalOnMissingBean(ElasticsearchIndex.class)
+    @Bean
+    public ElasticsearchIndex elasticsearchIndex(RestHighLevelClient client) {
+        return new ElasticsearchIndexImpl<>(client);
+    }
+
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
+    @Autowired
+    private ObjectMapper mapper;
+
+    @ConditionalOnMissingBean(ElasticsearchTemplate.class)
+    @Bean
+    public ElasticsearchTemplate elasticsearchTemplate(RestHighLevelClient client) {
+        return new ElasticsearchTemplateImpl<>(client, mapper);
     }
 }
