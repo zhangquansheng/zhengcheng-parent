@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="zc-sharding-jdbc-spring-boot-starter" />
         <module name="zc-xxl-job-spring-boot-starter" />
+        <module name="zc-rsa-encrypt-body-spring-boot-starter" />
         <module name="zc-cache-spring-boot-starter" />
         <module name="zc-core-spring-boot-starter" />
         <module name="zc-mybatis-plus-spring-boot-starter" />
@@ -71,6 +72,7 @@
       <module name="zc-netty-socketio-spring-boot-starter" options="-parameters" />
       <module name="zc-oss-spring-boot-starter" options="-parameters" />
       <module name="zc-redis-spring-boot-starter" options="-parameters" />
+      <module name="zc-rsa-encrypt-body-spring-boot-starter" options="-parameters" />
       <module name="zc-sentinel-spring-boot-starter" options="-parameters" />
       <module name="zc-sharding-jdbc-spring-boot-starter" options="-parameters" />
       <module name="zc-swagger-spring-boot-starter" options="-parameters" />

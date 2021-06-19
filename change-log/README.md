@@ -4,6 +4,8 @@
 
 ## [v5.0.0] 2021.06.19
 
+- 默认使用`mapstruct`进行对象属性`copy`
+- 增加`zc-rsa-encrypt-body-spring-boot-starter`对接口入参及返回参加密解密
 - `Alibaba Nacos`替换`Eureka`注册中心
 - 配置中心默认使用`apollo`，并提供`zc.apollo.refresh.name`刷新指定`bean`
 - 去掉`zc-feign-spring-boot-starter`，改成`zc-core-spring-boot-starter`默认配置

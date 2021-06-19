@@ -24,6 +24,7 @@
         <module>zc-swagger-spring-boot-starter</module>
         <module>zc-xxl-job-spring-boot-starter</module>
         <module>zc-cache-spring-boot-starter</module>
+        <module>zc-rsa-encrypt-body-spring-boot-starter</module>
     </modules>
 
     <properties>
@@ -58,6 +59,7 @@
         <hutool.version>5.6.1</hutool.version>
         <weixin-java-tools.version>3.7.0</weixin-java-tools.version>
         <socketio.version>1.7.18</socketio.version>
+        <org.projectlombok.version>1.18.12</org.projectlombok.version>
         <!-- 目前`Spring Boot version 2.1.x`对应的`redisson-spring-boot-starter`最高版本是`3.11.5` -->
         <redisson.version>3.11.5</redisson.version>
         <protobuf-java.version>3.11.4</protobuf-java.version>
@@ -77,8 +79,25 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <version>${org.projectlombok.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -119,6 +138,11 @@
             <dependency>
                 <groupId>com.zhengcheng</groupId>
                 <artifactId>zc-cache-spring-boot-starter</artifactId>
+                <version>${module.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zc-rsa-encrypt-body-spring-boot-starter</artifactId>
                 <version>${module.version}</version>
             </dependency>
             <!-- spring cloud 依赖 -->
