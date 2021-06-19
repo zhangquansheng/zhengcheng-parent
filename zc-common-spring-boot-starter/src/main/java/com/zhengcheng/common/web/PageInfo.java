@@ -37,6 +37,6 @@ public class PageInfo<T> implements Serializable {
     private List<T> list;
 
     public static <T> PageInfo<T> empty(PageCommand pageCommand) {
-        return new PageInfo<>(pageCommand.getCurrent(), pageCommand.getSize(), 0L, null);
+        return new PageInfo<>(pageCommand.getPageNum(), pageCommand.getPageNum(), 0L, null);
     }
 }

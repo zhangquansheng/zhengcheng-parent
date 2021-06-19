@@ -15,9 +15,9 @@ public class PageCommand implements Serializable {
 
     private static final long serialVersionUID = -2370551336156689540L;
 
-    private Integer current = 1;
+    private Integer pageNum = 1;
 
-    private Integer size = 10;
+    private Integer pageSize = 10;
 
     private String sortField;
 
