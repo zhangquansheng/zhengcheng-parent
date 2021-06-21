@@ -155,6 +155,16 @@ public interface CommonConstants {
     // ---------------------------------------------------------------- array
 
     String ALIYUN_AK_PREFIX = "aliyun";
-    
+
     String ROCKETMQ_DEDUP_PREFIX = "rocketmq.dedup";
+
+    /**
+     * 用户ID-参数名
+     */
+    String USER_ID_PARAM_NAME = "userId";
+
+    /**
+     * 用户姓名-参数名
+     */
+    String USER_NAME_PARAM_NAME = "userName";
 }
