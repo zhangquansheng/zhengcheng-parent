@@ -21,7 +21,7 @@ public class UserCommand implements Serializable {
     /**
      * 更新人ID
      */
-    private Integer updateUserId;
+    private Long updateUserId;
     /**
      * 更新人姓名
      */
