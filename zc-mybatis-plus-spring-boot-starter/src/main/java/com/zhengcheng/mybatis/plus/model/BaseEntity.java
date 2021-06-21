@@ -32,11 +32,19 @@ public class BaseEntity<T extends Model<?>> extends Model<T> {
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;
     /**
+     * 创建人
+     */
+    private Long createUserId;
+    /**
      * 更新时间
      */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
+    /**
+     * 更新人
+     */
+    private Long updateUserId;
     /**
      * 是否删除
      */
