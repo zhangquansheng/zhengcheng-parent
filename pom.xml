@@ -73,7 +73,7 @@
         <orika.version>1.5.4</orika.version>
         <jackson.version>2.11.4</jackson.version>
         <org.mapstruct.version>1.4.1.Final</org.mapstruct.version>
-        <elasticsearch.version>6.4.3</elasticsearch.version>
+        <elasticsearch.version>6.8.15</elasticsearch.version>
         <webmagic.version>0.7.4</webmagic.version>
         <rocketmq-spring-boot-starter.version>2.2.0</rocketmq-spring-boot-starter.version>
     </properties>
