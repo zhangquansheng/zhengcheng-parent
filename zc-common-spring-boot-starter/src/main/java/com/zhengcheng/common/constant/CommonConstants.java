@@ -46,11 +46,6 @@ public interface CommonConstants {
     String REQUEST_LIMIT_KEY_PREFIX = "zc:rl:";
 
     /**
-     * 路径ID
-     */
-    String TRACE_ID = "X-ZHENGCHENG-TRACE-ID";
-
-    /**
      * 网关传入到各个服务的用户ID
      */
     String GATEWAY_UID_HEADER = "X-GATEWAY-UID";
