@@ -525,6 +525,7 @@
                 <artifactId>JustAuth</artifactId>
                 <version>1.16.1</version>
             </dependency>
+            <!-- https://github.com/justauth/justauth-spring-boot-starter -->
             <dependency>
                 <groupId>com.xkcoding.justauth</groupId>
                 <artifactId>justauth-spring-boot-starter</artifactId>
