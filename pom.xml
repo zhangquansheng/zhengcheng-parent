@@ -519,6 +519,12 @@
                 <artifactId>sa-token-temp-jwt</artifactId>
                 <version>${sa-token.version}</version>
             </dependency>
+            <!-- https://gitee.com/yadong.zhang/JustAuth -->
+            <dependency>
+                <groupId>me.zhyd.oauth</groupId>
+                <artifactId>JustAuth</artifactId>
+                <version>1.16.1</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
