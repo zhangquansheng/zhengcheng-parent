@@ -525,6 +525,11 @@
                 <artifactId>JustAuth</artifactId>
                 <version>1.16.1</version>
             </dependency>
+            <dependency>
+                <groupId>com.xkcoding.justauth</groupId>
+                <artifactId>justauth-spring-boot-starter</artifactId>
+                <version>1.4.0</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
