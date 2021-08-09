@@ -519,6 +519,12 @@
                 <artifactId>sa-token-temp-jwt</artifactId>
                 <version>${sa-token.version}</version>
             </dependency>
+            <!-- Sa-Token-Quick-Login 插件 -->
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-quick-login</artifactId>
+                <version>${sa-token.version}</version>
+            </dependency>
             <!-- https://gitee.com/yadong.zhang/JustAuth -->
             <dependency>
                 <groupId>me.zhyd.oauth</groupId>
