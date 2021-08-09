@@ -8,11 +8,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="zc-sharding-jdbc-spring-boot-starter" />
+        <module name="zc-xxl-job-spring-boot-starter" />
         <module name="zc-rsa-encrypt-body-spring-boot-starter" />
         <module name="zc-elasticsearch-spring-boot-starter" />
         <module name="zc-cache-spring-boot-starter" />
         <module name="zc-core-spring-boot-starter" />
-        <module name="zc-xxl-job-spring-boot-starter" />
         <module name="zc-mybatis-plus-spring-boot-starter" />
         <module name="zc-rocket-mq-spring-boot-starter" />
         <module name="zc-common-spring-boot-starter" />
