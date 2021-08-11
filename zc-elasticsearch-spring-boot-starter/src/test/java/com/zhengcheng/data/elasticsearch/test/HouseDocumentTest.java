@@ -54,7 +54,7 @@ public class HouseDocumentTest {
     @Test
     public void page() throws Exception {
         PageCommand pageCommand = new PageCommand();
-        pageCommand.setPageNum(1);
+        pageCommand.setPageNo(1);
         pageCommand.setPageSize(100);
         SearchSourceBuilder sourceBuilder = new SearchSourceBuilder();
         // sourceBuilder.query(QueryBuilders.termQuery("lpArea", "新站区"));
