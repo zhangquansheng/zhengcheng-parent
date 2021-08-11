@@ -18,7 +18,7 @@ public class PageUtil {
      * @return com.baomidou.mybatisplus.extension.plugins.pagination.Page;
      */
     public static Page getPage(PageCommand pageCommand) {
-        return new Page<>(pageCommand.getPageNum(), pageCommand.getPageSize());
+        return new Page<>(pageCommand.getPageNo(), pageCommand.getPageSize());
     }
 
 }

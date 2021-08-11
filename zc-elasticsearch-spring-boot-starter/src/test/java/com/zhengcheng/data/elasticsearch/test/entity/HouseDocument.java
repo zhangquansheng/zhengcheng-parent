@@ -127,7 +127,7 @@ public class HouseDocument implements Serializable {
     /**
      * 列表页面的页码
      */
-    private Integer pageNum;
+    private Integer pageNo;
 
     /**
      * 备案年份 yyyy
