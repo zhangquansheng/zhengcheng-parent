@@ -34,7 +34,7 @@ public class PageInfo<T> implements Serializable {
     /**
      * 数据
      */
-    private List<T> list;
+    private List<T> records;
 
     public static <T> PageInfo<T> empty(PageCommand pageCommand) {
         return new PageInfo<>(pageCommand.getPageNo(), pageCommand.getPageSize(), 0L, null);
