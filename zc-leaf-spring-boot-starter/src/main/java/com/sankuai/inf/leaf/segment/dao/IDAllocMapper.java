@@ -1,6 +1,7 @@
 package com.sankuai.inf.leaf.segment.dao;
 
 import com.sankuai.inf.leaf.segment.model.LeafAlloc;
+import org.apache.ibatis.annotations.*;
 
 public interface IDAllocMapper {
 
