@@ -64,7 +64,7 @@ public class ElasticsearchTemplateImpl<T> implements ElasticsearchTemplate<T> {
             throws IOException {
         // 禁止深度分页
         int maxResultWindow = 10000;
-        if (pageCommand.getPageSize() * pageCommand.getPageNum() > maxResultWindow) {
+        if (pageCommand.getPageSize() * pageCommand.getPageNo() > maxResultWindow) {
             // 优化解决办法：限制操作行为，禁止跳跃翻页查询，这时可以使用scroll进行滚动查询。
             throw new RuntimeException("防止耗尽ES内存资源，产生OOM，禁止深度分页。");
         }
@@ -72,7 +72,7 @@ public class ElasticsearchTemplateImpl<T> implements ElasticsearchTemplate<T> {
         if (Objects.isNull(sourceBuilder)) {
             sourceBuilder = new SearchSourceBuilder();
         }
-        sourceBuilder.from((pageCommand.getPageNum() - 1) * pageCommand.getPageSize());
+        sourceBuilder.from((pageCommand.getPageNo() - 1) * pageCommand.getPageSize());
         sourceBuilder.size(pageCommand.getPageSize());
 
         DocumentInfo documentInfo = DocumentInfoHelper.getDocumentInfo(clazz);
@@ -80,7 +80,7 @@ public class ElasticsearchTemplateImpl<T> implements ElasticsearchTemplate<T> {
 
         PageInfo<T> pageInfo = PageInfo.empty(pageCommand);
         pageInfo.setTotal(searchResponseToTotalHits(searchResponse));
-        pageInfo.setList(searchResponseToList(clazz, documentInfo, searchResponse));
+        pageInfo.setRecords(searchResponseToList(clazz, documentInfo, searchResponse));
         return pageInfo;
     }
 
