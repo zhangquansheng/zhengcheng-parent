@@ -27,6 +27,7 @@
         <module>zc-rsa-encrypt-body-spring-boot-starter</module>
         <module>zc-elasticsearch-spring-boot-starter</module>
         <module>zc-rocket-mq-spring-boot-starter</module>
+        <module>zc-leaf-spring-boot-starter</module>
     </modules>
 
     <properties>
@@ -160,6 +161,11 @@
             <dependency>
                 <groupId>com.zhengcheng</groupId>
                 <artifactId>zc-rocket-mq-spring-boot-starter</artifactId>
+                <version>${module.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zc-leaf-spring-boot-starter</artifactId>
                 <version>${module.version}</version>
             </dependency>
             <!-- spring cloud 依赖 -->
