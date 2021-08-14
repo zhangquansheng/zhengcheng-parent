@@ -151,6 +151,8 @@ public interface CommonConstants {
 
     String ALIYUN_AK_PREFIX = "aliyun";
 
+    String OSS_PREFIX = "oss";
+
     String ROCKETMQ_DEDUP_PREFIX = "rocketmq.dedup";
 
     /**
