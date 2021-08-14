@@ -543,12 +543,6 @@
                 <artifactId>JustAuth</artifactId>
                 <version>1.15.9</version>
             </dependency>
-            <!-- https://github.com/justauth/justauth-spring-boot-starter -->
-            <dependency>
-                <groupId>com.xkcoding.justauth</groupId>
-                <artifactId>justauth-spring-boot-starter</artifactId>
-                <version>1.4.0</version>
-            </dependency>
             <!-- https://mvnrepository.com/artifact/org.perf4j/perf4j -->
             <dependency>
                 <groupId>org.perf4j</groupId>
