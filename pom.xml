@@ -541,7 +541,7 @@
             <dependency>
                 <groupId>me.zhyd.oauth</groupId>
                 <artifactId>JustAuth</artifactId>
-                <version>1.16.1</version>
+                <version>1.15.9</version>
             </dependency>
             <!-- https://github.com/justauth/justauth-spring-boot-starter -->
             <dependency>
