@@ -1,8 +1,6 @@
 package com.zhengcheng.rocket.mq.properties;
 
-import com.zhengcheng.common.constant.CommonConstants;
 import lombok.Data;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * apollo 获取到 aliyun.ak，aliyun.sec
@@ -11,7 +9,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @since 2021/1/9 13:34
  */
 @Data
-@ConfigurationProperties(CommonConstants.ALIYUN_AK_PREFIX)
 public class AliyunAkProperties {
     /**
      * 是否启用AK
