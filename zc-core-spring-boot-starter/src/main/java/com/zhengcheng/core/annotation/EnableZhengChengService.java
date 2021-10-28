@@ -1,6 +1,5 @@
 package com.zhengcheng.core.annotation;
 
-import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
@@ -19,7 +18,6 @@ import java.lang.annotation.*;
 @Documented
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableApolloConfig
 @EnableFeignClients
 public @interface EnableZhengChengService {
 }

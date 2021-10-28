@@ -1,9 +1,10 @@
-package com.zhengcheng.core.apollo;
+package com.zhengcheng.apollo;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.StrUtil;
 import com.ctrip.framework.apollo.model.ConfigChangeEvent;
 import com.ctrip.framework.apollo.spring.annotation.ApolloConfigChangeListener;
+import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,6 +27,7 @@ import java.util.List;
  * @author quansheng1.zhang
  * @since 2020/11/5 19:28
  */
+@EnableApolloConfig
 @Slf4j
 @AutoConfigureAfter(WebMvcAutoConfiguration.class)
 @AutoConfigureOrder
