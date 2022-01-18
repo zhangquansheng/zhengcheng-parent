@@ -14,6 +14,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.12/lombok-1.18.12.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.4.1.Final/mapstruct-processor-1.4.1.Final.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.4.1.Final/mapstruct-1.4.1.Final.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-configuration-processor/2.1.13.RELEASE/spring-boot-configuration-processor-2.1.13.RELEASE.jar" />
         </processorPath>
         <module name="zc-mybatis-plus-spring-boot-starter" />
@@ -22,11 +25,12 @@
         <module name="zc-leaf-spring-boot-starter" />
         <module name="zc-swagger-spring-boot-starter" />
         <module name="zc-rsa-encrypt-body-spring-boot-starter" />
+        <module name="zc-apollo-spring-boot-starter" />
         <module name="zc-common-spring-boot-starter" />
         <module name="zc-oss-spring-boot-starter" />
         <module name="zc-rocket-mq-spring-boot-starter" />
-        <module name="zc-elasticsearch-spring-boot-starter" />
         <module name="zc-core-spring-boot-starter" />
+        <module name="zc-elasticsearch-spring-boot-starter" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -67,6 +71,7 @@
       <module name="mvcspringbootstarter" options="-parameters" />
       <module name="swagger-spring-boot-starter" options="-parameters" />
       <module name="zc-aliyun-spring-boot-starter" options="-parameters" />
+      <module name="zc-apollo-spring-boot-starter" options="-parameters" />
       <module name="zc-async-spring-boot-starter" options="-parameters" />
       <module name="zc-auth-client-spring-boot-starter" options="-parameters" />
       <module name="zc-cache-spring-boot-starter" options="-parameters" />
