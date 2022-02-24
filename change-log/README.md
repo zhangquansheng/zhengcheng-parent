@@ -2,6 +2,10 @@
 
 [typora MD编辑器](https://www.typora.io/)
 
+## [v6.0.0] 2022.02.24
+
+- 使用`nocos`作为默认的配置中心，注册中心
+
 ## [v5.0.0] 2021.06.19
 
 - 从`zc-core-spring-boot-starter`迁移出`zc-apollo-spring-boot-starter`，支持各种配置中心

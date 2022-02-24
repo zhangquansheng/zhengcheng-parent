@@ -25,7 +25,6 @@
         <module name="zc-leaf-spring-boot-starter" />
         <module name="zc-swagger-spring-boot-starter" />
         <module name="zc-rsa-encrypt-body-spring-boot-starter" />
-        <module name="zc-apollo-spring-boot-starter" />
         <module name="zc-common-spring-boot-starter" />
         <module name="zc-oss-spring-boot-starter" />
         <module name="zc-rocket-mq-spring-boot-starter" />
@@ -42,6 +41,7 @@
       <module name="mvcspringbootstarter" target="1.8" />
       <module name="swagger-spring-boot-starter" target="1.8" />
       <module name="zc-aliyun-spring-boot-starter" target="1.8" />
+      <module name="zc-apollo-spring-boot-starter" target="1.8" />
       <module name="zc-async-spring-boot-starter" target="1.8" />
       <module name="zc-auth-client-spring-boot-starter" target="1.8" />
       <module name="zc-cat-spring-boot-starter" target="1.8" />
