@@ -7,6 +7,6 @@
  /_/\_\_|_| |_/___|_| |_|\___|_| |_|\__, |\___|_| |_|\___|_| |_|\__, |
                                      __/ |                       __/ |
                                     |___/                       |___/
-Version: 5.0.0
+Version: 6.0.0
 Github:  https://github.com/zhangquansheng/zhengcheng-parent
 Docs:    http://zhengcheng.plus/
