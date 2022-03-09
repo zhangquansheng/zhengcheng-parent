@@ -1,5 +1,6 @@
 package com.zhengcheng.swagger;
 
+import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
 import com.zhengcheng.swagger.properties.SwaggerProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -22,14 +23,15 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @date :    2019/2/2 15:54
  */
 @Slf4j
-@ConditionalOnProperty(prefix = "spring.swagger", name = "enable", havingValue = "true")
+@ConditionalOnProperty(prefix = "spring.swagger", name = "enable", havingValue = "true", matchIfMissing = true)
 @Configuration
 @EnableSwagger2
+@EnableKnife4j
 @EnableConfigurationProperties({SwaggerProperties.class})
 public class SwaggerAutoConfiguration {
 
     public SwaggerAutoConfiguration() {
-        log.info("------ Swagger 2.8.0 自动配置  ---------------------------------------");
+        log.info("------ Swagger2 Knife4j 自动配置  ---------------------------------------");
     }
 
     @Bean
