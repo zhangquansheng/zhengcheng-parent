@@ -8,7 +8,7 @@
 
 - 去掉`apollo`的依赖
 - 使用`nocos`作为默认的配置中心，注册中心
-- `spring-boot-starter-parent` 从 `2.1.13.RELEASE` 升级到 [Spring Boot 2.6.4](https://spring.io/projects/spring-boot#support)
+- `spring-boot-starter-parent` 从 `2.1.13.RELEASE` 升级到 [Spring Boot 2.3.12.RELEASE](https://spring.io/projects/spring-boot#support)
 
 ### [v5.0.0] 2021.06.19
 
