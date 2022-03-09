@@ -1,7 +1,6 @@
 package com.zhengcheng.core.annotation;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 import java.lang.annotation.*;
@@ -17,7 +16,6 @@ import java.lang.annotation.*;
 @Inherited
 @Documented
 @SpringBootApplication
-@EnableDiscoveryClient
 @EnableFeignClients
-public @interface EnableZhengChengService {
+public @interface EnableZhengChengSpringBootService {
 }
