@@ -77,8 +77,8 @@
         <webmagic.version>0.7.4</webmagic.version>
         <rocketmq-spring-boot-starter.version>2.2.0</rocketmq-spring-boot-starter.version>
         <sa-token.version>1.22.0</sa-token.version>
-        <nacos-config-spring-boot.version>0.2.1</nacos-config-spring-boot.version>
-        <nacos-discovery-spring-boot.version>0.2.1</nacos-discovery-spring-boot.version>
+        <nacos-config-spring-boot.version>0.2.11</nacos-config-spring-boot.version>
+        <nacos-discovery-spring-boot.version>0.2.11</nacos-discovery-spring-boot.version>
     </properties>
 
     <dependencies>
