@@ -23,7 +23,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @date :    2019/2/2 15:54
  */
 @Slf4j
-@ConditionalOnProperty(prefix = "spring.swagger", name = "enable", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(prefix = "spring.swagger", name = "enable", havingValue = "true")
 @Configuration
 @EnableSwagger2
 @EnableKnife4j

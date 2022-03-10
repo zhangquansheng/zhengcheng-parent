@@ -12,9 +12,7 @@
 - [ ] @ConditionalOnProperty 结合 nacos-config 使用问题
 - 默认引入`jasypt-spring-boot-starter`用于加密数据库密码，缓存密码等敏感信息
 - [springcloud、springboot、springcloud alibaba版本依赖](https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E)
-- Spring Boot Version 2.3.12.RELEASE
-- Spring Cloud Version Hoxton.SR12
-- Spring Cloud Alibaba Version 2.2.7.RELEASE
+- [Spring Cloud Alibaba 2021.0.1.0 升级指南](https://github.com/alibaba/spring-cloud-alibaba/blob/2021.x/spring-cloud-alibaba-docs/src/main/asciidoc-zh/sca-upgrade-guide.adoc)
 - [SpringBoot 和 SpringCloud 版本对应信息查询地址](https://start.spring.io/actuator/info)
 
 
