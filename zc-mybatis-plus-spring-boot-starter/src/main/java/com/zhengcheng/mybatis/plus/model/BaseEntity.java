@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
 
@@ -52,8 +51,4 @@ public class BaseEntity<T extends Model<?>> extends Model<T> {
     @TableField(value = "is_deleted", fill = FieldFill.INSERT)
     private boolean deleted;
 
-    @Override
-    protected Serializable pkVal() {
-        return this.id;
-    }
 }
