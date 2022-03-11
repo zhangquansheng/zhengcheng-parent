@@ -14,7 +14,6 @@ import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * SwaggerAutoConfiguration
@@ -25,18 +24,17 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Slf4j
 @ConditionalOnProperty(prefix = "spring.swagger", name = "enable", havingValue = "true")
 @Configuration
-@EnableSwagger2
 @EnableKnife4j
 @EnableConfigurationProperties({SwaggerProperties.class})
 public class SwaggerAutoConfiguration {
 
     public SwaggerAutoConfiguration() {
-        log.info("------ Swagger2 Knife4j 自动配置  ---------------------------------------");
+        log.info("------ Knife4j-3.0.3 自动配置  ---------------------------------------");
     }
 
     @Bean
     public Docket createRestApi(SwaggerProperties swaggerProperties) {
-        return new Docket(DocumentationType.SWAGGER_2)
+        return new Docket(DocumentationType.OAS_30)
                 .groupName(swaggerProperties.getGroupName())
                 .apiInfo(apiInfo(swaggerProperties))
                 .select()

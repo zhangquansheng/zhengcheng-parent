@@ -10,9 +10,10 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
     <artifactId>zc-swagger-spring-boot-starter</artifactId>
-    <description>swagger2通用组件</description>
+    <description>swagger 通用组件</description>
 
     <dependencies>
+        <!-- https://doc.xiaominfo.com/knife4j/documentation/ -->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-spring-boot-starter</artifactId>
