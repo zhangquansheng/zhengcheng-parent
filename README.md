@@ -15,6 +15,7 @@
 - [Spring Cloud Alibaba 2021.0.1.0 升级指南](https://github.com/alibaba/spring-cloud-alibaba/blob/2021.x/spring-cloud-alibaba-docs/src/main/asciidoc-zh/sca-upgrade-guide.adoc)
 - [SpringBoot 和 SpringCloud 版本对应信息查询地址](https://start.spring.io/actuator/info)
 - [knife4j](https://doc.xiaominfo.com/knife4j/documentation/)
+- Spring Cloud Alibaba 2021.0.1.0 (Spring Boot 2.6.3 | Spring Cloud 2021.0.1 )
 
 ### [v5.0.0] 2021.06.19
 
