@@ -65,7 +65,7 @@ public class RedisAutoConfiguration extends CachingConfigurerSupport {
 
     @Primary
     @Bean
-    public StringRedisTemplate template(RedisConnectionFactory connectionFactory) {
+    public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory connectionFactory) {
         return new StringRedisTemplate(connectionFactory);
     }
 
