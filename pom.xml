@@ -547,6 +547,22 @@
                 <artifactId>knife4j-spring-boot-starter</artifactId>
                 <version>3.0.3</version>
             </dependency>
+            <!-- 通用操作日志组件 https://github.com/mouzt/mzt-biz-log -->
+            <dependency>
+                <groupId>io.github.mouzt</groupId>
+                <artifactId>bizlog-sdk</artifactId>
+                <version>2.0.2</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.colincatsu</groupId>
+                <artifactId>fast-object-diff</artifactId>
+                <version>1.1</version>
+            </dependency>
+            <dependency>
+                <groupId>de.danielbechler</groupId>
+                <artifactId>java-object-diff</artifactId>
+                <version>0.95</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
