@@ -375,6 +375,36 @@
             <!-- https://gitee.com/binary/weixin-java-tools weixin-java-tools begin-->
             <dependency>
                 <groupId>com.github.binarywang</groupId>
+                <artifactId>wx-java-mp-spring-boot-starter</artifactId>
+                <version>${weixin-java-tools.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>wx-java-miniapp-spring-boot-starter</artifactId>
+                <version>${weixin-java-tools.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>wx-java-pay-spring-boot-starter</artifactId>
+                <version>${weixin-java-tools.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>wx-java-open-spring-boot-starter</artifactId>
+                <version>${weixin-java-tools.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>wx-java-qidian-spring-boot-starter</artifactId>
+                <version>${weixin-java-tools.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>wx-java-cp-spring-boot-starter</artifactId>
+                <version>${weixin-java-tools.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
                 <artifactId>weixin-java-common</artifactId>
                 <version>${weixin-java-tools.version}</version>
             </dependency>
