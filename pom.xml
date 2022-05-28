@@ -75,7 +75,7 @@
         <elasticsearch.version>6.4.3</elasticsearch.version>
         <webmagic.version>0.7.4</webmagic.version>
         <rocketmq-spring-boot-starter.version>2.2.0</rocketmq-spring-boot-starter.version>
-        <sa-token.version>1.22.0</sa-token.version>
+        <sa-token.version>1.30.0</sa-token.version>
         <nacos-discovery-spring-boot.version>0.2.10</nacos-discovery-spring-boot.version>
         <knife4j.version>3.0.3</knife4j.version>
     </properties>
@@ -538,6 +538,12 @@
             <dependency>
                 <groupId>cn.dev33</groupId>
                 <artifactId>sa-token-spring-boot-starter</artifactId>
+                <version>${sa-token.version}</version>
+            </dependency>
+            <!-- Sa-Token 权限认证（Reactor响应式集成）, 在线文档：http://sa-token.dev33.cn/ -->
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-reactor-spring-boot-starter</artifactId>
                 <version>${sa-token.version}</version>
             </dependency>
             <!-- Sa-Token整合redis (使用jackson序列化方式) -->
