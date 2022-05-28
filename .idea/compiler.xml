@@ -24,6 +24,7 @@
         <module name="zc-cache-spring-boot-starter" />
         <module name="zc-leaf-spring-boot-starter" />
         <module name="zc-swagger-spring-boot-starter" />
+        <module name="zc-gateway-spring-boot-starter" />
         <module name="zc-rsa-encrypt-body-spring-boot-starter" />
         <module name="zc-common-spring-boot-starter" />
         <module name="zc-oss-spring-boot-starter" />
@@ -81,6 +82,7 @@
       <module name="zc-dict-spring-boot-starter" options="-parameters" />
       <module name="zc-elasticsearch-spring-boot-starter" options="-parameters" />
       <module name="zc-feign-spring-boot-starter" options="-parameters" />
+      <module name="zc-gateway-spring-boot-starter" options="-parameters" />
       <module name="zc-green-spring-boot-starter" options="-parameters" />
       <module name="zc-job-spring-boot-starter" options="-parameters" />
       <module name="zc-leaf-spring-boot-starter" options="-parameters" />
