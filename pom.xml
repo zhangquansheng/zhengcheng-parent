@@ -587,17 +587,17 @@
                 <version>${nacos-discovery-spring-boot.version}</version>
             </dependency>
             <!-- https://github.com/lyh200/dynamic-tp -->
-            <!-- spring-cloud场景下的nacos应用接入用此依赖 -->
+            <!-- 基于配置中心的轻量级动态线程池 spring-cloud场景下的nacos应用接入用此依赖 -->
             <dependency>
                 <groupId>io.github.lyh200</groupId>
                 <artifactId>dynamic-tp-spring-cloud-starter-nacos</artifactId>
-                <version>1.0.1</version>
+                <version>1.0.6</version>
             </dependency>
             <!-- 非spring-cloud场景下的nacos应用接入用此依赖 -->
             <dependency>
                 <groupId>io.github.lyh200</groupId>
                 <artifactId>dynamic-tp-spring-boot-starter-nacos</artifactId>
-                <version>1.0.1</version>
+                <version>1.0.6</version>
             </dependency>
             <!-- https://github.com/ulisesbocchio/jasypt-spring-boot -->
             <dependency>
