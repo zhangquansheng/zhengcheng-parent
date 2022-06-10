@@ -78,6 +78,7 @@
         <sa-token.version>1.30.0</sa-token.version>
         <nacos-discovery-spring-boot.version>0.2.10</nacos-discovery-spring-boot.version>
         <knife4j.version>3.0.3</knife4j.version>
+        <dynamic-tp.version>1.0.5</dynamic-tp.version>
     </properties>
 
     <dependencies>
@@ -591,13 +592,13 @@
             <dependency>
                 <groupId>io.github.lyh200</groupId>
                 <artifactId>dynamic-tp-spring-cloud-starter-nacos</artifactId>
-                <version>1.0.6</version>
+                <version>${dynamic-tp.version}</version>
             </dependency>
             <!-- 非spring-cloud场景下的nacos应用接入用此依赖 -->
             <dependency>
                 <groupId>io.github.lyh200</groupId>
                 <artifactId>dynamic-tp-spring-boot-starter-nacos</artifactId>
-                <version>1.0.6</version>
+                <version>${dynamic-tp.version}</version>
             </dependency>
             <!-- https://github.com/ulisesbocchio/jasypt-spring-boot -->
             <dependency>
