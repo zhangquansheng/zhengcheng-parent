@@ -78,7 +78,7 @@
         <sa-token.version>1.30.0</sa-token.version>
         <nacos-discovery-spring-boot.version>0.2.10</nacos-discovery-spring-boot.version>
         <knife4j.version>3.0.3</knife4j.version>
-        <dynamic-tp.version>1.0.5</dynamic-tp.version>
+        <dynamic-tp.version>1.0.7</dynamic-tp.version>
     </properties>
 
     <dependencies>
