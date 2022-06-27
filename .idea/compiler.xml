@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="zc-sharding-jdbc-spring-boot-starter" />
+        <module name="zc-dependencies" />
       </profile>
       <profile name="Annotation profile for zhengcheng-parent" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -20,16 +21,16 @@
           <entry name="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-configuration-processor/2.1.13.RELEASE/spring-boot-configuration-processor-2.1.13.RELEASE.jar" />
         </processorPath>
         <module name="zc-xxl-job-spring-boot-starter" />
-        <module name="zc-mybatis-plus-spring-boot-starter" />
         <module name="zc-cache-spring-boot-starter" />
-        <module name="zc-leaf-spring-boot-starter" />
-        <module name="zc-swagger-spring-boot-starter" />
         <module name="zc-gateway-spring-boot-starter" />
         <module name="zc-rsa-encrypt-body-spring-boot-starter" />
         <module name="zc-common-spring-boot-starter" />
-        <module name="zc-oss-spring-boot-starter" />
         <module name="zc-rocket-mq-spring-boot-starter" />
         <module name="zc-core-spring-boot-starter" />
+        <module name="zc-mybatis-plus-spring-boot-starter" />
+        <module name="zc-leaf-spring-boot-starter" />
+        <module name="zc-swagger-spring-boot-starter" />
+        <module name="zc-oss-spring-boot-starter" />
         <module name="zc-elasticsearch-spring-boot-starter" />
       </profile>
     </annotationProcessing>
@@ -79,6 +80,7 @@
       <module name="zc-cat-spring-boot-starter" options="-parameters" />
       <module name="zc-common-spring-boot-starter" options="-parameters" />
       <module name="zc-core-spring-boot-starter" options="-parameters" />
+      <module name="zc-dependencies" options="" />
       <module name="zc-dict-spring-boot-starter" options="-parameters" />
       <module name="zc-elasticsearch-spring-boot-starter" options="-parameters" />
       <module name="zc-feign-spring-boot-starter" options="-parameters" />
