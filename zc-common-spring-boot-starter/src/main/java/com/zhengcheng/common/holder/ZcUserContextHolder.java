@@ -5,14 +5,14 @@ import cn.hutool.core.util.StrUtil;
 import com.zhengcheng.common.dto.UserDTO;
 
 /**
- * 新征程框架，用户信息 ThreadLocal
+ * 新征程框架，用户上下文 ThreadLocal
  *
  * @author :    zhngquansheng
  * @date :    2019/12/20 15:17
  */
-public class ZcUserInfoHolder {
+public class ZcUserContextHolder {
 
-    public ZcUserInfoHolder() {
+    public ZcUserContextHolder() {
     }
 
     private static final ThreadLocal<UserDTO> userInfoLocal = new ThreadLocal<>();
