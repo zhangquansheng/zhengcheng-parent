@@ -28,10 +28,6 @@ public interface CommonConstants {
     }
 
     /**
-     * token请求头名称
-     */
-    String TOKEN_HEADER = "Authorization";
-    /**
      * 系统默认最大单页限制数量
      */
     Long DEFAULT_PAGINATION_LIMIT = 100L;
@@ -46,9 +42,14 @@ public interface CommonConstants {
     String REQUEST_LIMIT_KEY_PREFIX = "zc:rl:";
 
     /**
-     * 网关传入到各个服务的用户ID
+     * HTTP头-客户端IP
      */
-    String GATEWAY_UID_HEADER = "X-GATEWAY-UID";
+    String HEADER_CLIENT_IP = "X-CLIENT-IP";
+
+    /**
+     * HTTP头-网关传入到各个服务的用户ID
+     */
+    String HEADER_GATEWAY_UID = "X-GATEWAY-UID";
 
     /**
      * 时间戳
@@ -58,7 +59,6 @@ public interface CommonConstants {
      * 随机字符串
      */
     String SIGN_AUTH_NONCE_STR = "nonceStr";
-
     /**
      * 签名
      */
@@ -155,13 +155,4 @@ public interface CommonConstants {
 
     String ROCKETMQ_DEDUP_PREFIX = "rocketmq.dedup";
 
-    /**
-     * 用户ID-参数名
-     */
-    String USER_ID_PARAM_NAME = "userId";
-
-    /**
-     * 用户姓名-参数名
-     */
-    String USER_NAME_PARAM_NAME = "userName";
 }
