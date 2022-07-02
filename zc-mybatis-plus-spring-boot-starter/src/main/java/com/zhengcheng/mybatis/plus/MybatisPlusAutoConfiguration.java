@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import com.zhengcheng.common.constant.CommonConstants;
-import com.zhengcheng.mybatis.plus.config.DateMetaObjectHandler;
+import com.zhengcheng.mybatis.plus.config.BaseMetaObjectHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
@@ -22,7 +22,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @MapperScan(basePackages = "com.zhengcheng.**.mapper*")
-@Import(DateMetaObjectHandler.class)
+@Import(BaseMetaObjectHandler.class)
 public class MybatisPlusAutoConfiguration {
 
     public MybatisPlusAutoConfiguration() {

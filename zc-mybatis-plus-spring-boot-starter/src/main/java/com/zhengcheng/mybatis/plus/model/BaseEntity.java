@@ -31,6 +31,7 @@ public class BaseEntity<T extends Model<?>> extends Model<T> {
     /**
      * 创建人
      */
+    @TableField(fill = FieldFill.INSERT)
     private Long createUserId;
     /**
      * 更新时间
@@ -40,6 +41,7 @@ public class BaseEntity<T extends Model<?>> extends Model<T> {
     /**
      * 更新人
      */
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private Long updateUserId;
     /**
      * 是否删除
