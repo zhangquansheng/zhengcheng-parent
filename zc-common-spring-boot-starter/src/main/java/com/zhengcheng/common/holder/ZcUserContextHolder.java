@@ -1,7 +1,7 @@
 package com.zhengcheng.common.holder;
 
-
 import cn.hutool.core.util.StrUtil;
+import com.alibaba.ttl.TransmittableThreadLocal;
 import com.zhengcheng.common.dto.UserDTO;
 
 /**
@@ -15,7 +15,7 @@ public class ZcUserContextHolder {
     public ZcUserContextHolder() {
     }
 
-    private static final ThreadLocal<UserDTO> userInfoLocal = new ThreadLocal<>();
+    private static final TransmittableThreadLocal<UserDTO> userInfoLocal = new TransmittableThreadLocal<>();
 
     public static UserDTO getUserInfo() {
         return userInfoLocal.get();
