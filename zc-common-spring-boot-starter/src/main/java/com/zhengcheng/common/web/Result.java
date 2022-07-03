@@ -1,6 +1,7 @@
 package com.zhengcheng.common.web;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -11,6 +12,7 @@ import java.util.Objects;
  * @author :    quansheng.zhang
  * @date :    2019/2/28 21:00
  */
+@NoArgsConstructor
 @Data
 public class Result<T> implements Serializable {
     private static final long serialVersionUID = 1129940056717037765L;
