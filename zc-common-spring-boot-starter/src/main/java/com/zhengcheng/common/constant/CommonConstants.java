@@ -52,6 +52,16 @@ public interface CommonConstants {
     String HEADER_GATEWAY_UID = "X-GATEWAY-UID";
 
     /**
+     * HTTP头-网关传入到各个服务的用户编码
+     */
+    String HEADER_GATEWAY_USER_NO = "X-GATEWAY-USER-NO";
+
+    /**
+     * HTTP头-网关传入到各个服务的用户名
+     */
+    String HEADER_GATEWAY_USERNAME = "X-GATEWAY-USERNAME";
+
+    /**
      * 时间戳
      */
     String SIGN_AUTH_TIMESTAMP = "timestamp";
