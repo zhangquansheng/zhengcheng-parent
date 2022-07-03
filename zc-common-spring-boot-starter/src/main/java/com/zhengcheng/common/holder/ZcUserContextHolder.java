@@ -2,7 +2,7 @@ package com.zhengcheng.common.holder;
 
 import cn.hutool.core.util.StrUtil;
 import com.alibaba.ttl.TransmittableThreadLocal;
-import com.zhengcheng.common.dto.UserDTO;
+import com.zhengcheng.common.dto.UserInfo;
 
 /**
  * 新征程框架，用户上下文 ThreadLocal
@@ -15,14 +15,14 @@ public class ZcUserContextHolder {
     public ZcUserContextHolder() {
     }
 
-    private static final TransmittableThreadLocal<UserDTO> userInfoLocal = new TransmittableThreadLocal<>();
+    private static final TransmittableThreadLocal<UserInfo> userInfoLocal = new TransmittableThreadLocal<>();
 
-    public static UserDTO getUserInfo() {
+    public static UserInfo getUserInfo() {
         return userInfoLocal.get();
     }
 
-    public static void setUserInfo(UserDTO userDTO) {
-        userInfoLocal.set(userDTO);
+    public static void setUserInfo(UserInfo userInfo) {
+        userInfoLocal.set(userInfo);
     }
 
     public static void removeUserInfo() {
@@ -30,32 +30,23 @@ public class ZcUserContextHolder {
     }
 
     public static Long getUserId() {
-        UserDTO userDTO = getUserInfo();
-        return userDTO == null ? null : userDTO.getId();
+        UserInfo userInfo = getUserInfo();
+        return userInfo == null ? null : userInfo.getId();
     }
 
     public static String getUsername() {
-        UserDTO userDTO = getUserInfo();
-        return userDTO == null ? null : userDTO.getUsername();
+        UserInfo userInfo = getUserInfo();
+        return userInfo == null ? null : userInfo.getUsername();
     }
 
     public static String getUserNo() {
-        UserDTO userDTO = getUserInfo();
-        return userDTO == null ? null : userDTO.getUserNo();
+        UserInfo userInfo = getUserInfo();
+        return userInfo == null ? null : userInfo.getUserNo();
     }
 
     public static String getOperator() {
-        UserDTO userDTO = getUserInfo();
-        return userDTO == null ? "" : StrUtil.format("{}({})", userDTO.getUsername(), userDTO.getUserNo());
+        UserInfo userInfo = getUserInfo();
+        return userInfo == null ? "" : StrUtil.format("{}({})", userInfo.getUsername(), userInfo.getUserNo());
     }
 
-    public static String getEmail() {
-        UserDTO userDTO = getUserInfo();
-        return userDTO == null ? null : userDTO.getEmail();
-    }
-
-    public static String getMobile() {
-        UserDTO userDTO = getUserInfo();
-        return userDTO == null ? null : userDTO.getMobile();
-    }
 }
