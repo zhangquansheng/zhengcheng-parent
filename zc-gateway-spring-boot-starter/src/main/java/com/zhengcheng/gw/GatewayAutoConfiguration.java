@@ -3,6 +3,7 @@ package com.zhengcheng.gw;
 import com.zhengcheng.gw.swagger.config.SwaggerResourceConfig;
 import com.zhengcheng.gw.swagger.controller.SwaggerHandler;
 import com.zhengcheng.gw.swagger.filter.SwaggerHeaderFilter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
@@ -14,6 +15,7 @@ import org.springframework.context.annotation.Import;
  */
 @Import({SwaggerResourceConfig.class, SwaggerHandler.class, SwaggerHeaderFilter.class})
 @Configuration
+@RequiredArgsConstructor
 public class GatewayAutoConfiguration {
 
 }
