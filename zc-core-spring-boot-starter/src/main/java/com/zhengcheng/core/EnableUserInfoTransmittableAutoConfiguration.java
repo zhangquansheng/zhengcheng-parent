@@ -1,5 +1,6 @@
 package com.zhengcheng.core;
 
+import com.zhengcheng.core.feign.interceptor.TransmittableUserInfoFeighClientIntercepter;
 import com.zhengcheng.core.filter.TransmittableUserInfoFilter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,8 +17,14 @@ import org.springframework.context.annotation.Bean;
 public class EnableUserInfoTransmittableAutoConfiguration {
 
     @Bean
+    public TransmittableUserInfoFeighClientIntercepter transmittableUserInfo2FeighHttpHeader() {
+        log.info("-----  TransmittableUserInfoFeighClientIntercepter----------------------------------------------------");
+        return new TransmittableUserInfoFeighClientIntercepter();
+    }
+
+    @Bean
     public TransmittableUserInfoFilter transmittableUserInfoFromHttpHeader() {
-        log.info("-----  TransmittableUserInfoFilter---------------------------------------------------------------------");
+        log.info("-----  TransmittableUserInfoFilter--------------------------------------------------------------------");
         return new TransmittableUserInfoFilter();
     }
 

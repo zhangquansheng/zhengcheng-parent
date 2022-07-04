@@ -1,9 +1,16 @@
 package com.zhengcheng.core;
 
+import com.zhengcheng.core.feign.InfoFeignLoggerFactory;
+import feign.Logger;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.openfeign.FeignLoggerFactory;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -46,4 +53,27 @@ public class ZhengChengCoreAutoConfiguration implements WebMvcConfigurer {
     }
 
 
+    /**
+     * Feign 日志级别
+     */
+    @Bean
+    @ConditionalOnProperty(name = "feign.log.info.enabled", havingValue = "true", matchIfMissing = true)
+    Logger.Level feignLoggerLevel() {
+        return Logger.Level.FULL;
+    }
+
+    /**
+     * 自定义 INFO 日志
+     */
+    @Bean
+    @ConditionalOnProperty(name = "feign.log.info.enabled", havingValue = "true", matchIfMissing = true)
+    FeignLoggerFactory infoFeignLoggerFactory() {
+        return new InfoFeignLoggerFactory();
+    }
+
+    @Bean
+    @LoadBalanced
+    RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
 }

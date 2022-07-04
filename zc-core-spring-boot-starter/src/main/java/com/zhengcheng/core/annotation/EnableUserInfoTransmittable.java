@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Import;
 import java.lang.annotation.*;
 
 /**
- * 启动用户上下文
+ * 用户信息传输
  *
  * @author quansheng1.zhang
  * @since 2022/7/3 19:31
@@ -15,5 +15,5 @@ import java.lang.annotation.*;
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Import({EnableUserInfoTransmittableAutoConfiguration.class})
-public @interface EnableInfoContextTransmittable {
+public @interface EnableUserInfoTransmittable {
 }

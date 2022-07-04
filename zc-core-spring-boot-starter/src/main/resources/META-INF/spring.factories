@@ -1,2 +1,3 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.zhengcheng.core.ZhengChengCoreAutoConfiguration
+  com.zhengcheng.core.ZhengChengCoreAutoConfiguration,\
+  com.zhengcheng.core.feign.config.FeignOkHttpConfig
