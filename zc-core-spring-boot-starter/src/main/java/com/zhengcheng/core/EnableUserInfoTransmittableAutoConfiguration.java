@@ -17,7 +17,7 @@ public class EnableUserInfoTransmittableAutoConfiguration {
 
     @Bean
     public TransmittableUserInfoFilter transmittableUserInfoFromHttpHeader() {
-        log.info("-----TransmittableUserInfoFilter");
+        log.info("-----  TransmittableUserInfoFilter---------------------------------------------------------------------");
         return new TransmittableUserInfoFilter();
     }
 
