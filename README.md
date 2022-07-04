@@ -32,6 +32,7 @@
 - [SpringBoot 和 SpringCloud 版本对应信息查询地址](https://start.spring.io/actuator/info)
 - [knife4j](https://doc.xiaominfo.com/knife4j/documentation/)
 - Spring Cloud Alibaba 2021.0.1.0 (Spring Boot 2.6.3 | Spring Cloud 2021.0.1 )
+- 使用 Alibaba 开源的 TransmittableThreadLocal，用于解决 “在使用线程池等会缓存线程的组件情况下传递ThreadLocal” 问题的 InheritableThreadLocal 扩展。
 
 ### [v5.0.0] 2021.06.19
 
