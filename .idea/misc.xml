@@ -21,6 +21,7 @@
         <option value="$PROJECT_DIR$/mvc-springboot-starter/pom.xml" />
         <option value="$PROJECT_DIR$/swagger-spring-boot-starter/pom.xml" />
         <option value="$PROJECT_DIR$/zc-apollo-spring-boot-starter/pom.xml" />
+        <option value="$PROJECT_DIR$/zc-dependencies/pom.xml" />
         <option value="$PROJECT_DIR$/zc-sentinel-spring-boot-starter/pom.xml" />
       </set>
     </option>
@@ -28,7 +29,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8 (2)" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8 (2)" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

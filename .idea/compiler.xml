@@ -8,7 +8,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="zc-sharding-jdbc-spring-boot-starter" />
-        <module name="zc-dependencies" />
       </profile>
       <profile name="Annotation profile for zhengcheng-parent" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -48,6 +47,7 @@
       <module name="zc-auth-client-spring-boot-starter" target="1.8" />
       <module name="zc-cat-spring-boot-starter" target="1.8" />
       <module name="zc-db-spring-boot-starter" target="1.8" />
+      <module name="zc-dependencies" target="1.8" />
       <module name="zc-dict-client-spring-boot-starter" target="1.8" />
       <module name="zc-dict-spring-boot-starter" target="1.8" />
       <module name="zc-feign-spring-boot-starter" target="1.8" />

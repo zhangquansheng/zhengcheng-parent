@@ -30,7 +30,6 @@
         <module>zc-leaf-spring-boot-starter</module>
         <module>zc-oss-spring-boot-starter</module>
         <module>zc-gateway-spring-boot-starter</module>
-        <module>zc-dependencies</module>
     </modules>
 
     <properties>
