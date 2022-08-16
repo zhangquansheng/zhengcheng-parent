@@ -9,7 +9,7 @@
 <parent>
     <groupId>com.zhengcheng</groupId>
     <artifactId>zhengcheng-parent</artifactId>
-    <version>6.0.0</version>
+    <version>6.1.0</version>
 </parent>
 ```
 
@@ -19,6 +19,11 @@
 
 
 ## CHANGELOG
+
+### [v6.1.0] 2022.08
+
+- 增加`幂等或防重复提交`自定义注解
+- 
 
 ### [v6.0.0] 2022.02.24
 

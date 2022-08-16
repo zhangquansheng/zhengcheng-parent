@@ -29,8 +29,8 @@
         <module name="zc-common-spring-boot-starter" />
         <module name="zc-oss-spring-boot-starter" />
         <module name="zc-rocket-mq-spring-boot-starter" />
-        <module name="zc-core-spring-boot-starter" />
         <module name="zc-elasticsearch-spring-boot-starter" />
+        <module name="zc-core-spring-boot-starter" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
