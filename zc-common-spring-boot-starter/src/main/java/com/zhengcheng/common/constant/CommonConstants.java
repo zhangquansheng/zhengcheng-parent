@@ -1,6 +1,9 @@
 package com.zhengcheng.common.constant;
 
+import com.google.common.collect.Lists;
 import lombok.Getter;
+
+import java.util.List;
 
 /**
  * 全局公共常量
@@ -165,4 +168,6 @@ public interface CommonConstants {
 
     String ROCKETMQ_DEDUP_PREFIX = "rocketmq.dedup";
 
+    List<String> CHECK_LOGIN_EXCLUDE_PATH_PATTERNS = Lists.newArrayList("/**/static/**", "/**/swagger-ui.html", "/**/doc.html", "/**/webjars/**",
+            "/**/swagger-resources", "/**/swagger-resources/**", "/**/v2/api-docs");
 }

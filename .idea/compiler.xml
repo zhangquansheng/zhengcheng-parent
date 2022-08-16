@@ -23,8 +23,8 @@
         <module name="zc-mybatis-plus-spring-boot-starter" />
         <module name="zc-cache-spring-boot-starter" />
         <module name="zc-leaf-spring-boot-starter" />
-        <module name="zc-gateway-spring-boot-starter" />
         <module name="zc-swagger-spring-boot-starter" />
+        <module name="zc-gateway-spring-boot-starter" />
         <module name="zc-rsa-encrypt-body-spring-boot-starter" />
         <module name="zc-common-spring-boot-starter" />
         <module name="zc-oss-spring-boot-starter" />
@@ -51,6 +51,7 @@
       <module name="zc-dict-client-spring-boot-starter" target="1.8" />
       <module name="zc-dict-spring-boot-starter" target="1.8" />
       <module name="zc-feign-spring-boot-starter" target="1.8" />
+      <module name="zc-gray-spring-boot-starter" target="1.8" />
       <module name="zc-green-spring-boot-starter" target="1.8" />
       <module name="zc-job-spring-boot-starter" target="1.8" />
       <module name="zc-mq-spring-boot-starter" target="1.8" />
