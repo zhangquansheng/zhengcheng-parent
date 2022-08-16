@@ -1,5 +1,6 @@
 package com.zhengcheng.cache;
 
+import com.zhengcheng.cache.idempotent.aspect.IdempotentAspect;
 import com.zhengcheng.cache.idempotent.expression.KeyResolver;
 import com.zhengcheng.cache.idempotent.expression.SpelExpressionKeyResolver;
 import com.zhengcheng.cache.properties.RedissonProperties;
@@ -78,6 +79,12 @@ public class RedissonAutoConfiguration {
             log.debug("Redisson 哨兵模式配置成功");
         }
         return Redisson.create(config);
+    }
+
+
+    @Bean
+    public IdempotentAspect idempotentAspect() {
+        return new IdempotentAspect();
     }
 
     @Bean

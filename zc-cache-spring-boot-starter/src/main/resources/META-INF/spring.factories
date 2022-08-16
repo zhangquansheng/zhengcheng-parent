@@ -1,4 +1,4 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   com.zhengcheng.cache.RedisAutoConfiguration,\
   com.zhengcheng.cache.CaffeineCacheAutoConfiguration,\
-  com.zhengcheng.cache.RedisAutoConfiguration
+  com.zhengcheng.cache.RedissonAutoConfiguration

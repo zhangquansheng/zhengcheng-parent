@@ -41,7 +41,7 @@ public class IdempotentAspect {
     @Resource
     private KeyResolver keyResolver;
 
-    @Pointcut("@annotation( com.zhengcheng.cache.idempotent.annotation.Idempotent)")
+    @Pointcut("@annotation(com.zhengcheng.cache.idempotent.annotation.Idempotent)")
     public void pointCut() {
     }
 
