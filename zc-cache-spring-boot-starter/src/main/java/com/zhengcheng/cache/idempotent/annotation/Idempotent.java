@@ -1,5 +1,9 @@
 package com.zhengcheng.cache.idempotent.annotation;
 
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -8,6 +12,8 @@ import java.util.concurrent.TimeUnit;
  * @author quansheng.zhang
  * @since 2022/8/16 15:16
  */
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
 public @interface Idempotent {
     /**
      * 幂等的key，不设置则取所有参数toString
@@ -38,7 +44,7 @@ public @interface Idempotent {
     /**
      * 提醒信息
      */
-    String info() default "操作过于频繁，请稍后重试";
+    String message() default "操作过于频繁，请稍后重试！";
 
     /**
      * 执行完成后是否释放key
