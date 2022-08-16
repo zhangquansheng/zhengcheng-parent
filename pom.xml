@@ -51,7 +51,7 @@
         <tencentcloud-sdk-java.version>3.0.124</tencentcloud-sdk-java.version>
         <qcloud-cos_api.version>5.6.15</qcloud-cos_api.version>
         <fastjson.version>1.2.83</fastjson.version>
-        <guava.version>28.2-jre</guava.version>
+        <guava.version>29.0-jre</guava.version>
         <easyexcel.version>3.1.1</easyexcel.version>
         <xxl-job-core.version>2.3.1</xxl-job-core.version>
         <cornerstone.version>0.2.1</cornerstone.version>
@@ -63,7 +63,7 @@
         <org.projectlombok.version>1.18.12</org.projectlombok.version>
         <!-- 目前`Spring Boot version 2.1.x`对应的`redisson-spring-boot-starter`最高版本是`3.11.5` -->
         <redisson.version>3.11.5</redisson.version>
-        <protobuf-java.version>3.11.4</protobuf-java.version>
+        <protobuf-java.version>3.16.1</protobuf-java.version>
         <aliyun-log-logback-appender.version>0.1.15</aliyun-log-logback-appender.version>
         <curator-recipes.version>4.3.0</curator-recipes.version>
         <j2cache-core.version>2.8.2-release</j2cache-core.version>
@@ -219,7 +219,7 @@
             <dependency>
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis</artifactId>
-                <version>3.5.5</version>
+                <version>3.5.6</version>
             </dependency>
             <!-- mybatis-plus start -->
             <dependency>
