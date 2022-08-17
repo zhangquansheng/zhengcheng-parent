@@ -11,7 +11,6 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.util.StringUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -28,7 +27,6 @@ import java.util.Arrays;
  * @since 2022/8/16 15:25
  */
 @Slf4j
-@ConditionalOnClass(RedissonClient.class)
 @Aspect
 public class IdempotentAspect {
 

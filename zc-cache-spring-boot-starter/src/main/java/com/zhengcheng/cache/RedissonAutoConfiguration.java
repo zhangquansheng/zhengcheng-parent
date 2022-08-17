@@ -79,6 +79,7 @@ public class RedissonAutoConfiguration {
 
 
     @Bean
+    @ConditionalOnClass(RedissonClient.class)
     public IdempotentAspect idempotentAspect() {
         return new IdempotentAspect();
     }
