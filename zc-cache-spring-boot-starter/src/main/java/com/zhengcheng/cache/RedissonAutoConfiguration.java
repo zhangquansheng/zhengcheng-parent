@@ -50,9 +50,7 @@ public class RedissonAutoConfiguration {
         if (StringUtils.isNotBlank(redissonProperties.getPassword())) {
             serverConfig.setPassword(redissonProperties.getPassword());
         }
-        if (log.isDebugEnabled()) {
-            log.debug("Redisson 单机模式配置成功");
-        }
+        log.info("------ Redisson 单机模式配置成功----------------------------------");
         return Redisson.create(config);
     }
 
@@ -75,9 +73,7 @@ public class RedissonAutoConfiguration {
         if (StringUtils.isNotBlank(redissonProperties.getPassword())) {
             serverConfig.setPassword(redissonProperties.getPassword());
         }
-        if (log.isDebugEnabled()) {
-            log.debug("Redisson 哨兵模式配置成功");
-        }
+        log.info("------ Redisson 哨兵模式配置成功----------------------------------");
         return Redisson.create(config);
     }
 

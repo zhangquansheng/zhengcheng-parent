@@ -12,7 +12,6 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
-import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -31,7 +30,6 @@ import java.util.Arrays;
 @Slf4j
 @ConditionalOnClass(RedissonClient.class)
 @Aspect
-@Component
 public class IdempotentAspect {
 
     private static final String REPEAT_LOCK_PREFIX = "zc:idempotent:";
