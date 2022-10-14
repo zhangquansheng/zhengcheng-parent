@@ -65,18 +65,18 @@ public class RateLimiterAspect {
             Method method = joinPoint.getSignature().getDeclaringType().getMethod(methodName, parameterTypes);
             // 必须要用AnnotationUtils，才能获取到 name 和 value上@AliasFor(互为别名)的作用
             // AOP原理
-            RateLimiter requestLimit = AnnotationUtils.findAnnotation(method, RateLimiter.class);
-            if (Objects.isNull(requestLimit)) {
+            RateLimiter rateLimiter = AnnotationUtils.findAnnotation(method, RateLimiter.class);
+            if (Objects.isNull(rateLimiter)) {
                 return;
             }
 
-            String limitKey = limitKey(method, requestLimit.limitType(), Arrays.hashCode(joinPoint.getArgs()));
+            String limitKey = limitKey(method, rateLimiter.limitType(), Arrays.hashCode(joinPoint.getArgs()));
             if (log.isDebugEnabled()) {
                 log.debug("限流接口的KEY:[{}]", limitKey);
             }
 
-            Boolean allow = stringRedisTemplate.execute(redisScript, Collections.singletonList(limitKey), String.valueOf(requestLimit.count()), //limit
-                    String.valueOf(requestLimit.time())); //expire
+            Boolean allow = stringRedisTemplate.execute(redisScript, Collections.singletonList(limitKey), String.valueOf(rateLimiter.count()), //limit
+                    String.valueOf(rateLimiter.timeUnit().toMillis(rateLimiter.time()))); //expire
 
             if (Objects.equals(Boolean.FALSE, allow)) {
                 throw new BizException(CodeEnum.REQUEST_EXCEED_LIMIT);
