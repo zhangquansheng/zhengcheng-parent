@@ -4,6 +4,9 @@ import com.zhengcheng.cache.idempotent.aspect.IdempotentAspect;
 import com.zhengcheng.cache.idempotent.expression.KeyResolver;
 import com.zhengcheng.cache.idempotent.expression.SpelExpressionKeyResolver;
 import com.zhengcheng.cache.properties.RedissonProperties;
+import com.zhengcheng.cache.ratelimit.aspect.RateLimiterAspect;
+import com.zhengcheng.cache.ratelimit.handler.DefaultLimitKeyHandler;
+import com.zhengcheng.cache.ratelimit.handler.LimitKeyHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.redisson.Redisson;
@@ -19,6 +22,8 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.script.DefaultRedisScript;
 
 /**
  * Redisson 自动配置
@@ -42,11 +47,7 @@ public class RedissonAutoConfiguration {
     @ConditionalOnProperty(name = "redisson.address")
     RedissonClient redissonSingle(RedissonProperties redissonProperties) {
         Config config = new Config();
-        SingleServerConfig serverConfig = config.useSingleServer()
-                .setAddress(redissonProperties.getAddress())
-                .setTimeout(redissonProperties.getTimeout())
-                .setConnectionPoolSize(redissonProperties.getConnectionPoolSize())
-                .setConnectionMinimumIdleSize(redissonProperties.getConnectionMinimumIdleSize());
+        SingleServerConfig serverConfig = config.useSingleServer().setAddress(redissonProperties.getAddress()).setTimeout(redissonProperties.getTimeout()).setConnectionPoolSize(redissonProperties.getConnectionPoolSize()).setConnectionMinimumIdleSize(redissonProperties.getConnectionMinimumIdleSize());
 
         if (StringUtils.isNotBlank(redissonProperties.getPassword())) {
             serverConfig.setPassword(redissonProperties.getPassword());
@@ -65,11 +66,7 @@ public class RedissonAutoConfiguration {
     @ConditionalOnProperty(name = "redisson.master-name")
     RedissonClient redissonSentinel(RedissonProperties redissonProperties) {
         Config config = new Config();
-        SentinelServersConfig serverConfig = config.useSentinelServers().addSentinelAddress(redissonProperties.getSentinelAddresses())
-                .setMasterName(redissonProperties.getMasterName())
-                .setTimeout(redissonProperties.getTimeout())
-                .setMasterConnectionPoolSize(redissonProperties.getMasterConnectionPoolSize())
-                .setSlaveConnectionPoolSize(redissonProperties.getSlaveConnectionPoolSize());
+        SentinelServersConfig serverConfig = config.useSentinelServers().addSentinelAddress(redissonProperties.getSentinelAddresses()).setMasterName(redissonProperties.getMasterName()).setTimeout(redissonProperties.getTimeout()).setMasterConnectionPoolSize(redissonProperties.getMasterConnectionPoolSize()).setSlaveConnectionPoolSize(redissonProperties.getSlaveConnectionPoolSize());
 
         if (StringUtils.isNotBlank(redissonProperties.getPassword())) {
             serverConfig.setPassword(redissonProperties.getPassword());
@@ -91,4 +88,15 @@ public class RedissonAutoConfiguration {
         return new SpelExpressionKeyResolver();
     }
 
+    @Bean
+    @ConditionalOnMissingBean(value = LimitKeyHandler.class)
+    public LimitKeyHandler stringRandomGenerator() {
+        return new DefaultLimitKeyHandler();
+    }
+
+    @Bean
+    @ConditionalOnBean({RedissonClient.class, LimitKeyHandler.class, DefaultRedisScript.class, StringRedisTemplate.class})
+    public RateLimiterAspect rateLimiterAspect() {
+        return new RateLimiterAspect();
+    }
 }

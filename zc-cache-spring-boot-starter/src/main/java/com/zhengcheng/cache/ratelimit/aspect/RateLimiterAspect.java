@@ -37,7 +37,7 @@ import java.util.Objects;
 @Component
 @ConditionalOnClass({DefaultRedisScript.class, StringRedisTemplate.class})
 @DependsOn("redisScript")
-public class RequestLimitAspect {
+public class RateLimiterAspect {
 
     private static final String REDIS_LIMIT_KEY_PREFIX = "limit:";
 
@@ -46,7 +46,6 @@ public class RequestLimitAspect {
 
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
-
     @Autowired
     private LimitKeyHandler limitKeyHandler;
 
