@@ -5,7 +5,6 @@ import com.zhengcheng.cache.ratelimit.annotation.RateLimiter;
 import com.zhengcheng.cache.ratelimit.enums.LimitType;
 import com.zhengcheng.cache.ratelimit.handler.LimitKeyHandler;
 import com.zhengcheng.common.exception.BizException;
-import com.zhengcheng.common.web.CodeEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
@@ -49,7 +48,7 @@ public class RateLimiterAspect {
     @Autowired
     private LimitKeyHandler limitKeyHandler;
 
-    @Pointcut("@annotation(com.zhengcheng.cache.ratelimit.annotation.RequestLimit)")
+    @Pointcut("@annotation(com.zhengcheng.cache.ratelimit.annotation.RateLimiter)")
     public void pointcut() {
     }
 
@@ -79,7 +78,7 @@ public class RateLimiterAspect {
                     String.valueOf(rateLimiter.timeUnit().toMillis(rateLimiter.time()))); //expire
 
             if (Objects.equals(Boolean.FALSE, allow)) {
-                throw new BizException(CodeEnum.REQUEST_EXCEED_LIMIT);
+                throw new BizException(rateLimiter.message());
             }
         } catch (NoSuchMethodException e) {
             log.error("{}", e.getMessage(), e);

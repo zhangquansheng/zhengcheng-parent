@@ -3,16 +3,24 @@ package com.zhengcheng.cache;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.zhengcheng.cache.ratelimit.aspect.RateLimiterAspect;
+import com.zhengcheng.cache.ratelimit.handler.DefaultLimitKeyHandler;
+import com.zhengcheng.cache.ratelimit.handler.LimitKeyHandler;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
+import org.springframework.scripting.support.ResourceScriptSource;
 
 /**
  * redis 配置类
@@ -67,6 +75,26 @@ public class RedisAutoConfiguration extends CachingConfigurerSupport {
     @Bean
     public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory connectionFactory) {
         return new StringRedisTemplate(connectionFactory);
+    }
+
+    @Bean
+    @ConditionalOnMissingBean(value = LimitKeyHandler.class)
+    public LimitKeyHandler stringRandomGenerator() {
+        return new DefaultLimitKeyHandler();
+    }
+
+    @Bean
+    public DefaultRedisScript<Boolean> redisScript() {
+        DefaultRedisScript<Boolean> redisScript = new DefaultRedisScript<>();
+        redisScript.setScriptSource(new ResourceScriptSource(new ClassPathResource("script/rate_limit.lua")));
+        redisScript.setResultType(Boolean.class);
+        return redisScript;
+    }
+
+    @Bean
+    @ConditionalOnBean({LimitKeyHandler.class, DefaultRedisScript.class, StringRedisTemplate.class})
+    public RateLimiterAspect rateLimiterAspect() {
+        return new RateLimiterAspect();
     }
 
 }

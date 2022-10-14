@@ -35,4 +35,6 @@ public @interface RateLimiter {
      * 限流类型，可组合
      */
     LimitType[] limitType() default LimitType.METHOD;
+
+    String message() default "RateLimitInvocationException";
 }

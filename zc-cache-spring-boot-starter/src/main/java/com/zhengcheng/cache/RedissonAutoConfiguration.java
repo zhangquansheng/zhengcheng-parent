@@ -88,15 +88,5 @@ public class RedissonAutoConfiguration {
         return new SpelExpressionKeyResolver();
     }
 
-    @Bean
-    @ConditionalOnMissingBean(value = LimitKeyHandler.class)
-    public LimitKeyHandler stringRandomGenerator() {
-        return new DefaultLimitKeyHandler();
-    }
 
-    @Bean
-    @ConditionalOnBean({RedissonClient.class, LimitKeyHandler.class, DefaultRedisScript.class, StringRedisTemplate.class})
-    public RateLimiterAspect rateLimiterAspect() {
-        return new RateLimiterAspect();
-    }
 }
