@@ -1,6 +1,7 @@
 package com.zhengcheng.cache.ratelimit.aspect;
 
 import ch.qos.logback.core.CoreConstants;
+import com.zhengcheng.cache.expression.KeyResolver;
 import com.zhengcheng.cache.ratelimit.annotation.RateLimiter;
 import com.zhengcheng.cache.ratelimit.enums.LimitType;
 import com.zhengcheng.cache.ratelimit.handler.LimitKeyHandler;
@@ -20,8 +21,8 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.lang.reflect.Method;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Objects;
 
@@ -42,11 +43,12 @@ public class RateLimiterAspect {
 
     @Autowired
     private DefaultRedisScript<Boolean> redisScript;
-
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
     @Autowired
     private LimitKeyHandler limitKeyHandler;
+    @Resource
+    private KeyResolver keyResolver;
 
     @Pointcut("@annotation(com.zhengcheng.cache.ratelimit.annotation.RateLimiter)")
     public void pointcut() {
@@ -69,7 +71,7 @@ public class RateLimiterAspect {
                 return;
             }
 
-            String limitKey = limitKey(method, rateLimiter.limitType(), Arrays.hashCode(joinPoint.getArgs()));
+            String limitKey = limitKey(method, rateLimiter, joinPoint);
             if (log.isDebugEnabled()) {
                 log.debug("限流接口的KEY:[{}]", limitKey);
             }
@@ -88,18 +90,17 @@ public class RateLimiterAspect {
     /**
      * 获取限流key => limit:ip.clazzName.methodName || limit:userName.clazzName.methodName
      *
-     * @param method       Method
-     * @param limitTypes   LimitTypes
-     * @param argsHashCode argsHashCode
+     * @param method      Method
+     * @param rateLimiter RateLimiter
+     * @param joinPoint   joinPoint
      * @return String
      */
-    private String limitKey(Method method, LimitType[] limitTypes, int argsHashCode) {
-
+    private String limitKey(Method method, RateLimiter rateLimiter, JoinPoint joinPoint) {
         StringBuilder limitKey = new StringBuilder(REDIS_LIMIT_KEY_PREFIX);
-        for (LimitType limitType : limitTypes) {
+        for (LimitType limitType : rateLimiter.limitType()) {
             switch (limitType) {
                 case ARGS:
-                    limitKey.append(argsHashCode);
+                    limitKey.append(keyResolver.resolver(rateLimiter.keys(), rateLimiter.split(), joinPoint));
                     break;
                 case IP:
                     limitKey.append(limitKeyHandler.getIpKey());

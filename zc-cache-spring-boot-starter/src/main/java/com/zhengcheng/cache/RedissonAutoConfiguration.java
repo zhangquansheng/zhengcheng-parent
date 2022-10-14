@@ -1,12 +1,9 @@
 package com.zhengcheng.cache;
 
 import com.zhengcheng.cache.idempotent.aspect.IdempotentAspect;
-import com.zhengcheng.cache.idempotent.expression.KeyResolver;
-import com.zhengcheng.cache.idempotent.expression.SpelExpressionKeyResolver;
+import com.zhengcheng.cache.expression.KeyResolver;
+import com.zhengcheng.cache.expression.SpelExpressionKeyResolver;
 import com.zhengcheng.cache.properties.RedissonProperties;
-import com.zhengcheng.cache.ratelimit.aspect.RateLimiterAspect;
-import com.zhengcheng.cache.ratelimit.handler.DefaultLimitKeyHandler;
-import com.zhengcheng.cache.ratelimit.handler.LimitKeyHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.redisson.Redisson;
@@ -22,8 +19,6 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.data.redis.core.script.DefaultRedisScript;
 
 /**
  * Redisson 自动配置

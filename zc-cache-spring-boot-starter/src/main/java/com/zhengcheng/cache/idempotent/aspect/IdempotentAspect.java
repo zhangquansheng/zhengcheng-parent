@@ -1,7 +1,7 @@
 package com.zhengcheng.cache.idempotent.aspect;
 
+import com.zhengcheng.cache.expression.KeyResolver;
 import com.zhengcheng.cache.idempotent.annotation.Idempotent;
-import com.zhengcheng.cache.idempotent.expression.KeyResolver;
 import com.zhengcheng.common.exception.IdempotentException;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -71,11 +71,10 @@ public class IdempotentAspect {
 
     private String getLockKey(Idempotent idempotent, ProceedingJoinPoint joinPoint) {
         String suffix;
-        if ((idempotent.keys() == null || idempotent.keys().length == 0)
-                && (joinPoint.getArgs() != null && joinPoint.getArgs().length > 0)) {
+        if ((idempotent.keys() == null || idempotent.keys().length == 0) && (joinPoint.getArgs() != null && joinPoint.getArgs().length > 0)) {
             suffix = Arrays.asList(joinPoint.getArgs()).toString();
         } else {
-            suffix = keyResolver.resolver(idempotent, joinPoint);
+            suffix = keyResolver.resolver(idempotent.keys(), idempotent.split(), joinPoint);
         }
 
         String location;

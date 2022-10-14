@@ -1,7 +1,6 @@
-package com.zhengcheng.cache.idempotent.expression;
+package com.zhengcheng.cache.expression;
 
 import com.google.common.base.Joiner;
-import com.zhengcheng.cache.idempotent.annotation.Idempotent;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.core.LocalVariableTableParameterNameDiscoverer;
@@ -25,7 +24,7 @@ public class SpelExpressionKeyResolver implements KeyResolver {
     private static final LocalVariableTableParameterNameDiscoverer DISCOVERER = new LocalVariableTableParameterNameDiscoverer();
 
     @Override
-    public String resolver(Idempotent idempotent, JoinPoint point) {
+    public String resolver(String[] keys, String split, JoinPoint point) {
         Object[] arguments = point.getArgs();
         String[] params = DISCOVERER.getParameterNames(this.getMethod(point));
         StandardEvaluationContext context = new StandardEvaluationContext();
@@ -36,12 +35,12 @@ public class SpelExpressionKeyResolver implements KeyResolver {
         }
 
         List<String> keyResolves = new ArrayList<>();
-        Expression expression = null;
-        for (String key : idempotent.keys()) {
+        Expression expression;
+        for (String key : keys) {
             expression = PARSER.parseExpression(key);
             keyResolves.add(expression.getValue(context, String.class));
         }
-        Joiner joiner = Joiner.on(idempotent.split());
+        Joiner joiner = Joiner.on(split);
         return joiner.join(keyResolves);
     }
 

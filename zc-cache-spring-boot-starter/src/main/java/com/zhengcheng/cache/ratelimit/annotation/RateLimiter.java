@@ -36,5 +36,16 @@ public @interface RateLimiter {
      */
     LimitType[] limitType() default LimitType.METHOD;
 
+    /**
+     * 限流的keys，在 LimitType.ARGS 的情况下生效
+     * spel表达式，支持多项拼接
+     */
+    String[] keys() default {};
+
+    /**
+     * 限流keys的分隔符，在 LimitType.ARGS 的情况下生效
+     */
+    String split() default "-";
+
     String message() default "RateLimitInvocationException";
 }
