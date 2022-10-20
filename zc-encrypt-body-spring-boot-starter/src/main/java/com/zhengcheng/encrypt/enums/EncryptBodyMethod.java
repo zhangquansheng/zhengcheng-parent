@@ -1,4 +1,4 @@
-package com.zhengcheng.rsa.encrypt.enums;
+package com.zhengcheng.encrypt.enums;
 
 /**
  * 加密方式

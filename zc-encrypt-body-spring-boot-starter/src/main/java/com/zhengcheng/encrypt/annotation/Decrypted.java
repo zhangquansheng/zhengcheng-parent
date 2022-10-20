@@ -1,6 +1,6 @@
-package com.zhengcheng.rsa.encrypt.annotation;
+package com.zhengcheng.encrypt.annotation;
 
-import com.zhengcheng.rsa.encrypt.enums.DecryptBodyMethod;
+import com.zhengcheng.encrypt.enums.DecryptBodyMethod;
 
 /**
  * 对 @RequestBody 请求对象解密

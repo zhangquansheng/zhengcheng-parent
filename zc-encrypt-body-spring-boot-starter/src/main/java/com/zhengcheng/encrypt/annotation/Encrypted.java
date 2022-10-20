@@ -1,6 +1,6 @@
-package com.zhengcheng.rsa.encrypt.annotation;
+package com.zhengcheng.encrypt.annotation;
 
-import com.zhengcheng.rsa.encrypt.enums.EncryptBodyMethod;
+import com.zhengcheng.encrypt.enums.EncryptBodyMethod;
 
 import java.lang.annotation.*;
 

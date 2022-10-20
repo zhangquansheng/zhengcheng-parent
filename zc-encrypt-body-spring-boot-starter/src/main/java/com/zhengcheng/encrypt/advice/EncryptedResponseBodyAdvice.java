@@ -1,13 +1,13 @@
-package com.zhengcheng.rsa.encrypt.advice;
+package com.zhengcheng.encrypt.advice;
 
 import cn.hutool.core.codec.Base64;
 import cn.hutool.crypto.SecureUtil;
 import cn.hutool.crypto.asymmetric.KeyType;
 import cn.hutool.crypto.asymmetric.RSA;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.zhengcheng.rsa.encrypt.annotation.Encrypted;
-import com.zhengcheng.rsa.encrypt.enums.EncryptBodyMethod;
-import com.zhengcheng.rsa.encrypt.properties.EncryptBodyProperties;
+import com.zhengcheng.encrypt.enums.EncryptBodyMethod;
+import com.zhengcheng.encrypt.properties.EncryptBodyProperties;
+import com.zhengcheng.encrypt.annotation.Encrypted;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;

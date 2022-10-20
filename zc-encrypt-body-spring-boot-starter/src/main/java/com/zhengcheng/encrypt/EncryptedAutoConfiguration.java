@@ -1,8 +1,8 @@
-package com.zhengcheng.rsa.encrypt;
+package com.zhengcheng.encrypt;
 
-import com.zhengcheng.rsa.encrypt.advice.DecryptedRequestBodyAdvice;
-import com.zhengcheng.rsa.encrypt.advice.EncryptedResponseBodyAdvice;
-import com.zhengcheng.rsa.encrypt.properties.EncryptBodyProperties;
+import com.zhengcheng.encrypt.advice.DecryptedRequestBodyAdvice;
+import com.zhengcheng.encrypt.advice.EncryptedResponseBodyAdvice;
+import com.zhengcheng.encrypt.properties.EncryptBodyProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
