@@ -1,5 +1,7 @@
 package com.zhengcheng.rsa.encrypt.annotation;
 
+import com.zhengcheng.rsa.encrypt.enums.EncryptBodyMethod;
+
 import java.lang.annotation.*;
 
 /**
@@ -12,5 +14,10 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface Encrypted {
+
+    /**
+     * 加密方式
+     */
+    EncryptBodyMethod value() default EncryptBodyMethod.AES;
 
 }

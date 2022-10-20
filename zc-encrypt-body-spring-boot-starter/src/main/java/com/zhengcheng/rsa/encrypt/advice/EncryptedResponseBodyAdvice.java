@@ -3,9 +3,11 @@ package com.zhengcheng.rsa.encrypt.advice;
 import cn.hutool.core.codec.Base64;
 import cn.hutool.crypto.asymmetric.KeyType;
 import cn.hutool.crypto.asymmetric.RSA;
+import cn.hutool.crypto.symmetric.AES;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zhengcheng.rsa.encrypt.EncryptedAutoConfiguration;
 import com.zhengcheng.rsa.encrypt.annotation.Encrypted;
+import com.zhengcheng.rsa.encrypt.enums.EncryptBodyMethod;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -37,6 +39,9 @@ public class EncryptedResponseBodyAdvice implements ResponseBodyAdvice<Object> {
     @Qualifier(EncryptedAutoConfiguration.RSA_BEAN_NAME)
     @Autowired
     private RSA rsa;
+    @Qualifier(EncryptedAutoConfiguration.AES_BEAN_NAME)
+    @Autowired
+    private AES aes;
 
     /**
      * 判断是否要执行 beforeBodyWrite方法，true为执行，false不执行
@@ -56,9 +61,13 @@ public class EncryptedResponseBodyAdvice implements ResponseBodyAdvice<Object> {
             Method method = returnType.getMethod();
             if (method != null) {
                 Encrypted encrypted = method.getAnnotation(Encrypted.class);
-
                 String bodyJsonStr = objectMapper.writeValueAsString(body);
-                return Base64.encode(rsa.encrypt(bodyJsonStr, StandardCharsets.UTF_8, KeyType.PublicKey));
+
+                if (EncryptBodyMethod.RSA.equals(encrypted.value())) {
+                    return Base64.encode(rsa.encrypt(bodyJsonStr, StandardCharsets.UTF_8, KeyType.PublicKey));
+                } else if (EncryptBodyMethod.AES.equals(encrypted.value())) {
+                    return new String(aes.decrypt(bodyJsonStr), StandardCharsets.UTF_8);
+                }
             }
         } catch (Exception e) {
             log.error("Encrypted data exception, message:[{}]", e.getMessage(), e);

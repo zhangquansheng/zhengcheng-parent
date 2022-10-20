@@ -33,6 +33,7 @@ public class EncryptProperties {
         private String publicKey;
     }
 
+    @Data
     public static class AesProperties {
 
         private Mode mode;
