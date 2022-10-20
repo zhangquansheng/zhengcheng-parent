@@ -24,6 +24,7 @@
 
 - 增加`幂等或防重复提交`自定义注解 `@Idempotent`
 - 新增限流器 自定义注解 `@RateLimiter`
+- `zc-rsa-encrypt-body-spring-boot-starter` 升级为 `zc-encrypt-body-spring-boot-starter`， 支持MD5/AES/RSA
 
 ### [v6.0.0] 2022.02.24
 
