@@ -63,7 +63,7 @@
         <org.projectlombok.version>1.18.12</org.projectlombok.version>
         <!-- 目前`Spring Boot version 2.1.x`对应的`redisson-spring-boot-starter`最高版本是`3.11.5` -->
         <redisson.version>3.11.5</redisson.version>
-        <protobuf-java.version>3.16.1</protobuf-java.version>
+        <protobuf-java.version>3.16.3</protobuf-java.version>
         <aliyun-log-logback-appender.version>0.1.15</aliyun-log-logback-appender.version>
         <curator-recipes.version>4.3.0</curator-recipes.version>
         <j2cache-core.version>2.8.2-release</j2cache-core.version>
