@@ -7,7 +7,7 @@ import cn.hutool.crypto.SecureUtil;
 import cn.hutool.crypto.asymmetric.RSA;
 import cn.hutool.crypto.symmetric.AES;
 import com.zhengcheng.rsa.encrypt.advice.EncryptedResponseBodyAdvice;
-import com.zhengcheng.rsa.encrypt.properties.EncryptProperties;
+import com.zhengcheng.rsa.encrypt.properties.EncryptBodyProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -26,7 +26,7 @@ import java.util.Objects;
 @SuppressWarnings("ALL")
 @Slf4j
 @Configuration
-@EnableConfigurationProperties(EncryptProperties.class)
+@EnableConfigurationProperties(EncryptBodyProperties.class)
 @Import({EncryptedResponseBodyAdvice.class})
 public class EncryptedAutoConfiguration {
 
@@ -35,21 +35,21 @@ public class EncryptedAutoConfiguration {
     public static final String AES_BEAN_NAME = "aesEncrypted";
 
 
-    private EncryptProperties encryptProperties;
+    private EncryptBodyProperties encryptBodyProperties;
 
-    public EncryptedAutoConfiguration(EncryptProperties encryptProperties) {
+    public EncryptedAutoConfiguration(EncryptBodyProperties encryptBodyProperties) {
         log.info("------ @Encrypted 自动配置  ---------------------------------------");
-        this.encryptProperties = encryptProperties;
+        this.encryptBodyProperties = encryptBodyProperties;
     }
 
     @Bean(RSA_BEAN_NAME)
     public RSA rsa() {
-        return SecureUtil.rsa(Base64.decodeStr(encryptProperties.getRas().getPrivateKey()), Base64.decodeStr(encryptProperties.getRas().getPublicKey()));
+        return SecureUtil.rsa(Base64.decodeStr(encryptBodyProperties.getRas().getPrivateKey()), Base64.decodeStr(encryptBodyProperties.getRas().getPublicKey()));
     }
 
     @Bean(AES_BEAN_NAME)
     public AES aes() {
-        return new AES(Objects.isNull(encryptProperties.getAes().getMode()) ? Mode.ECB : encryptProperties.getAes().getMode(), Objects.isNull(encryptProperties.getAes().getPadding()) ? Padding.PKCS5Padding : encryptProperties.getAes().getPadding(), new SecretKeySpec(encryptProperties.getAes().getKey().getBytes(), "AES"));
+        return new AES(Objects.isNull(encryptBodyProperties.getAes().getMode()) ? Mode.ECB : encryptBodyProperties.getAes().getMode(), Objects.isNull(encryptBodyProperties.getAes().getPadding()) ? Padding.PKCS5Padding : encryptBodyProperties.getAes().getPadding(), new SecretKeySpec(encryptBodyProperties.getAes().getKey().getBytes(), "AES"));
     }
 
 }

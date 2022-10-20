@@ -12,10 +12,10 @@ import org.springframework.context.annotation.Configuration;
  * @author quansheng1.zhang
  * @since 2021/6/8 10:17
  */
-@ConfigurationProperties(prefix = "encrypt")
+@ConfigurationProperties(prefix = "encrypt.body")
 @Configuration
 @Data
-public class EncryptProperties {
+public class EncryptBodyProperties {
 
     private RsaProperties ras;
 
