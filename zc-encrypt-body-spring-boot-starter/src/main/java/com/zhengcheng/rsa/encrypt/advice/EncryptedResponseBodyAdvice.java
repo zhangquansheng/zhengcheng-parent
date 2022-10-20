@@ -1,16 +1,14 @@
 package com.zhengcheng.rsa.encrypt.advice;
 
 import cn.hutool.core.codec.Base64;
+import cn.hutool.crypto.SecureUtil;
 import cn.hutool.crypto.asymmetric.KeyType;
 import cn.hutool.crypto.asymmetric.RSA;
-import cn.hutool.crypto.symmetric.AES;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.zhengcheng.rsa.encrypt.EncryptedAutoConfiguration;
 import com.zhengcheng.rsa.encrypt.annotation.Encrypted;
 import com.zhengcheng.rsa.encrypt.enums.EncryptBodyMethod;
+import com.zhengcheng.rsa.encrypt.properties.EncryptBodyProperties;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -34,14 +32,14 @@ import java.util.Objects;
 @ControllerAdvice
 public class EncryptedResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 
-    @Autowired
     private ObjectMapper objectMapper;
-    @Qualifier(EncryptedAutoConfiguration.RSA_BEAN_NAME)
-    @Autowired
-    private RSA rsa;
-    @Qualifier(EncryptedAutoConfiguration.AES_BEAN_NAME)
-    @Autowired
-    private AES aes;
+
+    private EncryptBodyProperties encryptBodyProperties;
+
+    public EncryptedResponseBodyAdvice(ObjectMapper objectMapper, EncryptBodyProperties encryptBodyProperties) {
+        this.objectMapper = objectMapper;
+        this.encryptBodyProperties = encryptBodyProperties;
+    }
 
     /**
      * 判断是否要执行 beforeBodyWrite方法，true为执行，false不执行
@@ -64,9 +62,10 @@ public class EncryptedResponseBodyAdvice implements ResponseBodyAdvice<Object> {
                 String bodyJsonStr = objectMapper.writeValueAsString(body);
 
                 if (EncryptBodyMethod.RSA.equals(encrypted.value())) {
+                    RSA rsa = SecureUtil.rsa(Base64.decodeStr(encryptBodyProperties.getRas().getPrivateKey()), Base64.decodeStr(encryptBodyProperties.getRas().getPublicKey()));
                     return Base64.encode(rsa.encrypt(bodyJsonStr, StandardCharsets.UTF_8, KeyType.PublicKey));
                 } else if (EncryptBodyMethod.AES.equals(encrypted.value())) {
-                    return new String(aes.decrypt(bodyJsonStr), StandardCharsets.UTF_8);
+                    return SecureUtil.aes(encryptBodyProperties.getAes().getKey().getBytes()).encryptHex(bodyJsonStr);
                 }
             }
         } catch (Exception e) {

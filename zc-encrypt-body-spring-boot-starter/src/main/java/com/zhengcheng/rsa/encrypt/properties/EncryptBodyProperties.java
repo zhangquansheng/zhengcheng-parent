@@ -1,7 +1,5 @@
 package com.zhengcheng.rsa.encrypt.properties;
 
-import cn.hutool.crypto.Mode;
-import cn.hutool.crypto.Padding;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
@@ -36,11 +34,8 @@ public class EncryptBodyProperties {
     @Data
     public static class AesProperties {
 
-        private Mode mode;
-
-        private Padding padding;
-
         private String key;
+
     }
 
 }

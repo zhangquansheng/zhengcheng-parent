@@ -8,9 +8,9 @@
 encrypt:  
     body:
       ras:
-        private-key: 12345678 # RSA加密私钥，BASE64 加密
-        public-key: 12345678 # RSA加密公钥，BASE64 加密
+        private-key: 12345678 # RSA私钥，BASE64 加密
+        public-key: 12345678 # RSA公钥，BASE64 加密
       aes:
-        key: 1234567812345678 #AES加密秘钥
+        key: 1234567812345678 #AES秘钥
 ```
 
