@@ -6,11 +6,12 @@ import cn.hutool.crypto.asymmetric.KeyType;
 import cn.hutool.crypto.asymmetric.RSA;
 import cn.hutool.crypto.symmetric.AES;
 import com.zhengcheng.encrypt.annotation.Decrypted;
-import com.zhengcheng.encrypt.properties.EncryptBodyProperties;
 import com.zhengcheng.encrypt.enums.DecryptBodyMethod;
+import com.zhengcheng.encrypt.properties.EncryptBodyProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.MethodParameter;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpInputMessage;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -31,6 +32,7 @@ import java.util.stream.Collectors;
  */
 @SuppressWarnings("ALL")
 @Slf4j
+@Order(1)
 @ControllerAdvice
 public class DecryptedRequestBodyAdvice implements RequestBodyAdvice {
 
