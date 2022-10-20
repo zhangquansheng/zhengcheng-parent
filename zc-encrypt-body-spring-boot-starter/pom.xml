@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <packaging>jar</packaging>
-    <artifactId>zc-rsa-encrypt-body-spring-boot-starter</artifactId>
+    <artifactId>zc-encrypt-body-spring-boot-starter</artifactId>
     <description>接口加密，可以对返回值、参数值通过注解的方式自动加解密</description>
 
     <dependencies>
