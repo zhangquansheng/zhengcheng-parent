@@ -23,7 +23,6 @@ import org.springframework.context.annotation.Import;
 @Slf4j
 @Configuration
 @EnableConfigurationProperties(RsaEncryptProperties.class)
-@ConditionalOnProperty(prefix = "rsa.encrypt", name = "enabled", havingValue = "true", matchIfMissing = true)
 @Import({EncryptedResponseBodyAdvice.class, EncryptedRequestBodyAdvice.class})
 public class EncryptedAutoConfiguration {
 
