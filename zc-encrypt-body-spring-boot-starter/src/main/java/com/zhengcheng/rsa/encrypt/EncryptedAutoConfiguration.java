@@ -3,11 +3,9 @@ package com.zhengcheng.rsa.encrypt;
 import cn.hutool.core.codec.Base64;
 import cn.hutool.crypto.SecureUtil;
 import cn.hutool.crypto.asymmetric.RSA;
-import com.zhengcheng.rsa.encrypt.advice.EncryptedRequestBodyAdvice;
 import com.zhengcheng.rsa.encrypt.advice.EncryptedResponseBodyAdvice;
-import com.zhengcheng.rsa.encrypt.properties.RsaEncryptProperties;
+import com.zhengcheng.rsa.encrypt.properties.EncryptProperties;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,23 +20,22 @@ import org.springframework.context.annotation.Import;
 @SuppressWarnings("ALL")
 @Slf4j
 @Configuration
-@EnableConfigurationProperties(RsaEncryptProperties.class)
-@Import({EncryptedResponseBodyAdvice.class, EncryptedRequestBodyAdvice.class})
+@EnableConfigurationProperties(EncryptProperties.class)
+@Import({EncryptedResponseBodyAdvice.class})
 public class EncryptedAutoConfiguration {
 
-    public static final String RSA_BEAN_NAME = "rsa";
+    public static final String RSA_BEAN_NAME = "rsaEncrypted";
 
-    private RsaEncryptProperties rsaEncryptProperties;
+    private EncryptProperties encryptProperties;
 
-    public EncryptedAutoConfiguration(RsaEncryptProperties rsaEncryptProperties) {
+    public EncryptedAutoConfiguration(EncryptProperties encryptProperties) {
         log.info("------ @Encrypted 自动配置  ---------------------------------------");
-        this.rsaEncryptProperties = rsaEncryptProperties;
+        this.encryptProperties = encryptProperties;
     }
 
     @Bean(RSA_BEAN_NAME)
     public RSA rsa() {
-        return SecureUtil.rsa(Base64.decodeStr(rsaEncryptProperties.getPrivateKey()),
-                Base64.decodeStr(rsaEncryptProperties.getPublicKey()));
+        return SecureUtil.rsa(Base64.decodeStr(encryptProperties.getRas().getPrivateKey()), Base64.decodeStr(encryptProperties.getRas().getPublicKey()));
     }
 
 }
