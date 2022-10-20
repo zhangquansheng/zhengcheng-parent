@@ -5,7 +5,7 @@ import com.zhengcheng.rsa.encrypt.enums.EncryptBodyMethod;
 import java.lang.annotation.*;
 
 /**
- * 对 @Req@ResponseBody 返回对象加密
+ * 对 @ResponseBody 返回对象加密
  *
  * @author quansheng1.zhang
  * @since 2021/6/8 10:07

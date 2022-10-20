@@ -1,5 +1,6 @@
 package com.zhengcheng.rsa.encrypt;
 
+import com.zhengcheng.rsa.encrypt.advice.DecryptedRequestBodyAdvice;
 import com.zhengcheng.rsa.encrypt.advice.EncryptedResponseBodyAdvice;
 import com.zhengcheng.rsa.encrypt.properties.EncryptBodyProperties;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +18,7 @@ import org.springframework.context.annotation.Import;
 @Slf4j
 @Configuration
 @EnableConfigurationProperties(EncryptBodyProperties.class)
-@Import({EncryptedResponseBodyAdvice.class})
+@Import({EncryptedResponseBodyAdvice.class, DecryptedRequestBodyAdvice.class})
 public class EncryptedAutoConfiguration {
 
 
