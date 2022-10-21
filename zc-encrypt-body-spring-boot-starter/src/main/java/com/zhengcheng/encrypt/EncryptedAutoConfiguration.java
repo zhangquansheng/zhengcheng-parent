@@ -21,7 +21,6 @@ import org.springframework.context.annotation.Import;
 @Import({EncryptedResponseBodyAdvice.class, DecryptedRequestBodyAdvice.class})
 public class EncryptedAutoConfiguration {
 
-
     public EncryptedAutoConfiguration(EncryptBodyProperties encryptBodyProperties) {
         log.info("------ @Encrypted 自动配置  ---------------------------------------");
     }

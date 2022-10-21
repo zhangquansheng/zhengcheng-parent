@@ -1,7 +1,7 @@
 package com.zhengcheng.encrypt.advice;
 
 import com.zhengcheng.encrypt.annotation.Decrypted;
-import com.zhengcheng.encrypt.message.DecryptedHttpInputMessage;
+import com.zhengcheng.encrypt.http.DecryptedHttpInputMessage;
 import com.zhengcheng.encrypt.properties.EncryptBodyProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.MethodParameter;

@@ -1,4 +1,4 @@
-package com.zhengcheng.encrypt.message;
+package com.zhengcheng.encrypt.http;
 
 import cn.hutool.core.codec.Base64;
 import cn.hutool.crypto.SecureUtil;
