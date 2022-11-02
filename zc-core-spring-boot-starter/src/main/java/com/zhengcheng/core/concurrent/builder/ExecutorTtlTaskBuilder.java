@@ -1,18 +1,20 @@
 package com.zhengcheng.core.concurrent.builder;
 
+import com.alibaba.ttl.threadpool.TtlExecutors;
 import com.zhengcheng.core.concurrent.executor.VisibleThreadPoolTaskExecutor;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
+import java.util.concurrent.Executor;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
- * {@link ThreadPoolTaskExecutor} 建造者
+ * {@link Executor} 建造者
  *
  * @author :    quansheng.zhang
  * @date :    2020/4/30 19:42
  * @since : 4.3.0
  */
-public class ExecutorMdcTaskBuilder implements cn.hutool.core.builder.Builder<ThreadPoolTaskExecutor> {
+public class ExecutorTtlTaskBuilder implements cn.hutool.core.builder.Builder<Executor> {
 
     private static final long serialVersionUID = 9148979860793449313L;
     /**
@@ -44,27 +46,27 @@ public class ExecutorMdcTaskBuilder implements cn.hutool.core.builder.Builder<Th
     /**
      * 创建ExecutorMdcTaskBuilder，开始构建
      *
-     * @return {@link ExecutorMdcTaskBuilder}
+     * @return {@link ExecutorTtlTaskBuilder}
      */
-    public static ExecutorMdcTaskBuilder create() {
-        return new ExecutorMdcTaskBuilder();
+    public static ExecutorTtlTaskBuilder create() {
+        return new ExecutorTtlTaskBuilder();
     }
 
     /**
      * 构建ThreadPoolTaskExecutor
      */
     @Override
-    public ThreadPoolTaskExecutor build() {
+    public Executor build() {
         return build(this);
     }
 
     /**
      * 构建ThreadPoolExecutor
      *
-     * @param builder {@link ExecutorMdcTaskBuilder}
+     * @param builder {@link ExecutorTtlTaskBuilder}
      * @return {@link ThreadPoolTaskExecutor}
      */
-    public ThreadPoolTaskExecutor build(ExecutorMdcTaskBuilder builder) {
+    public Executor build(ExecutorTtlTaskBuilder builder) {
         ThreadPoolTaskExecutor executor = new VisibleThreadPoolTaskExecutor();
         executor.setCorePoolSize(builder.corePoolSize);
         executor.setMaxPoolSize(builder.maxPoolSize);
@@ -75,7 +77,8 @@ public class ExecutorMdcTaskBuilder implements cn.hutool.core.builder.Builder<Th
         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
         //执行初始化
         executor.initialize();
-        return executor;
+        //采用ttl对相应的线程池进行包装
+        return TtlExecutors.getTtlExecutor(executor.getThreadPoolExecutor());
     }
 
 }
