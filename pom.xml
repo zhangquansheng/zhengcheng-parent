@@ -61,7 +61,7 @@
         <hutool.version>5.7.4</hutool.version>
         <weixin-java-tools.version>4.3.0</weixin-java-tools.version>
         <socketio.version>1.7.18</socketio.version>
-        <org.projectlombok.version>1.18.24</org.projectlombok.version>
+        <org.projectlombok.version>1.18.12</org.projectlombok.version>
         <!-- 目前`Spring Boot version 2.1.x`对应的`redisson-spring-boot-starter`最高版本是`3.11.5` -->
         <redisson.version>3.11.5</redisson.version>
         <protobuf-java.version>3.16.3</protobuf-java.version>
