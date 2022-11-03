@@ -1,7 +1,7 @@
 package com.zhengcheng.rocket.mq.aspect;
 
 import cn.hutool.core.util.StrUtil;
-import cn.hutool.json.JSONUtil;
+import com.alibaba.fastjson2.JSON;
 import com.aliyun.openservices.ons.api.Action;
 import com.aliyun.openservices.ons.api.ConsumeContext;
 import com.aliyun.openservices.ons.api.Message;
@@ -81,7 +81,7 @@ public class RocketMQDedupAspect {
         String body = new String(message.getBody());
         log.info("topic: [{}] ,Receive tag:[{}] ,body:[{}]", message.getTopic(), message.getTag(), body);
 
-        BaseMessage baseMessage = JSONUtil.toBean(body, BaseMessage.class);
+        BaseMessage baseMessage = JSON.parseObject(body, BaseMessage.class);
         // 没有继承 BaseMessage，默认UUID生成dataId
         if (Objects.isNull(baseMessage) || StrUtil.isBlank(baseMessage.getDataId())) {
             return pjp.proceed();

@@ -26,6 +26,8 @@
 - 新增限流器 自定义注解 `@RateLimiter`
 - `zc-rsa-encrypt-body-spring-boot-starter` 升级为 `zc-encrypt-body-spring-boot-starter`， 支持AES/RSA
 - 采用ttl对相应的线程池进行包装（修改之前的漏洞）
+- 禁止直接引入 `hutool-all` 依赖，依照`即取即用`的原则引入依赖
+- json数据推荐使用`jackson`、`fastjson2`，而不要使用 `fastjson` 、 `hutool-json` 等第三方包
 
 ### [v6.0.0] 2022.02.24
 

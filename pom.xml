@@ -51,6 +51,7 @@
         <tencentcloud-sdk-java.version>3.0.124</tencentcloud-sdk-java.version>
         <qcloud-cos_api.version>5.6.15</qcloud-cos_api.version>
         <fastjson.version>1.2.83</fastjson.version>
+        <fastjson2.version>2.0.17</fastjson2.version>
         <guava.version>29.0-jre</guava.version>
         <easyexcel.version>3.1.1</easyexcel.version>
         <xxl-job-core.version>2.3.1</xxl-job-core.version>
@@ -60,7 +61,7 @@
         <hutool.version>5.7.4</hutool.version>
         <weixin-java-tools.version>4.3.0</weixin-java-tools.version>
         <socketio.version>1.7.18</socketio.version>
-        <org.projectlombok.version>1.18.12</org.projectlombok.version>
+        <org.projectlombok.version>1.18.24</org.projectlombok.version>
         <!-- 目前`Spring Boot version 2.1.x`对应的`redisson-spring-boot-starter`最高版本是`3.11.5` -->
         <redisson.version>3.11.5</redisson.version>
         <protobuf-java.version>3.16.3</protobuf-java.version>
@@ -97,7 +98,7 @@
         </dependency>
         <dependency>
             <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
+            <artifactId>hutool-core</artifactId>
         </dependency>
         <dependency>
             <groupId>org.mapstruct</groupId>
@@ -308,10 +309,17 @@
                 <artifactId>cos_api</artifactId>
                 <version>${qcloud-cos_api.version}</version>
             </dependency>
+            <!-- fastjson 支持国产 -->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
+            </dependency>
+            <!-- fastjson2 支持国产 -->
+            <dependency>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2</artifactId>
+                <version>${fastjson2.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
@@ -367,11 +375,6 @@
                 <version>${protobuf-java.version}</version>
             </dependency>
             <!-- commons Dependencies End -->
-            <dependency>
-                <groupId>cn.hutool</groupId>
-                <artifactId>hutool-all</artifactId>
-                <version>${hutool.version}</version>
-            </dependency>
             <dependency>
                 <groupId>org.freemarker</groupId>
                 <artifactId>freemarker</artifactId>
@@ -661,6 +664,17 @@
                 <groupId>ws.schild</groupId>
                 <artifactId>jave-all-deps</artifactId>
                 <version>3.3.1</version>
+            </dependency>
+            <!-- hutool 支持国产 -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-core</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-crypto</artifactId>
+                <version>${hutool.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

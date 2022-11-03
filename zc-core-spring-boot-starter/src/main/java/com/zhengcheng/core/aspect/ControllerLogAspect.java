@@ -2,7 +2,6 @@ package com.zhengcheng.core.aspect;
 
 import cn.hutool.core.text.StrBuilder;
 import cn.hutool.core.util.StrUtil;
-import cn.hutool.http.Method;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zhengcheng.common.web.Result;
 import lombok.extern.slf4j.Slf4j;
@@ -78,7 +77,7 @@ public class ControllerLogAspect {
             String method = request.getMethod();
             sb.append(" | method:[").append(method).append("]");
             sb.append(" | requestPath:[").append(request.getRequestURI()).append("]");
-            if (Method.POST.toString().equalsIgnoreCase(method)) {
+            if ("POST".equalsIgnoreCase(method)) {
                 Object[] args = point.getArgs();
                 if (args.length > 0) {
                     sb.append(" | args:[");
