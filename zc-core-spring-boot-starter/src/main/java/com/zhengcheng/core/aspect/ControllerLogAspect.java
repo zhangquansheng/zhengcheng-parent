@@ -2,8 +2,8 @@ package com.zhengcheng.core.aspect;
 
 import cn.hutool.core.text.StrBuilder;
 import cn.hutool.core.util.StrUtil;
-import cn.hutool.http.Method;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.zhengcheng.common.web.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -52,7 +52,13 @@ public class ControllerLogAspect {
         long beginTime = System.currentTimeMillis();
         Object retObj = pjp.proceed();
         long costMs = System.currentTimeMillis() - beginTime;
-        log.info("{} | {} | 耗时：{}ms", pjpMethodInfo, objectMapper.writeValueAsString(retObj), costMs);
+
+        String result = "";
+        if (retObj instanceof Result) {
+            result = objectMapper.writeValueAsString(retObj);
+        }
+
+        log.info("{} | {} | 耗时：{}ms", pjpMethodInfo, result, costMs);
         return retObj;
     }
 
@@ -71,7 +77,7 @@ public class ControllerLogAspect {
             String method = request.getMethod();
             sb.append(" | method:[").append(method).append("]");
             sb.append(" | requestPath:[").append(request.getRequestURI()).append("]");
-            if (Method.POST.toString().equalsIgnoreCase(method)) {
+            if ("POST".equalsIgnoreCase(method)) {
                 Object[] args = point.getArgs();
                 if (args.length > 0) {
                     sb.append(" | args:[");

@@ -19,9 +19,9 @@ public enum ConsumeStatusEnum {
      */
     CONSUMED("CONSUMED", "已消费");
 
-    private String value;
+    private final String value;
 
-    private String desc;
+    private final String desc;
 
     ConsumeStatusEnum(String value, String desc) {
         this.value = value;
