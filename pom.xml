@@ -13,7 +13,7 @@
     <groupId>com.zhengcheng</groupId>
     <artifactId>zhengcheng-parent</artifactId>
     <packaging>pom</packaging>
-    <version>6.1.0</version>
+    <version>6.1.0-SNAPSHOT</version>
 
     <name>zhengcheng-parent</name>
 
@@ -33,7 +33,7 @@
     </modules>
 
     <properties>
-        <module.version>6.1.0</module.version>
+        <module.version>6.1.0-SNAPSHOT</module.version>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -51,7 +51,6 @@
         <tencentcloud-sdk-java.version>3.0.124</tencentcloud-sdk-java.version>
         <qcloud-cos_api.version>5.6.15</qcloud-cos_api.version>
         <fastjson.version>1.2.83</fastjson.version>
-        <fastjson2.version>2.0.17</fastjson2.version>
         <guava.version>29.0-jre</guava.version>
         <easyexcel.version>3.1.1</easyexcel.version>
         <xxl-job-core.version>2.3.1</xxl-job-core.version>
@@ -314,12 +313,6 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
-            </dependency>
-            <!-- fastjson2 支持国产 -->
-            <dependency>
-                <groupId>com.alibaba.fastjson2</groupId>
-                <artifactId>fastjson2</artifactId>
-                <version>${fastjson2.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>

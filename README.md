@@ -9,7 +9,7 @@
 <parent>
     <groupId>com.zhengcheng</groupId>
     <artifactId>zhengcheng-parent</artifactId>
-    <version>6.1.0</version>
+    <version>6.1.0-SNAPSHOT</version>
 </parent>
 ```
 
@@ -20,7 +20,7 @@
 
 ## CHANGELOG
 
-### [v6.1.0] 2022.08
+### [v6.1.0-SNAPSHOT] 2022.08
 
 - 增加`幂等或防重复提交`自定义注解 `@Idempotent`
 - 新增限流器 自定义注解 `@RateLimiter`
