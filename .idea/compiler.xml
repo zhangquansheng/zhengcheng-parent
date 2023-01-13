@@ -23,8 +23,8 @@
         <module name="zc-xxl-job-spring-boot-starter" />
         <module name="zc-cache-spring-boot-starter" />
         <module name="zc-leaf-spring-boot-starter" />
-        <module name="zc-swagger-spring-boot-starter" />
         <module name="zc-encrypt-body-spring-boot-starter" />
+        <module name="zc-swagger-spring-boot-starter" />
         <module name="zc-gateway-spring-boot-starter" />
         <module name="zc-common-spring-boot-starter" />
         <module name="zc-oss-spring-boot-starter" />

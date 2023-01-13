@@ -20,7 +20,12 @@
 
 ## CHANGELOG
 
-### [v6.1.0-SNAPSHOT] 2022.08
+### [v6.1.1] 2023.01
+
+- Bumps hutool-core from 5.7.4 to 5.8.11.
+
+
+### [v6.1.0] 2022.08
 
 - 增加`幂等或防重复提交`自定义注解 `@Idempotent`
 - 新增限流器 自定义注解 `@RateLimiter`
