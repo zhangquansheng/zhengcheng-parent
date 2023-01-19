@@ -2,9 +2,11 @@ package com.zhengcheng.mybatis.plus;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.inner.DataPermissionInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import com.zhengcheng.common.constant.CommonConstants;
 import com.zhengcheng.mybatis.plus.config.BaseMetaObjectHandler;
+import com.zhengcheng.mybatis.plus.handler.MyDataPermissionHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
@@ -52,6 +54,12 @@ public class MybatisPlusAutoConfiguration {
     @Bean
     public MybatisPlusInterceptor mybatisPlusInterceptor() {
         MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
+
+        // 数据权限插件
+//        DataPermissionInterceptor dataPermissionInterceptor = new DataPermissionInterceptor(new MyDataPermissionHandler());
+//        interceptor.addInnerInterceptor(dataPermissionInterceptor);
+
+        // 分页插件
         PaginationInnerInterceptor paginationInnerInterceptor = new PaginationInnerInterceptor(DbType.MYSQL);
         paginationInnerInterceptor.setMaxLimit(CommonConstants.DEFAULT_PAGINATION_LIMIT);
         interceptor.addInnerInterceptor(paginationInnerInterceptor);

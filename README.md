@@ -23,6 +23,7 @@
 ### [v6.1.1] 2023.01
 
 - Bumps hutool-core from 5.7.4 to 5.8.11.
+- Mybatis-Plus 数据权限 DataPermissionInterceptor 实现（开发中）
 
 
 ### [v6.1.0] 2022.08
