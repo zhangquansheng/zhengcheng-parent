@@ -2,11 +2,9 @@ package com.zhengcheng.mybatis.plus;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
-import com.baomidou.mybatisplus.extension.plugins.inner.DataPermissionInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import com.zhengcheng.common.constant.CommonConstants;
 import com.zhengcheng.mybatis.plus.config.BaseMetaObjectHandler;
-import com.zhengcheng.mybatis.plus.handler.MyDataPermissionHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
