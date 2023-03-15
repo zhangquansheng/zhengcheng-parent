@@ -78,6 +78,7 @@
         <rocketmq-spring-boot-starter.version>2.2.0</rocketmq-spring-boot-starter.version>
         <sa-token.version>1.34.0</sa-token.version>
         <nacos-discovery-spring-boot.version>0.2.10</nacos-discovery-spring-boot.version>
+        <!-- 如果开发者使用OpenAPI3的结构，底层框架依赖springfox3.0.0,可以考虑Knife4j的3.x版本 -->
         <knife4j.version>3.0.3</knife4j.version>
         <dynamic-tp.version>1.0.7</dynamic-tp.version>
     </properties>
