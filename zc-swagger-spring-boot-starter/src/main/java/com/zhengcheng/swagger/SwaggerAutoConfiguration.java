@@ -41,9 +41,9 @@ public class SwaggerAutoConfiguration {
 
 
     public SwaggerAutoConfiguration() {
-        log.info("------ Knife4j-3.0.3 自动配置  -------------------------------------------------------------------");
-        log.info("------ Springfox使用的路径匹配是基于AntPathMatcher的，而Spring Boot 2.6.X使用的是PathPatternMatcher ----");
-        log.info("------ 解决办法: spring.mvc.pathmatch.matching-strategy=ant_path_matcher  -------------------------");
+        log.info("--- Knife4j-3.0.3 自动配置  -------------------------------------------------------------------");
+        log.info("--- Springfox使用的路径匹配是基于AntPathMatcher的，而Spring Boot 2.6.X使用的是PathPatternMatcher ----");
+        log.info("--- 解决办法: spring.mvc.pathmatch.matching-strategy=ant_path_matcher  -------------------------");
     }
 
     /**
