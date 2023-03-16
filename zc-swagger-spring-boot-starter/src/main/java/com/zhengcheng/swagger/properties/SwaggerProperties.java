@@ -25,6 +25,5 @@ public class SwaggerProperties {
     private String license;
     private String licenseUrl;
     private String version;
-    private Boolean enable;
     private String basePackage;
 }

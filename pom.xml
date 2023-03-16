@@ -613,14 +613,10 @@
             <!-- https://doc.xiaominfo.com/knife4j/documentation/ -->
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
-                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <artifactId>knife4j-dependencies</artifactId>
                 <version>${knife4j.version}</version>
-            </dependency>
-            <!-- Spring Cloud微服务架构下,子服务无需引用前端UI模块,只需引入后端的Jar包 -->
-            <dependency>
-                <groupId>com.github.xiaoymin</groupId>
-                <artifactId>knife4j-micro-spring-boot-starter</artifactId>
-                <version>${knife4j.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
             <!-- 通用操作日志组件 https://github.com/mouzt/mzt-biz-log -->
             <dependency>

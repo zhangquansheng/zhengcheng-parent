@@ -19,12 +19,12 @@
           <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.4.1.Final/mapstruct-1.4.1.Final.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-configuration-processor/2.1.13.RELEASE/spring-boot-configuration-processor-2.1.13.RELEASE.jar" />
         </processorPath>
-        <module name="zc-xxl-job-spring-boot-starter" />
         <module name="zc-mybatis-plus-spring-boot-starter" />
+        <module name="zc-xxl-job-spring-boot-starter" />
         <module name="zc-cache-spring-boot-starter" />
         <module name="zc-leaf-spring-boot-starter" />
-        <module name="zc-gateway-spring-boot-starter" />
         <module name="zc-swagger-spring-boot-starter" />
+        <module name="zc-gateway-spring-boot-starter" />
         <module name="zc-encrypt-body-spring-boot-starter" />
         <module name="zc-common-spring-boot-starter" />
         <module name="zc-oss-spring-boot-starter" />
