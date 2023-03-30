@@ -192,6 +192,11 @@
                 <artifactId>zc-gateway-spring-boot-starter</artifactId>
                 <version>${module.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>sensitive-plus</artifactId>
+                <version>${module.version}</version>
+            </dependency>
             <!-- spring cloud 依赖 -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
