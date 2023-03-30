@@ -30,6 +30,7 @@
         <module>zc-leaf-spring-boot-starter</module>
         <module>zc-oss-spring-boot-starter</module>
         <module>zc-gateway-spring-boot-starter</module>
+        <module>sensitive-plus</module>
     </modules>
 
     <properties>
