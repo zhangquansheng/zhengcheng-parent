@@ -7,21 +7,27 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.ContextualSerializer;
 import com.yhq.sensitive.annotation.SensitiveInfo;
+import com.yhq.sensitive.extension.plugins.handler.SensitiveLineHandler;
 import com.yhq.sensitive.strategy.IStrategy;
 import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 /**
  * 序列化实现类
+ *
  * @author yhq
  * @date 2021年9月6日 13点39分
  **/
 @NoArgsConstructor
-public class SensitiveInfoSerialize extends JsonSerializer<String> implements
-        ContextualSerializer {
+public class SensitiveInfoSerialize extends JsonSerializer<String> implements ContextualSerializer, ApplicationContextAware {
 
     /**
      * 脱敏策略
@@ -48,7 +54,7 @@ public class SensitiveInfoSerialize extends JsonSerializer<String> implements
      */
     private String replaceChar;
 
-    public SensitiveInfoSerialize(IStrategy strategy, String pattern, String replaceChar,int begin,int end){
+    public SensitiveInfoSerialize(IStrategy strategy, String pattern, String replaceChar, int begin, int end) {
         this.strategy = strategy;
         this.pattern = pattern;
         this.replaceChar = replaceChar;
@@ -58,13 +64,22 @@ public class SensitiveInfoSerialize extends JsonSerializer<String> implements
 
     @Override
     public void serialize(String value, JsonGenerator gen, SerializerProvider serializers) throws IOException {
-        /// 默认使用正则脱敏、 begin、end 不为空，则策略脱敏
-        if(begin == 0 && end == 0){
-            gen.writeString(strategy.desensitizationByPattern(value,pattern,replaceChar));
-        }else{
-            gen.writeString(strategy.desensitization(value,begin,end));
+        // 支持扩展插件：判断是否需要脱敏
+        if (Objects.nonNull(sensitiveLineHandlerMap) && sensitiveLineHandlerMap.size() > 0) {
+            for (SensitiveLineHandler sensitiveLineHandler : sensitiveLineHandlerMap.values()) {
+                if (!sensitiveLineHandler.isSensitive(gen)) {
+                    gen.writeString(value);
+                    return;
+                }
+            }
         }
-
+        
+        // 默认使用正则脱敏、 begin、end 不为空，则策略脱敏
+        if (begin == 0 && end == 0) {
+            gen.writeString(strategy.desensitizationByPattern(value, pattern, replaceChar));
+        } else {
+            gen.writeString(strategy.desensitization(value, begin, end));
+        }
     }
 
     @Override
@@ -80,8 +95,7 @@ public class SensitiveInfoSerialize extends JsonSerializer<String> implements
                 if (sensitiveInfo != null) {
                     Class<? extends IStrategy> clazz = sensitiveInfo.strategy();
                     // 如果能得到注解，就将注解的 value 传入 SensitiveInfoSerialize
-                    return new SensitiveInfoSerialize(clazz.getDeclaredConstructor().newInstance(),sensitiveInfo.pattern(),
-                            sensitiveInfo.replaceChar(),sensitiveInfo.begin(),sensitiveInfo.end());
+                    return new SensitiveInfoSerialize(clazz.getDeclaredConstructor().newInstance(), sensitiveInfo.pattern(), sensitiveInfo.replaceChar(), sensitiveInfo.begin(), sensitiveInfo.end());
                 }
                 return serializerProvider.findValueSerializer(beanProperty.getType(), beanProperty);
             }
@@ -89,6 +103,10 @@ public class SensitiveInfoSerialize extends JsonSerializer<String> implements
         return serializerProvider.findNullValueSerializer(null);
     }
 
+    public Map<String, SensitiveLineHandler> sensitiveLineHandlerMap = new HashMap<>();
 
-
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        sensitiveLineHandlerMap = applicationContext.getBeansOfType(SensitiveLineHandler.class);
+    }
 }
