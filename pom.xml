@@ -58,7 +58,7 @@
         <cornerstone.version>0.2.1</cornerstone.version>
         <shardingsphere.version>4.0.1</shardingsphere.version>
         <freemarker.version>2.3.29</freemarker.version>
-        <hutool.version>5.7.4</hutool.version>
+        <hutool.version>5.8.19</hutool.version>
         <weixin-java-tools.version>4.3.0</weixin-java-tools.version>
         <socketio.version>1.7.18</socketio.version>
         <org.projectlombok.version>1.18.12</org.projectlombok.version>
