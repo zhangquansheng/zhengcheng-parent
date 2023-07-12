@@ -7,7 +7,7 @@
  /_/\_\_|_| |_/___|_| |_|\___|_| |_|\__, |\___|_| |_|\___|_| |_|\__, |
                                      __/ |                       __/ |
                                     |___/                       |___/
-Version: 6.1.0
+Version: 6.1.1-RC
 Github:  https://github.com/zhangquansheng/zhengcheng-parent
 Docs:    http://zhengcheng.plus/
 Spring Boot Version: ${spring-boot.version}
