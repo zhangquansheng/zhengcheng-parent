@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -82,6 +83,7 @@
         <!-- 如果开发者使用OpenAPI3的结构，底层框架依赖springfox3.0.0,可以考虑Knife4j的3.x版本 -->
         <knife4j.version>3.0.3</knife4j.version>
         <dynamic-tp.version>1.0.7</dynamic-tp.version>
+        <com.baomidou.lock4j.version>2.2.5</com.baomidou.lock4j.version>
     </properties>
 
     <dependencies>
@@ -668,7 +670,7 @@
                 <artifactId>jave-all-deps</artifactId>
                 <version>3.3.1</version>
             </dependency>
-            <!-- hutool 支持国产 -->
+            <!-- hutool -->
             <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-core</artifactId>
@@ -678,6 +680,25 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-crypto</artifactId>
                 <version>${hutool.version}</version>
+            </dependency>
+
+            <!--若使用redisTemplate作为分布式锁底层，则需要引入-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>lock4j-redis-template-spring-boot-starter</artifactId>
+                <version>${com.baomidou.lock4j.version}</version>
+            </dependency>
+            <!--若使用redisson作为分布式锁底层，则需要引入-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>lock4j-redisson-spring-boot-starter</artifactId>
+                <version>${com.baomidou.lock4j.version}</version>
+            </dependency>
+            <!--若使用zookeeper作为分布式锁底层，则需要引入-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>lock4j-zookeeper-spring-boot-starter</artifactId>
+                <version>${com.baomidou.lock4j.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

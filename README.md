@@ -1,15 +1,18 @@
 # 新征程框架项目
 
-`zhengcheng`是一个基于**SpringBoot**的框架支持项目，只需简单配置，即可快速接入各种通用组件，从而节省大量时间,让我们在开发业务时能够专注于业务的编写而不必过多的关注框架的配置，并且可以促进团队合作，降低维护成本，减少低级BUG，有助于代码审查。
+`zhengcheng`是一个基于**SpringBoot**
+的框架支持项目，只需简单配置，即可快速接入各种通用组件，从而节省大量时间,让我们在开发业务时能够专注于业务的编写而不必过多的关注框架的配置，并且可以促进团队合作，降低维护成本，减少低级BUG，有助于代码审查。
 
 ## Maven 安装
 
 把项目中的`pom.xml`的`parent`中替换以下内容:
+
 ```xml
+
 <parent>
     <groupId>com.zhengcheng</groupId>
     <artifactId>zhengcheng-parent</artifactId>
-    <version>6.1.0-SNAPSHOT</version>
+    <version>6.1.1-SNAPSHOT</version>
 </parent>
 ```
 
@@ -17,14 +20,16 @@
 
 - [zhangquansheng.github.io](https://zhangquansheng.github.io/)
 
+## 功能列表
+
+
 
 ## CHANGELOG
 
 ### [v6.1.1] 2023.01
 
 - Bumps hutool-core from 5.7.4 to 5.8.20.
-- Mybatis-Plus 数据权限 DataPermissionInterceptor 实现（开发中）
-
+- 增加分布式锁的 [lock4j](https://gitee.com/baomidou/lock4j)
 
 ### [v6.1.0] 2022.08
 
@@ -39,7 +44,8 @@
 
 - 去掉`apollo`的依赖
 - 使用`nocos`作为默认的配置中心，注册中心
-- `spring-boot-starter-parent` 从 `2.1.13.RELEASE` 升级到 [Spring Boot 2.3.12.RELEASE](https://spring.io/projects/spring-boot#support)
+- `spring-boot-starter-parent` 从 `2.1.13.RELEASE`
+  升级到 [Spring Boot 2.3.12.RELEASE](https://spring.io/projects/spring-boot#support)
 - [ ] @ConditionalOnProperty 结合 nacos-config 使用问题
 - 默认引入`jasypt-spring-boot-starter`用于加密数据库密码，缓存密码等敏感信息
 - [springcloud、springboot、springcloud alibaba版本依赖](https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E)
@@ -47,14 +53,16 @@
 - [SpringBoot 和 SpringCloud 版本对应信息查询地址](https://start.spring.io/actuator/info)
 - [knife4j](https://doc.xiaominfo.com/knife4j/documentation/)
 - Spring Cloud Alibaba 2021.0.1.0 (Spring Boot 2.6.3 | Spring Cloud 2021.0.1 )
-- 使用 Alibaba 开源的 TransmittableThreadLocal，用于解决 “在使用线程池等会缓存线程的组件情况下传递ThreadLocal” 问题的 InheritableThreadLocal 扩展。
+- 使用 Alibaba 开源的 TransmittableThreadLocal，用于解决 “在使用线程池等会缓存线程的组件情况下传递ThreadLocal”
+  问题的 InheritableThreadLocal 扩展。
 
 ### [v5.0.0] 2021.06.19
 
 - 从`zc-core-spring-boot-starter`迁移出`zc-apollo-spring-boot-starter`，支持各种配置中心
 - 升级`zc-rocket-mq-spring-boot-starter`，使用更便捷
 - elasticsearch-rest-high-level-client
-    - 目前`spring-data-elasticsearch`底层采用`es`官方`TransportClient`，而`es`官方计划放弃`TransportClient`，工具以`es`
+    - 目前`spring-data-elasticsearch`底层采用`es`官方`TransportClient`，而`es`
+      官方计划放弃`TransportClient`，工具以`es`
       官方推荐的`RestHighLevelClient`进行封装
     - 类似于`Mybatis-Plus`一样，能够极大简化`java client API`，并不断更新，让`es`更高级的功能更轻松的使用
     - 基于`elasticsearch6.4.3`版本进行开发
@@ -70,8 +78,10 @@
 - 去掉`zc-cat-spring-boot-starter`，监控使用[`Apache SkyWalking`](https://skywalking.apache.org/)
 - （重点）提高效率：引入`MapStruct` `Orika`等`Bean`映射工具
 - `BaseMessage` 增加 `timestamp`，为消息幂等使用
-- ~~增加`zc-tk-mybatis-spring-boot-starter`，集成[MyBatis 通用 Mapper4](https://github.com/abel533/Mapper)~~
-- ~~修改`zc-db-spring-boot-starter`为`zc-mybatis-plus-spring-boot-starter`，在`zc-web-spring-boot-starter`
+- ~~增加`zc-tk-mybatis-spring-boot-starter`
+  ，集成[MyBatis 通用 Mapper4](https://github.com/abel533/Mapper)~~
+- ~~修改`zc-db-spring-boot-starter`为`zc-mybatis-plus-spring-boot-starter`
+  ，在`zc-web-spring-boot-starter`
   中去掉`zc-db-spring-boot-starter`等默认配置~~
 - ~~`redisson-spring-boot-starter`使用示例文档~~
 
@@ -91,7 +101,8 @@
 - 去掉全局返回值的封装，为feign的继承做准备
 - 增加`com.zhengcheng.common.message.BaseMessage`，消息可以继承此类，其中消息ID作用为防止重复消费
 - 去掉`FeignAutoConfiguration`中关于auth的配置，后续在网关处理用户登录授权，并传递用户信息的问题
-- 在`zc-web-spring-boot-starter`剔除`zc-auth-client-spring-boot-starter`，单独引用；可以网关引入后，不需要在每个服务中单独调用（推荐）。
+- 在`zc-web-spring-boot-starter`剔除`zc-auth-client-spring-boot-starter`
+  ，单独引用；可以网关引入后，不需要在每个服务中单独调用（推荐）。
 
 ```xml
 
@@ -167,9 +178,11 @@ public String str(String v){
 - `SignAuthInterceptor` 简化对接成本;
     - [SignAuthFeignConfig](https://gitee.com/zhangquansheng/magic/blob/springboot-code-gen/src/main/java/com/zhengcheng/magic/common/config/SignAuthFeignConfig.java)
 - 增加 `SignAuthUtils` 工具类
-- `zc-feign-spring-boot-starter` 远程通信通用组件，默认配置中增加SignAuth的参数，详细见`com.zhengcheng.feign.FeignAutoConfiguration`
+- `zc-feign-spring-boot-starter`
+  远程通信通用组件，默认配置中增加SignAuth的参数，详细见`com.zhengcheng.feign.FeignAutoConfiguration`
   ,其中默认的秘钥为：security.api.key，请在配置文件中写入秘钥，默认为 `zhengcheng`
-- 技术分享 [API接口防止参数篡改和重放攻击](https://note.youdao.com/ynoteshare1/index.html?id=ed15f29e7ad1ff2d15a1236231283bc7&type=note)
+-
+技术分享 [API接口防止参数篡改和重放攻击](https://note.youdao.com/ynoteshare1/index.html?id=ed15f29e7ad1ff2d15a1236231283bc7&type=note)
 - 删除 `FeignInterceptorConfig` , 默认配置中增加 Feign OAuth2 拦截器
 - `TraceIdInterceptor` 增加 `applicationName` 构造参数，修复无法打印项目名的问题
 - [最终一致性的实现方案](http://note.youdao.com/noteshare?id=53594daefb9d2eff4cd9c353d5963f92&sub=DD547814891346F0BEF0115B425D47C2)
@@ -193,8 +206,8 @@ public String str(String v){
     <artifactId>apollo-client</artifactId>
 </dependency>
 <dependency>
-    <groupId>com.ctrip.framework.apollo</groupId>
-    <artifactId>apollo-core</artifactId>
+<groupId>com.ctrip.framework.apollo</groupId>
+<artifactId>apollo-core</artifactId>
 </dependency>
 ```
 
@@ -218,7 +231,8 @@ public String str(String v){
 </dependency>
 ```
 
-- 微信开发工具升级 `3.7.0` [微信开发 Java SDK（开发工具包）](https://gitee.com/binary/weixin-java-tools)
+-
+微信开发工具升级 `3.7.0` [微信开发 Java SDK（开发工具包）](https://gitee.com/binary/weixin-java-tools)
 - hutool 升级到 `5.3.2`
 - 增加`PageResult` 分页结果
 - 增加 `feign` 重试，只会对GET请求重试，提高系统的可用性
@@ -254,5 +268,6 @@ spring:
 - 其他
 
 ## License
-    
-`zhengcheng` is under the Apache 2.0 license. See the [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0) file for details.
+
+`zhengcheng` is under the Apache 2.0 license. See
+the [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0) file for details.
