@@ -22,6 +22,7 @@
         <module>zhengcheng-dependencies</module>
         <module>zhengcheng-bom</module>
         <module>zhengcheng-common</module>
+        <module>magic</module>
     </modules>
 
     <dependencies>
@@ -66,7 +67,7 @@
         <dependencies>
             <dependency>
                 <groupId>com.zhengcheng</groupId>
-                <artifactId>zc-dependencies</artifactId>
+                <artifactId>zhengcheng-dependencies</artifactId>
                 <version>${project.version}</version>
                 <type>pom</type>
                 <scope>import</scope>

@@ -15,6 +15,7 @@
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.22/lombok-1.18.22.jar" />
         </processorPath>
+        <module name="zhengcheng-web-demo" />
         <module name="zhengcheng-web-spring-boot-starter" />
         <module name="zhengcheng-common" />
       </profile>
@@ -68,6 +69,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="common-core" options="-parameters" />
+      <module name="magic" options="" />
       <module name="mvc-spring-boot-starter" options="-parameters" />
       <module name="mvc-springboot-starter" options="-parameters" />
       <module name="mvcspringbootstarter" options="-parameters" />
@@ -111,6 +113,7 @@
       <module name="zhengcheng-parent" options="" />
       <module name="zhengcheng-plugin" options="" />
       <module name="zhengcheng-starter" options="" />
+      <module name="zhengcheng-web-demo" options="-parameters" />
       <module name="zhengcheng-web-spring-boot-starter" options="-parameters" />
     </option>
   </component>

@@ -20,6 +20,12 @@
                 <artifactId>zhengcheng-common</artifactId>
                 <version>${zhengcheng.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zhengcheng-web-spring-boot-starter</artifactId>
+                <version>${zhengcheng.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
