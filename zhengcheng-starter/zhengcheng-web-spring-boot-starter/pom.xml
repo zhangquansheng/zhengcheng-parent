@@ -17,6 +17,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.zhengcheng</groupId>
+            <artifactId>zhengcheng-common</artifactId>
+            <version>6.1.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 </project>
