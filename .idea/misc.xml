@@ -12,6 +12,8 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/mvc-springboot-starter/pom.xml" />
+        <option value="$PROJECT_DIR$/zc-plugin/pom.xml" />
+        <option value="$PROJECT_DIR$/zc-starter/zc-gateway-spring-boot-starter/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

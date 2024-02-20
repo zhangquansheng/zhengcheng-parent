@@ -3,32 +3,27 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>zhengcheng-parent</artifactId>
+        <artifactId>zc-starter</artifactId>
         <groupId>com.zhengcheng</groupId>
         <version>6.1.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
-    <artifactId>zc-common-spring-boot-starter</artifactId>
-    <description>公共通用组件</description>
+    <artifactId>zc-mybatis-plus-spring-boot-starter</artifactId>
+    <description>MyBatis-Plus通用组件</description>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/com.alibaba/transmittable-thread-local -->
         <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>transmittable-thread-local</artifactId>
+            <groupId>com.zhengcheng</groupId>
+            <artifactId>zc-common-spring-boot-starter</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-crypto</artifactId>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>
     </dependencies>
 

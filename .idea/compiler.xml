@@ -26,8 +26,8 @@
         <module name="zc-core-spring-boot-starter" />
         <module name="zc-mybatis-plus-spring-boot-starter" />
         <module name="zc-leaf-spring-boot-starter" />
-        <module name="zc-swagger-spring-boot-starter" />
         <module name="zc-encrypt-body-spring-boot-starter" />
+        <module name="zc-swagger-spring-boot-starter" />
         <module name="sensitive-plus" />
         <module name="zc-oss-spring-boot-starter" />
         <module name="zc-elasticsearch-spring-boot-starter" />
@@ -83,7 +83,7 @@
       <module name="zc-cat-spring-boot-starter" options="-parameters" />
       <module name="zc-common-spring-boot-starter" options="-parameters" />
       <module name="zc-core-spring-boot-starter" options="-parameters" />
-      <module name="zc-dependencies" options="" />
+      <module name="zc-dependencies" options="-parameters" />
       <module name="zc-dict-spring-boot-starter" options="-parameters" />
       <module name="zc-elasticsearch-spring-boot-starter" options="-parameters" />
       <module name="zc-encrypt-body-spring-boot-starter" options="-parameters" />
@@ -97,11 +97,13 @@
       <module name="zc-mybatis-spring-boot-starter" options="-parameters" />
       <module name="zc-netty-socketio-spring-boot-starter" options="-parameters" />
       <module name="zc-oss-spring-boot-starter" options="-parameters" />
+      <module name="zc-plugin" options="" />
       <module name="zc-redis-spring-boot-starter" options="-parameters" />
       <module name="zc-rocket-mq-spring-boot-starter" options="-parameters" />
       <module name="zc-rsa-encrypt-body-spring-boot-starter" options="-parameters" />
       <module name="zc-sentinel-spring-boot-starter" options="-parameters" />
       <module name="zc-sharding-jdbc-spring-boot-starter" options="-parameters" />
+      <module name="zc-starter" options="" />
       <module name="zc-swagger-spring-boot-starter" options="-parameters" />
       <module name="zc-tencentcloud-spring-boot-starter" options="-parameters" />
       <module name="zc-tk-mybatis-spring-boot-starter" options="-parameters" />

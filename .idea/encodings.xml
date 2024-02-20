@@ -2,38 +2,43 @@
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/sensitive-plus/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-cache-spring-boot-starter" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-cache-spring-boot-starter/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-cache-spring-boot-starter/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-common-spring-boot-starter" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-common-spring-boot-starter/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-core-spring-boot-starter" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-core-spring-boot-starter/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-core-spring-boot-starter/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-elasticsearch-spring-boot-starter/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-elasticsearch-spring-boot-starter/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-encrypt-body-spring-boot-starter/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-encrypt-body-spring-boot-starter/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-gateway-spring-boot-starter/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-gateway-spring-boot-starter/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-leaf-spring-boot-starter/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-leaf-spring-boot-starter/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-mybatis-plus-spring-boot-starter" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-mybatis-plus-spring-boot-starter/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-mybatis-plus-spring-boot-starter/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-oss-spring-boot-starter/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-oss-spring-boot-starter/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-rocket-mq-spring-boot-starter/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-rocket-mq-spring-boot-starter/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-swagger-spring-boot-starter" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-swagger-spring-boot-starter/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-swagger-spring-boot-starter/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-xxl-job-spring-boot-starter" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-xxl-job-spring-boot-starter/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zc-xxl-job-spring-boot-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-plugin/sensitive-plus/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-plugin/sensitive-plus/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-plugin/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-plugin/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-starter/zc-cache-spring-boot-starter" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-starter/zc-cache-spring-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-starter/zc-cache-spring-boot-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-starter/zc-common-spring-boot-starter" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-starter/zc-common-spring-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-starter/zc-core-spring-boot-starter" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-starter/zc-core-spring-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-starter/zc-core-spring-boot-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-starter/zc-elasticsearch-spring-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-starter/zc-elasticsearch-spring-boot-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-starter/zc-encrypt-body-spring-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-starter/zc-encrypt-body-spring-boot-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-starter/zc-gateway-spring-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-starter/zc-gateway-spring-boot-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-starter/zc-leaf-spring-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-starter/zc-leaf-spring-boot-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-starter/zc-mybatis-plus-spring-boot-starter" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-starter/zc-mybatis-plus-spring-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-starter/zc-mybatis-plus-spring-boot-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-starter/zc-oss-spring-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-starter/zc-oss-spring-boot-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-starter/zc-rocket-mq-spring-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-starter/zc-rocket-mq-spring-boot-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-starter/zc-swagger-spring-boot-starter" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-starter/zc-swagger-spring-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-starter/zc-swagger-spring-boot-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-starter/zc-xxl-job-spring-boot-starter" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-starter/zc-xxl-job-spring-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zc-starter/zc-xxl-job-spring-boot-starter/src/main/resources" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

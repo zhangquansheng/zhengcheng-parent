@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>zhengcheng-parent</artifactId>
+        <groupId>com.zhengcheng</groupId>
+        <version>6.1.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+
+    <artifactId>zc-starter</artifactId>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <modules>
+        <module>zc-core-spring-boot-starter</module>
+        <module>zc-common-spring-boot-starter</module>
+        <module>zc-mybatis-plus-spring-boot-starter</module>
+        <module>zc-swagger-spring-boot-starter</module>
+        <module>zc-xxl-job-spring-boot-starter</module>
+        <module>zc-cache-spring-boot-starter</module>
+        <module>zc-encrypt-body-spring-boot-starter</module>
+        <module>zc-elasticsearch-spring-boot-starter</module>
+        <module>zc-rocket-mq-spring-boot-starter</module>
+        <module>zc-leaf-spring-boot-starter</module>
+        <module>zc-oss-spring-boot-starter</module>
+        <module>zc-gateway-spring-boot-starter</module>
+    </modules>
+
+</project>
