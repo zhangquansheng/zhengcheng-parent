@@ -9,15 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
-
     <artifactId>zhengcheng-starter</artifactId>
-    <name>zhengcheng-starter</name>
 
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
+    <modules>
+        <module>zhengcheng-web-spring-boot-starter</module>
+    </modules>
 
 </project>

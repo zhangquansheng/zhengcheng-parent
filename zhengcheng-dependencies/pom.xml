@@ -15,6 +15,8 @@
     <packaging>pom</packaging>
 
     <properties>
+        <zhengcheng.version>6.1.1-SNAPSHOT</zhengcheng.version>
+
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -80,6 +82,14 @@
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
                 <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- zhengcheng 自身依赖 -->
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zhengcheng-bom</artifactId>
+                <version>${zhengcheng.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

@@ -16,6 +16,7 @@
         <option value="$PROJECT_DIR$/zc-starter/zc-gateway-spring-boot-starter/pom.xml" />
         <option value="$PROJECT_DIR$/zc-dependencies/pom.xml" />
         <option value="$PROJECT_DIR$/zhengcheng-bom/pom.xml" />
+        <option value="$PROJECT_DIR$/zhengcheng-starter/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
@@ -26,7 +27,6 @@
         <option value="$PROJECT_DIR$/swagger-spring-boot-starter/pom.xml" />
         <option value="$PROJECT_DIR$/zc-apollo-spring-boot-starter/pom.xml" />
         <option value="$PROJECT_DIR$/zc-sentinel-spring-boot-starter/pom.xml" />
-        <option value="$PROJECT_DIR$/zhengcheng-starter/pom.xml" />
       </set>
     </option>
   </component>

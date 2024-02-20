@@ -6,15 +6,11 @@
 
     <groupId>com.zhengcheng</groupId>
     <artifactId>zhengcheng-bom</artifactId>
-    <name>zhengcheng-bom</name>
     <version>6.1.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <zc.version>6.1.1-SNAPSHOT</zc.version>
+        <zhengcheng.version>6.1.1-SNAPSHOT</zhengcheng.version>
     </properties>
 
     <dependencyManagement>
@@ -22,7 +18,7 @@
             <dependency>
                 <groupId>com.zhengcheng</groupId>
                 <artifactId>zhengcheng-common</artifactId>
-                <version>${zc.version}</version>
+                <version>${zhengcheng.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

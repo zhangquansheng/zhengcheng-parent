@@ -15,6 +15,7 @@
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.22/lombok-1.18.22.jar" />
         </processorPath>
+        <module name="zhengcheng-web-spring-boot-starter" />
         <module name="zhengcheng-common" />
       </profile>
     </annotationProcessing>
@@ -62,7 +63,6 @@
       <module name="zc-web-spring-boot-starter" target="1.8" />
       <module name="zc-xxl-job-spring-boot-starter" target="1.8" />
       <module name="zc-zk-spring-boot-starter" target="1.8" />
-      <module name="zhengcheng-starter" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -111,6 +111,7 @@
       <module name="zhengcheng-parent" options="" />
       <module name="zhengcheng-plugin" options="" />
       <module name="zhengcheng-starter" options="" />
+      <module name="zhengcheng-web-spring-boot-starter" options="-parameters" />
     </option>
   </component>
 </project>

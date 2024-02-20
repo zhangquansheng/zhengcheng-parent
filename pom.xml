@@ -16,8 +16,6 @@
     <packaging>pom</packaging>
     <version>6.1.1-SNAPSHOT</version>
 
-    <name>zhengcheng-parent</name>
-
     <modules>
         <module>zhengcheng-plugin</module>
         <module>zhengcheng-starter</module>

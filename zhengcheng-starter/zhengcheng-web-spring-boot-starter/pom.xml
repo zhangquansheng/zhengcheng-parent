@@ -3,19 +3,23 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>zhengcheng-parent</artifactId>
+        <artifactId>zhengcheng-starter</artifactId>
         <groupId>com.zhengcheng</groupId>
         <version>6.1.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>zhengcheng-common</artifactId>
-    <packaging>jar</packaging>
+    <artifactId>zhengcheng-web-spring-boot-starter</artifactId>
+    <description>整合 spring-boot-starter-web 的 Web启动器</description>
 
     <dependencies>
         <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>transmittable-thread-local</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zhengcheng</groupId>
+            <artifactId>zhengcheng-common</artifactId>
         </dependency>
     </dependencies>
 
