@@ -10,7 +10,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
-    <artifactId>zhengcheng-cache-spring-boot-starter</artifactId>
+    <artifactId>zhengcheng-redis-cache-spring-boot-starter</artifactId>
     <description>整合Redis caffeine缓存通用组件</description>
 
     <dependencies>

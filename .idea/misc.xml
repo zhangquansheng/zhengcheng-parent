@@ -26,6 +26,9 @@
         <option value="$PROJECT_DIR$/zhengcheng-starter/zhengcheng-oss-spring-boot-starter/pom.xml" />
         <option value="$PROJECT_DIR$/zhengcheng-starter/zhengcheng-rocket-mq-spring-boot-starter/pom.xml" />
         <option value="$PROJECT_DIR$/magic/zhengcheng-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/magic/apollo/pom.xml" />
+        <option value="$PROJECT_DIR$/magic/echarts/pom.xml" />
+        <option value="$PROJECT_DIR$/magic/just-auth-RBAC/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

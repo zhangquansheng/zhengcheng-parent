@@ -19,12 +19,15 @@
         <module name="zhengcheng-oss-spring-boot-starter" />
         <module name="zhengcheng-knife4j-spring-boot-starter" />
         <module name="zhengcheng-mp-spring-boot-starter" />
+        <module name="just-auth-RBAC" />
+        <module name="apollo" />
         <module name="zhengcheng-redis-cache-spring-boot-starter" />
         <module name="zhengcheng-gateway" />
         <module name="zhengcheng-rocket-mq-spring-boot-starter" />
         <module name="zhengcheng-xxl-job-spring-boot-starter" />
         <module name="zhengcheng-encrypt-body-spring-boot-starter" />
         <module name="zhengcheng-leaf-spring-boot-starter" />
+        <module name="echarts" />
         <module name="zhengcheng-common" />
         <module name="zhengcheng-web-spring-boot-starter" />
         <module name="zhengcheng-elasticsearch-spring-boot-starter" />
@@ -76,7 +79,10 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="apollo" options="-parameters" />
       <module name="common-core" options="-parameters" />
+      <module name="echarts" options="-parameters" />
+      <module name="just-auth-RBAC" options="-parameters" />
       <module name="magic" options="" />
       <module name="mvc-spring-boot-starter" options="-parameters" />
       <module name="mvc-springboot-starter" options="-parameters" />
