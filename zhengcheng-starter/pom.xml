@@ -19,6 +19,7 @@
         <module>zhengcheng-leaf-spring-boot-starter</module>
         <module>zhengcheng-cache-spring-boot-starter</module>
         <module>zhengcheng-elasticsearch-spring-boot-starter</module>
+        <module>zhengcheng-xxl-job-spring-boot-starter</module>
     </modules>
 
 </project>
