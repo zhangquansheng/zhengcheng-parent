@@ -1,0 +1,13 @@
+
+       _           _                           _
+      (_)         | |                         | |
+ __  ___ _ __  ___| |__   ___ _ __   __ _  ___| |__   ___ _ __   __ _
+ \ \/ / | '_ \|_  / '_ \ / _ \ '_ \ / _` |/ __| '_ \ / _ \ '_ \ / _` |
+  >  <| | | | |/ /| | | |  __/ | | | (_| | (__| | | |  __/ | | | (_| |
+ /_/\_\_|_| |_/___|_| |_|\___|_| |_|\__, |\___|_| |_|\___|_| |_|\__, |
+                                     __/ |                       __/ |
+                                    |___/                       |___/
+Version: 6.1.1-RC
+Github:  https://github.com/zhangquansheng/zhengcheng-parent
+Docs:    http://zhengcheng.plus/
+Spring Boot Version: ${spring-boot.version}
