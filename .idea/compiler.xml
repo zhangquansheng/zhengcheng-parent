@@ -14,8 +14,7 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.22/lombok-1.18.22.jar" />
-          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.4.1.Final/mapstruct-processor-1.4.1.Final.jar" />
-          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.4.1.Final/mapstruct-1.4.1.Final.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/${mapstruct.version}/mapstruct-processor-${mapstruct.version}.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-configuration-processor/2.1.13.RELEASE/spring-boot-configuration-processor-2.1.13.RELEASE.jar" />
         </processorPath>
         <module name="zc-xxl-job-spring-boot-starter" />
@@ -47,7 +46,6 @@
       <module name="zc-auth-client-spring-boot-starter" target="1.8" />
       <module name="zc-cat-spring-boot-starter" target="1.8" />
       <module name="zc-db-spring-boot-starter" target="1.8" />
-      <module name="zc-dependencies" target="1.8" />
       <module name="zc-dict-client-spring-boot-starter" target="1.8" />
       <module name="zc-dict-spring-boot-starter" target="1.8" />
       <module name="zc-feign-spring-boot-starter" target="1.8" />
@@ -79,11 +77,12 @@
       <module name="zc-apollo-spring-boot-starter" options="-parameters" />
       <module name="zc-async-spring-boot-starter" options="-parameters" />
       <module name="zc-auth-client-spring-boot-starter" options="-parameters" />
+      <module name="zc-bom" options="" />
       <module name="zc-cache-spring-boot-starter" options="-parameters" />
       <module name="zc-cat-spring-boot-starter" options="-parameters" />
       <module name="zc-common-spring-boot-starter" options="-parameters" />
       <module name="zc-core-spring-boot-starter" options="-parameters" />
-      <module name="zc-dependencies" options="-parameters" />
+      <module name="zc-dependencies" options="" />
       <module name="zc-dict-spring-boot-starter" options="-parameters" />
       <module name="zc-elasticsearch-spring-boot-starter" options="-parameters" />
       <module name="zc-encrypt-body-spring-boot-starter" options="-parameters" />

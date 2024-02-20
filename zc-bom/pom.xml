@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.zhengcheng</groupId>
+    <artifactId>zc-bom</artifactId>
+    <name>zc-bom</name>
+    <version>6.1.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <zc.version>6.1.1-SNAPSHOT</zc.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- 自定义 starter -->
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zc-core-spring-boot-starter</artifactId>
+                <version>${zc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zc-common-spring-boot-starter</artifactId>
+                <version>${zc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zc-mybatis-plus-spring-boot-starter</artifactId>
+                <version>${zc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zc-swagger-spring-boot-starter</artifactId>
+                <version>${zc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zc-xxl-job-spring-boot-starter</artifactId>
+                <version>${zc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zc-cache-spring-boot-starter</artifactId>
+                <version>${zc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zc-encrypt-body-spring-boot-starter</artifactId>
+                <version>${zc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zc-elasticsearch-spring-boot-starter</artifactId>
+                <version>${zc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zc-rocket-mq-spring-boot-starter</artifactId>
+                <version>${zc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zc-leaf-spring-boot-starter</artifactId>
+                <version>${zc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zc-oss-spring-boot-starter</artifactId>
+                <version>${zc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zc-gateway-spring-boot-starter</artifactId>
+                <version>${zc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>sensitive-plus</artifactId>
+                <version>${zc.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
