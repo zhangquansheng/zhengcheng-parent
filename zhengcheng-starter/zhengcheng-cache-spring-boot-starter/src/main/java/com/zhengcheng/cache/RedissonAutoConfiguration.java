@@ -1,24 +1,21 @@
 package com.zhengcheng.cache;
 
-import com.zhengcheng.cache.idempotent.aspect.IdempotentAspect;
-import com.zhengcheng.cache.expression.KeyResolver;
-import com.zhengcheng.cache.expression.SpelExpressionKeyResolver;
 import com.zhengcheng.cache.properties.RedissonProperties;
-import lombok.extern.slf4j.Slf4j;
+
 import org.apache.commons.lang3.StringUtils;
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;
 import org.redisson.config.Config;
 import org.redisson.config.SentinelServersConfig;
 import org.redisson.config.SingleServerConfig;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Redisson 自动配置
@@ -69,19 +66,5 @@ public class RedissonAutoConfiguration {
         log.info("------ Redisson 哨兵模式配置成功----------------------------------");
         return Redisson.create(config);
     }
-
-
-    @Bean
-    @ConditionalOnBean(RedissonClient.class)
-    public IdempotentAspect idempotentAspect() {
-        return new IdempotentAspect();
-    }
-
-    @Bean
-    @ConditionalOnMissingBean
-    public KeyResolver keyResolver() {
-        return new SpelExpressionKeyResolver();
-    }
-
 
 }
