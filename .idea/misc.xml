@@ -33,6 +33,8 @@
         <option value="$PROJECT_DIR$/magic/webmagic/pom.xml" />
         <option value="$PROJECT_DIR$/magic/mybatis-plus/pom.xml" />
         <option value="$PROJECT_DIR$/magic/nacos/pom.xml" />
+        <option value="$PROJECT_DIR$/magic/netty-socketio/pom.xml" />
+        <option value="$PROJECT_DIR$/magic/passport/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

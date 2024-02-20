@@ -30,11 +30,13 @@
         <module name="zhengcheng-rocket-mq-spring-boot-starter" />
         <module name="zhengcheng-encrypt-body-spring-boot-starter" />
         <module name="zhengcheng-leaf-spring-boot-starter" />
+        <module name="passport" />
         <module name="echarts" />
         <module name="zhengcheng-common" />
         <module name="zhengcheng-web-spring-boot-starter" />
         <module name="zhengcheng-elasticsearch-spring-boot-starter" />
         <module name="mybatis-plus" />
+        <module name="netty-socketio" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -94,6 +96,8 @@
       <module name="mvcspringbootstarter" options="-parameters" />
       <module name="mybatis-plus" options="-parameters" />
       <module name="nacos" options="-parameters" />
+      <module name="netty-socketio" options="-parameters" />
+      <module name="passport" options="-parameters" />
       <module name="sensitive-plus" options="-parameters" />
       <module name="swagger-spring-boot-starter" options="-parameters" />
       <module name="webmagic" options="-parameters" />
