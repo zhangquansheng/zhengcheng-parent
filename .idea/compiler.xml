@@ -17,21 +17,23 @@
         </processorPath>
         <module name="zhengcheng-web" />
         <module name="zhengcheng-oss-spring-boot-starter" />
-        <module name="zhengcheng-knife4j-spring-boot-starter" />
         <module name="zhengcheng-mp-spring-boot-starter" />
+        <module name="zhengcheng-knife4j-spring-boot-starter" />
         <module name="just-auth-RBAC" />
         <module name="apollo" />
         <module name="knife4j-springfox-boot-v3" />
         <module name="zhengcheng-redis-cache-spring-boot-starter" />
         <module name="zhengcheng-gateway" />
-        <module name="zhengcheng-rocket-mq-spring-boot-starter" />
+        <module name="webmagic" />
         <module name="zhengcheng-xxl-job-spring-boot-starter" />
+        <module name="zhengcheng-rocket-mq-spring-boot-starter" />
         <module name="zhengcheng-encrypt-body-spring-boot-starter" />
         <module name="zhengcheng-leaf-spring-boot-starter" />
         <module name="echarts" />
         <module name="zhengcheng-common" />
         <module name="zhengcheng-web-spring-boot-starter" />
         <module name="zhengcheng-elasticsearch-spring-boot-starter" />
+        <module name="mybatis-plus" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -89,8 +91,10 @@
       <module name="mvc-spring-boot-starter" options="-parameters" />
       <module name="mvc-springboot-starter" options="-parameters" />
       <module name="mvcspringbootstarter" options="-parameters" />
+      <module name="mybatis-plus" options="-parameters" />
       <module name="sensitive-plus" options="-parameters" />
       <module name="swagger-spring-boot-starter" options="-parameters" />
+      <module name="webmagic" options="-parameters" />
       <module name="zc-aliyun-spring-boot-starter" options="-parameters" />
       <module name="zc-apollo-spring-boot-starter" options="-parameters" />
       <module name="zc-async-spring-boot-starter" options="-parameters" />
