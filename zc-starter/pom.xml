@@ -18,19 +18,5 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <modules>
-        <module>zc-core-spring-boot-starter</module>
-        <module>zc-common-spring-boot-starter</module>
-        <module>zc-mybatis-plus-spring-boot-starter</module>
-        <module>zc-swagger-spring-boot-starter</module>
-        <module>zc-xxl-job-spring-boot-starter</module>
-        <module>zc-cache-spring-boot-starter</module>
-        <module>zc-encrypt-body-spring-boot-starter</module>
-        <module>zc-elasticsearch-spring-boot-starter</module>
-        <module>zc-rocket-mq-spring-boot-starter</module>
-        <module>zc-leaf-spring-boot-starter</module>
-        <module>zc-oss-spring-boot-starter</module>
-        <module>zc-gateway-spring-boot-starter</module>
-    </modules>
 
 </project>
