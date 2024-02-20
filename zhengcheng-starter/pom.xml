@@ -16,6 +16,7 @@
         <module>zhengcheng-knife4j-spring-boot-starter</module>
         <module>zhengcheng-mp-spring-boot-starter</module>
         <module>zhengcheng-encrypt-body-spring-boot-starter</module>
+        <module>zhengcheng-leaf-spring-boot-starter</module>
     </modules>
 
 </project>
