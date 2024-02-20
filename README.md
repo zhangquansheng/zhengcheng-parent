@@ -23,7 +23,25 @@
 ## 系统模块
 
 ``` js
-zhengcheng-parent     
+zhengcheng-parent    
+├── magic      // [示例] `zhengcheng` 框架示例项目
+├── zhengcheng-bom          // [依赖] 定义`zhengcheng`包，方便引入`zhengcheng`时对齐版本。
+├── zhengcheng-common       // [核心] `zhengcheng`公共模块
+├── zhengcheng-dependencies // [依赖] 依赖版本信息
+├── zhengcheng-doc          // [文档] `zhengcheng`开发文档
+├── zhengcheng-plugin        // [插件] `zhengcheng`第三方插件实现
+│       └── sensitive-plus            // [插件] 数据脱密的SDK
+├── zhengcheng-starter       // [整合] zhengcheng 与其它框架整合
+│       └── zhengcheng-elasticsearch-spring-boot-starter   // 整合 elasticsearch 通用组件
+│       └── zhengcheng-encrypt-body-spring-boot-starter    //  API接口加密，可以对返回值、参数值通过注解的方式自动加解密
+│       └── zhengcheng-knife4j-spring-boot-starter         // 整合 knife4j-spring-boot-starter（接口文档） 通用组件
+│       └── zhengcheng-leaf-spring-boot-starter            // 整合 Leaf：美团分布式ID生成服务 通用组件
+│       └── zhengcheng-mp-spring-boot-starter              // 整合 MyBatis-Plus 通用组件
+│       └── zhengcheng-oss-spring-boot-starter             // 整合 OSS SDK 通用组件
+│       └── zhengcheng-redis-cache-spring-boot-starter     // 整合 spring-boot-starter-data-redis spring-boot-starter-cache 通用组件
+│       └── zhengcheng-rocket-mq-spring-boot-starter       // 整合 RocketMQ SDK 通用组件  
+│       └── zhengcheng-web-spring-boot-starter             // 整合 spring-boot-starter-web 的 Web启动器
+│       └── zhengcheng-xxl-job-spring-boot-starter         // 整合 Leaf：美团分布式ID生成服务 通用组件
 ├──pom.xml                // [依赖] 公共依赖
 ```
 
@@ -186,7 +204,9 @@ public String str(String v){
   远程通信通用组件，默认配置中增加SignAuth的参数，详细见`com.zhengcheng.feign.FeignAutoConfiguration`
   ,其中默认的秘钥为：security.api.key，请在配置文件中写入秘钥，默认为 `zhengcheng`
 -
+
 技术分享 [API接口防止参数篡改和重放攻击](https://note.youdao.com/ynoteshare1/index.html?id=ed15f29e7ad1ff2d15a1236231283bc7&type=note)
+
 - 删除 `FeignInterceptorConfig` , 默认配置中增加 Feign OAuth2 拦截器
 - `TraceIdInterceptor` 增加 `applicationName` 构造参数，修复无法打印项目名的问题
 - [最终一致性的实现方案](http://note.youdao.com/noteshare?id=53594daefb9d2eff4cd9c353d5963f92&sub=DD547814891346F0BEF0115B425D47C2)
@@ -236,7 +256,9 @@ public String str(String v){
 ```
 
 -
+
 微信开发工具升级 `3.7.0` [微信开发 Java SDK（开发工具包）](https://gitee.com/binary/weixin-java-tools)
+
 - hutool 升级到 `5.3.2`
 - 增加`PageResult` 分页结果
 - 增加 `feign` 重试，只会对GET请求重试，提高系统的可用性

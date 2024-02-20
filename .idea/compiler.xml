@@ -24,9 +24,9 @@
         <module name="zhengcheng-knife4j-spring-boot-starter" />
         <module name="zhengcheng-mp-spring-boot-starter" />
         <module name="zhengcheng-common" />
-        <module name="zhengcheng-cache-spring-boot-starter" />
         <module name="zhengcheng-web-spring-boot-starter" />
         <module name="zhengcheng-elasticsearch-spring-boot-starter" />
+        <module name="zhengcheng-redis-cache-spring-boot-starter" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -113,7 +113,6 @@
       <module name="zc-xxl-job-spring-boot-starter" options="-parameters" />
       <module name="zc-zk-spring-boot-starter" options="-parameters" />
       <module name="zhengcheng-bom" options="" />
-      <module name="zhengcheng-cache-spring-boot-starter" options="-parameters" />
       <module name="zhengcheng-common" options="-parameters" />
       <module name="zhengcheng-dependencies" options="" />
       <module name="zhengcheng-elasticsearch-spring-boot-starter" options="-parameters" />
@@ -124,6 +123,7 @@
       <module name="zhengcheng-oss-spring-boot-starter" options="-parameters" />
       <module name="zhengcheng-parent" options="" />
       <module name="zhengcheng-plugin" options="" />
+      <module name="zhengcheng-redis-cache-spring-boot-starter" options="-parameters" />
       <module name="zhengcheng-rocket-mq-spring-boot-starter" options="-parameters" />
       <module name="zhengcheng-starter" options="" />
       <module name="zhengcheng-web-demo" options="-parameters" />

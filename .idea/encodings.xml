@@ -40,8 +40,6 @@
     <file url="file://$PROJECT_DIR$/zhengcheng-starter/zc-swagger-spring-boot-starter" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zhengcheng-starter/zc-swagger-spring-boot-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zhengcheng-starter/zc-swagger-spring-boot-starter/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zhengcheng-starter/zhengcheng-cache-spring-boot-starter/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zhengcheng-starter/zhengcheng-cache-spring-boot-starter/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zhengcheng-starter/zhengcheng-elasticsearch-spring-boot-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zhengcheng-starter/zhengcheng-encrypt-body-spring-boot-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zhengcheng-starter/zhengcheng-encrypt-body-spring-boot-starter/src/main/resources" charset="UTF-8" />
@@ -51,6 +49,8 @@
     <file url="file://$PROJECT_DIR$/zhengcheng-starter/zhengcheng-mp-spring-boot-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zhengcheng-starter/zhengcheng-oss-spring-boot-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zhengcheng-starter/zhengcheng-oss-spring-boot-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zhengcheng-starter/zhengcheng-redis-cache-spring-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zhengcheng-starter/zhengcheng-redis-cache-spring-boot-starter/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zhengcheng-starter/zhengcheng-rocket-mq-spring-boot-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zhengcheng-starter/zhengcheng-rocket-mq-spring-boot-starter/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zhengcheng-starter/zhengcheng-web-spring-boot-starter/src/main/java" charset="UTF-8" />

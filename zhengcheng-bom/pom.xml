@@ -48,7 +48,7 @@
             </dependency>
             <dependency>
                 <groupId>com.zhengcheng</groupId>
-                <artifactId>zhengcheng-cache-spring-boot-starter</artifactId>
+                <artifactId>zhengcheng-redis-cache-spring-boot-starter</artifactId>
                 <version>${zhengcheng.version}</version>
             </dependency>
             <dependency>
