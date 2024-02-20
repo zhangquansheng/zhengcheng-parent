@@ -17,6 +17,7 @@
         <module>zhengcheng-mp-spring-boot-starter</module>
         <module>zhengcheng-encrypt-body-spring-boot-starter</module>
         <module>zhengcheng-leaf-spring-boot-starter</module>
+        <module>zhengcheng-cache-spring-boot-starter</module>
     </modules>
 
 </project>
