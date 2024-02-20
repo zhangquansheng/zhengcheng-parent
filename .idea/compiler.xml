@@ -20,6 +20,7 @@
         <module name="zc-xxl-job-spring-boot-starter" />
         <module name="zc-cache-spring-boot-starter" />
         <module name="zc-gateway-spring-boot-starter" />
+        <module name="zc-common" />
         <module name="zc-common-spring-boot-starter" />
         <module name="zc-rocket-mq-spring-boot-starter" />
         <module name="zc-core-spring-boot-starter" />
@@ -80,6 +81,7 @@
       <module name="zc-bom" options="" />
       <module name="zc-cache-spring-boot-starter" options="-parameters" />
       <module name="zc-cat-spring-boot-starter" options="-parameters" />
+      <module name="zc-common" options="-parameters" />
       <module name="zc-common-spring-boot-starter" options="-parameters" />
       <module name="zc-core-spring-boot-starter" options="-parameters" />
       <module name="zc-dependencies" options="" />
