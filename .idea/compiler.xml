@@ -15,18 +15,19 @@
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.22/lombok-1.18.22.jar" />
         </processorPath>
+        <module name="zhengcheng-web" />
+        <module name="zhengcheng-oss-spring-boot-starter" />
+        <module name="zhengcheng-knife4j-spring-boot-starter" />
+        <module name="zhengcheng-mp-spring-boot-starter" />
+        <module name="zhengcheng-redis-cache-spring-boot-starter" />
+        <module name="zhengcheng-gateway" />
         <module name="zhengcheng-rocket-mq-spring-boot-starter" />
         <module name="zhengcheng-xxl-job-spring-boot-starter" />
         <module name="zhengcheng-encrypt-body-spring-boot-starter" />
         <module name="zhengcheng-leaf-spring-boot-starter" />
-        <module name="zhengcheng-web-demo" />
-        <module name="zhengcheng-oss-spring-boot-starter" />
-        <module name="zhengcheng-knife4j-spring-boot-starter" />
-        <module name="zhengcheng-mp-spring-boot-starter" />
         <module name="zhengcheng-common" />
         <module name="zhengcheng-web-spring-boot-starter" />
         <module name="zhengcheng-elasticsearch-spring-boot-starter" />
-        <module name="zhengcheng-redis-cache-spring-boot-starter" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -117,6 +118,7 @@
       <module name="zhengcheng-dependencies" options="" />
       <module name="zhengcheng-elasticsearch-spring-boot-starter" options="-parameters" />
       <module name="zhengcheng-encrypt-body-spring-boot-starter" options="-parameters" />
+      <module name="zhengcheng-gateway" options="-parameters" />
       <module name="zhengcheng-knife4j-spring-boot-starter" options="-parameters" />
       <module name="zhengcheng-leaf-spring-boot-starter" options="-parameters" />
       <module name="zhengcheng-mp-spring-boot-starter" options="-parameters" />
@@ -126,7 +128,7 @@
       <module name="zhengcheng-redis-cache-spring-boot-starter" options="-parameters" />
       <module name="zhengcheng-rocket-mq-spring-boot-starter" options="-parameters" />
       <module name="zhengcheng-starter" options="" />
-      <module name="zhengcheng-web-demo" options="-parameters" />
+      <module name="zhengcheng-web" options="-parameters" />
       <module name="zhengcheng-web-spring-boot-starter" options="-parameters" />
       <module name="zhengcheng-xxl-job-spring-boot-starter" options="-parameters" />
     </option>
