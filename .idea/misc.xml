@@ -19,6 +19,7 @@
         <option value="$PROJECT_DIR$/zhengcheng-starter/pom.xml" />
         <option value="$PROJECT_DIR$/zhengcheng-dependencies/pom.xml" />
         <option value="$PROJECT_DIR$/zhengcheng-starter/zhengcheng-knife4j-spring-boot-starter/pom.xml" />
+        <option value="$PROJECT_DIR$/zhengcheng-starter/zhengcheng-encrypt-body-spring-boot-starter/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

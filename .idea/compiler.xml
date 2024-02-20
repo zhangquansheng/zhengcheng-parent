@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="zhengcheng-mp-spring-boot-starter" />
       </profile>
       <profile name="Annotation profile for zhengcheng-parent" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -15,10 +16,10 @@
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.22/lombok-1.18.22.jar" />
         </processorPath>
-        <module name="zhengcheng-web-demo" />
+        <module name="zhengcheng-encrypt-body-spring-boot-starter" />
         <module name="zhengcheng-web-spring-boot-starter" />
+        <module name="zhengcheng-web-demo" />
         <module name="zhengcheng-knife4j-spring-boot-starter" />
-        <module name="zhengcheng-mp-spring-boot-starter" />
         <module name="zhengcheng-common" />
       </profile>
     </annotationProcessing>
@@ -112,6 +113,7 @@
       <module name="zhengcheng-bom" options="" />
       <module name="zhengcheng-common" options="-parameters" />
       <module name="zhengcheng-dependencies" options="" />
+      <module name="zhengcheng-encrypt-body-spring-boot-starter" options="-parameters" />
       <module name="zhengcheng-knife4j-spring-boot-starter" options="-parameters" />
       <module name="zhengcheng-mp-spring-boot-starter" options="-parameters" />
       <module name="zhengcheng-parent" options="" />
