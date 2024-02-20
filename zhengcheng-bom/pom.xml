@@ -26,6 +26,11 @@
                 <artifactId>zhengcheng-web-spring-boot-starter</artifactId>
                 <version>${zhengcheng.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zhengcheng-knife4j-spring-boot-starter</artifactId>
+                <version>${zhengcheng.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
