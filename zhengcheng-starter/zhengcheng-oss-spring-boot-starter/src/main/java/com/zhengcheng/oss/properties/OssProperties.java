@@ -3,7 +3,6 @@ package com.zhengcheng.oss.properties;
 import com.zhengcheng.common.constant.CommonConstants;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 
 /**
  * 阿里云OSS属性
@@ -12,7 +11,6 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
  * @date :    2019/10/3 13:40
  */
 @Data
-@RefreshScope
 @ConfigurationProperties(prefix = CommonConstants.OSS_PREFIX)
 public class OssProperties {
     /**

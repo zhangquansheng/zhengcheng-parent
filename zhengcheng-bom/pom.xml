@@ -61,6 +61,11 @@
                 <artifactId>zhengcheng-xxl-job-spring-boot-starter</artifactId>
                 <version>${zhengcheng.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zhengcheng-oss-spring-boot-starter</artifactId>
+                <version>${zhengcheng.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
