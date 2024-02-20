@@ -23,6 +23,7 @@
         <module name="zhengcheng-common" />
         <module name="zhengcheng-cache-spring-boot-starter" />
         <module name="zhengcheng-web-spring-boot-starter" />
+        <module name="zhengcheng-elasticsearch-spring-boot-starter" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -45,7 +46,6 @@
       <module name="zc-db-spring-boot-starter" target="1.8" />
       <module name="zc-dict-client-spring-boot-starter" target="1.8" />
       <module name="zc-dict-spring-boot-starter" target="1.8" />
-      <module name="zc-elasticsearch-spring-boot-starter" target="1.8" />
       <module name="zc-encrypt-body-spring-boot-starter" target="1.8" />
       <module name="zc-feign-spring-boot-starter" target="1.8" />
       <module name="zc-gateway-spring-boot-starter" target="1.8" />
@@ -88,7 +88,6 @@
       <module name="zc-common-spring-boot-starter" options="-parameters" />
       <module name="zc-core-spring-boot-starter" options="-parameters" />
       <module name="zc-dict-spring-boot-starter" options="-parameters" />
-      <module name="zc-elasticsearch-spring-boot-starter" options="-parameters" />
       <module name="zc-encrypt-body-spring-boot-starter" options="-parameters" />
       <module name="zc-feign-spring-boot-starter" options="-parameters" />
       <module name="zc-gateway-spring-boot-starter" options="-parameters" />
@@ -114,6 +113,7 @@
       <module name="zhengcheng-cache-spring-boot-starter" options="-parameters" />
       <module name="zhengcheng-common" options="-parameters" />
       <module name="zhengcheng-dependencies" options="" />
+      <module name="zhengcheng-elasticsearch-spring-boot-starter" options="-parameters" />
       <module name="zhengcheng-encrypt-body-spring-boot-starter" options="-parameters" />
       <module name="zhengcheng-knife4j-spring-boot-starter" options="-parameters" />
       <module name="zhengcheng-leaf-spring-boot-starter" options="-parameters" />
