@@ -12,5 +12,8 @@
 
     <artifactId>zhengcheng-plugin</artifactId>
 
+    <modules>
+        <module>sensitive-plus</module>
+    </modules>
 
 </project>

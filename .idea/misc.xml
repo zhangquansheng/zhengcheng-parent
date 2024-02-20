@@ -35,6 +35,8 @@
         <option value="$PROJECT_DIR$/magic/nacos/pom.xml" />
         <option value="$PROJECT_DIR$/magic/netty-socketio/pom.xml" />
         <option value="$PROJECT_DIR$/magic/passport/pom.xml" />
+        <option value="$PROJECT_DIR$/magic/sensitive-plus/pom.xml" />
+        <option value="$PROJECT_DIR$/magic/sensitive/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

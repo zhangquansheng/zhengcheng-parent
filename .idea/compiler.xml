@@ -20,7 +20,9 @@
         <module name="zhengcheng-mp-spring-boot-starter" />
         <module name="zhengcheng-knife4j-spring-boot-starter" />
         <module name="just-auth-RBAC" />
+        <module name="sensitive-plus (1)" />
         <module name="apollo" />
+        <module name="sensitive" />
         <module name="knife4j-springfox-boot-v3" />
         <module name="zhengcheng-redis-cache-spring-boot-starter" />
         <module name="zhengcheng-gateway" />
@@ -46,7 +48,6 @@
       <module name="mvc-spring-boot-starter" target="1.8" />
       <module name="mvc-springboot-starter" target="1.8" />
       <module name="mvcspringbootstarter" target="1.8" />
-      <module name="sensitive-plus" target="1.8" />
       <module name="swagger-spring-boot-starter" target="1.8" />
       <module name="zc-aliyun-spring-boot-starter" target="1.8" />
       <module name="zc-apollo-spring-boot-starter" target="1.8" />
@@ -98,7 +99,8 @@
       <module name="nacos" options="-parameters" />
       <module name="netty-socketio" options="-parameters" />
       <module name="passport" options="-parameters" />
-      <module name="sensitive-plus" options="-parameters" />
+      <module name="sensitive" options="-parameters" />
+      <module name="sensitive-plus (1)" options="-parameters" />
       <module name="swagger-spring-boot-starter" options="-parameters" />
       <module name="webmagic" options="-parameters" />
       <module name="zc-aliyun-spring-boot-starter" options="-parameters" />
