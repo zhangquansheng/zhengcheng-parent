@@ -10,8 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.zhengcheng</groupId>
-    <artifactId>zc-dependencies</artifactId>
-    <name>zc-dependencies</name>
+    <artifactId>zhengcheng-dependencies</artifactId>
     <version>6.1.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 

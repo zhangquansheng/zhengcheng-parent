@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.zhengcheng</groupId>
-    <artifactId>zc-bom</artifactId>
-    <name>zc-bom</name>
+    <artifactId>zhengcheng-bom</artifactId>
+    <name>zhengcheng-bom</name>
     <version>6.1.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
@@ -21,7 +21,7 @@
         <dependencies>
             <dependency>
                 <groupId>com.zhengcheng</groupId>
-                <artifactId>zc-common</artifactId>
+                <artifactId>zhengcheng-common</artifactId>
                 <version>${zc.version}</version>
             </dependency>
         </dependencies>

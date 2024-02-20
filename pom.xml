@@ -19,11 +19,11 @@
     <name>zhengcheng-parent</name>
 
     <modules>
-        <module>zc-plugin</module>
-        <module>zc-starter</module>
-        <module>zc-dependencies</module>
-        <module>zc-bom</module>
-        <module>zc-common</module>
+        <module>zhengcheng-plugin</module>
+        <module>zhengcheng-starter</module>
+        <module>zhengcheng-dependencies</module>
+        <module>zhengcheng-bom</module>
+        <module>zhengcheng-common</module>
     </modules>
 
     <dependencies>

@@ -15,7 +15,7 @@
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.22/lombok-1.18.22.jar" />
         </processorPath>
-        <module name="zc-common" />
+        <module name="zhengcheng-common" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -62,6 +62,7 @@
       <module name="zc-web-spring-boot-starter" target="1.8" />
       <module name="zc-xxl-job-spring-boot-starter" target="1.8" />
       <module name="zc-zk-spring-boot-starter" target="1.8" />
+      <module name="zhengcheng-starter" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -76,13 +77,10 @@
       <module name="zc-apollo-spring-boot-starter" options="-parameters" />
       <module name="zc-async-spring-boot-starter" options="-parameters" />
       <module name="zc-auth-client-spring-boot-starter" options="-parameters" />
-      <module name="zc-bom" options="" />
       <module name="zc-cache-spring-boot-starter" options="-parameters" />
       <module name="zc-cat-spring-boot-starter" options="-parameters" />
-      <module name="zc-common" options="-parameters" />
       <module name="zc-common-spring-boot-starter" options="-parameters" />
       <module name="zc-core-spring-boot-starter" options="-parameters" />
-      <module name="zc-dependencies" options="" />
       <module name="zc-dict-spring-boot-starter" options="-parameters" />
       <module name="zc-elasticsearch-spring-boot-starter" options="-parameters" />
       <module name="zc-encrypt-body-spring-boot-starter" options="-parameters" />
@@ -96,20 +94,23 @@
       <module name="zc-mybatis-spring-boot-starter" options="-parameters" />
       <module name="zc-netty-socketio-spring-boot-starter" options="-parameters" />
       <module name="zc-oss-spring-boot-starter" options="-parameters" />
-      <module name="zc-plugin" options="" />
       <module name="zc-redis-spring-boot-starter" options="-parameters" />
       <module name="zc-rocket-mq-spring-boot-starter" options="-parameters" />
       <module name="zc-rsa-encrypt-body-spring-boot-starter" options="-parameters" />
       <module name="zc-sentinel-spring-boot-starter" options="-parameters" />
       <module name="zc-sharding-jdbc-spring-boot-starter" options="-parameters" />
-      <module name="zc-starter" options="" />
       <module name="zc-swagger-spring-boot-starter" options="-parameters" />
       <module name="zc-tencentcloud-spring-boot-starter" options="-parameters" />
       <module name="zc-tk-mybatis-spring-boot-starter" options="-parameters" />
       <module name="zc-web-spring-boot-starter" options="-parameters" />
       <module name="zc-xxl-job-spring-boot-starter" options="-parameters" />
       <module name="zc-zk-spring-boot-starter" options="-parameters" />
+      <module name="zhengcheng-bom" options="" />
+      <module name="zhengcheng-common" options="-parameters" />
+      <module name="zhengcheng-dependencies" options="" />
       <module name="zhengcheng-parent" options="" />
+      <module name="zhengcheng-plugin" options="" />
+      <module name="zhengcheng-starter" options="" />
     </option>
   </component>
 </project>

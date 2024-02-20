@@ -9,8 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>zc-common</artifactId>
-    <name>zc-common</name>
+    <artifactId>zhengcheng-common</artifactId>
+    <name>zhengcheng-common</name>
     <packaging>jar</packaging>
 
     <properties>
