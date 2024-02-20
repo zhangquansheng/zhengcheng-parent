@@ -1,7 +1,7 @@
 package com.zhengcheng.mybatis.plus.utils;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.zhengcheng.common.web.PageCommand;
+import com.zhengcheng.common.utils.PageCommand;
 
 /**
  * 分页工具类

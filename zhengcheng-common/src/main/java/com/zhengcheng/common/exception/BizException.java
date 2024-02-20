@@ -1,7 +1,7 @@
 package com.zhengcheng.common.exception;
 
 
-import com.zhengcheng.common.web.CodeEnum;
+import com.zhengcheng.common.utils.CodeEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

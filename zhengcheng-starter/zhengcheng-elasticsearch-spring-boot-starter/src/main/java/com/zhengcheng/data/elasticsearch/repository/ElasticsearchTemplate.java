@@ -1,7 +1,7 @@
 package com.zhengcheng.data.elasticsearch.repository;
 
-import com.zhengcheng.common.web.PageCommand;
-import com.zhengcheng.common.web.PageInfo;
+import com.zhengcheng.common.utils.PageCommand;
+import com.zhengcheng.common.utils.PageInfo;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 
 import java.io.IOException;

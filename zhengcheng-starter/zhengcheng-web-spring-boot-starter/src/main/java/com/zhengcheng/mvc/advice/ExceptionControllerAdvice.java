@@ -1,8 +1,8 @@
 package com.zhengcheng.mvc.advice;
 
 import com.zhengcheng.common.exception.BizException;
-import com.zhengcheng.common.web.CodeEnum;
-import com.zhengcheng.common.web.Result;
+import com.zhengcheng.common.utils.CodeEnum;
+import com.zhengcheng.common.utils.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;

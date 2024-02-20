@@ -140,7 +140,7 @@ zhengcheng-parent
 {
   "code": 500,
   "message": "系统升级中，请稍后重试！",
-  "data": "com.zhengcheng.common.web.Result cannot be cast to java.lang.String",
+  "data": "com.zhengcheng.common.utils.Result cannot be cast to java.lang.String",
   "requestId": "6823280748b049109b0b0f40439c0265"
 }
 ```
