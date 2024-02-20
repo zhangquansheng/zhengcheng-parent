@@ -1,8 +1,8 @@
-package com.zhengcheng.common.web;
-
-import lombok.Data;
+package com.zhengcheng.common.utils;
 
 import java.io.Serializable;
+
+import lombok.Data;
 
 /**
  * 分页请求参数

@@ -1,4 +1,4 @@
-package com.zhengcheng.common.web;
+package com.zhengcheng.common.utils;
 
 import lombok.Getter;
 

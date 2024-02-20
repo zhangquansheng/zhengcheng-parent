@@ -29,6 +29,7 @@
         <option value="$PROJECT_DIR$/magic/apollo/pom.xml" />
         <option value="$PROJECT_DIR$/magic/echarts/pom.xml" />
         <option value="$PROJECT_DIR$/magic/just-auth-RBAC/pom.xml" />
+        <option value="$PROJECT_DIR$/magic/knife4j-springfox-boot-v3/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

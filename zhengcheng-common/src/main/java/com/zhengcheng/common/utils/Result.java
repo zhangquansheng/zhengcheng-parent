@@ -1,10 +1,10 @@
-package com.zhengcheng.common.web;
-
-import lombok.Data;
-import lombok.NoArgsConstructor;
+package com.zhengcheng.common.utils;
 
 import java.io.Serializable;
 import java.util.Objects;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * Result

@@ -21,6 +21,7 @@
         <module name="zhengcheng-mp-spring-boot-starter" />
         <module name="just-auth-RBAC" />
         <module name="apollo" />
+        <module name="knife4j-springfox-boot-v3" />
         <module name="zhengcheng-redis-cache-spring-boot-starter" />
         <module name="zhengcheng-gateway" />
         <module name="zhengcheng-rocket-mq-spring-boot-starter" />
@@ -83,6 +84,7 @@
       <module name="common-core" options="-parameters" />
       <module name="echarts" options="-parameters" />
       <module name="just-auth-RBAC" options="-parameters" />
+      <module name="knife4j-springfox-boot-v3" options="-parameters" />
       <module name="magic" options="" />
       <module name="mvc-spring-boot-starter" options="-parameters" />
       <module name="mvc-springboot-starter" options="-parameters" />
