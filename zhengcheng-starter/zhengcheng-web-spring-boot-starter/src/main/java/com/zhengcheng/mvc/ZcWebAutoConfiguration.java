@@ -26,7 +26,6 @@ public class ZcWebAutoConfiguration implements WebMvcConfigurer {
     public ZcWebAutoConfiguration() {
         log.info("------ 核心模块自动配置 --------------------------------------------------------------------------------------");
         log.info("------ ExceptionControllerAdvice 统一异常处理 （默认配置 zc.exception-controller-advice.enabled = true ）------");
-        log.info("------ ControllerLogAspect 控制层日志打印---------------------------------------------------------------------");
         log.info("------ @EnableWebMvc 启动SpringMvc的配置----------------------------------------------------------------------");
         log.info("------ @EnableAsync 启动线程池配置----------------------------------------------------------------------------");
         log.info("-------------------------------------------------------------------------------------------------------------");
