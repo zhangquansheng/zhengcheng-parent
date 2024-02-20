@@ -22,6 +22,7 @@
         <module>zhengcheng-xxl-job-spring-boot-starter</module>
         <module>zhengcheng-oss-spring-boot-starter</module>
         <module>zhengcheng-rocket-mq-spring-boot-starter</module>
+        <module>zhengcheng-nacos-spring-cloud-starter</module>
     </modules>
 
 </project>

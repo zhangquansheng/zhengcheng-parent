@@ -22,19 +22,19 @@
         <module name="just-auth-RBAC" />
         <module name="sensitive-plus (1)" />
         <module name="apollo" />
-        <module name="sensitive" />
         <module name="knife4j-springfox-boot-v3" />
         <module name="zhengcheng-redis-cache-spring-boot-starter" />
-        <module name="zhengcheng-gateway" />
         <module name="nacos" />
+        <module name="zhengcheng-gateway" />
         <module name="webmagic" />
-        <module name="zhengcheng-xxl-job-spring-boot-starter" />
         <module name="zhengcheng-rocket-mq-spring-boot-starter" />
+        <module name="zhengcheng-xxl-job-spring-boot-starter" />
         <module name="zhengcheng-encrypt-body-spring-boot-starter" />
         <module name="zhengcheng-leaf-spring-boot-starter" />
         <module name="passport" />
         <module name="echarts" />
         <module name="zhengcheng-common" />
+        <module name="zhengcheng-nacos-spring-cloud-starter" />
         <module name="zhengcheng-web-spring-boot-starter" />
         <module name="zhengcheng-elasticsearch-spring-boot-starter" />
         <module name="mybatis-plus" />
@@ -48,6 +48,7 @@
       <module name="mvc-spring-boot-starter" target="1.8" />
       <module name="mvc-springboot-starter" target="1.8" />
       <module name="mvcspringbootstarter" target="1.8" />
+      <module name="sensitive-plus" target="1.8" />
       <module name="swagger-spring-boot-starter" target="1.8" />
       <module name="zc-aliyun-spring-boot-starter" target="1.8" />
       <module name="zc-apollo-spring-boot-starter" target="1.8" />
@@ -60,12 +61,14 @@
       <module name="zc-db-spring-boot-starter" target="1.8" />
       <module name="zc-dict-client-spring-boot-starter" target="1.8" />
       <module name="zc-dict-spring-boot-starter" target="1.8" />
+      <module name="zc-elasticsearch-spring-boot-starter" target="1.8" />
       <module name="zc-encrypt-body-spring-boot-starter" target="1.8" />
       <module name="zc-feign-spring-boot-starter" target="1.8" />
       <module name="zc-gateway-spring-boot-starter" target="1.8" />
       <module name="zc-gray-spring-boot-starter" target="1.8" />
       <module name="zc-green-spring-boot-starter" target="1.8" />
       <module name="zc-job-spring-boot-starter" target="1.8" />
+      <module name="zc-leaf-spring-boot-starter" target="1.8" />
       <module name="zc-mq-spring-boot-starter" target="1.8" />
       <module name="zc-mybatis-plus-spring-boot-starter" target="1.8" />
       <module name="zc-mybatis-spring-boot-starter" target="1.8" />
@@ -142,6 +145,7 @@
       <module name="zhengcheng-knife4j-spring-boot-starter" options="-parameters" />
       <module name="zhengcheng-leaf-spring-boot-starter" options="-parameters" />
       <module name="zhengcheng-mp-spring-boot-starter" options="-parameters" />
+      <module name="zhengcheng-nacos-spring-cloud-starter" options="-parameters" />
       <module name="zhengcheng-oss-spring-boot-starter" options="-parameters" />
       <module name="zhengcheng-parent" options="" />
       <module name="zhengcheng-plugin" options="" />

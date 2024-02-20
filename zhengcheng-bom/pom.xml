@@ -27,6 +27,7 @@
                 <version>${zhengcheng.version}</version>
             </dependency>
 
+            <!-- springboot starter -->
             <dependency>
                 <groupId>com.zhengcheng</groupId>
                 <artifactId>zhengcheng-web-spring-boot-starter</artifactId>
@@ -70,6 +71,13 @@
             <dependency>
                 <groupId>com.zhengcheng</groupId>
                 <artifactId>zhengcheng-oss-spring-boot-starter</artifactId>
+                <version>${zhengcheng.version}</version>
+            </dependency>
+
+            <!-- springcloud starter -->
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zhengcheng-nacos-spring-cloud-starter</artifactId>
                 <version>${zhengcheng.version}</version>
             </dependency>
         </dependencies>
