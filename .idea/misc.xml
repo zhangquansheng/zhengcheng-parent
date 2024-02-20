@@ -17,6 +17,7 @@
         <option value="$PROJECT_DIR$/zc-dependencies/pom.xml" />
         <option value="$PROJECT_DIR$/zhengcheng-bom/pom.xml" />
         <option value="$PROJECT_DIR$/zhengcheng-starter/pom.xml" />
+        <option value="$PROJECT_DIR$/zhengcheng-dependencies/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
