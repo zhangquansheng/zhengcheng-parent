@@ -17,6 +17,7 @@
         </processorPath>
         <module name="zhengcheng-web-demo" />
         <module name="zhengcheng-web-spring-boot-starter" />
+        <module name="zhengcheng-knife4j-spring-boot-starter" />
         <module name="zhengcheng-common" />
       </profile>
     </annotationProcessing>
@@ -110,6 +111,7 @@
       <module name="zhengcheng-bom" options="" />
       <module name="zhengcheng-common" options="-parameters" />
       <module name="zhengcheng-dependencies" options="" />
+      <module name="zhengcheng-knife4j-spring-boot-starter" options="-parameters" />
       <module name="zhengcheng-parent" options="" />
       <module name="zhengcheng-plugin" options="" />
       <module name="zhengcheng-starter" options="" />

@@ -13,6 +13,7 @@
 
     <modules>
         <module>zhengcheng-web-spring-boot-starter</module>
+        <module>zhengcheng-knife4j-spring-boot-starter</module>
     </modules>
 
 </project>
