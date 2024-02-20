@@ -41,6 +41,11 @@
                 <artifactId>zhengcheng-encrypt-body-spring-boot-starter</artifactId>
                 <version>${zhengcheng.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zhengcheng-leaf-spring-boot-starter</artifactId>
+                <version>${zhengcheng.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

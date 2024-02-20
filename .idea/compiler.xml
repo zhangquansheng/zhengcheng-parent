@@ -16,7 +16,7 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.22/lombok-1.18.22.jar" />
         </processorPath>
         <module name="zhengcheng-encrypt-body-spring-boot-starter" />
-        <module name="zc-leaf-spring-boot-starter" />
+        <module name="zhengcheng-leaf-spring-boot-starter" />
         <module name="zhengcheng-web-demo" />
         <module name="zhengcheng-knife4j-spring-boot-starter" />
         <module name="zhengcheng-mp-spring-boot-starter" />
@@ -93,7 +93,6 @@
       <module name="zc-gateway-spring-boot-starter" options="-parameters" />
       <module name="zc-green-spring-boot-starter" options="-parameters" />
       <module name="zc-job-spring-boot-starter" options="-parameters" />
-      <module name="zc-leaf-spring-boot-starter" options="-parameters" />
       <module name="zc-mq-spring-boot-starter" options="-parameters" />
       <module name="zc-mybatis-plus-spring-boot-starter" options="-parameters" />
       <module name="zc-mybatis-spring-boot-starter" options="-parameters" />
@@ -115,6 +114,7 @@
       <module name="zhengcheng-dependencies" options="" />
       <module name="zhengcheng-encrypt-body-spring-boot-starter" options="-parameters" />
       <module name="zhengcheng-knife4j-spring-boot-starter" options="-parameters" />
+      <module name="zhengcheng-leaf-spring-boot-starter" options="-parameters" />
       <module name="zhengcheng-mp-spring-boot-starter" options="-parameters" />
       <module name="zhengcheng-parent" options="" />
       <module name="zhengcheng-plugin" options="" />
