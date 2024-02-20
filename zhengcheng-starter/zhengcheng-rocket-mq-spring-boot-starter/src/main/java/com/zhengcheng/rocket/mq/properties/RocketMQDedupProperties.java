@@ -1,11 +1,12 @@
 package com.zhengcheng.rocket.mq.properties;
 
 import com.zhengcheng.common.constant.CommonConstants;
-import lombok.Data;
+
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 
 import java.time.Duration;
+
+import lombok.Data;
 
 /**
  * RocketMQDedupProperties
@@ -13,7 +14,6 @@ import java.time.Duration;
  * @author quansheng1.zhang
  * @since 2020/12/8 20:42
  */
-@RefreshScope
 @Data
 @ConfigurationProperties(CommonConstants.ROCKETMQ_DEDUP_PREFIX)
 public class RocketMQDedupProperties {

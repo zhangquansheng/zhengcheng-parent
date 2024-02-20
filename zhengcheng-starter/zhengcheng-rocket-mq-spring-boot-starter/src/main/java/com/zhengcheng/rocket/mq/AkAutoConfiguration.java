@@ -2,8 +2,8 @@ package com.zhengcheng.rocket.mq;
 
 import com.zhengcheng.common.constant.CommonConstants;
 import com.zhengcheng.rocket.mq.properties.AliyunAkProperties;
+
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.Ordered;
@@ -19,7 +19,6 @@ import org.springframework.core.annotation.Order;
 public class AkAutoConfiguration {
 
     @Primary
-    @RefreshScope
     @Bean
     @ConfigurationProperties(prefix = CommonConstants.ALIYUN_AK_PREFIX)
     public AliyunAkProperties aliyunAkProperties() {

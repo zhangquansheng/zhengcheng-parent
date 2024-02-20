@@ -2,5 +2,4 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   com.zhengcheng.rocket.mq.ConsumerAutoConfiguration,\
   com.zhengcheng.rocket.mq.ProducerAutoConfiguration,\
-  com.zhengcheng.rocket.mq.aspect.RocketMQDedupAspect,\
   com.zhengcheng.rocket.mq.AkAutoConfiguration

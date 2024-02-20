@@ -37,8 +37,6 @@
     <file url="file://$PROJECT_DIR$/zhengcheng-starter/zc-mybatis-plus-spring-boot-starter" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zhengcheng-starter/zc-mybatis-plus-spring-boot-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zhengcheng-starter/zc-mybatis-plus-spring-boot-starter/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zhengcheng-starter/zc-rocket-mq-spring-boot-starter/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zhengcheng-starter/zc-rocket-mq-spring-boot-starter/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zhengcheng-starter/zc-swagger-spring-boot-starter" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zhengcheng-starter/zc-swagger-spring-boot-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zhengcheng-starter/zc-swagger-spring-boot-starter/src/main/resources" charset="UTF-8" />
@@ -53,6 +51,8 @@
     <file url="file://$PROJECT_DIR$/zhengcheng-starter/zhengcheng-mp-spring-boot-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zhengcheng-starter/zhengcheng-oss-spring-boot-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zhengcheng-starter/zhengcheng-oss-spring-boot-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zhengcheng-starter/zhengcheng-rocket-mq-spring-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zhengcheng-starter/zhengcheng-rocket-mq-spring-boot-starter/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zhengcheng-starter/zhengcheng-web-spring-boot-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zhengcheng-starter/zhengcheng-xxl-job-spring-boot-starter" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zhengcheng-starter/zhengcheng-xxl-job-spring-boot-starter/src/main/java" charset="UTF-8" />

@@ -3,23 +3,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>zc-starter</artifactId>
+        <artifactId>zhengcheng-starter</artifactId>
         <groupId>com.zhengcheng</groupId>
         <version>6.1.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>zc-rocket-mq-spring-boot-starter</artifactId>
+    <artifactId>zhengcheng-rocket-mq-spring-boot-starter</artifactId>
     <description>RocketMQ</description>
 
     <dependencies>
         <dependency>
             <groupId>com.zhengcheng</groupId>
-            <artifactId>zc-common-spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.zhengcheng</groupId>
-            <artifactId>zc-cache-spring-boot-starter</artifactId>
+            <artifactId>zhengcheng-common</artifactId>
         </dependency>
         <dependency>
             <groupId>com.aliyun.openservices</groupId>
@@ -31,27 +27,20 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-            <optional>true</optional>
+            <artifactId>spring-boot</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-context</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
         </dependency>
         <dependency>
             <groupId>com.alibaba.nacos</groupId>
             <artifactId>nacos-api</artifactId>
-            <version>1.4.0</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.rocketmq</groupId>
             <artifactId>rocketmq-spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
         </dependency>
         <!-- fastjson2 支持国产 -->
         <dependency>

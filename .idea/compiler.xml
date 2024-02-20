@@ -15,6 +15,7 @@
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.22/lombok-1.18.22.jar" />
         </processorPath>
+        <module name="zhengcheng-rocket-mq-spring-boot-starter" />
         <module name="zhengcheng-xxl-job-spring-boot-starter" />
         <module name="zhengcheng-encrypt-body-spring-boot-starter" />
         <module name="zhengcheng-leaf-spring-boot-starter" />
@@ -123,6 +124,7 @@
       <module name="zhengcheng-oss-spring-boot-starter" options="-parameters" />
       <module name="zhengcheng-parent" options="" />
       <module name="zhengcheng-plugin" options="" />
+      <module name="zhengcheng-rocket-mq-spring-boot-starter" options="-parameters" />
       <module name="zhengcheng-starter" options="" />
       <module name="zhengcheng-web-demo" options="-parameters" />
       <module name="zhengcheng-web-spring-boot-starter" options="-parameters" />

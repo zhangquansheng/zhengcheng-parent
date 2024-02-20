@@ -1,11 +1,11 @@
 package com.zhengcheng.rocket.mq.properties;
 
 import com.aliyun.openservices.ons.api.PropertyKeyConst;
-import lombok.Data;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 
 import java.util.Objects;
 import java.util.Properties;
+
+import lombok.Data;
 
 /**
  * Rocketmq 属性
@@ -13,7 +13,6 @@ import java.util.Properties;
  * @author quansheng1.zhang
  * @since 2020/10/19 14:43
  */
-@RefreshScope
 @Data
 public class RocketMQProperties {
 

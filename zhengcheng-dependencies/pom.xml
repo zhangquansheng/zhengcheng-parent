@@ -197,6 +197,11 @@
                 <artifactId>cos_api</artifactId>
                 <version>${qcloud-cos_api.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.alibaba.nacos</groupId>
+                <artifactId>nacos-api</artifactId>
+                <version>1.4.0</version>
+            </dependency>
             <!-- fastjson 支持国产 -->
             <dependency>
                 <groupId>com.alibaba</groupId>
