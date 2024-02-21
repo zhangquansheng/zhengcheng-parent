@@ -24,6 +24,7 @@
         <module>zhengcheng-rocket-mq-spring-boot-starter</module>
         <module>zhengcheng-nacos-spring-cloud-starter</module>
         <module>zhengcheng-expression-spring-boot-starter</module>
+        <module>zhengcheng-idempotent-spring-boot-starter</module>
     </modules>
 
 </project>

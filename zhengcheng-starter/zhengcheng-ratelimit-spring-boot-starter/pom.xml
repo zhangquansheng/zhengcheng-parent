@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>seczone-halo-starter</artifactId>
+        <groupId>cn.seczone</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>seczone-halo-ratelimit-spring-boot-starter</artifactId>
+    <name>seczone-halo-ratelimit-spring-boot-starter</name>
+    <description>自定义接口限流注解 @RateLimiter （基于redis缓存）</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>cn.seczone</groupId>
+            <artifactId>seczone-halo-web-spring-boot-starter</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>cn.seczone</groupId>
+            <artifactId>seczone-halo-redis-cache-spring-boot-starter</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>
