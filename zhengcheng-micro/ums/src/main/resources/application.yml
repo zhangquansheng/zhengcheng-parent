@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: ums
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  profiles:
+    active: ${DEPLOY_ENV:dev}
+jasypt:
+  encryptor:
+    password: ${DEPLOY_PWD:123456}

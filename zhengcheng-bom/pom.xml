@@ -103,4 +103,18 @@
         </dependencies>
     </dependencyManagement>
 
+    <!-- 发布项目到 sonatype -->
+    <distributionManagement>
+        <repository>
+            <id>rdc-releases</id>
+            <name>Release repository</name>
+            <url>https://packages.aliyun.com/maven/repository/2126300-release-B5e2AV</url>
+        </repository>
+        <snapshotRepository>
+            <id>rdc-snapshots</id>
+            <name>Snapshots repository</name>
+            <url>https://packages.aliyun.com/maven/repository/2126300-snapshot-KNLO6f</url>
+        </snapshotRepository>
+    </distributionManagement>
+
 </project>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhengcheng.ums.domain.mapper.AuthorityMapper">
+
+    <select id="getPermissionList" resultType="java.lang.String">
+        SELECT DISTINCT authority.`code`
+        FROM authority
+                 LEFT JOIN role_authority ON authority.id = role_authority.authority_id
+                 LEFT JOIN role ON role_authority.role_id = role.id
+                 LEFT JOIN user_role ON role.id = user_role.role_id
+        WHERE role.is_enable = 1
+          AND role.is_deleted = 'N'
+          AND user_role.is_deleted = 'N'
+          AND role_authority.is_deleted = 'N'
+          and authority.is_deleted = 'N'
+          AND user_role.user_id = #{loginId}
+          and authority.is_enable = 1
+          AND authority.`code` != ''
+	    AND authority.`code` IS NOT NULL
+    </select>
+
+    <select id="getAuthorityList" resultType="com.zhengcheng.ums.domain.entity.Authority">
+        SELECT DISTINCT authority.*
+        FROM authority
+                 LEFT JOIN role_authority ON authority.id = role_authority.authority_id
+                 LEFT JOIN role ON role_authority.role_id = role.id
+                 LEFT JOIN user_role ON role.id = user_role.role_id
+        WHERE role.is_enable = 1
+          AND role.is_deleted = 'N'
+          AND user_role.is_deleted = 'N'
+          AND role_authority.is_deleted = 'N'
+          AND authority.is_deleted = 'N'
+          AND user_role.user_id = #{userId}
+          AND authority.is_enable = 1
+        ORDER BY authority.sort, authority.create_time
+    </select>
+
+    <select id="getAuthoritiesByRoleId" resultType="com.zhengcheng.ums.domain.entity.Authority">
+        SELECT DISTINCT authority.*
+        FROM authority
+                 LEFT JOIN role_authority ra ON authority.id = authority_id AND ra.is_deleted = 0
+        WHERE authority.is_deleted = 0
+          AND role_id = #{roleId}
+        ORDER BY authority.sort
+    </select>
+
+</mapper>

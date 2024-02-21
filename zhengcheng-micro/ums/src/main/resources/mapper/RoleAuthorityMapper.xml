@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhengcheng.ums.domain.mapper.RoleAuthorityMapper">
+
+    <select id="getAuthorityList" resultType="com.zhengcheng.ums.domain.entity.Authority">
+        SELECT DISTINCT
+            a.*
+        FROM
+            authority a
+            LEFT JOIN role_authority ra ON a.id = ra.authority_id
+        WHERE
+            ra.role_id IN 
+            <foreach collection="roleIds" open="(" separator="," close=")" item="item">
+                #{item}
+            </foreach>
+            AND a.is_deleted = 0
+            AND ra.is_deleted =0
+    </select>
+
+</mapper>
