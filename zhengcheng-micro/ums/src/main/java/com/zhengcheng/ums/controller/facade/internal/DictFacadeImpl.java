@@ -1,16 +1,10 @@
 package com.zhengcheng.ums.controller.facade.internal;
 
-import java.util.List;
-
-import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.mzt.logapi.starter.annotation.LogRecord;
-import com.zhengcheng.common.web.PageInfo;
+import com.zhengcheng.common.utils.PageInfo;
 import com.zhengcheng.mybatis.plus.utils.PageUtil;
 import com.zhengcheng.ums.common.constants.LogRecordType;
 import com.zhengcheng.ums.controller.facade.DictFacade;
@@ -20,9 +14,19 @@ import com.zhengcheng.ums.domain.entity.DictData;
 import com.zhengcheng.ums.domain.entity.DictType;
 import com.zhengcheng.ums.dto.DictDataDTO;
 import com.zhengcheng.ums.dto.DictTypeDTO;
-import com.zhengcheng.ums.dto.command.*;
+import com.zhengcheng.ums.dto.command.DictDataCommand;
+import com.zhengcheng.ums.dto.command.DictDataPageCommand;
+import com.zhengcheng.ums.dto.command.DictTypeCommand;
+import com.zhengcheng.ums.dto.command.DictTypePageCommand;
+import com.zhengcheng.ums.dto.command.EnableCommand;
 import com.zhengcheng.ums.service.DictDataService;
 import com.zhengcheng.ums.service.DictTypeService;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 import cn.hutool.core.util.StrUtil;
 
@@ -36,11 +40,11 @@ import cn.hutool.core.util.StrUtil;
 public class DictFacadeImpl implements DictFacade {
 
     @Autowired
-    private DictTypeService   dictTypeService;
+    private DictTypeService dictTypeService;
     @Autowired
     private DictTypeAssembler dictTypeAssembler;
     @Autowired
-    private DictDataService   dictDataService;
+    private DictDataService dictDataService;
     @Autowired
     private DictDataAssembler dictDataAssembler;
 

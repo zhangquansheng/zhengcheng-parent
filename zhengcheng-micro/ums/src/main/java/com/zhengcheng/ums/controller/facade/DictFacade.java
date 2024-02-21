@@ -1,6 +1,6 @@
 package com.zhengcheng.ums.controller.facade;
 
-import com.zhengcheng.common.web.PageInfo;
+import com.zhengcheng.common.utils.PageInfo;
 import com.zhengcheng.ums.dto.DictDataDTO;
 import com.zhengcheng.ums.dto.DictTypeDTO;
 import com.zhengcheng.ums.dto.command.*;

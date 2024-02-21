@@ -2,7 +2,8 @@ package com.zhengcheng.ums.controller;
 
 import com.baomidou.kaptcha.Kaptcha;
 import com.baomidou.kaptcha.dto.KaptchaDTO;
-import com.zhengcheng.common.web.Result;
+import com.zhengcheng.common.utils.Result;
+
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
