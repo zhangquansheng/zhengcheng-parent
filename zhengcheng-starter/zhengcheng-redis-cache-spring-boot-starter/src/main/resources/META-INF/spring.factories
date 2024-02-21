@@ -2,4 +2,5 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   com.zhengcheng.cache.RedisAutoConfiguration,\
   com.zhengcheng.cache.CaffeineCacheAutoConfiguration,\
   com.zhengcheng.cache.RedissonAutoConfiguration,\
-  com.zhengcheng.cache.RedisDelayQueueAutoConfiguration
+  com.zhengcheng.cache.RedisDelayQueueAutoConfiguration,\
+  com.zhengcheng.cache.J2CacheAutoConfiguration
