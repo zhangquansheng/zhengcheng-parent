@@ -34,7 +34,11 @@
             <groupId>cn.dev33</groupId>
             <artifactId>sa-token-spring-boot-starter</artifactId>
         </dependency>
-
+        <!-- Sa-Token整合redis (使用jackson序列化方式) -->
+        <dependency>
+            <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-redis-jackson</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>io.github.mouzt</groupId>
