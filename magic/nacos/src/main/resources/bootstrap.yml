@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: nacos-demo
+  cloud:
+    discovery:
+      enabled: true
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        enabled: true
+        namespace: ${spring.profiles.active}
+      config:
+        namespace: ${spring.profiles.active}
+        server-addr: 127.0.0.1:8848
+        refresh-enabled: true
+        file-extension: properties
+        extension-configs:
+          - data-id: nacos-demo
+            group: DEFAULT_GROUP
+            refresh: true

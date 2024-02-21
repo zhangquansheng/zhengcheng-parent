@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 106.14.70.155:8848
+      config:
+        group: DEFAULT_GROUP
+        server-addr: 106.14.70.155:8848
+  config:
+    import:
+      - optional:nacos:gateway.properties
+# 全部关闭，禁止资源访问
+knife4j:
+  enable: true
+  production: true

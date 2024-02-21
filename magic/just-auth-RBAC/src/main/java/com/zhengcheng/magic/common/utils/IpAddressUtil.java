@@ -1,4 +1,4 @@
-package com.zhengcheng.mvc.utils;
+package com.zhengcheng.magic.common.utils;
 
 import com.zhengcheng.common.constant.CommonConstants;
 import org.apache.commons.lang3.StringUtils;

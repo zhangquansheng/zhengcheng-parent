@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 只需配置好 log.dir 和 projectname 属性-->
+<configuration debug="false">
+    <property name="log.dir" value="/alidata/admin/gateway"/>
+    <property name="projectname" value="gateway"/>
+    <property name="MONITOR_PATTERN"
+      value="%d [%thread] %-5p [%c] [%F:%L] [trace=%X{X-B3-TraceId:-},span=%X{X-B3-SpanId:-},parent=%X{X-B3-ParentSpanId:-}] - %msg%n"/>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <target>System.out</target>
+        <encoder charset="UTF-8">
+            <pattern>${MONITOR_PATTERN}</pattern>
+        </encoder>
+    </appender>
+    <!-- info -->
+    <appender name="infoAppender"
+      class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.dir}/logs/${HOSTNAME}_app_${projectname}_lt_info.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log.dir}/logs/${HOSTNAME}_app_${projectname}_lt_info_%d{yyyy-MM-dd}.log
+            </fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder charset="UTF-8">
+            <pattern>${MONITOR_PATTERN}</pattern>
+        </encoder>
+    </appender>
+    <!-- error -->
+    <appender name="errorAppender"
+      class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.dir}/logs/${HOSTNAME}_app_${projectname}_lt_error.log</file>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>WARN</level>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log.dir}/logs/${HOSTNAME}_app_${projectname}_lt_error_%d{yyyy-MM-dd}.log
+            </fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder charset="UTF-8">
+            <pattern>${MONITOR_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="bizAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.dir}/logs/${HOSTNAME}-ss_micro_app_${projectname}_lt_biz.log</file>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log.dir}/logs/${HOSTNAME}-ss_micro_app_${app_name}_lt_biz-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder charset="UTF-8" class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%msg%n</pattern>
+        </encoder>
+    </appender>
+
+
+    <logger name="BIZ_LOGGER" additivity="false" level="info">
+        <appender-ref ref="bizAppender"/>
+    </logger>
+
+    <springProfile name="prd,pre">
+        <root level="info">
+            <level value="INFO"/>
+            <appender-ref ref="infoAppender"/>
+            <appender-ref ref="errorAppender"/>
+            <appender-ref ref="STDOUT"/>
+        </root>
+    </springProfile>
+    <springProfile name="dev,test">
+        <root level="info">
+            <level value="INFO"/>
+            <appender-ref ref="infoAppender"/>
+            <appender-ref ref="errorAppender"/>
+            <appender-ref ref="STDOUT"/>
+        </root>
+    </springProfile>
+</configuration>
