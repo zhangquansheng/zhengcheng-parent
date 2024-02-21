@@ -9,8 +9,6 @@ import com.zhengcheng.common.holder.ZcUserContextHolder;
 import com.zhengcheng.common.utils.PageInfo;
 import com.zhengcheng.common.utils.Result;
 import com.zhengcheng.common.validation.annotation.Update;
-import com.zhengcheng.common.web.PageInfo;
-import com.zhengcheng.common.web.Result;
 import com.zhengcheng.ums.common.constants.UmsConstant;
 import com.zhengcheng.ums.controller.facade.OauthFacade;
 import com.zhengcheng.ums.controller.facade.UserFacade;
