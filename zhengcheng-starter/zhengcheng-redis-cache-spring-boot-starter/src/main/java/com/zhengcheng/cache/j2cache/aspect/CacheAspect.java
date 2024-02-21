@@ -1,6 +1,5 @@
 package com.zhengcheng.cache.j2cache.aspect;
 
-import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
@@ -70,7 +69,7 @@ public class CacheAspect {
 
         Object result = invocation.proceed();
         if (CharSequenceUtil.isNotBlank(key) && Objects.nonNull(result)) {
-            String resultJson = JSON.toJSONString(result);
+            String resultJson = objectMapper.writeValueAsString(result);
             if ("[]".equalsIgnoreCase(resultJson) || CharSequenceUtil.isBlank(resultJson)) {
                 if (log.isDebugEnabled()) {
                     log.debug("resultJson is empty or blank : {}", resultJson);
