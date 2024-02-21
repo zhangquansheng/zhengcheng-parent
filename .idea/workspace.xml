@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e7370e4e-cf88-4238-9f23-1d3f13dfcf99" name="Changes" comment="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块 alibaba nacos">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="AnnotationType" />
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+        <option name="userSettingsFile" value="D:\maven\apache-maven-3.3.9\conf\settings-aliyun.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
+  <component name="ProjectId" id="2FL4dXm8Ntcvw2uuZTdxHj8jlVC" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Git.Branch.Popup.ShowAllRemotes": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "false",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "1.8 (2)",
+    "last_opened_file_path": "D:/work_seczone/zhengcheng-parent/magic/just-auth-RBAC/src/main/java/com/zhengcheng/magic/common/utils",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "MavenSettings"
+  }
+}]]></component>
+  <component name="Push.Settings">
+    <force-push-targets>
+      <force-push-target remote-path="origin" branch="v6.1.0" />
+    </force-push-targets>
+  </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\work_seczone\zhengcheng-parent\magic\just-auth-RBAC\src\main\java\com\zhengcheng\magic\common\utils" />
+      <recent name="D:\work_seczone\zhengcheng-parent\zhengcheng-plugin" />
+      <recent name="D:\work_seczone\zhengcheng-parent\zhengcheng-common\src\main\java\com\zhengcheng\common\utils" />
+      <recent name="D:\work_seczone\zhengcheng-parent\zhengcheng-starter\zhengcheng-web-spring-boot-starter\src\main\java\com\zhengcheng\mvc\utils" />
+      <recent name="D:\work_seczone\zhengcheng-parent\magic" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\work_seczone\zhengcheng-parent\zc-starter" />
+      <recent name="D:\work_seczone\zhengcheng-parent\zc-plugin" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.zhengcheng.common.utils" />
+      <recent name="com.zhengcheng.rsa.encrypt.enums" />
+      <recent name="com.zhengcheng.cache.ratelimit.enums" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.GatewayApplication">
+    <configuration name="zhengcheng-parent [versions:update-child-modules]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="versions:update-child-modules" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="zhengcheng-gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zhengcheng.gw.GatewayApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zhengcheng.gw.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MagicWebApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="zhengcheng-web" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zhengcheng.magic.web.MagicWebApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zhengcheng.magic.web.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.MagicWebApplication" />
+        <item itemvalue="Spring Boot.GatewayApplication" />
+        <item itemvalue="Spring Boot.GatewayApplication" />
+        <item itemvalue="Spring Boot.MagicWebApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e7370e4e-cf88-4238-9f23-1d3f13dfcf99" name="Changes" comment="" />
+      <created>1664258118783</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1664258118783</updated>
+      <workItem from="1664258121629" duration="1302000" />
+      <workItem from="1664518887051" duration="3206000" />
+      <workItem from="1665195508954" duration="720000" />
+      <workItem from="1665739052337" duration="6281000" />
+      <workItem from="1665986348144" duration="576000" />
+      <workItem from="1665993957301" duration="21000" />
+      <workItem from="1666059782764" duration="497000" />
+      <workItem from="1666229992351" duration="7156000" />
+      <workItem from="1666244141636" duration="1645000" />
+      <workItem from="1666314301211" duration="2937000" />
+      <workItem from="1666873364664" duration="1085000" />
+      <workItem from="1667025476897" duration="1739000" />
+      <workItem from="1667030218001" duration="834000" />
+      <workItem from="1667359177113" duration="2181000" />
+      <workItem from="1667380775748" duration="135000" />
+      <workItem from="1667460684521" duration="21000" />
+      <workItem from="1667468223111" duration="603000" />
+      <workItem from="1667472812873" duration="2160000" />
+      <workItem from="1667475151053" duration="512000" />
+      <workItem from="1667475743322" duration="200000" />
+      <workItem from="1667557636125" duration="1208000" />
+      <workItem from="1667791721513" duration="78000" />
+      <workItem from="1667791964870" duration="420000" />
+      <workItem from="1667792458872" duration="2981000" />
+      <workItem from="1667802275876" duration="245000" />
+      <workItem from="1667817652073" duration="776000" />
+      <workItem from="1667870797128" duration="17000" />
+      <workItem from="1667886541509" duration="231000" />
+      <workItem from="1667887806877" duration="36000" />
+      <workItem from="1667910068493" duration="224000" />
+      <workItem from="1667911212109" duration="20000" />
+      <workItem from="1667914203279" duration="184000" />
+      <workItem from="1667963728716" duration="615000" />
+      <workItem from="1667990767250" duration="277000" />
+      <workItem from="1667996228908" duration="41000" />
+      <workItem from="1668157909876" duration="767000" />
+      <workItem from="1668164200354" duration="1373000" />
+      <workItem from="1668391744692" duration="1571000" />
+      <workItem from="1668393800574" duration="1137000" />
+      <workItem from="1668474772342" duration="89000" />
+      <workItem from="1668475344502" duration="5000" />
+      <workItem from="1668505978448" duration="520000" />
+      <workItem from="1668506707225" duration="1130000" />
+      <workItem from="1668509011040" duration="1130000" />
+      <workItem from="1668654029275" duration="705000" />
+      <workItem from="1668655850190" duration="1000" />
+      <workItem from="1668738767952" duration="822000" />
+      <workItem from="1668843579734" duration="1545000" />
+      <workItem from="1668848120133" duration="1121000" />
+      <workItem from="1669083373010" duration="2910000" />
+      <workItem from="1669119252544" duration="604000" />
+      <workItem from="1669364559160" duration="1774000" />
+      <workItem from="1670487223804" duration="45000" />
+      <workItem from="1670498034125" duration="505000" />
+      <workItem from="1670808090842" duration="1525000" />
+      <workItem from="1670832701336" duration="236000" />
+      <workItem from="1670909386783" duration="988000" />
+      <workItem from="1670925930007" duration="130000" />
+      <workItem from="1671021652036" duration="652000" />
+      <workItem from="1671067739671" duration="690000" />
+      <workItem from="1672205729762" duration="853000" />
+      <workItem from="1672212519139" duration="441000" />
+      <workItem from="1672975357994" duration="89000" />
+      <workItem from="1673592850839" duration="2665000" />
+      <workItem from="1674093804897" duration="2154000" />
+      <workItem from="1674096993950" duration="1245000" />
+      <workItem from="1674107961073" duration="13000" />
+      <workItem from="1674112223139" duration="805000" />
+      <workItem from="1674868321554" duration="1369000" />
+      <workItem from="1674977648695" duration="1529000" />
+      <workItem from="1675078067131" duration="233000" />
+      <workItem from="1675404328434" duration="1557000" />
+      <workItem from="1675406842589" duration="640000" />
+      <workItem from="1677206047521" duration="891000" />
+      <workItem from="1677222076828" duration="759000" />
+      <workItem from="1677302020471" duration="8000" />
+      <workItem from="1677316743823" duration="957000" />
+      <workItem from="1678870467393" duration="1765000" />
+      <workItem from="1678872637715" duration="1903000" />
+      <workItem from="1678930837204" duration="1932000" />
+      <workItem from="1678934809341" duration="1141000" />
+      <workItem from="1678940167040" duration="2905000" />
+      <workItem from="1678956486124" duration="2000" />
+      <workItem from="1679451676364" duration="555000" />
+      <workItem from="1680082949080" duration="875000" />
+      <workItem from="1680161769423" duration="1500000" />
+      <workItem from="1680163355954" duration="386000" />
+      <workItem from="1680165862639" duration="233000" />
+      <workItem from="1680312859200" duration="6411000" />
+      <workItem from="1680610088979" duration="429000" />
+      <workItem from="1680834764360" duration="1054000" />
+      <workItem from="1681107017495" duration="845000" />
+      <workItem from="1681435015506" duration="1367000" />
+      <workItem from="1682244720545" duration="788000" />
+      <workItem from="1682328824597" duration="957000" />
+      <workItem from="1682338293470" duration="649000" />
+      <workItem from="1684753462843" duration="10000" />
+      <workItem from="1685495059899" duration="72000" />
+      <workItem from="1685503787215" duration="1000" />
+      <workItem from="1685539849659" duration="638000" />
+      <workItem from="1686117176573" duration="8000" />
+      <workItem from="1688033808530" duration="308000" />
+      <workItem from="1688456292857" duration="529000" />
+      <workItem from="1688456899771" duration="1913000" />
+      <workItem from="1688521517677" duration="24000" />
+      <workItem from="1688698299152" duration="614000" />
+      <workItem from="1689167901459" duration="1045000" />
+      <workItem from="1690805976973" duration="716000" />
+      <workItem from="1690816568496" duration="596000" />
+      <workItem from="1693449095946" duration="1421000" />
+      <workItem from="1694137628377" duration="748000" />
+      <workItem from="1694789430393" duration="59000" />
+      <workItem from="1695384309493" duration="599000" />
+      <workItem from="1695793040377" duration="629000" />
+      <workItem from="1695795087683" duration="865000" />
+      <workItem from="1697453203210" duration="105000" />
+      <workItem from="1697780644456" duration="138000" />
+      <workItem from="1697781909916" duration="753000" />
+      <workItem from="1699242139304" duration="1279000" />
+      <workItem from="1699258683393" duration="709000" />
+      <workItem from="1699408436064" duration="9000" />
+      <workItem from="1706778582841" duration="1033000" />
+      <workItem from="1706786602771" duration="494000" />
+      <workItem from="1706848175733" duration="328000" />
+      <workItem from="1707100055169" duration="2996000" />
+      <workItem from="1707114452998" duration="538000" />
+      <workItem from="1708249939512" duration="1115000" />
+      <workItem from="1708400220733" duration="21563000" />
+    </task>
+    <task id="LOCAL-00046" summary="脱敏支持插件拦截器">
+      <created>1680315614798</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1680315614798</updated>
+    </task>
+    <task id="LOCAL-00047" summary="脱敏支持插件拦截器">
+      <created>1680485710220</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1680485710220</updated>
+    </task>
+    <task id="LOCAL-00048" summary="fastjson&#10;banner.txt">
+      <created>1689168295449</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1689168295449</updated>
+    </task>
+    <task id="LOCAL-00049" summary="banner.txt">
+      <created>1689168599375</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1689168599375</updated>
+    </task>
+    <task id="LOCAL-00050" summary="[v6.1.1] 2023.01">
+      <created>1689168822295</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1689168822295</updated>
+    </task>
+    <task id="LOCAL-00051" summary="[v6.1.1] 2023.01">
+      <created>1695793397839</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1695793397839</updated>
+    </task>
+    <task id="LOCAL-00052" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块">
+      <created>1708404227239</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1708404227239</updated>
+    </task>
+    <task id="LOCAL-00053" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块">
+      <created>1708407750939</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1708407750939</updated>
+    </task>
+    <task id="LOCAL-00054" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块">
+      <created>1708408387913</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1708408387913</updated>
+    </task>
+    <task id="LOCAL-00055" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，基础依赖包">
+      <created>1708408986839</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1708408986839</updated>
+    </task>
+    <task id="LOCAL-00056" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，基础依赖包">
+      <created>1708409215757</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1708409215757</updated>
+    </task>
+    <task id="LOCAL-00057" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，基础依赖包">
+      <created>1708409472534</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1708409472534</updated>
+    </task>
+    <task id="LOCAL-00058" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，基础依赖包">
+      <created>1708410257276</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1708410257276</updated>
+    </task>
+    <task id="LOCAL-00059" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，基础依赖包">
+      <created>1708410665574</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1708410665574</updated>
+    </task>
+    <task id="LOCAL-00060" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，基础依赖包">
+      <created>1708411089537</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1708411089537</updated>
+    </task>
+    <task id="LOCAL-00061" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，基础依赖包">
+      <created>1708411199160</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1708411199160</updated>
+    </task>
+    <task id="LOCAL-00062" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，基础依赖包">
+      <created>1708411570334</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1708411570334</updated>
+    </task>
+    <task id="LOCAL-00063" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，基础依赖包">
+      <created>1708411615622</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1708411615622</updated>
+    </task>
+    <task id="LOCAL-00064" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，基础依赖包">
+      <created>1708411654540</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1708411654540</updated>
+    </task>
+    <task id="LOCAL-00065" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，基础依赖包">
+      <created>1708412088922</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1708412088922</updated>
+    </task>
+    <task id="LOCAL-00066" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，基础依赖包">
+      <created>1708412125984</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1708412125984</updated>
+    </task>
+    <task id="LOCAL-00067" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，基础依赖包">
+      <created>1708412821662</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1708412821662</updated>
+    </task>
+    <task id="LOCAL-00068" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，mp">
+      <created>1708413123530</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1708413123530</updated>
+    </task>
+    <task id="LOCAL-00069" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，mp">
+      <created>1708413132567</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1708413132567</updated>
+    </task>
+    <task id="LOCAL-00070" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，接口加解密">
+      <created>1708413477866</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1708413477866</updated>
+    </task>
+    <task id="LOCAL-00071" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，leaf">
+      <created>1708413727837</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1708413727837</updated>
+    </task>
+    <task id="LOCAL-00072" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，leaf">
+      <created>1708413766959</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1708413766959</updated>
+    </task>
+    <task id="LOCAL-00073" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，leaf">
+      <created>1708414254021</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1708414254021</updated>
+    </task>
+    <task id="LOCAL-00074" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，redis">
+      <created>1708414494591</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1708414494591</updated>
+    </task>
+    <task id="LOCAL-00075" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，redis">
+      <created>1708414751843</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1708414751843</updated>
+    </task>
+    <task id="LOCAL-00076" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，es">
+      <created>1708415126301</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1708415126301</updated>
+    </task>
+    <task id="LOCAL-00077" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，es">
+      <created>1708415303487</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1708415303487</updated>
+    </task>
+    <task id="LOCAL-00078" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，es">
+      <created>1708415328741</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1708415328741</updated>
+    </task>
+    <task id="LOCAL-00079" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，xxl-job">
+      <created>1708415605750</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1708415605751</updated>
+    </task>
+    <task id="LOCAL-00080" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，xxl-job">
+      <created>1708415817001</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1708415817001</updated>
+    </task>
+    <task id="LOCAL-00081" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，mq">
+      <created>1708416130533</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1708416130533</updated>
+    </task>
+    <task id="LOCAL-00082" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块">
+      <created>1708416801854</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1708416801854</updated>
+    </task>
+    <task id="LOCAL-00083" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块 gw">
+      <created>1708417916336</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1708417916336</updated>
+    </task>
+    <task id="LOCAL-00084" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块 magic">
+      <created>1708418559920</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1708418559920</updated>
+    </task>
+    <task id="LOCAL-00085" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块 magic">
+      <created>1708418908113</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1708418908113</updated>
+    </task>
+    <task id="LOCAL-00086" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块 magic">
+      <created>1708419297913</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1708419297913</updated>
+    </task>
+    <task id="LOCAL-00087" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块 magic">
+      <created>1708419610107</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1708419610107</updated>
+    </task>
+    <task id="LOCAL-00088" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块 magic">
+      <created>1708419744967</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1708419744967</updated>
+    </task>
+    <task id="LOCAL-00089" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块 magic">
+      <created>1708419857968</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1708419857968</updated>
+    </task>
+    <task id="LOCAL-00090" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块 magic">
+      <created>1708420134780</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1708420134780</updated>
+    </task>
+    <task id="LOCAL-00091" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块 magic">
+      <created>1708421022199</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1708421022199</updated>
+    </task>
+    <task id="LOCAL-00092" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块 alibaba nacos">
+      <created>1708422875359</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1708422875359</updated>
+    </task>
+    <task id="LOCAL-00093" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块 alibaba nacos">
+      <created>1708422942965</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1708422942965</updated>
+    </task>
+    <task id="LOCAL-00094" summary="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块 alibaba nacos">
+      <created>1708478227764</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1708478227764</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="6.1.1" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="6.1.1" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="6.1.0-SNAPSHOT" />
+    <MESSAGE value="6.1.0" />
+    <MESSAGE value="6.1.1" />
+    <MESSAGE value="6.1.1-SNAPSHOT" />
+    <MESSAGE value="Mybatis-Plus 数据权限 DataPermissionInterceptor 实现（开发中）" />
+    <MESSAGE value=" &lt;sa-token.version&gt;1.34.0&lt;/sa-token.version&gt;" />
+    <MESSAGE value="如果开发者使用OpenAPI3的结构，底层框架依赖springfox3.0.0,可以考虑Knife4j的3.x版本" />
+    <MESSAGE value="解决办法: spring.mvc.pathmatch.matching-strategy=ant_path_matcher" />
+    <MESSAGE value="脱敏" />
+    <MESSAGE value="脱敏支持插件拦截器" />
+    <MESSAGE value="fastjson&#10;banner.txt" />
+    <MESSAGE value="banner.txt" />
+    <MESSAGE value="[v6.1.1] 2023.01" />
+    <MESSAGE value="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，基础依赖包" />
+    <MESSAGE value="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，mp" />
+    <MESSAGE value="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，接口加解密" />
+    <MESSAGE value="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，leaf" />
+    <MESSAGE value="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，redis" />
+    <MESSAGE value="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，es" />
+    <MESSAGE value="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，xxl-job" />
+    <MESSAGE value="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块，mq" />
+    <MESSAGE value="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块" />
+    <MESSAGE value="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块 gw" />
+    <MESSAGE value="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块 magic" />
+    <MESSAGE value="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块 alibaba nacos" />
+    <option name="LAST_COMMIT_MESSAGE" value="[v6.1.1] 整理 `zhengcheng-parent` 项目的系统模块 alibaba nacos" />
+  </component>
+</project>
