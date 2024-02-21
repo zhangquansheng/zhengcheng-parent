@@ -30,7 +30,7 @@ public class J2CacheMessageListener implements MessageListener {
     public void onMessage(Message message, byte[] pattern) {
         String channel = new String(pattern);
         String key = new String(message.getBody());
-        log.info("Sec2CacheMessageListener key message:[{}] from channel: [{}]", key, channel);
+        log.info("J2CacheMessageListener key message:[{}] from channel: [{}]", key, channel);
 
         if (CharSequenceUtil.isNotBlank(key) && CharSequenceUtil.equalsIgnoreCase(J2CACHE_CHANNEL, channel)) {
             caffeine.invalidate(key);
