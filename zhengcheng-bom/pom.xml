@@ -73,6 +73,11 @@
                 <artifactId>zhengcheng-oss-spring-boot-starter</artifactId>
                 <version>${zhengcheng.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zhengcheng-expression-spring-boot-starter</artifactId>
+                <version>${zhengcheng.version}</version>
+            </dependency>
 
             <!-- springcloud starter -->
             <dependency>
