@@ -1,3 +1,6 @@
+server:
+  tomcat:
+    uri-encoding: UTF-8
 spring:
   cloud:
     nacos:
@@ -10,3 +13,27 @@ spring:
   config:
     import:
       - optional:nacos:ums.properties
+  application:
+    name: vh-user
+  messages:
+    basename: i18n.config,i18n.message
+  jackson:
+    time-zone: GMT+8
+  datasource:
+    url: jdbc:mysql://10.0.0.219:31234/vh_user?autoReconnect=true&useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=Asia/Shanghai&useSSL=false&connectTimeout=60000&socketTimeout=60000
+    username: iast
+    password: seczone@123
+    driver-class-name: com.mysql.cj.jdbc.Driver # 3.2.0开始支持SPI可省略此配置
+    type: com.zaxxer.hikari.HikariDataSource
+  redis:
+    database: 0
+    host: 10.0.0.219
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: 1
+        min-idle: 0
+    password: SkHdZa7Su2WfiNxy
+    port: 32582
+    timeout: 5000
