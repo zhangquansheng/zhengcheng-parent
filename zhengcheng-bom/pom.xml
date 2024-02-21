@@ -83,11 +83,21 @@
                 <artifactId>zhengcheng-idempotent-spring-boot-starter</artifactId>
                 <version>${zhengcheng.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zhengcheng-ratelimit-spring-boot-starter</artifactId>
+                <version>${zhengcheng.version}</version>
+            </dependency>
 
             <!-- springcloud starter -->
             <dependency>
                 <groupId>com.zhengcheng</groupId>
                 <artifactId>zhengcheng-nacos-spring-cloud-starter</artifactId>
+                <version>${zhengcheng.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zhengcheng-micro-spring-cloud-starter</artifactId>
                 <version>${zhengcheng.version}</version>
             </dependency>
         </dependencies>

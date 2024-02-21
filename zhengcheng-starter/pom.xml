@@ -26,6 +26,7 @@
         <module>zhengcheng-expression-spring-boot-starter</module>
         <module>zhengcheng-idempotent-spring-boot-starter</module>
         <module>zhengcheng-ratelimit-spring-boot-starter</module>
+        <module>zhengcheng-micro-spring-cloud-starter</module>
     </modules>
 
 </project>
