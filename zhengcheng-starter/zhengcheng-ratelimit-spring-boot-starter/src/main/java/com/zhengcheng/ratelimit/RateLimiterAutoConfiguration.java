@@ -1,4 +1,8 @@
-package cn.seczone.halo.ratelimit;
+package com.zhengcheng.ratelimit;
+
+import com.zhengcheng.ratelimit.aspect.RateLimiterAspect;
+import com.zhengcheng.ratelimit.handler.DefaultLimitKeyHandler;
+import com.zhengcheng.ratelimit.handler.LimitKeyHandler;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -8,9 +12,6 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.scripting.support.ResourceScriptSource;
 
-import cn.seczone.halo.ratelimit.aspect.RateLimiterAspect;
-import cn.seczone.halo.ratelimit.handler.DefaultLimitKeyHandler;
-import cn.seczone.halo.ratelimit.handler.LimitKeyHandler;
 import lombok.extern.slf4j.Slf4j;
 
 /**

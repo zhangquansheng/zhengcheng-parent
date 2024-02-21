@@ -1,6 +1,7 @@
-package cn.seczone.halo.ratelimit.handler;
+package com.zhengcheng.ratelimit.handler;
 
 
+import com.zhengcheng.common.exception.BizException;
 
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -10,8 +11,8 @@ import java.util.Objects;
 
 import javax.servlet.http.HttpServletRequest;
 
-import cn.seczone.halo.exception.BizException;
-import cn.seczone.halo.mvc.util.IpAddressUtil;
+import cn.hutool.extra.servlet.ServletUtil;
+
 
 /**
  * DefaultLimitKeyHandler
@@ -36,6 +37,6 @@ public class DefaultLimitKeyHandler implements LimitKeyHandler {
         if (null != requestAttributes) {
             request = ((ServletRequestAttributes) requestAttributes).getRequest();
         }
-        return Objects.isNull(request) ? "" : IpAddressUtil.getIpAddress(request);
+        return Objects.isNull(request) ? "" : ServletUtil.getClientIP(request);
     }
 }

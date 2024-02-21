@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.zhengcheng.common.exception.BizException;
-import com.zhengcheng.magic.common.utils.IpAddressUtil;
 import com.zhengcheng.magic.controller.facade.IOauthFacade;
 import com.zhengcheng.magic.domain.entity.User;
 import com.zhengcheng.magic.domain.entity.UserLoginLog;
@@ -21,6 +20,7 @@ import com.zhengcheng.magic.service.IUserService;
 import cn.dev33.satoken.stp.SaTokenInfo;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.net.NetUtil;
+import cn.hutool.extra.servlet.ServletUtil;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -56,7 +56,7 @@ public class OauthFacadeImpl implements IOauthFacade {
 
         if (user.isDisabled()) {
             userLoginLogService.save(UserLoginLog.builder().userId(user.getId()).type(LoginTypeEnum.LOGIN)
-                .serverIp(NetUtil.getLocalhostStr()).loginIp(IpAddressUtil.getIpAddress(request))
+                .serverIp(NetUtil.getLocalhostStr()).loginIp(ServletUtil.getClientIP(request))
                 .result(LoginResultEnum.FAILURE).content("用户已被禁用！").build());
             throw new BizException("用户已被禁用！");
         }
@@ -64,7 +64,7 @@ public class OauthFacadeImpl implements IOauthFacade {
         StpUtil.login(user.getId());
         userLoginLogService.save(
             UserLoginLog.builder().userId(user.getId()).type(LoginTypeEnum.LOGIN).serverIp(NetUtil.getLocalhostStr())
-                .loginIp(IpAddressUtil.getIpAddress(request)).result(LoginResultEnum.SUCCESS).build());
+                .loginIp(ServletUtil.getClientIP(request)).result(LoginResultEnum.SUCCESS).build());
         return StpUtil.getTokenInfo();
     }
 }

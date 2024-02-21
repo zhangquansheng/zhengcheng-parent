@@ -25,6 +25,7 @@
         <module>zhengcheng-nacos-spring-cloud-starter</module>
         <module>zhengcheng-expression-spring-boot-starter</module>
         <module>zhengcheng-idempotent-spring-boot-starter</module>
+        <module>zhengcheng-ratelimit-spring-boot-starter</module>
     </modules>
 
 </project>

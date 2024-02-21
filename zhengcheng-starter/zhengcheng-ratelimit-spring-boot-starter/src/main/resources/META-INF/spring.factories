@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  cn.seczone.halo.ratelimit.RateLimiterAutoConfiguration
+  com.zhengcheng.ratelimit.RateLimiterAutoConfiguration

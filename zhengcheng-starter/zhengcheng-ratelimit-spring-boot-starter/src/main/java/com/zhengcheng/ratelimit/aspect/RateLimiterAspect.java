@@ -1,5 +1,11 @@
-package cn.seczone.halo.ratelimit.aspect;
+package com.zhengcheng.ratelimit.aspect;
 
+
+import com.zhengcheng.common.exception.BizException;
+import com.zhengcheng.expression.KeyResolver;
+import com.zhengcheng.ratelimit.annotation.RateLimiter;
+import com.zhengcheng.ratelimit.enums.LimitType;
+import com.zhengcheng.ratelimit.handler.LimitKeyHandler;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
@@ -22,11 +28,6 @@ import java.util.Objects;
 import javax.annotation.Resource;
 
 import ch.qos.logback.core.CoreConstants;
-import cn.seczone.halo.cache.expression.KeyResolver;
-import cn.seczone.halo.exception.BizException;
-import cn.seczone.halo.ratelimit.annotation.RateLimiter;
-import cn.seczone.halo.ratelimit.enums.LimitType;
-import cn.seczone.halo.ratelimit.handler.LimitKeyHandler;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -53,7 +54,7 @@ public class RateLimiterAspect {
     @Resource
     private KeyResolver keyResolver;
 
-    @Pointcut("@annotation(cn.seczone.halo.ratelimit.annotation.RateLimiter)")
+    @Pointcut("@annotation(com.zhengcheng.ratelimit.annotation.RateLimiter)")
     public void pointcut() {
     }
 

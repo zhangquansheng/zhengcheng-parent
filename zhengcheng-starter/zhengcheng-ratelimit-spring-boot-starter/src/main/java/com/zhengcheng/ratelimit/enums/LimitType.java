@@ -1,4 +1,4 @@
-package cn.seczone.halo.ratelimit.enums;
+package com.zhengcheng.ratelimit.enums;
 
 import lombok.Getter;
 
