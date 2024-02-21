@@ -2,7 +2,7 @@ package com.zhengcheng.ums.controller.facade;
 
 import java.util.List;
 
-import com.zhengcheng.common.web.PageInfo;
+import com.zhengcheng.common.utils.PageInfo;
 import com.zhengcheng.ums.dto.UserDTO;
 import com.zhengcheng.ums.dto.command.EnableCommand;
 import com.zhengcheng.ums.dto.command.UserCommand;

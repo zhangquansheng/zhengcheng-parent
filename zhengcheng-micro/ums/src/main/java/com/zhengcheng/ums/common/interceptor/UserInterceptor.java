@@ -1,21 +1,21 @@
 package com.zhengcheng.ums.common.interceptor;
 
-import java.util.Objects;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import com.zhengcheng.common.constant.CommonConstants;
+import com.zhengcheng.common.dto.UserInfo;
+import com.zhengcheng.common.holder.ZcUserContextHolder;
+import com.zhengcheng.common.utils.Result;
+import com.zhengcheng.ums.controller.facade.UserFacade;
+import com.zhengcheng.ums.dto.UserDTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.web.servlet.HandlerInterceptor;
 
-import com.zhengcheng.common.constant.CommonConstants;
-import com.zhengcheng.common.dto.UserInfo;
-import com.zhengcheng.common.holder.ZcUserContextHolder;
-import com.zhengcheng.common.web.Result;
-import com.zhengcheng.ums.controller.facade.UserFacade;
-import com.zhengcheng.ums.dto.UserDTO;
+import java.util.Objects;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.bean.BeanUtil;

@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.zhengcheng.common.web.PageCommand;
-import com.zhengcheng.common.web.PageInfo;
+import com.zhengcheng.common.utils.PageCommand;
+import com.zhengcheng.common.utils.PageInfo;
 import com.zhengcheng.mybatis.plus.utils.PageUtil;
 import com.zhengcheng.ums.controller.facade.UserLoginLogFacade;
 import com.zhengcheng.ums.domain.enums.LoginResultEnum;

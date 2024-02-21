@@ -1,7 +1,7 @@
 package com.zhengcheng.ums.controller.facade;
 
-import com.zhengcheng.common.web.PageCommand;
-import com.zhengcheng.common.web.PageInfo;
+import com.zhengcheng.common.utils.PageCommand;
+import com.zhengcheng.common.utils.PageInfo;
 import com.zhengcheng.ums.dto.LogRecordDTO;
 
 /**
@@ -15,8 +15,7 @@ public interface LogRecordFacade {
     /**
      * 分页查询
      *
-     * @param pageCommand
-     *            分页参数
+     * @param pageCommand 分页参数
      * @return 数据查询对象
      */
     PageInfo<LogRecordDTO> page(PageCommand pageCommand);

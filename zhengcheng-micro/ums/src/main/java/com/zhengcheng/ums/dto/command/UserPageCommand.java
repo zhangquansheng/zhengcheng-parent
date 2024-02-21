@@ -1,6 +1,7 @@
 package com.zhengcheng.ums.dto.command;
 
-import com.zhengcheng.common.web.PageCommand;
+
+import com.zhengcheng.common.utils.PageCommand;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;

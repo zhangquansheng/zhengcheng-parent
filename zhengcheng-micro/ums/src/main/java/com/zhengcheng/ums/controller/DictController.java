@@ -1,20 +1,30 @@
 package com.zhengcheng.ums.controller;
 
-import java.util.List;
-
-import javax.validation.Valid;
-
+import com.zhengcheng.common.utils.PageInfo;
+import com.zhengcheng.common.utils.Result;
+import com.zhengcheng.common.validation.annotation.Update;
 import com.zhengcheng.ums.controller.facade.DictFacade;
 import com.zhengcheng.ums.dto.DictDataDTO;
 import com.zhengcheng.ums.dto.DictTypeDTO;
-import com.zhengcheng.ums.dto.command.*;
+import com.zhengcheng.ums.dto.command.DictDataCommand;
+import com.zhengcheng.ums.dto.command.DictDataPageCommand;
+import com.zhengcheng.ums.dto.command.DictTypeCommand;
+import com.zhengcheng.ums.dto.command.DictTypePageCommand;
+import com.zhengcheng.ums.dto.command.EnableCommand;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import com.zhengcheng.common.validation.annotation.Update;
-import com.zhengcheng.common.web.PageInfo;
-import com.zhengcheng.common.web.Result;
+import java.util.List;
+
+import javax.validation.Valid;
 
 import cn.dev33.satoken.annotation.SaCheckPermission;
 import io.swagger.annotations.Api;
@@ -26,7 +36,7 @@ import io.swagger.annotations.ApiOperation;
  * @author quansheng1.zhang
  * @since 2022/4/28 18:38
  */
-@Api(tags = { "字典管理" })
+@Api(tags = {"字典管理"})
 @RestController
 @RequestMapping("/admin/dict")
 public class DictController {

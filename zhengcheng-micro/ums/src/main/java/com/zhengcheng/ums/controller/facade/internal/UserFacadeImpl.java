@@ -1,19 +1,10 @@
 package com.zhengcheng.ums.controller.facade.internal;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
-
-import com.zhengcheng.ums.dto.UserDTO;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.mzt.logapi.starter.annotation.LogRecord;
 import com.zhengcheng.common.exception.BizException;
-import com.zhengcheng.common.web.PageInfo;
+import com.zhengcheng.common.utils.PageInfo;
 import com.zhengcheng.mybatis.plus.utils.PageUtil;
 import com.zhengcheng.ums.common.constants.LogRecordType;
 import com.zhengcheng.ums.common.exception.UmsError;
@@ -23,6 +14,7 @@ import com.zhengcheng.ums.domain.entity.Authority;
 import com.zhengcheng.ums.domain.entity.User;
 import com.zhengcheng.ums.domain.enums.AuthorityTypeEnum;
 import com.zhengcheng.ums.dto.MenuDTO;
+import com.zhengcheng.ums.dto.UserDTO;
 import com.zhengcheng.ums.dto.command.EnableCommand;
 import com.zhengcheng.ums.dto.command.UserCommand;
 import com.zhengcheng.ums.dto.command.UserPageCommand;
@@ -30,6 +22,14 @@ import com.zhengcheng.ums.service.AuthorityService;
 import com.zhengcheng.ums.service.RoleAuthorityService;
 import com.zhengcheng.ums.service.UserRoleService;
 import com.zhengcheng.ums.service.UserService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.util.StrUtil;
@@ -44,15 +44,15 @@ import cn.hutool.core.util.StrUtil;
 public class UserFacadeImpl implements UserFacade {
 
     @Autowired
-    private UserService          userService;
+    private UserService userService;
     @Autowired
-    private UserRoleService      userRoleService;
+    private UserRoleService userRoleService;
     @Autowired
     private RoleAuthorityService roleAuthorityService;
     @Autowired
-    private AuthorityService     authorityService;
+    private AuthorityService authorityService;
     @Autowired
-    private UserAssembler        userAssembler;
+    private UserAssembler userAssembler;
 
     @Override
     public UserDTO findByByToken(String tokenValue) {

@@ -1,19 +1,10 @@
 package com.zhengcheng.ums.controller.facade.internal;
 
-import cn.dev33.satoken.stp.SaTokenInfo;
-import cn.dev33.satoken.stp.StpUtil;
-import cn.hutool.core.date.DateUtil;
-import cn.hutool.core.net.NetUtil;
-import cn.hutool.core.util.RandomUtil;
-import cn.hutool.core.util.StrUtil;
-import cn.hutool.crypto.SecureUtil;
-import cn.hutool.http.HttpUtil;
 import com.baomidou.kaptcha.Kaptcha;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.zhengcheng.cache.ratelimit.annotation.RateLimiter;
-import com.zhengcheng.cache.ratelimit.enums.LimitType;
 import com.zhengcheng.common.exception.BizException;
-import com.zhengcheng.common.utils.IpAddressUtil;
+import com.zhengcheng.ratelimit.annotation.RateLimiter;
+import com.zhengcheng.ratelimit.enums.LimitType;
 import com.zhengcheng.ums.controller.facade.OauthFacade;
 import com.zhengcheng.ums.domain.entity.User;
 import com.zhengcheng.ums.domain.entity.UserLoginLog;
@@ -24,7 +15,7 @@ import com.zhengcheng.ums.dto.command.UserLoginCommand;
 import com.zhengcheng.ums.dto.command.UserMobileLoginCommand;
 import com.zhengcheng.ums.service.UserLoginLogService;
 import com.zhengcheng.ums.service.UserService;
-import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.connection.RedisStringCommands;
 import org.springframework.data.redis.core.RedisCallback;
@@ -33,7 +24,6 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.time.LocalDateTime;
@@ -42,6 +32,19 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
+
+import javax.servlet.http.HttpServletRequest;
+
+import cn.dev33.satoken.stp.SaTokenInfo;
+import cn.dev33.satoken.stp.StpUtil;
+import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.net.NetUtil;
+import cn.hutool.core.util.RandomUtil;
+import cn.hutool.core.util.StrUtil;
+import cn.hutool.crypto.SecureUtil;
+import cn.hutool.extra.servlet.ServletUtil;
+import cn.hutool.http.HttpUtil;
+import lombok.extern.slf4j.Slf4j;
 
 import static cn.hutool.core.date.DatePattern.PURE_DATE_FORMAT;
 
@@ -78,7 +81,7 @@ public class OauthFacadeImpl implements OauthFacade {
             throw new BizException("用户名或密码错误！");
         }
 
-        return userLogin(user, IpAddressUtil.getIpAddress(request));
+        return userLogin(user, ServletUtil.getClientIP(request));
     }
 
     private String getMobileLoginKey(String mobile) {
@@ -116,7 +119,7 @@ public class OauthFacadeImpl implements OauthFacade {
             userService.save(user);
         }
 
-        SaTokenInfo saTokenInfo = userLogin(user, IpAddressUtil.getIpAddress(request));
+        SaTokenInfo saTokenInfo = userLogin(user, ServletUtil.getClientIP(request));
 
         // 删除缓存的验证码
         redisTemplate.delete(key);

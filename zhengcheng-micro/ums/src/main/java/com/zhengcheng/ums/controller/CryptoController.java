@@ -1,18 +1,18 @@
 package com.zhengcheng.ums.controller;
 
-import java.util.Arrays;
-import java.util.Enumeration;
-
-import javax.servlet.http.HttpServletRequest;
-
+import com.zhengcheng.common.utils.Result;
 import com.zhengcheng.ums.dto.RsaKeyPair;
+
 import org.jasypt.util.text.BasicTextEncryptor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.zhengcheng.common.web.Result;
+import java.util.Arrays;
+import java.util.Enumeration;
+
+import javax.servlet.http.HttpServletRequest;
 
 import cn.hutool.core.codec.Base64;
 import cn.hutool.core.util.CharsetUtil;
@@ -29,7 +29,7 @@ import io.swagger.annotations.ApiOperation;
  * @author quansheng1.zhang
  * @since 2022/5/13 15:58
  */
-@Api(tags = { "加密服务接口" })
+@Api(tags = {"加密服务接口"})
 @RestController
 @RequestMapping("/crypto")
 public class CryptoController {
@@ -41,7 +41,7 @@ public class CryptoController {
 
         while (mode.hasMoreElements()) {
             String key = mode.nextElement();
-            System.out.println(key + "--->" + Arrays.toString(new String[] { request.getHeader(key) }));
+            System.out.println(key + "--->" + Arrays.toString(new String[]{request.getHeader(key)}));
         }
         return Result.successData(SecureUtil.md5(plaintext));
     }

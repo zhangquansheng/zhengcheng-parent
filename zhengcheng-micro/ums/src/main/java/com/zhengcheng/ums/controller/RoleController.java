@@ -8,9 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import com.zhengcheng.common.utils.PageInfo;
+import com.zhengcheng.common.utils.Result;
 import com.zhengcheng.common.validation.annotation.Update;
-import com.zhengcheng.common.web.PageInfo;
-import com.zhengcheng.common.web.Result;
 import com.zhengcheng.ums.controller.facade.RoleFacade;
 import com.zhengcheng.ums.dto.command.EnableCommand;
 import com.zhengcheng.ums.dto.command.RoleAuthorityCommand;

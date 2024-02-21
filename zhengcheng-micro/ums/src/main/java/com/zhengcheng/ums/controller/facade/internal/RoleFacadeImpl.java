@@ -1,20 +1,11 @@
 package com.zhengcheng.ums.controller.facade.internal;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.mzt.logapi.starter.annotation.LogRecord;
 import com.zhengcheng.common.exception.BizException;
-import com.zhengcheng.common.web.PageInfo;
+import com.zhengcheng.common.utils.PageInfo;
 import com.zhengcheng.mybatis.plus.utils.PageUtil;
 import com.zhengcheng.ums.common.constants.LogRecordType;
 import com.zhengcheng.ums.controller.facade.RoleFacade;
@@ -29,6 +20,15 @@ import com.zhengcheng.ums.dto.command.RolePageCommand;
 import com.zhengcheng.ums.service.RoleAuthorityService;
 import com.zhengcheng.ums.service.RoleService;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+
 import cn.hutool.core.util.StrUtil;
 
 /**
@@ -41,11 +41,11 @@ import cn.hutool.core.util.StrUtil;
 public class RoleFacadeImpl implements RoleFacade {
 
     @Autowired
-    private RoleService          roleService;
+    private RoleService roleService;
     @Autowired
     private RoleAuthorityService roleAuthorityService;
     @Autowired
-    private RoleAssembler        roleAssembler;
+    private RoleAssembler roleAssembler;
 
     @Override
     public RoleDTO findById(Long id) {
