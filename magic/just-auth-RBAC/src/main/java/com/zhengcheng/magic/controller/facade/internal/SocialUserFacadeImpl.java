@@ -1,19 +1,19 @@
 package com.zhengcheng.magic.controller.facade.internal;
 
-import java.util.List;
-import java.util.Optional;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
+import com.zhengcheng.magic.controller.facade.ISocialUserFacade;
+import com.zhengcheng.magic.domain.entity.SocialUser;
+import com.zhengcheng.magic.service.ISocialUserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
-import com.zhengcheng.magic.controller.facade.ISocialUserFacade;
-import com.zhengcheng.magic.controller.facade.internal.assembler.SocialUserAssembler;
-import com.zhengcheng.magic.domain.entity.SocialUser;
-import com.zhengcheng.magic.service.ISocialUserService;
+import java.util.List;
+import java.util.Optional;
 
+import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
 import me.zhyd.oauth.model.AuthUser;
 
@@ -28,13 +28,11 @@ public class SocialUserFacadeImpl implements ISocialUserFacade {
 
     @Autowired
     private ISocialUserService socialUserService;
-    @Autowired
-    private SocialUserAssembler socialUserAssembler;
 
     @Transactional
     @Override
     public AuthUser add(AuthUser authUser) {
-        SocialUser socialUser = socialUserAssembler.toEntity(authUser);
+        SocialUser socialUser = BeanUtil.copyProperties(authUser, SocialUser.class);
 
         socialUser.setOpenId(Optional.ofNullable(authUser.getToken().getOpenId()).orElse(""));
         socialUser.setUid(Optional.ofNullable(authUser.getToken().getUid()).orElse(""));
@@ -53,10 +51,10 @@ public class SocialUserFacadeImpl implements ISocialUserFacade {
         socialUser.setRefreshToken(Optional.ofNullable(authUser.getToken().getRefreshToken()).orElse(""));
 
         List<SocialUser> socialUsers = socialUserService.list(new LambdaQueryWrapper<SocialUser>()
-            .eq(SocialUser::getUuid, socialUser.getUuid()).eq(SocialUser::getSource, socialUser.getSource()));
+                .eq(SocialUser::getUuid, socialUser.getUuid()).eq(SocialUser::getSource, socialUser.getSource()));
         if (CollectionUtil.isNotEmpty(socialUsers)) {
             socialUserService.update(socialUser, new LambdaUpdateWrapper<SocialUser>()
-                .eq(SocialUser::getUuid, socialUser.getUuid()).eq(SocialUser::getSource, socialUser.getSource()));
+                    .eq(SocialUser::getUuid, socialUser.getUuid()).eq(SocialUser::getSource, socialUser.getSource()));
         } else {
             socialUserService.save(socialUser);
         }
