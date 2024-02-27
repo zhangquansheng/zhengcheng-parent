@@ -1,22 +1,33 @@
 package com.zhengcheng.oss.service.impl;
 
-import cn.hutool.core.util.StrUtil;
 import com.aliyun.oss.ClientException;
 import com.aliyun.oss.OSSClient;
 import com.aliyun.oss.OSSException;
-import com.aliyun.oss.model.*;
+import com.aliyun.oss.model.AbortMultipartUploadRequest;
+import com.aliyun.oss.model.CompleteMultipartUploadRequest;
+import com.aliyun.oss.model.CompleteMultipartUploadResult;
+import com.aliyun.oss.model.InitiateMultipartUploadRequest;
+import com.aliyun.oss.model.InitiateMultipartUploadResult;
+import com.aliyun.oss.model.ListMultipartUploadsRequest;
+import com.aliyun.oss.model.ListPartsRequest;
+import com.aliyun.oss.model.MultipartUploadListing;
+import com.aliyun.oss.model.PartETag;
+import com.aliyun.oss.model.PartListing;
+import com.aliyun.oss.model.PutObjectRequest;
+import com.aliyun.oss.model.PutObjectResult;
+import com.aliyun.oss.model.UploadPartRequest;
+import com.aliyun.oss.model.UploadPartResult;
 import com.zhengcheng.oss.properties.OssProperties;
 import com.zhengcheng.oss.service.IAliYunOssService;
-import lombok.extern.slf4j.Slf4j;
-import sun.misc.BASE64Decoder;
 
-import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Date;
 import java.util.List;
+
+import cn.hutool.core.util.StrUtil;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * PostObjectPolicyServiceImpl
@@ -130,18 +141,18 @@ public class AliYunOssServiceImpl implements IAliYunOssService {
         return client.initiateMultipartUpload(request);
     }
 
-    @Override
-    public UploadPartResult uploadPart(String bucketName, String key, String uploadId, String base64, long partSize,
-                                       int partNumber) throws IOException {
-        UploadPartRequest uploadPartRequest = new UploadPartRequest();
-        uploadPartRequest.setBucketName(bucketName);
-        uploadPartRequest.setKey(key);
-        uploadPartRequest.setUploadId(uploadId);
-        uploadPartRequest.setInputStream(new ByteArrayInputStream(new BASE64Decoder().decodeBuffer(base64)));
-        uploadPartRequest.setPartSize(partSize);
-        uploadPartRequest.setPartNumber(partNumber);
-        return this.uploadPart(uploadPartRequest);
-    }
+//    @Override
+//    public UploadPartResult uploadPart(String bucketName, String key, String uploadId, String base64, long partSize,
+//                                       int partNumber) throws IOException {
+//        UploadPartRequest uploadPartRequest = new UploadPartRequest();
+//        uploadPartRequest.setBucketName(bucketName);
+//        uploadPartRequest.setKey(key);
+//        uploadPartRequest.setUploadId(uploadId);
+//        uploadPartRequest.setInputStream(new ByteArrayInputStream(new BASE64Decoder().decodeBuffer(base64)));
+//        uploadPartRequest.setPartSize(partSize);
+//        uploadPartRequest.setPartNumber(partNumber);
+//        return this.uploadPart(uploadPartRequest);
+//    }
 
     @Override
     public UploadPartResult uploadPart(UploadPartRequest request) {

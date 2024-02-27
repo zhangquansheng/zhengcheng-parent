@@ -218,27 +218,27 @@ public interface IAliYunOssService {
      */
     InitiateMultipartUploadResult initiateMultipartUpload(InitiateMultipartUploadRequest request);
 
-    /**
-     * 分片上传
-     *
-     * @param bucketName
-     *            Bucket name.
-     * @param key
-     *            文件KEY
-     * @param uploadId
-     *            The multipart upload Id.
-     * @param base64
-     *            文件流 Base64
-     * @param partSize
-     *            分片大小
-     * @param partNumber
-     *            每一个上传的分片都有一个分片号，取值范围是1~10000，如果超出这个范围，OSS将返回InvalidArgument的错误码。
-     * @return UploadPartResult
-     * @throws IOException
-     *             exception
-     */
-    UploadPartResult uploadPart(String bucketName, String key, String uploadId, String base64, long partSize,
-                                int partNumber) throws IOException;
+//    /**
+//     * 分片上传
+//     *
+//     * @param bucketName
+//     *            Bucket name.
+//     * @param key
+//     *            文件KEY
+//     * @param uploadId
+//     *            The multipart upload Id.
+//     * @param base64
+//     *            文件流 Base64
+//     * @param partSize
+//     *            分片大小
+//     * @param partNumber
+//     *            每一个上传的分片都有一个分片号，取值范围是1~10000，如果超出这个范围，OSS将返回InvalidArgument的错误码。
+//     * @return UploadPartResult
+//     * @throws IOException
+//     *             exception
+//     */
+//    UploadPartResult uploadPart(String bucketName, String key, String uploadId, String base64, long partSize,
+//                                int partNumber) throws IOException;
 
     /**
      * 分片上传
@@ -267,7 +267,7 @@ public interface IAliYunOssService {
 
     /**
      * 完成整个文件的分片上传
-     * 
+     *
      * @param request
      *            CompleteMultipartUploadRequest
      * @return CompleteMultipartUploadResult
@@ -276,7 +276,7 @@ public interface IAliYunOssService {
 
     /**
      * 取消分片上传
-     * 
+     *
      * @param request
      *            AbortMultipartUploadRequest
      */
@@ -284,7 +284,7 @@ public interface IAliYunOssService {
 
     /**
      * 列举已上传的分片
-     * 
+     *
      * @param request
      *            ListPartsRequest
      * @return PartListing
@@ -293,7 +293,7 @@ public interface IAliYunOssService {
 
     /**
      * 列举分片上传事件
-     * 
+     *
      * @param request
      *            ListMultipartUploadsRequest
      * @return MultipartUploadListing
