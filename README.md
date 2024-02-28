@@ -49,7 +49,7 @@ zhengcheng-parent
 
 ### [v6.1.1] 2023.01
 
-- 整理 `zhengcheng-parent` 项目的系统模块
+- 整理 `zhengcheng-parent` 项目的系统模块 ums cms frontend
 - Bumps hutool-core from 5.7.4 to 5.8.20.
 - 增加分布式锁的 [lock4j](https://gitee.com/baomidou/lock4j)
 
