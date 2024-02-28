@@ -1,4 +1,4 @@
-package com.zhengcheng.common.utils;
+package com.zhengcheng.common.enums;
 
 import lombok.Getter;
 

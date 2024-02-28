@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.zhengcheng.common.utils.CodeEnum;
-import com.zhengcheng.common.utils.Result;
+import com.zhengcheng.common.enums.CodeEnum;
+import com.zhengcheng.common.domain.Result;
 import com.zhengcheng.mvc.advice.ExceptionControllerAdvice;
 
 import cn.dev33.satoken.exception.NotLoginException;

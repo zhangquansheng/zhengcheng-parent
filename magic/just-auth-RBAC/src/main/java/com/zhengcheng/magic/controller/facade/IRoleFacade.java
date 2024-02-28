@@ -1,7 +1,7 @@
 package com.zhengcheng.magic.controller.facade;
 
-import com.zhengcheng.common.utils.PageCommand;
-import com.zhengcheng.common.utils.PageInfo;
+import com.zhengcheng.common.domain.PageCommand;
+import com.zhengcheng.common.domain.PageInfo;
 import com.zhengcheng.magic.controller.command.RoleAuthorityCommand;
 import com.zhengcheng.magic.controller.command.RoleCommand;
 import com.zhengcheng.magic.controller.facade.internal.dto.RoleDTO;
@@ -50,7 +50,7 @@ public interface IRoleFacade {
 
     /**
      * 编辑角色权限
-     * 
+     *
      * @param roleAuthorityCommand
      *            角色权限
      */

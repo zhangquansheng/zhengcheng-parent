@@ -3,7 +3,7 @@ package com.zhengcheng.mvc.filter;
 import cn.hutool.core.text.CharSequenceUtil;
 
 import com.zhengcheng.common.constant.CommonConstants;
-import com.zhengcheng.common.dto.UserInfo;
+import com.zhengcheng.common.domain.UserInfo;
 import com.zhengcheng.common.holder.ZcUserContextHolder;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

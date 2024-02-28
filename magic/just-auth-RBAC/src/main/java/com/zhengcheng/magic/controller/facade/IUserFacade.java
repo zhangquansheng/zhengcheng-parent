@@ -1,7 +1,7 @@
 package com.zhengcheng.magic.controller.facade;
 
-import com.zhengcheng.common.utils.PageCommand;
-import com.zhengcheng.common.utils.PageInfo;
+import com.zhengcheng.common.domain.PageCommand;
+import com.zhengcheng.common.domain.PageInfo;
 import com.zhengcheng.magic.controller.command.UserCommand;
 import com.zhengcheng.magic.controller.command.UserRoleCommand;
 import com.zhengcheng.magic.controller.facade.internal.dto.UserDTO;
@@ -16,7 +16,7 @@ public interface IUserFacade {
 
     /**
      * 查询当前登录的用户，返回角色，权限
-     * 
+     *
      * @param id
      *            用户ID
      * @return UserDTO
@@ -51,7 +51,7 @@ public interface IUserFacade {
 
     /**
      * 添加用户角色
-     * 
+     *
      * @param userRoleCommand
      *            UserRoleCommand
      */

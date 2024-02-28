@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.zhengcheng.common.utils.Result;
+import com.zhengcheng.common.domain.Result;
 import com.zhengcheng.magic.controller.facade.IOauthFacade;
 
 import cn.dev33.satoken.stp.SaTokenInfo;

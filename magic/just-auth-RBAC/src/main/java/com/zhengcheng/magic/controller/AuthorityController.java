@@ -1,7 +1,7 @@
 package com.zhengcheng.magic.controller;
 
 import com.zhengcheng.common.validation.annotation.Update;
-import com.zhengcheng.common.utils.Result;
+import com.zhengcheng.common.domain.Result;
 import com.zhengcheng.magic.controller.command.AuthorityCommand;
 import com.zhengcheng.magic.controller.facade.IAuthorityFacade;
 import com.zhengcheng.magic.controller.facade.internal.dto.AuthorityDTO;

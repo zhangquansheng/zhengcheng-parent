@@ -2,8 +2,8 @@ package com.zhengcheng.magic.controller.facade;
 
 import com.zhengcheng.magic.controller.facade.internal.dto.UserAuthDTO;
 import com.zhengcheng.magic.controller.command.UserAuthCommand;
-import com.zhengcheng.common.utils.PageCommand;
-import com.zhengcheng.common.utils.PageInfo;
+import com.zhengcheng.common.domain.PageCommand;
+import com.zhengcheng.common.domain.PageInfo;
 
 /**
  * 用户授权表(UserAuth)表Facade接口

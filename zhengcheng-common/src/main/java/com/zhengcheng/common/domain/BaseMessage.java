@@ -1,4 +1,4 @@
-package com.zhengcheng.common.message;
+package com.zhengcheng.common.domain;
 
 import cn.hutool.core.util.IdUtil;
 import lombok.Data;

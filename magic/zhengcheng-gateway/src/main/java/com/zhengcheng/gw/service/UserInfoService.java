@@ -7,7 +7,7 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Service;
 
-import com.zhengcheng.common.utils.Result;
+import com.zhengcheng.common.domain.Result;
 import com.zhengcheng.gw.feign.UmsFeignClient;
 import com.zhengcheng.gw.feign.dto.UserDTO;
 

@@ -1,4 +1,6 @@
-package com.zhengcheng.common.utils;
+package com.zhengcheng.common.domain;
+
+import com.zhengcheng.common.enums.CodeEnum;
 
 import java.io.Serializable;
 import java.util.Objects;

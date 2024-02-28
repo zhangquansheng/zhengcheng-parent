@@ -2,8 +2,8 @@ package com.zhengcheng.magic.controller.facade.internal;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.zhengcheng.common.utils.PageCommand;
-import com.zhengcheng.common.utils.PageInfo;
+import com.zhengcheng.common.domain.PageCommand;
+import com.zhengcheng.common.domain.PageInfo;
 import com.zhengcheng.magic.controller.facade.IUserLoginLogFacade;
 import com.zhengcheng.magic.controller.facade.internal.dto.UserLoginLogDTO;
 import com.zhengcheng.magic.domain.entity.UserLoginLog;

@@ -8,7 +8,7 @@ import cn.dev33.satoken.stp.StpUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zhengcheng.common.constant.CommonConstants;
-import com.zhengcheng.common.utils.Result;
+import com.zhengcheng.common.domain.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

@@ -2,9 +2,9 @@ package com.zhengcheng.magic.controller;
 
 import com.zhengcheng.common.validation.annotation.Insert;
 import com.zhengcheng.common.validation.annotation.Update;
-import com.zhengcheng.common.utils.PageCommand;
-import com.zhengcheng.common.utils.PageInfo;
-import com.zhengcheng.common.utils.Result;
+import com.zhengcheng.common.domain.PageCommand;
+import com.zhengcheng.common.domain.PageInfo;
+import com.zhengcheng.common.domain.Result;
 import com.zhengcheng.magic.controller.command.RoleAuthorityCommand;
 import com.zhengcheng.magic.controller.command.RoleCommand;
 import com.zhengcheng.magic.controller.facade.IRoleFacade;

@@ -2,7 +2,7 @@ package com.zhengcheng.magic.controller;
 
 import cn.dev33.satoken.stp.StpUtil;
 import com.zhengcheng.common.validation.annotation.Insert;
-import com.zhengcheng.common.utils.Result;
+import com.zhengcheng.common.domain.Result;
 import com.zhengcheng.magic.controller.command.UserCommand;
 import com.zhengcheng.magic.controller.command.UserRoleCommand;
 import com.zhengcheng.magic.controller.facade.IUserFacade;

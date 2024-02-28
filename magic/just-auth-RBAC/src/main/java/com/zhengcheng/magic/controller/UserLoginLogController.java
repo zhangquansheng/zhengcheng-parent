@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.zhengcheng.common.utils.PageCommand;
-import com.zhengcheng.common.utils.PageInfo;
-import com.zhengcheng.common.utils.Result;
+import com.zhengcheng.common.domain.PageCommand;
+import com.zhengcheng.common.domain.PageInfo;
+import com.zhengcheng.common.domain.Result;
 import com.zhengcheng.magic.controller.facade.IUserLoginLogFacade;
 import com.zhengcheng.magic.controller.facade.internal.dto.UserLoginLogDTO;
 

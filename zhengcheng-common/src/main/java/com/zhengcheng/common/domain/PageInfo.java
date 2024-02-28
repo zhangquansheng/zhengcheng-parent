@@ -1,4 +1,4 @@
-package com.zhengcheng.common.utils;
+package com.zhengcheng.common.domain;
 
 import java.io.Serializable;
 import java.util.List;

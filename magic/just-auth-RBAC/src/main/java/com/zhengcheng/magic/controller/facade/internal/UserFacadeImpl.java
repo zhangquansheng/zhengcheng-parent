@@ -1,8 +1,8 @@
 package com.zhengcheng.magic.controller.facade.internal;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.zhengcheng.common.utils.PageCommand;
-import com.zhengcheng.common.utils.PageInfo;
+import com.zhengcheng.common.domain.PageCommand;
+import com.zhengcheng.common.domain.PageInfo;
 import com.zhengcheng.magic.controller.command.UserCommand;
 import com.zhengcheng.magic.controller.command.UserRoleCommand;
 import com.zhengcheng.magic.controller.facade.IUserFacade;

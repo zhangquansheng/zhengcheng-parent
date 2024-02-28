@@ -1,4 +1,4 @@
-package com.zhengcheng.common.dto;
+package com.zhengcheng.common.domain;
 
 import lombok.Data;
 

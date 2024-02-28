@@ -1,6 +1,6 @@
 package com.zhengcheng.magic.controller.facade.internal.dto;
 
-import com.zhengcheng.common.dto.BaseDTO;
+import com.zhengcheng.common.domain.BaseDTO;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;

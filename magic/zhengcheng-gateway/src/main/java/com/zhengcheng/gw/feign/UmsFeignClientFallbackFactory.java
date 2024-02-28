@@ -3,7 +3,7 @@ package com.zhengcheng.gw.feign;
 import org.springframework.cloud.openfeign.FallbackFactory;
 import org.springframework.stereotype.Component;
 
-import com.zhengcheng.common.utils.Result;
+import com.zhengcheng.common.domain.Result;
 import com.zhengcheng.gw.feign.dto.UserDTO;
 
 import lombok.extern.slf4j.Slf4j;
