@@ -63,8 +63,7 @@ public class ElasticsearchTemplateImpl<T> implements ElasticsearchTemplate<T> {
     }
 
     @Override
-    public PageResult<T> page(SearchSourceBuilder sourceBuilder, PageQuery pageQuery, Class<T> clazz)
-            throws IOException {
+    public PageResult<T> page(SearchSourceBuilder sourceBuilder, PageQuery pageQuery, Class<T> clazz) throws IOException {
         // 禁止深度分页
         int maxResultWindow = 10000;
         if (pageQuery.getPageSize() * pageQuery.getPageNo() > maxResultWindow) {
@@ -81,10 +80,10 @@ public class ElasticsearchTemplateImpl<T> implements ElasticsearchTemplate<T> {
         DocumentInfo documentInfo = DocumentInfoHelper.getDocumentInfo(clazz);
         SearchResponse searchResponse = search(documentInfo, sourceBuilder);
 
-        PageResult<T> pageInfo = PageResult.empty(pageQuery);
-        pageInfo.setTotal(searchResponseToTotalHits(searchResponse).value);
-        pageInfo.setRecords(searchResponseToList(clazz, documentInfo, searchResponse));
-        return pageInfo;
+        PageResult<T> pageResult = PageResult.empty(pageQuery);
+        pageResult.setTotal(searchResponseToTotalHits(searchResponse).value);
+        pageResult.setRecords(searchResponseToList(clazz, documentInfo, searchResponse));
+        return pageResult;
     }
 
     @Override
@@ -126,8 +125,7 @@ public class ElasticsearchTemplateImpl<T> implements ElasticsearchTemplate<T> {
     public void delete(T t) throws IOException {
         DocumentInfo documentInfo = DocumentInfoHelper.getDocumentInfo(t.getClass());
 
-        DeleteRequest request =
-                new DeleteRequest(documentInfo.getIndexName(), documentInfo.getIndexType(), documentInfo.getIndexValue(t));
+        DeleteRequest request = new DeleteRequest(documentInfo.getIndexName(), documentInfo.getIndexType(), documentInfo.getIndexValue(t));
         DeleteResponse deleteResponse = client.delete(request, RequestOptions.DEFAULT);
         log.info(StrUtil.format("删除文档记录结果：[{}]", deleteResponse.getResult().toString()));
     }
@@ -168,8 +166,7 @@ public class ElasticsearchTemplateImpl<T> implements ElasticsearchTemplate<T> {
             searchRequest.source(sourceBuilder);
         }
         if (log.isDebugEnabled()) {
-            log.debug("\n" + mapper.writerWithDefaultPrettyPrinter()
-                    .writeValueAsString(mapper.readValue(sourceBuilder.toString(), Object.class)));
+            log.debug("\n" + mapper.writerWithDefaultPrettyPrinter().writeValueAsString(mapper.readValue(sourceBuilder.toString(), Object.class)));
         }
         return client.search(searchRequest, RequestOptions.DEFAULT);
     }
@@ -179,8 +176,7 @@ public class ElasticsearchTemplateImpl<T> implements ElasticsearchTemplate<T> {
         return hits.getTotalHits();
     }
 
-    private List<T> searchResponseToList(Class<T> clazz, DocumentInfo documentInfo, SearchResponse searchResponse)
-            throws IOException {
+    private List<T> searchResponseToList(Class<T> clazz, DocumentInfo documentInfo, SearchResponse searchResponse) throws IOException {
         List<T> tList = new ArrayList<>();
         for (SearchHit hit : searchResponse.getHits()) {
             T t = string2Obj(hit.getSourceAsString(), clazz);
@@ -219,18 +215,15 @@ public class ElasticsearchTemplateImpl<T> implements ElasticsearchTemplate<T> {
         {
             for (DocumentFieldInfo documentFieldInfo : documentInfo.getFieldList()) {
                 if (LocalDateTime.class.equals(documentFieldInfo.getPropertyType())) {
-                    LocalDateTime localDateTime =
-                            (LocalDateTime) ReflectUtil.getFieldValue(t, documentFieldInfo.getProperty());
+                    LocalDateTime localDateTime = (LocalDateTime) ReflectUtil.getFieldValue(t, documentFieldInfo.getProperty());
                     builder.field(documentFieldInfo.getProperty(), LocalDateTimeUtil.formatNormal(localDateTime));
                 } else {
-                    builder.field(documentFieldInfo.getProperty(),
-                            ReflectUtil.getFieldValue(t, documentFieldInfo.getProperty()));
+                    builder.field(documentFieldInfo.getProperty(), ReflectUtil.getFieldValue(t, documentFieldInfo.getProperty()));
                 }
             }
         }
         builder.endObject();
-        return new IndexRequest(documentInfo.getIndexName(), documentInfo.getIndexType(), documentInfo.getIndexValue(t))
-                .source(builder);
+        return new IndexRequest(documentInfo.getIndexName(), documentInfo.getIndexType(), documentInfo.getIndexValue(t)).source(builder);
     }
 
     @SuppressWarnings({"TypeParameterHidesVisibleType", "unchecked"})
