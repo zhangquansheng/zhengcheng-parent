@@ -2,7 +2,6 @@ package com.zhengcheng.mvc;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -18,8 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @EnableWebMvc
 @Configuration
-@ComponentScan({
-        "com.zhengcheng.mvc.advice"})
+@ComponentScan({"com.zhengcheng.mvc.advice"})
 public class ZcWebAutoConfiguration implements WebMvcConfigurer {
 
     public ZcWebAutoConfiguration() {

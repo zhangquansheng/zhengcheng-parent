@@ -1,20 +1,22 @@
-package com.zhengcheng.mvc.filter;
-
-import cn.hutool.core.text.CharSequenceUtil;
+package com.zhengcheng.satoken.filter;
 
 import com.zhengcheng.common.constant.CommonConstants;
 import com.zhengcheng.common.domain.UserInfo;
 import com.zhengcheng.common.holder.ZcUserContextHolder;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.web.filter.GenericFilterBean;
+
+import java.io.IOException;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
+
+import cn.hutool.core.text.CharSequenceUtil;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * TransmittableUserInfoFilter

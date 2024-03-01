@@ -1,4 +1,4 @@
-package com.zhengcheng.mvc;
+package com.zhengcheng.satoken;
 
 import com.zhengcheng.mvc.filter.TransmittableUserInfoFilter;
 

@@ -1,8 +1,9 @@
-package com.zhengcheng.common.holder;
+package com.zhengcheng.satoken.holder;
 
-import cn.hutool.core.util.StrUtil;
 import com.alibaba.ttl.TransmittableThreadLocal;
 import com.zhengcheng.common.domain.UserInfo;
+
+import cn.hutool.core.util.StrUtil;
 
 /**
  * 新征程框架，用户上下文 ThreadLocal
