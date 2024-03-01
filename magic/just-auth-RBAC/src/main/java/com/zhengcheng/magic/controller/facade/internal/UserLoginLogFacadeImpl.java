@@ -2,8 +2,8 @@ package com.zhengcheng.magic.controller.facade.internal;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.zhengcheng.common.domain.PageCommand;
-import com.zhengcheng.common.domain.PageInfo;
+import com.zhengcheng.common.domain.PageQuery;
+import com.zhengcheng.common.domain.PageResult;
 import com.zhengcheng.magic.controller.facade.IUserLoginLogFacade;
 import com.zhengcheng.magic.controller.facade.internal.dto.UserLoginLogDTO;
 import com.zhengcheng.magic.domain.entity.UserLoginLog;
@@ -33,11 +33,11 @@ public class UserLoginLogFacadeImpl implements IUserLoginLogFacade {
     }
 
     @Override
-    public PageInfo<UserLoginLogDTO> page(PageCommand pageCommand) {
-        IPage<UserLoginLog> page = userLoginLogService.page(PageUtil.getPage(pageCommand),
+    public PageResult<UserLoginLogDTO> page(PageQuery pageQuery) {
+        IPage<UserLoginLog> page = userLoginLogService.page(PageUtil.getPage(pageQuery),
                 new LambdaQueryWrapper<UserLoginLog>().orderByDesc(UserLoginLog::getCreateTime));
 
-        PageInfo<UserLoginLogDTO> pageInfo = PageInfo.empty(pageCommand);
+        PageResult<UserLoginLogDTO> pageInfo = PageResult.empty(pageQuery);
         pageInfo.setTotal(page.getTotal());
         pageInfo.setRecords(BeanUtil.copyToList(page.getRecords(), UserLoginLogDTO.class));
         return pageInfo;

@@ -1,7 +1,7 @@
 package com.zhengcheng.magic.controller.facade;
 
-import com.zhengcheng.common.domain.PageCommand;
-import com.zhengcheng.common.domain.PageInfo;
+import com.zhengcheng.common.domain.PageQuery;
+import com.zhengcheng.common.domain.PageResult;
 import com.zhengcheng.magic.controller.facade.internal.dto.UserLoginLogDTO;
 
 /**
@@ -24,9 +24,9 @@ public interface IUserLoginLogFacade {
     /**
      * 分页查询
      *
-     * @param pageCommand
+     * @param pageQuery
      *            分页参数
      * @return 数据查询对象
      */
-    PageInfo<UserLoginLogDTO> page(PageCommand pageCommand);
+    PageResult<UserLoginLogDTO> page(PageQuery pageQuery);
 }

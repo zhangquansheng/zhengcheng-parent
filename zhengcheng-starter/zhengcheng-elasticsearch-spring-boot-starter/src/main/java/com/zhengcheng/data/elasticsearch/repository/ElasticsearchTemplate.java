@@ -1,7 +1,7 @@
 package com.zhengcheng.data.elasticsearch.repository;
 
-import com.zhengcheng.common.domain.PageCommand;
-import com.zhengcheng.common.domain.PageInfo;
+import com.zhengcheng.common.domain.PageQuery;
+import com.zhengcheng.common.domain.PageResult;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 
 import java.io.IOException;
@@ -16,9 +16,9 @@ import java.util.List;
  */
 public interface ElasticsearchTemplate<T> {
 
-    PageInfo<T> page(SearchSourceBuilder sourceBuilder, PageCommand pageCommand, Class<T> clazz) throws IOException;
+    PageResult<T> page(SearchSourceBuilder sourceBuilder, PageQuery pageQuery, Class<T> clazz) throws IOException;
 
-    PageInfo<T> page(PageCommand pageCommand, Class<T> clazz) throws IOException;
+    PageResult<T> page(PageQuery pageQuery, Class<T> clazz) throws IOException;
 
     List<T> list(Class<T> clazz) throws IOException;
 

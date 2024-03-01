@@ -11,7 +11,7 @@ import lombok.Data;
  * @date :    2019/9/30 1:51
  */
 @Data
-public class PageCommand implements Serializable {
+public class PageQuery implements Serializable {
 
     private static final long serialVersionUID = -2370551336156689540L;
 

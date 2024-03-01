@@ -2,8 +2,8 @@ package com.zhengcheng.magic.controller;
 
 import com.zhengcheng.common.validation.annotation.Insert;
 import com.zhengcheng.common.validation.annotation.Update;
-import com.zhengcheng.common.domain.PageCommand;
-import com.zhengcheng.common.domain.PageInfo;
+import com.zhengcheng.common.domain.PageQuery;
+import com.zhengcheng.common.domain.PageResult;
 import com.zhengcheng.common.domain.Result;
 import com.zhengcheng.magic.controller.command.RoleAuthorityCommand;
 import com.zhengcheng.magic.controller.command.RoleCommand;
@@ -53,8 +53,8 @@ public class RoleController {
 
     @ApiOperation("分页查询")
     @PostMapping("/page")
-    public Result<PageInfo<RoleDTO>> page(@Valid @RequestBody PageCommand pageCommand) {
-        return Result.successData(roleFacade.page(pageCommand));
+    public Result<PageResult<RoleDTO>> page(@Valid @RequestBody PageQuery pageQuery) {
+        return Result.successData(roleFacade.page(pageQuery));
     }
 
     @ApiOperation("编辑角色权限")

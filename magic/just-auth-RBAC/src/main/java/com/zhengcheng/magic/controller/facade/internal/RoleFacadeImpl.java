@@ -3,8 +3,8 @@ package com.zhengcheng.magic.controller.facade.internal;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.zhengcheng.common.domain.PageCommand;
-import com.zhengcheng.common.domain.PageInfo;
+import com.zhengcheng.common.domain.PageQuery;
+import com.zhengcheng.common.domain.PageResult;
 import com.zhengcheng.magic.controller.command.RoleAuthorityCommand;
 import com.zhengcheng.magic.controller.command.RoleCommand;
 import com.zhengcheng.magic.controller.facade.IRoleFacade;
@@ -57,11 +57,11 @@ public class RoleFacadeImpl implements IRoleFacade {
     }
 
     @Override
-    public PageInfo<RoleDTO> page(PageCommand pageCommand) {
-        IPage<Role> page = roleService.page(PageUtil.getPage(pageCommand),
+    public PageResult<RoleDTO> page(PageQuery pageQuery) {
+        IPage<Role> page = roleService.page(PageUtil.getPage(pageQuery),
                 new LambdaQueryWrapper<Role>().orderByDesc(Role::getCreateTime));
 
-        PageInfo<RoleDTO> pageInfo = PageInfo.empty(pageCommand);
+        PageResult<RoleDTO> pageInfo = PageResult.empty(pageQuery);
         pageInfo.setTotal(page.getTotal());
         pageInfo.setRecords(BeanUtil.copyToList(page.getRecords(), RoleDTO.class));
         return pageInfo;

@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.zhengcheng.common.domain.PageCommand;
-import com.zhengcheng.common.domain.PageInfo;
+import com.zhengcheng.common.domain.PageQuery;
+import com.zhengcheng.common.domain.PageResult;
 import com.zhengcheng.common.domain.Result;
 import com.zhengcheng.magic.controller.facade.IUserLoginLogFacade;
 import com.zhengcheng.magic.controller.facade.internal.dto.UserLoginLogDTO;
@@ -37,8 +37,8 @@ public class UserLoginLogController {
     @ApiOperation("分页查询")
     @SaCheckPermission("user-login-log")
     @PostMapping("/page")
-    public Result<PageInfo<UserLoginLogDTO>> page(@Valid @RequestBody PageCommand pageCommand) {
-        return Result.successData(userLoginLogFacade.page(pageCommand));
+    public Result<PageResult<UserLoginLogDTO>> page(@Valid @RequestBody PageQuery pageQuery) {
+        return Result.successData(userLoginLogFacade.page(pageQuery));
     }
 
 }

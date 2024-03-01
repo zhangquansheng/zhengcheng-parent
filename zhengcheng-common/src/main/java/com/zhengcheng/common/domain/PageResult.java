@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PageInfo<T> implements Serializable {
+public class PageResult<T> implements Serializable {
 
     private static final long serialVersionUID = -187196414152248242L;
     /**
@@ -36,7 +36,4 @@ public class PageInfo<T> implements Serializable {
      */
     private List<T> records;
 
-    public static <T> PageInfo<T> empty(PageCommand pageCommand) {
-        return new PageInfo<>(pageCommand.getPageNo(), pageCommand.getPageSize(), 0L, null);
-    }
 }

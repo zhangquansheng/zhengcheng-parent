@@ -2,8 +2,8 @@ package com.zhengcheng.data.elasticsearch.repository.impl;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.zhengcheng.common.domain.PageCommand;
-import com.zhengcheng.common.domain.PageInfo;
+import com.zhengcheng.common.domain.PageQuery;
+import com.zhengcheng.common.domain.PageResult;
 import com.zhengcheng.data.elasticsearch.metadata.DocumentFieldInfo;
 import com.zhengcheng.data.elasticsearch.metadata.DocumentInfo;
 import com.zhengcheng.data.elasticsearch.metadata.DocumentInfoHelper;
@@ -63,11 +63,11 @@ public class ElasticsearchTemplateImpl<T> implements ElasticsearchTemplate<T> {
     }
 
     @Override
-    public PageInfo<T> page(SearchSourceBuilder sourceBuilder, PageCommand pageCommand, Class<T> clazz)
+    public PageResult<T> page(SearchSourceBuilder sourceBuilder, PageQuery pageQuery, Class<T> clazz)
             throws IOException {
         // 禁止深度分页
         int maxResultWindow = 10000;
-        if (pageCommand.getPageSize() * pageCommand.getPageNo() > maxResultWindow) {
+        if (pageQuery.getPageSize() * pageQuery.getPageNo() > maxResultWindow) {
             // 优化解决办法：限制操作行为，禁止跳跃翻页查询，这时可以使用scroll进行滚动查询。
             throw new RuntimeException("防止耗尽ES内存资源，产生OOM，禁止深度分页。");
         }
@@ -75,21 +75,21 @@ public class ElasticsearchTemplateImpl<T> implements ElasticsearchTemplate<T> {
         if (Objects.isNull(sourceBuilder)) {
             sourceBuilder = new SearchSourceBuilder();
         }
-        sourceBuilder.from(Math.toIntExact((pageCommand.getPageNo() - 1) * pageCommand.getPageSize()));
-        sourceBuilder.size(Math.toIntExact(pageCommand.getPageSize()));
+        sourceBuilder.from(Math.toIntExact((pageQuery.getPageNo() - 1) * pageQuery.getPageSize()));
+        sourceBuilder.size(Math.toIntExact(pageQuery.getPageSize()));
 
         DocumentInfo documentInfo = DocumentInfoHelper.getDocumentInfo(clazz);
         SearchResponse searchResponse = search(documentInfo, sourceBuilder);
 
-        PageInfo<T> pageInfo = PageInfo.empty(pageCommand);
+        PageResult<T> pageInfo = PageResult.empty(pageQuery);
         pageInfo.setTotal(searchResponseToTotalHits(searchResponse).value);
         pageInfo.setRecords(searchResponseToList(clazz, documentInfo, searchResponse));
         return pageInfo;
     }
 
     @Override
-    public PageInfo<T> page(PageCommand pageCommand, Class<T> clazz) throws IOException {
-        return page(null, pageCommand, clazz);
+    public PageResult<T> page(PageQuery pageQuery, Class<T> clazz) throws IOException {
+        return page(null, pageQuery, clazz);
     }
 
     @Override

@@ -2,8 +2,8 @@ package com.zhengcheng.magic.controller.facade;
 
 import com.zhengcheng.magic.controller.facade.internal.dto.UserRoleDTO;
 import com.zhengcheng.magic.controller.command.UserRoleCommand;
-import com.zhengcheng.common.domain.PageCommand;
-import com.zhengcheng.common.domain.PageInfo;
+import com.zhengcheng.common.domain.PageQuery;
+import com.zhengcheng.common.domain.PageResult;
 
 /**
  * 用户角色表(UserRole)表Facade接口
@@ -41,9 +41,9 @@ public interface IUserRoleFacade {
     /**
      * 分页查询
      *
-     * @param pageCommand
+     * @param pageQuery
      *            分页参数
      * @return 数据查询对象
      */
-    PageInfo<UserRoleDTO> page(PageCommand pageCommand);
+    PageResult<UserRoleDTO> page(PageQuery pageQuery);
 }

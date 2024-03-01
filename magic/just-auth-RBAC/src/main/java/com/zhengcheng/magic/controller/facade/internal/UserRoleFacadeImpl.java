@@ -1,8 +1,8 @@
 package com.zhengcheng.magic.controller.facade.internal;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.zhengcheng.common.domain.PageCommand;
-import com.zhengcheng.common.domain.PageInfo;
+import com.zhengcheng.common.domain.PageQuery;
+import com.zhengcheng.common.domain.PageResult;
 import com.zhengcheng.magic.controller.command.UserRoleCommand;
 import com.zhengcheng.magic.controller.facade.IUserRoleFacade;
 import com.zhengcheng.magic.controller.facade.internal.dto.UserRoleDTO;
@@ -47,10 +47,10 @@ public class UserRoleFacadeImpl implements IUserRoleFacade {
     }
 
     @Override
-    public PageInfo<UserRoleDTO> page(PageCommand pageCommand) {
-        IPage<UserRole> page = userRoleService.page(PageUtil.getPage(pageCommand));
+    public PageResult<UserRoleDTO> page(PageQuery pageQuery) {
+        IPage<UserRole> page = userRoleService.page(PageUtil.getPage(pageQuery));
 
-        PageInfo<UserRoleDTO> pageInfo = PageInfo.empty(pageCommand);
+        PageResult<UserRoleDTO> pageInfo = PageResult.empty(pageQuery);
         pageInfo.setTotal(page.getTotal());
         pageInfo.setRecords(BeanUtil.copyToList(page.getRecords(), UserRoleDTO.class));
         return pageInfo;

@@ -1,8 +1,8 @@
 package com.zhengcheng.magic.controller.facade.internal;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.zhengcheng.common.domain.PageCommand;
-import com.zhengcheng.common.domain.PageInfo;
+import com.zhengcheng.common.domain.PageQuery;
+import com.zhengcheng.common.domain.PageResult;
 import com.zhengcheng.magic.controller.command.UserAuthCommand;
 import com.zhengcheng.magic.controller.facade.IUserAuthFacade;
 import com.zhengcheng.magic.controller.facade.internal.dto.UserAuthDTO;
@@ -47,10 +47,10 @@ public class UserAuthFacadeImpl implements IUserAuthFacade {
     }
 
     @Override
-    public PageInfo<UserAuthDTO> page(PageCommand pageCommand) {
-        IPage<UserAuth> page = userAuthService.page(PageUtil.getPage(pageCommand));
+    public PageResult<UserAuthDTO> page(PageQuery pageQuery) {
+        IPage<UserAuth> page = userAuthService.page(PageUtil.getPage(pageQuery));
 
-        PageInfo<UserAuthDTO> pageInfo = PageInfo.empty(pageCommand);
+        PageResult<UserAuthDTO> pageInfo = PageResult.empty(pageQuery);
         pageInfo.setTotal(page.getTotal());
         pageInfo.setRecords(BeanUtil.copyToList(page.getRecords(), UserAuthDTO.class));
         return pageInfo;
