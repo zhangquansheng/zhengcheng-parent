@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 /**
  * 分页信息
  *
- * @author :    uansheng.zhang
- * @date :    2019/9/30 1:51
+ * @author :    zhangquansheng
+ * @date :    2020/5/18 14:23
  */
 @Data
 @AllArgsConstructor

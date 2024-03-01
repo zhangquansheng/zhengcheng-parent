@@ -24,7 +24,6 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/system/config")
-@ApiResource(name = "参数配置管理", resBizType = ResBizTypeEnum.SYSTEM)
 public class SysConfigController {
     @Autowired
     private SysConfigService configService;

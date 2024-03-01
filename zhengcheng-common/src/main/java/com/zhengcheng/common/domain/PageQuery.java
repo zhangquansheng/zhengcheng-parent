@@ -1,26 +1,61 @@
 package com.zhengcheng.common.domain;
 
+
 import java.io.Serializable;
 
 import lombok.Data;
 
 /**
- * 分页请求参数
+ * 分页查询实体类
  *
- * @author :    quansheng.zhang
- * @date :    2019/9/30 1:51
+ * @author :    zhangquansheng
+ * @date :    2020/5/18 14:23
  */
 @Data
 public class PageQuery implements Serializable {
 
-    private static final long serialVersionUID = -2370551336156689540L;
+    private static final long serialVersionUID = 1L;
 
-    private Long pageNo = 1L;
+    /**
+     * 当前记录起始索引
+     */
+    private static final String PAGE_NUM = "pageNum";
 
-    private Long pageSize = 10L;
+    /**
+     * 每页显示记录数
+     */
+    private static final String PAGE_SIZE = "pageSize";
 
-    private String sortField;
+    /**
+     * 分页大小
+     */
+    private Integer pageSize;
 
-    private boolean asc = true;
+    /**
+     * 当前页数
+     */
+    private Integer pageNum;
+
+    /**
+     * 排序列
+     */
+    private String orderByColumn;
+
+    /**
+     * 排序的方向desc或者asc
+     */
+    private String isAsc;
+
+    /**
+     * 当前记录起始索引 默认值
+     */
+    public static final int DEFAULT_PAGE_NUM = 1;
+
+    /**
+     * 每页显示记录数 默认值 10
+     */
+    public static final int DEFAULT_PAGE_SIZE = 10;
+
+    public static final String COMMA = ",";
 
 }
