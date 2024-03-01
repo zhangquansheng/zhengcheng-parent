@@ -21,6 +21,10 @@
             <groupId>com.alibaba</groupId>
             <artifactId>transmittable-thread-local</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.zhengcheng</groupId>
+            <artifactId>zhengcheng-common</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

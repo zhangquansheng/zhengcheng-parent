@@ -1,8 +1,9 @@
 package com.zhengcheng.satoken.filter;
 
+
 import com.zhengcheng.common.constant.CommonConstants;
-import com.zhengcheng.common.domain.UserInfo;
-import com.zhengcheng.common.holder.ZcUserContextHolder;
+import com.zhengcheng.satoken.domain.UserInfo;
+import com.zhengcheng.satoken.holder.ZcUserContextHolder;
 
 import org.springframework.web.filter.GenericFilterBean;
 
