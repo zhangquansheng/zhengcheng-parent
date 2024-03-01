@@ -1,14 +1,4 @@
-server:
-  tomcat:
-    uri-encoding: UTF-8
-  port: 8080
 spring:
-  application:
-    name: ums
-  messages:
-      basename: i18n.config,i18n.message
-  jackson:
-    time-zone: GMT+8
   cloud:
     loadbalancer:
       ribbon:
@@ -53,9 +43,3 @@ redisson:
   address: redis://${spring.redis.host}:${spring.redis.port}
   password: ${spring.redis.password}
   database: ${spring.redis.database}
-
-# MyBatisPlus配置
-mybatis-plus:
-  mapperPackage: com.zhengcheng.**.mapper
-  mapperLocations: classpath*:mapper/**/*Mapper.xml
-  typeAliasesPackage: com.zhengcheng.**.domain
