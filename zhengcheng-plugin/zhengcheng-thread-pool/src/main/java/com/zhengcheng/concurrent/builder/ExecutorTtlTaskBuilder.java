@@ -1,7 +1,7 @@
 package com.zhengcheng.concurrent.builder;
 
 import com.alibaba.ttl.threadpool.TtlExecutors;
-import com.zhengcheng.mvc.concurrent.executor.VisibleThreadPoolTaskExecutor;
+import com.zhengcheng.concurrent.executor.VisibleThreadPoolTaskExecutor;
 
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
