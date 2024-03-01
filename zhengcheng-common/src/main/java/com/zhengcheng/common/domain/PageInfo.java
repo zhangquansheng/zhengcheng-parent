@@ -22,11 +22,11 @@ public class PageInfo<T> implements Serializable {
     /**
      * 页码，从1开始
      */
-    private Integer pageNo;
+    private Long pageNo;
     /**
      * 页面大小
      */
-    private Integer pageSize;
+    private Long pageSize;
     /**
      * 总数
      */
