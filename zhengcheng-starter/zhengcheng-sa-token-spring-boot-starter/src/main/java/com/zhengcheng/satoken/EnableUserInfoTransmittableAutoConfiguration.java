@@ -1,6 +1,7 @@
 package com.zhengcheng.satoken;
 
-import com.zhengcheng.mvc.filter.TransmittableUserInfoFilter;
+
+import com.zhengcheng.satoken.filter.TransmittableUserInfoFilter;
 
 import org.springframework.context.annotation.Bean;
 
