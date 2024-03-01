@@ -22,7 +22,7 @@ public class PageResult<T> implements Serializable {
     /**
      * 页码，从1开始
      */
-    private Long pageNo;
+    private Long pageNum;
     /**
      * 页面大小
      */
@@ -37,6 +37,6 @@ public class PageResult<T> implements Serializable {
     private List<T> records;
 
     public static <T> PageResult<T> empty(PageQuery pageQuery) {
-        return new PageResult<>(pageQuery.getPageNo(), pageQuery.getPageSize(), 0L, null);
+        return new PageResult<>(pageQuery.getPageNum(), pageQuery.getPageSize(), 0L, null);
     }
 }

@@ -22,13 +22,22 @@ public class PageUtil {
      * @return com.baomidou.mybatisplus.extension.plugins.pagination.Page;
      */
     public static Page getPage(PageQuery pageQuery) {
-        return new Page<>(pageQuery.getPageNo(), pageQuery.getPageSize());
+        return new Page<>(pageQuery.getPageNum(), pageQuery.getPageSize());
+    }
+
+    public static <T> PageResult<T> getPageResult(IPage page) {
+        PageResult<T> pageResult = new PageResult<>();
+        pageResult.setTotal(page.getTotal());
+        pageResult.setPageNum(page.getCurrent());
+        pageResult.setPageSize(page.getSize());
+        pageResult.setRecords(page.getRecords());
+        return pageResult;
     }
 
     public static <T> PageResult<T> getPageResult(IPage page, Class<T> targetType) {
         PageResult<T> pageResult = new PageResult<>();
         pageResult.setTotal(page.getTotal());
-        pageResult.setPageNo(page.getCurrent());
+        pageResult.setPageNum(page.getCurrent());
         pageResult.setPageSize(page.getSize());
         pageResult.setRecords(BeanUtil.copyToList(page.getRecords(), targetType));
         return pageResult;

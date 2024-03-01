@@ -7,7 +7,6 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.toolkit.support.SFunction;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.zhengcheng.common.domain.PageQuery;
 import com.zhengcheng.common.domain.PageResult;
 import com.zhengcheng.mybatis.plus.utils.PageUtil;
 
@@ -20,6 +19,12 @@ import java.util.List;
  * 在 MyBatis Plus 的 BaseMapper 的基础上拓展，提供更多的能力
  */
 public interface BaseMapperX<T> extends BaseMapper<T> {
+
+    default PageResult<T> selectPage(Page<T> page, @Param("ew") Wrapper<T> queryWrapper) {
+        selectPage(page, queryWrapper);
+        // 转换返回
+        return PageUtil.getPageResult(page);
+    }
 
     default T selectOne(String field, Object value) {
         return selectOne(new QueryWrapper<T>().eq(field, value));
