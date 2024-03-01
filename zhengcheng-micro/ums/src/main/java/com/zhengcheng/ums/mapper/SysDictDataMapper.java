@@ -12,8 +12,8 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface SysDictDataMapper extends BaseMapperX<SysDictDataEntity> {
-    default PageResult<SysDictDataEntity> selectPage(SysDictDataEntity dictData) {
 
+    default PageResult<SysDictDataEntity> selectPage(SysDictDataEntity dictData) {
         return selectPage(PageQueryUtil.build(), new LambdaQueryWrapperX<SysDictDataEntity>()
                 .likeIfPresent(SysDictDataEntity::getDictType, dictData.getDictType())
                 .likeIfPresent(SysDictDataEntity::getDictLabel, dictData.getDictLabel())
