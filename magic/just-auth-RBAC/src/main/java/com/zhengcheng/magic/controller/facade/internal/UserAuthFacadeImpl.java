@@ -48,7 +48,7 @@ public class UserAuthFacadeImpl implements IUserAuthFacade {
 
     @Override
     public PageResult<UserAuthDTO> page(PageQuery pageQuery) {
-        IPage<UserAuth> page = userAuthService.page(PageUtil.getPage(pageQuery));
+        IPage<UserAuth> page = userAuthService.page(PageUtil.buildPage(pageQuery));
 
         PageResult<UserAuthDTO> pageInfo = PageResult.empty(pageQuery);
         pageInfo.setTotal(page.getTotal());

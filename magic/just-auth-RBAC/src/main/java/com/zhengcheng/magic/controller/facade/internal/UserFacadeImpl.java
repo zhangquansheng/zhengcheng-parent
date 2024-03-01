@@ -60,7 +60,7 @@ public class UserFacadeImpl implements IUserFacade {
 
     @Override
     public PageResult<UserDTO> page(PageQuery pageQuery) {
-        IPage<User> page = userService.page(PageUtil.getPage(pageQuery));
+        IPage<User> page = userService.page(PageUtil.buildPage(pageQuery));
 
         PageResult<UserDTO> pageInfo = PageResult.empty(pageQuery);
         pageInfo.setTotal(page.getTotal());

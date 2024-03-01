@@ -48,7 +48,7 @@ public class UserRoleFacadeImpl implements IUserRoleFacade {
 
     @Override
     public PageResult<UserRoleDTO> page(PageQuery pageQuery) {
-        IPage<UserRole> page = userRoleService.page(PageUtil.getPage(pageQuery));
+        IPage<UserRole> page = userRoleService.page(PageUtil.buildPage(pageQuery));
 
         PageResult<UserRoleDTO> pageInfo = PageResult.empty(pageQuery);
         pageInfo.setTotal(page.getTotal());

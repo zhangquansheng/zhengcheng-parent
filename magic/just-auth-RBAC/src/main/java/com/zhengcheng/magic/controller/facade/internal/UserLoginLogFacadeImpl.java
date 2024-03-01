@@ -34,7 +34,7 @@ public class UserLoginLogFacadeImpl implements IUserLoginLogFacade {
 
     @Override
     public PageResult<UserLoginLogDTO> page(PageQuery pageQuery) {
-        IPage<UserLoginLog> page = userLoginLogService.page(PageUtil.getPage(pageQuery),
+        IPage<UserLoginLog> page = userLoginLogService.page(PageUtil.buildPage(pageQuery),
                 new LambdaQueryWrapper<UserLoginLog>().orderByDesc(UserLoginLog::getCreateTime));
 
         PageResult<UserLoginLogDTO> pageInfo = PageResult.empty(pageQuery);
