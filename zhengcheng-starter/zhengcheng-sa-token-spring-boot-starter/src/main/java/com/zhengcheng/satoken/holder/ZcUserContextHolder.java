@@ -1,7 +1,7 @@
 package com.zhengcheng.satoken.holder;
 
 import com.alibaba.ttl.TransmittableThreadLocal;
-import com.zhengcheng.common.domain.UserInfo;
+import com.zhengcheng.satoken.domain.UserInfo;
 
 import cn.hutool.core.util.StrUtil;
 

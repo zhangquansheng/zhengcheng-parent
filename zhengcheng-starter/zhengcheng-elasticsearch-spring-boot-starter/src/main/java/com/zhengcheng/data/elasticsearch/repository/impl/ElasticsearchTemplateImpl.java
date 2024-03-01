@@ -1,8 +1,5 @@
 package com.zhengcheng.data.elasticsearch.repository.impl;
 
-import cn.hutool.core.date.LocalDateTimeUtil;
-import cn.hutool.core.util.ReflectUtil;
-import cn.hutool.core.util.StrUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zhengcheng.common.domain.PageCommand;
@@ -11,7 +8,6 @@ import com.zhengcheng.data.elasticsearch.metadata.DocumentFieldInfo;
 import com.zhengcheng.data.elasticsearch.metadata.DocumentInfo;
 import com.zhengcheng.data.elasticsearch.metadata.DocumentInfoHelper;
 import com.zhengcheng.data.elasticsearch.repository.ElasticsearchTemplate;
-import lombok.extern.slf4j.Slf4j;
 
 import org.apache.lucene.search.TotalHits;
 import org.elasticsearch.action.bulk.BulkRequest;
@@ -42,6 +38,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+
+import cn.hutool.core.date.LocalDateTimeUtil;
+import cn.hutool.core.util.ReflectUtil;
+import cn.hutool.core.util.StrUtil;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * ElasticsearchTemplateImpl
@@ -74,8 +75,8 @@ public class ElasticsearchTemplateImpl<T> implements ElasticsearchTemplate<T> {
         if (Objects.isNull(sourceBuilder)) {
             sourceBuilder = new SearchSourceBuilder();
         }
-        sourceBuilder.from((pageCommand.getPageNo() - 1) * pageCommand.getPageSize());
-        sourceBuilder.size(pageCommand.getPageSize());
+        sourceBuilder.from(Math.toIntExact((pageCommand.getPageNo() - 1) * pageCommand.getPageSize()));
+        sourceBuilder.size(Math.toIntExact(pageCommand.getPageSize()));
 
         DocumentInfo documentInfo = DocumentInfoHelper.getDocumentInfo(clazz);
         SearchResponse searchResponse = search(documentInfo, sourceBuilder);
