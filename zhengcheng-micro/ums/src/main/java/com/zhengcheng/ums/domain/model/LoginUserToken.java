@@ -5,6 +5,7 @@ import lombok.Data;
 /**
  * 登录用户身份信息
  *
+ * @author zhangquansheng
  */
 @Data
 public class LoginUserToken {

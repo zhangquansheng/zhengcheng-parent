@@ -1,7 +1,7 @@
 package com.zhengcheng.ums.domain.vo;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.zhangquansheng.campus.common.utils.MetaVo;
+import com.zhengcheng.ums.common.utils.MetaVo;
 
 import java.util.List;
 
