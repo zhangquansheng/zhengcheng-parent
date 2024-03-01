@@ -58,7 +58,7 @@ public class RoleFacadeImpl implements IRoleFacade {
 
     @Override
     public PageResult<RoleDTO> page(PageQuery pageQuery) {
-        IPage<Role> page = roleService.page(PageUtil.getPage(pageQuery),
+        IPage<Role> page = roleService.page(PageUtil.buildPage(pageQuery),
                 new LambdaQueryWrapper<Role>().orderByDesc(Role::getCreateTime));
 
         PageResult<RoleDTO> pageInfo = PageResult.empty(pageQuery);
