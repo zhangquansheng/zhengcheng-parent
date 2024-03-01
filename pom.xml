@@ -22,6 +22,7 @@
         <module>zhengcheng-dependencies</module>
         <module>zhengcheng-bom</module>
         <module>zhengcheng-common</module>
+        <module>zhengcheng-micro</module>
         <module>magic</module>
     </modules>
 
