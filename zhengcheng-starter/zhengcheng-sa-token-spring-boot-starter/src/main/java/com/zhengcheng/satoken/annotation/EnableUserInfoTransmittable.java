@@ -1,6 +1,7 @@
 package com.zhengcheng.satoken.annotation;
 
-import com.zhengcheng.mvc.EnableUserInfoTransmittableAutoConfiguration;
+
+import com.zhengcheng.satoken.EnableUserInfoTransmittableAutoConfiguration;
 
 import org.springframework.context.annotation.Import;
 
