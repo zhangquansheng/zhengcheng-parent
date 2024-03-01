@@ -1,7 +1,5 @@
 package com.zhengcheng.ums.domain.model;
 
-import com.zhengcheng.ums.domain.entity.SysRoleResourceEntity;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,8 +24,8 @@ public class SysRoleAuth {
      */
     String resourceCode;
 
-    public SysRoleAuth(SysRoleResourceEntity roleResourceEntity) {
-        this.roleID = roleResourceEntity.getRoleId();
-        this.resourceCode = roleResourceEntity.getResourceCode();
-    }
+//    public SysRoleAuth(SysRoleResourceEntity roleResourceEntity) {
+//        this.roleID = roleResourceEntity.getRoleId();
+//        this.resourceCode = roleResourceEntity.getResourceCode();
+//    }
 }

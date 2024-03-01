@@ -7,6 +7,7 @@ import java.util.Set;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 /**
@@ -15,6 +16,7 @@ import lombok.Data;
  * @author ruoyi
  */
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 public class LoginUser {
     private static final long serialVersionUID = 1L;

@@ -52,8 +52,8 @@ public class LoginUserToken {
     public LoginUserToken() {
     }
 
-    public LoginUserToken(LoginUser loginUser) {
-        this.userId = loginUser.getUserId();
-        this.token = loginUser.getToken();
-    }
+//    public LoginUserToken(LoginUser loginUser) {
+//        this.userId = loginUser.getUserId();
+//        this.token = loginUser.getToken();
+//    }
 }
