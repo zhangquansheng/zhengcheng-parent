@@ -1,23 +1,12 @@
 package com.zhengcheng.ums.mapper;
 
-
+import com.zhengcheng.mybatis.plus.core.BaseMapperX;
+import com.zhengcheng.mybatis.plus.core.LambdaQueryWrapperX;
 import com.zhengcheng.ums.domain.entity.SysConfigEntity;
 
 import cn.hutool.core.util.ObjectUtil;
 
-public interface SysConfigMapper extends BaseMapper<SysConfigEntity> {
-
-    default PageResult<SysConfigEntity> selectPage(SysConfigEntity config) {
-
-        return selectPage(new LambdaQueryWrapperX<SysConfigEntity>()
-                .likeIfPresent(SysConfigEntity::getConfigName, config.getConfigName())
-                .likeIfPresent(SysConfigEntity::getConfigKey, config.getConfigKey())
-                .eqIfPresent(SysConfigEntity::getGroupCode, config.getGroupCode())
-                .betweenIfPresent(SysConfigEntity::getCreateTime, config.getParams())
-        );
-
-    }
-
+public interface SysConfigMapper extends BaseMapperX<SysConfigEntity> {
 
     /**
      * 查询参数配置信息
@@ -26,7 +15,6 @@ public interface SysConfigMapper extends BaseMapper<SysConfigEntity> {
      * @return 参数配置信息
      */
     default SysConfigEntity selectConfig(SysConfigEntity config) {
-
         return selectOne(new LambdaQueryWrapperX<SysConfigEntity>()
                 .eq(ObjectUtil.isNotEmpty(config.getConfigId()), SysConfigEntity::getConfigId, config.getConfigId())
                 .eq(ObjectUtil.isNotEmpty(config.getConfigName()), SysConfigEntity::getConfigName, config.getConfigName())

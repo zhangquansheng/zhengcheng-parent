@@ -1,11 +1,18 @@
 package com.zhengcheng.mybatis.plus.model;
 
-import com.baomidou.mybatisplus.annotation.*;
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 
 /**
@@ -50,4 +57,6 @@ public class BaseEntity<T extends Model<?>> extends Model<T> {
     @TableField(value = "is_deleted", fill = FieldFill.INSERT)
     private boolean deleted;
 
+    @TableField(exist = false)
+    private Map<String, Object> params = new HashMap<>();
 }

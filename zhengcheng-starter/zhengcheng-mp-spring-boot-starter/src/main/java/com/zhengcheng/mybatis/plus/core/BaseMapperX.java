@@ -1,10 +1,17 @@
 package com.zhengcheng.mybatis.plus.core;
 
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.toolkit.support.SFunction;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.zhengcheng.common.domain.PageQuery;
+import com.zhengcheng.common.domain.PageResult;
+import com.zhengcheng.mybatis.plus.utils.PageUtil;
+
+import org.apache.ibatis.annotations.Param;
 
 import java.util.Collection;
 import java.util.List;
