@@ -14,6 +14,7 @@
 
     <modules>
         <module>sensitive-plus</module>
+        <module>zhengcheng-thread-pool</module>
     </modules>
 
 </project>

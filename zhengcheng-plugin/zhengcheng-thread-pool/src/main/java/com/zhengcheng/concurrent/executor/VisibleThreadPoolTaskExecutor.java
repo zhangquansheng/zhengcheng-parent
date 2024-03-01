@@ -1,12 +1,13 @@
-package com.zhengcheng.mvc.concurrent.executor;
+package com.zhengcheng.concurrent.executor;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.util.concurrent.ListenableFuture;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.ThreadPoolExecutor;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 打印队列的详细信息
