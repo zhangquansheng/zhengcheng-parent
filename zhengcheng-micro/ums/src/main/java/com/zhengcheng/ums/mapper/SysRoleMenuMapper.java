@@ -1,7 +1,7 @@
 package com.zhengcheng.ums.mapper;
 
-import com.oddfar.campus.common.core.BaseMapperX;
-import com.oddfar.campus.common.domain.entity.SysRoleMenuEntity;
+import com.zhengcheng.mybatis.plus.core.BaseMapperX;
+import com.zhengcheng.ums.domain.entity.SysRoleMenuEntity;
 
 import java.util.List;
 

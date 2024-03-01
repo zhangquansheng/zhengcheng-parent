@@ -1,18 +1,20 @@
 package com.zhengcheng.ums.mapper;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.oddfar.campus.common.core.BaseMapperX;
-import com.oddfar.campus.common.core.LambdaQueryWrapperX;
-import com.oddfar.campus.common.domain.PageResult;
-import com.oddfar.campus.common.domain.entity.SysDictTypeEntity;
+import com.zhengcheng.common.domain.PageResult;
+import com.zhengcheng.mvc.util.PageQueryUtil;
+import com.zhengcheng.mybatis.plus.core.BaseMapperX;
+import com.zhengcheng.mybatis.plus.core.LambdaQueryWrapperX;
+import com.zhengcheng.ums.domain.entity.SysDictTypeEntity;
 
 import java.util.Map;
 
 import cn.hutool.core.util.ObjectUtil;
 
 public interface SysDictTypeMapper extends BaseMapperX<SysDictTypeEntity> {
+
     default PageResult<SysDictTypeEntity> selectPage(SysDictTypeEntity dictType) {
-        return selectPage(new LambdaQueryWrapperX<SysDictTypeEntity>()
+        return selectPage(PageQueryUtil.build(), new LambdaQueryWrapperX<SysDictTypeEntity>()
                 .likeIfPresent(SysDictTypeEntity::getDictName, dictType.getDictName())
                 .likeIfPresent(SysDictTypeEntity::getDictType, dictType.getDictType())
                 .eqIfPresent(SysDictTypeEntity::getStatus, dictType.getStatus())

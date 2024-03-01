@@ -3,10 +3,11 @@ package com.zhengcheng.ums.mapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.oddfar.campus.common.core.BaseMapperX;
-import com.oddfar.campus.common.core.LambdaQueryWrapperX;
-import com.oddfar.campus.common.domain.PageResult;
-import com.oddfar.campus.common.domain.entity.SysUserEntity;
+import com.zhengcheng.common.domain.PageResult;
+import com.zhengcheng.mvc.util.PageQueryUtil;
+import com.zhengcheng.mybatis.plus.core.BaseMapperX;
+import com.zhengcheng.mybatis.plus.core.LambdaQueryWrapperX;
+import com.zhengcheng.ums.domain.entity.SysUserEntity;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -14,7 +15,7 @@ public interface SysUserMapper extends BaseMapperX<SysUserEntity> {
 
     default PageResult<SysUserEntity> selectPage(SysUserEntity user) {
 
-        return selectPage(new LambdaQueryWrapperX<SysUserEntity>()
+        return selectPage(PageQueryUtil.build(), new LambdaQueryWrapperX<SysUserEntity>()
                 .likeIfPresent(SysUserEntity::getUserName, user.getUserName())
                 .likeIfPresent(SysUserEntity::getPhonenumber, user.getPhonenumber())
                 .eqIfPresent(SysUserEntity::getStatus, user.getStatus())

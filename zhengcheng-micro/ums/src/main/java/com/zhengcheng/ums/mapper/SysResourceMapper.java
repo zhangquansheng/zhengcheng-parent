@@ -1,9 +1,10 @@
 package com.zhengcheng.ums.mapper;
 
-import com.oddfar.campus.common.core.BaseMapperX;
-import com.oddfar.campus.common.core.LambdaQueryWrapperX;
-import com.oddfar.campus.common.domain.PageResult;
-import com.oddfar.campus.common.domain.entity.SysResourceEntity;
+import com.zhengcheng.common.domain.PageResult;
+import com.zhengcheng.mvc.util.PageQueryUtil;
+import com.zhengcheng.mybatis.plus.core.BaseMapperX;
+import com.zhengcheng.mybatis.plus.core.LambdaQueryWrapperX;
+import com.zhengcheng.ums.domain.entity.SysResourceEntity;
 
 import org.apache.ibatis.annotations.Update;
 
@@ -11,9 +12,10 @@ import java.util.List;
 import java.util.Set;
 
 public interface SysResourceMapper extends BaseMapperX<SysResourceEntity> {
+
     default PageResult<SysResourceEntity> selectPage(SysResourceEntity resource) {
 
-        return selectPage(new LambdaQueryWrapperX<SysResourceEntity>()
+        return selectPage(PageQueryUtil.build(), new LambdaQueryWrapperX<SysResourceEntity>()
                 .betweenIfPresent(SysResourceEntity::getCreateTime, resource.getParams()));
     }
 

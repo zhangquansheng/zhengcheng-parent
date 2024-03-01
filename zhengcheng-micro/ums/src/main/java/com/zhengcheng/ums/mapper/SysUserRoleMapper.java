@@ -1,8 +1,8 @@
 package com.zhengcheng.ums.mapper;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.oddfar.campus.common.core.BaseMapperX;
-import com.oddfar.campus.common.domain.entity.SysUserRoleEntity;
+import com.zhengcheng.mybatis.plus.core.BaseMapperX;
+import com.zhengcheng.ums.domain.entity.SysUserRoleEntity;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -16,7 +16,7 @@ public interface SysUserRoleMapper extends BaseMapperX<SysUserRoleEntity> {
      */
     default int deleteUserRoleByUserId(Long userId) {
         return delete(new QueryWrapper<SysUserRoleEntity>()
-                .eq("user_id" , userId));
+                .eq("user_id", userId));
     }
 
     /**
@@ -27,8 +27,8 @@ public interface SysUserRoleMapper extends BaseMapperX<SysUserRoleEntity> {
      */
     default int deleteUserRoleInfo(SysUserRoleEntity userRole) {
         return delete(new QueryWrapper<SysUserRoleEntity>()
-                .eq("user_id" , userRole.getUserId())
-                .eq("role_id" , userRole.getRoleId()));
+                .eq("user_id", userRole.getUserId())
+                .eq("role_id", userRole.getRoleId()));
     }
 
     /**
@@ -40,8 +40,8 @@ public interface SysUserRoleMapper extends BaseMapperX<SysUserRoleEntity> {
      */
     default int deleteUserRoleInfos(@Param("roleId") Long roleId, @Param("userIds") Long[] userIds) {
         return delete(new QueryWrapper<SysUserRoleEntity>()
-                .eq("role_id" , roleId)
-                .in("user_id" , userIds));
+                .eq("role_id", roleId)
+                .in("user_id", userIds));
     }
 
     /**
@@ -52,7 +52,7 @@ public interface SysUserRoleMapper extends BaseMapperX<SysUserRoleEntity> {
      */
     default int countUserRoleByRoleId(Long roleId) {
 
-        return selectCount("role_id" , roleId).intValue();
+        return selectCount("role_id", roleId).intValue();
     }
 
     /**

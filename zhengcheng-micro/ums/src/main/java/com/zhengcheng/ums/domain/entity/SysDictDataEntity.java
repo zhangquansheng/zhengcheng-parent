@@ -85,5 +85,4 @@ public class SysDictDataEntity extends BaseEntity {
         return UserConstants.YES.equals(this.isDefault);
     }
 
-
 }

@@ -1,9 +1,11 @@
 package com.zhengcheng.ums.mapper;
 
-import com.oddfar.campus.common.core.BaseMapperX;
-import com.oddfar.campus.common.core.LambdaQueryWrapperX;
-import com.oddfar.campus.common.domain.PageResult;
-import com.oddfar.campus.common.domain.entity.SysOperLogEntity;
+
+import com.zhengcheng.common.domain.PageResult;
+import com.zhengcheng.mvc.util.PageQueryUtil;
+import com.zhengcheng.mybatis.plus.core.BaseMapperX;
+import com.zhengcheng.mybatis.plus.core.LambdaQueryWrapperX;
+import com.zhengcheng.ums.domain.entity.SysOperLogEntity;
 
 import java.util.Arrays;
 import java.util.List;
@@ -22,12 +24,12 @@ public interface SysOperLogMapper extends BaseMapperX<SysOperLogEntity> {
      */
     default PageResult<SysOperLogEntity> selectOperLogPage(SysOperLogEntity operLog) {
 
-        return selectPage(new LambdaQueryWrapperX<SysOperLogEntity>()
+        return selectPage(PageQueryUtil.build(), new LambdaQueryWrapperX<SysOperLogEntity>()
                 .likeIfPresent(SysOperLogEntity::getAppName, operLog.getAppName())
                 .likeIfPresent(SysOperLogEntity::getLogName, operLog.getLogName())
-                .eqIfPresent(SysOperLogEntity::getStatus,operLog.getStatus())
+                .eqIfPresent(SysOperLogEntity::getStatus, operLog.getStatus())
                 .eqIfPresent(SysOperLogEntity::getOperIp, operLog.getOperIp())
-                .eqIfPresent(SysOperLogEntity::getOperId,operLog.getOperId())
+                .eqIfPresent(SysOperLogEntity::getOperId, operLog.getOperId())
                 .betweenIfPresent(SysOperLogEntity::getOperTime, operLog.getParams())
                 .orderByDesc(SysOperLogEntity::getOperId)
         );
@@ -52,9 +54,10 @@ public interface SysOperLogMapper extends BaseMapperX<SysOperLogEntity> {
 
     /**
      * 查询系统操作日志集合
+     *
      * @return
      */
-    default List<SysOperLogEntity> selectOperLogList(SysOperLogEntity operLog){
+    default List<SysOperLogEntity> selectOperLogList(SysOperLogEntity operLog) {
         return selectList(new LambdaQueryWrapperX<SysOperLogEntity>()
                 .likeIfPresent(SysOperLogEntity::getAppName, operLog.getAppName())
                 .likeIfPresent(SysOperLogEntity::getLogName, operLog.getLogName())

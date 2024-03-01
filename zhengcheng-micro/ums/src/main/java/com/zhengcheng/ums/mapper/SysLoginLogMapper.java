@@ -1,9 +1,10 @@
 package com.zhengcheng.ums.mapper;
 
-import com.oddfar.campus.common.core.BaseMapperX;
-import com.oddfar.campus.common.core.LambdaQueryWrapperX;
-import com.oddfar.campus.common.domain.PageResult;
-import com.oddfar.campus.common.domain.entity.SysLoginLogEntity;
+import com.zhengcheng.common.domain.PageResult;
+import com.zhengcheng.mvc.util.PageQueryUtil;
+import com.zhengcheng.mybatis.plus.core.BaseMapperX;
+import com.zhengcheng.mybatis.plus.core.LambdaQueryWrapperX;
+import com.zhengcheng.ums.domain.entity.SysLoginLogEntity;
 
 import java.util.List;
 
@@ -15,9 +16,9 @@ import java.util.List;
 public interface SysLoginLogMapper extends BaseMapperX<SysLoginLogEntity> {
 
     default PageResult<SysLoginLogEntity> selectLogininforPage(SysLoginLogEntity logininfor) {
-        return selectPage(new LambdaQueryWrapperX<SysLoginLogEntity>()
+        return selectPage(PageQueryUtil.build(), new LambdaQueryWrapperX<SysLoginLogEntity>()
                 .eqIfPresent(SysLoginLogEntity::getUserId, logininfor.getUserId())
-                .eqIfPresent(SysLoginLogEntity::getUserName,logininfor.getUserName())
+                .eqIfPresent(SysLoginLogEntity::getUserName, logininfor.getUserName())
                 .eqIfPresent(SysLoginLogEntity::getStatus, logininfor.getStatus())
                 .betweenIfPresent(SysLoginLogEntity::getLoginTime, logininfor.getParams())
                 .orderByDesc(SysLoginLogEntity::getInfoId)
@@ -45,6 +46,5 @@ public interface SysLoginLogMapper extends BaseMapperX<SysLoginLogEntity> {
      * @return 结果
      */
     int cleanLogininfor();
-
 
 }

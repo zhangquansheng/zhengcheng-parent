@@ -1,10 +1,11 @@
 package com.zhengcheng.ums.mapper;
 
-import com.oddfar.campus.common.core.BaseMapperX;
-import com.oddfar.campus.common.core.LambdaQueryWrapperX;
-import com.oddfar.campus.common.domain.PageResult;
-import com.oddfar.campus.common.domain.entity.SysMenuEntity;
-import com.oddfar.campus.common.domain.model.SysRoleAuth;
+import com.zhengcheng.common.domain.PageResult;
+import com.zhengcheng.mvc.util.PageQueryUtil;
+import com.zhengcheng.mybatis.plus.core.BaseMapperX;
+import com.zhengcheng.mybatis.plus.core.LambdaQueryWrapperX;
+import com.zhengcheng.ums.domain.entity.SysMenuEntity;
+import com.zhengcheng.ums.domain.model.SysRoleAuth;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -15,7 +16,7 @@ import cn.hutool.core.util.ObjectUtil;
 public interface SysMenuMapper extends BaseMapperX<SysMenuEntity> {
     default PageResult<SysMenuEntity> selectPage(SysMenuEntity sysMenuEntity) {
 
-        return selectPage(new LambdaQueryWrapperX<SysMenuEntity>());
+        return selectPage(PageQueryUtil.build(), new LambdaQueryWrapperX<SysMenuEntity>());
     }
 
     /**

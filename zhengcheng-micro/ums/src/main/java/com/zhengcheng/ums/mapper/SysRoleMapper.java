@@ -1,9 +1,10 @@
 package com.zhengcheng.ums.mapper;
 
-import com.oddfar.campus.common.core.BaseMapperX;
-import com.oddfar.campus.common.core.LambdaQueryWrapperX;
-import com.oddfar.campus.common.domain.PageResult;
-import com.oddfar.campus.common.domain.entity.SysRoleEntity;
+import com.zhengcheng.common.domain.PageResult;
+import com.zhengcheng.mvc.util.PageQueryUtil;
+import com.zhengcheng.mybatis.plus.core.BaseMapperX;
+import com.zhengcheng.mybatis.plus.core.LambdaQueryWrapperX;
+import com.zhengcheng.ums.domain.entity.SysRoleEntity;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -13,7 +14,7 @@ import java.util.Set;
 public interface SysRoleMapper extends BaseMapperX<SysRoleEntity> {
     default PageResult<SysRoleEntity> selectPage(SysRoleEntity role) {
 
-        return selectPage(new LambdaQueryWrapperX<SysRoleEntity>()
+        return selectPage(PageQueryUtil.build(), new LambdaQueryWrapperX<SysRoleEntity>()
                 .likeIfPresent(SysRoleEntity::getRoleName, role.getRoleName())
                 .likeIfPresent(SysRoleEntity::getRoleKey, role.getRoleKey())
                 .eqIfPresent(SysRoleEntity::getStatus, role.getStatus())
@@ -46,6 +47,7 @@ public interface SysRoleMapper extends BaseMapperX<SysRoleEntity> {
 
     /**
      * 根据角色权限字符串查询角色数据
+     *
      * @param RoleKeys
      * @return
      */

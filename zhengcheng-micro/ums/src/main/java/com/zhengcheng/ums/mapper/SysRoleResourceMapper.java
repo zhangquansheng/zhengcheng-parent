@@ -1,8 +1,8 @@
 package com.zhengcheng.ums.mapper;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.oddfar.campus.common.core.BaseMapperX;
-import com.oddfar.campus.common.domain.entity.SysRoleResourceEntity;
+import com.zhengcheng.mybatis.plus.core.BaseMapperX;
+import com.zhengcheng.ums.domain.entity.SysRoleResourceEntity;
 
 import java.util.List;
 

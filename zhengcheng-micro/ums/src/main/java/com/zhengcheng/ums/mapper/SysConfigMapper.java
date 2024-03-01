@@ -1,5 +1,7 @@
 package com.zhengcheng.ums.mapper;
 
+import com.zhengcheng.common.domain.PageResult;
+import com.zhengcheng.mvc.util.PageQueryUtil;
 import com.zhengcheng.mybatis.plus.core.BaseMapperX;
 import com.zhengcheng.mybatis.plus.core.LambdaQueryWrapperX;
 import com.zhengcheng.ums.domain.entity.SysConfigEntity;
@@ -7,6 +9,16 @@ import com.zhengcheng.ums.domain.entity.SysConfigEntity;
 import cn.hutool.core.util.ObjectUtil;
 
 public interface SysConfigMapper extends BaseMapperX<SysConfigEntity> {
+
+    default PageResult<SysConfigEntity> selectPage(SysConfigEntity config) {
+        return selectPage(PageQueryUtil.build(), new LambdaQueryWrapperX<SysConfigEntity>()
+                .likeIfPresent(SysConfigEntity::getConfigName, config.getConfigName())
+                .likeIfPresent(SysConfigEntity::getConfigKey, config.getConfigKey())
+                .eqIfPresent(SysConfigEntity::getGroupCode, config.getGroupCode())
+                .betweenIfPresent(SysConfigEntity::getCreateTime, config.getParams())
+        );
+
+    }
 
     /**
      * 查询参数配置信息

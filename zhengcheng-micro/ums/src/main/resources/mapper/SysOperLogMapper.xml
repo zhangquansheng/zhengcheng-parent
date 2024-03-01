@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.oddfar.campus.framework.mapper.SysOperLogMapper">
+<mapper namespace="com.zhengcheng.ums.mapper.SysOperLogMapper">
 
-    <resultMap type="com.oddfar.campus.common.domain.entity.SysOperLogEntity" id="SysOperLogResult">
+    <resultMap type="com.zhengcheng.ums.domain.entity.SysOperLogEntity" id="SysOperLogResult">
         <id     property="operId"         column="oper_id"        />
         <result property="appName"          column="app_name"          />
         <result property="logName"          column="log_name"          />
