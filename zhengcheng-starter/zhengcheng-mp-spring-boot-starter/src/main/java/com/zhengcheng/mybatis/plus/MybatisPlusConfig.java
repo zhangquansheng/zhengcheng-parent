@@ -32,29 +32,10 @@ public class MybatisPlusConfig {
         log.info("-----------------------------------------------------------------");
     }
 
-//    /**
-//     * 分页插件，自动识别数据库类型(旧版)
-//     */
-//    @Bean
-//    public PaginationInterceptor paginationInterceptor() {
-//        PaginationInterceptor paginationInterceptor = new PaginationInterceptor();
-//        paginationInterceptor.setLimit(CommonConstants.DEFAULT_PAGINATION_LIMIT);
-//        return paginationInterceptor;
-//    }
-//
-//    @Bean
-//    public OptimisticLockerInterceptor optimisticLockerInterceptor() {
-//        return new OptimisticLockerInterceptor();
-//    }
 
-    // 最新版
     @Bean
     public MybatisPlusInterceptor mybatisPlusInterceptor() {
         MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
-
-        // 数据权限插件
-//        DataPermissionInterceptor dataPermissionInterceptor = new DataPermissionInterceptor(new MyDataPermissionHandler());
-//        interceptor.addInnerInterceptor(dataPermissionInterceptor);
 
         // 分页插件
         PaginationInnerInterceptor paginationInnerInterceptor = new PaginationInnerInterceptor(DbType.MYSQL);
