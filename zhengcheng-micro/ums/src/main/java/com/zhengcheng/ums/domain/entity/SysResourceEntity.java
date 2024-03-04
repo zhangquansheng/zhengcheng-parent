@@ -7,7 +7,9 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.zhengcheng.mybatis.plus.model.BaseEntity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -50,7 +52,7 @@ public class SysResourceEntity extends BaseEntity {
      * 资源模块编码，一般为控制器类名排除Controller
      */
     @TableField(exist = false)
-    private String  modularCode;
+    private String modularCode;
 
     /**
      * 资源模块名称，一般为控制器名称
@@ -82,4 +84,7 @@ public class SysResourceEntity extends BaseEntity {
      */
     @TableField(exist = false)
     private List<SysResourceEntity> children = new ArrayList<SysResourceEntity>();
+
+    @TableField(exist = false)
+    private Map<String, Object> params = new HashMap<>();
 }

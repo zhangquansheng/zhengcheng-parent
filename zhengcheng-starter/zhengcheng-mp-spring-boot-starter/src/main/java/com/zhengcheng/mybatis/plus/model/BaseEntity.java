@@ -56,7 +56,4 @@ public class BaseEntity<T extends Model<?>> extends Model<T> {
     @TableLogic
     @TableField(value = "is_deleted", fill = FieldFill.INSERT)
     private boolean deleted;
-
-    @TableField(exist = false)
-    private Map<String, Object> params = new HashMap<>();
 }

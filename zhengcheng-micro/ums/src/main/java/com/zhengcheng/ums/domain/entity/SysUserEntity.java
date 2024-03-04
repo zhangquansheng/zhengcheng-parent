@@ -6,7 +6,9 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.zhengcheng.mybatis.plus.model.BaseEntity;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -120,6 +122,9 @@ public class SysUserEntity extends BaseEntity {
      */
     @TableField(exist = false)
     private Long roleId;
+
+    @TableField(exist = false)
+    private Map<String, Object> params = new HashMap<>();
 
     public SysUserEntity(Long userId) {
         this.userId = userId;

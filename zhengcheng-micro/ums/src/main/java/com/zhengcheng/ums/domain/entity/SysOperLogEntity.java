@@ -4,25 +4,26 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.zhengcheng.mybatis.plus.model.BaseEntity;
 
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 /**
  * 日志实体类 sys_log
+ *
  * @author zhangquansheng
  */
 @Data
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
 @TableName("sys_log_oper")
-public class SysOperLogEntity {
+public class SysOperLogEntity extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 
@@ -83,7 +84,6 @@ public class SysOperLogEntity {
      */
     private String jsonResult;
 
-
     /**
      * 操作状态（0正常 1异常）
      */
@@ -100,30 +100,6 @@ public class SysOperLogEntity {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date operTime;
 
-
-    private static final Integer PAGE_NUM = 1;
-    private static final Integer PAGE_SIZE = 10;
-
     @TableField(exist = false)
-    private Map<String, Object> params;
-
-    @NotNull(message = "页码不能为空")
-    @Min(value = 1, message = "页码最小值为 1")
-    @TableField(exist = false)
-    @JsonIgnore
-    private Integer pageNum = PAGE_NUM;
-
-    @NotNull(message = "每页条数不能为空")
-    @Min(value = 1, message = "每页条数最小值为 1")
-    @Max(value = 100, message = "每页条数最大值为 100")
-    @TableField(exist = false)
-    @JsonIgnore
-    private Integer pageSize = PAGE_SIZE;
-
-    public Map<String, Object> getParams() {
-        if (params == null) {
-            params = new HashMap<>();
-        }
-        return params;
-    }
+    private Map<String, Object> params = new HashMap<>();
 }

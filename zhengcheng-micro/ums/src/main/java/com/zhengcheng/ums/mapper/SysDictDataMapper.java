@@ -19,7 +19,7 @@ public interface SysDictDataMapper extends BaseMapperX<SysDictDataEntity> {
                 .likeIfPresent(SysDictDataEntity::getDictLabel, dictData.getDictLabel())
                 .eqIfPresent(SysDictDataEntity::getStatus, "0")
                 .betweenIfPresent(SysDictDataEntity::getCreateTime, dictData.getParams())
-        );
+                .orderByAsc(SysDictDataEntity::getDictSort));
     }
 
     default List<SysDictDataEntity> selectDictDataByType(String dictType) {

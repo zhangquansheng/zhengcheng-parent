@@ -1,8 +1,12 @@
 package com.zhengcheng.ums.domain.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.zhengcheng.mybatis.plus.model.BaseEntity;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -62,4 +66,7 @@ public class SysConfigEntity extends BaseEntity {
      * 备注
      */
     private String remark;
+
+    @TableField(exist = false)
+    private Map<String, Object> params = new HashMap<>();
 }
