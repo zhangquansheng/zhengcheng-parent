@@ -63,7 +63,7 @@ public class RoleFacadeImpl implements IRoleFacade {
 
         PageResult<RoleDTO> pageInfo = PageResult.empty(pageQuery);
         pageInfo.setTotal(page.getTotal());
-        pageInfo.setRecords(BeanUtil.copyToList(page.getRecords(), RoleDTO.class));
+        pageInfo.setRows(BeanUtil.copyToList(page.getRecords(), RoleDTO.class));
         return pageInfo;
     }
 

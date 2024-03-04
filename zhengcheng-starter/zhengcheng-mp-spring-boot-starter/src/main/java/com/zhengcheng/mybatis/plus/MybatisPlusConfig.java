@@ -21,10 +21,10 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Configuration
 @EnableTransactionManagement
-@MapperScan(basePackages = "com.zhengcheng.**.mapper*")
-public class MybatisPlusAutoConfiguration {
+@MapperScan(basePackages = {"com.zhengcheng.**.mapper*"})
+public class MybatisPlusConfig {
 
-    public MybatisPlusAutoConfiguration() {
+    public MybatisPlusConfig() {
         log.info("------ mybatis-plus 自动配置  ---------------------------------------");
         log.info("------ 事务管理注解 @EnableTransactionManagement 配置成功 ");
         log.info("------ 数据库表公共字段：id、is_deleted、create_user_id、create_time、update_user_id、update_time ");

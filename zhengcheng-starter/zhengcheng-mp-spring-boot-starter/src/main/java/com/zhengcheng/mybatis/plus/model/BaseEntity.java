@@ -25,7 +25,7 @@ public class BaseEntity<T extends Model<?>> extends Model<T> {
      * 主键ID
      */
 //    @TableId(type = IdType.AUTO)
-//    private Long id;
+    private Long id;
     /**
      * 创建时间
      */
