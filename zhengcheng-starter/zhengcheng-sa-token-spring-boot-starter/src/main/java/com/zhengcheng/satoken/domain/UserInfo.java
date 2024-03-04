@@ -1,6 +1,7 @@
 package com.zhengcheng.satoken.domain;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,19 +22,33 @@ public class UserInfo implements Serializable {
     private static final long serialVersionUID = -87464380427076695L;
 
     /**
-     * ID
+     * 用户ID
      */
-    private Long id;
-    /**
-     * 用户号
-     */
-    private String userNo;
+    private Long userId;
     /**
      * 用户名
      */
     private String username;
     /**
-     * 客户端IP
+     * 用户编号
      */
-    private String clientIp;
+    private String userNo;
+    /**
+     * 用户token
+     */
+    private String token;
+    /**
+     * 过期时间
+     */
+    private Long expireTime;
+
+    /**
+     * 登录IP地址
+     */
+    private String ipaddr;
+
+    /**
+     * 权限列表
+     */
+    private Set<String> permissions;
 }

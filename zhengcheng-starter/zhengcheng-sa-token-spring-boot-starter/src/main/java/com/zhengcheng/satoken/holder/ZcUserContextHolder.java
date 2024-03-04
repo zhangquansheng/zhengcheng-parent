@@ -32,7 +32,7 @@ public class ZcUserContextHolder {
 
     public static Long getUserId() {
         UserInfo userInfo = getUserInfo();
-        return userInfo == null ? null : userInfo.getId();
+        return userInfo == null ? null : userInfo.getUserId();
     }
 
     public static String getUsername() {

@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -24,13 +25,15 @@ import lombok.extern.slf4j.Slf4j;
  * @date :    2019/8/12 22:41
  */
 @Slf4j
+@ComponentScan(basePackages = "com.zhengcheng.cache.redis")
 @EnableCaching
 public class RedisAutoConfiguration extends CachingConfigurerSupport {
 
     public RedisAutoConfiguration() {
         log.info("------ redis 缓存管理 自动配置  ----------------------------------");
-        log.info("------ @EnableCaching 启动缓存管理 ");
-        log.info("-----------------------------------------------------------------");
+        log.info("------ @EnableCaching 启动缓存管理 ------------------------------");
+        log.info("------ Spring Redis 工具类 RedisCache --------------------------");
+        log.info("---------------------------------------------------------------");
     }
 
     /**
