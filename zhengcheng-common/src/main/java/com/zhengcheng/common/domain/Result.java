@@ -59,6 +59,10 @@ public class Result<T> extends HashMap<String, Object> {
         return errorMessage(CodeEnum.ERROR.getMessage());
     }
 
+    public static <T> Result<T> error(String message) {
+        return errorData(message, null);
+    }
+
     public static <T> Result<T> errorData(T data) {
         return errorData(CodeEnum.ERROR.getMessage(), data);
     }
@@ -93,22 +97,27 @@ public class Result<T> extends HashMap<String, Object> {
         return Objects.equals(CodeEnum.SUCCESS.getCode(), this.code) && this.data != null;
     }
 
-    public static Result fallbackResult() {
+    public static <T> Result<T> fallbackResult() {
         return Result.create(CodeEnum.FALLBACK.getCode(), CodeEnum.FALLBACK.getMessage());
     }
 
-    public static Result ok() {
-        return new Result();
+    public static <T> Result<T> ok() {
+        return new Result<T>();
     }
 
-    public static Result ok(Object data) {
-        Result r = new Result();
+    public static <T> Result<T> ok(Object data) {
+        Result<T> r = new Result<T>();
         r.put("data", data);
         return r;
     }
 
     public Result put(String key, Object value) {
         super.put(key, value);
+        return this;
+    }
+
+    public Result put(Object value) {
+        super.put("data", value);
         return this;
     }
 
