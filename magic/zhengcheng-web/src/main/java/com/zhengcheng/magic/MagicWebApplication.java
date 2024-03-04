@@ -1,4 +1,4 @@
-package com.zhengcheng.magic.web;
+package com.zhengcheng.magic;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
