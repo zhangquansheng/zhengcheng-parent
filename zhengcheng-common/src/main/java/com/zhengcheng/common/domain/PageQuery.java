@@ -77,4 +77,5 @@ public class PageQuery implements Serializable {
         this.pageNum = pageNum;
         this.pageSize = pageSize;
     }
+
 }

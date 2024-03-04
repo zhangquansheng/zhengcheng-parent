@@ -3,22 +3,23 @@ package com.zhengcheng.ums.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.oddfar.campus.common.constant.UserConstants;
-import com.oddfar.campus.common.core.page.PageQuery;
-import com.oddfar.campus.common.domain.PageResult;
-import com.oddfar.campus.common.domain.entity.SysRoleEntity;
-import com.oddfar.campus.common.domain.entity.SysUserEntity;
-import com.oddfar.campus.common.domain.entity.SysUserRoleEntity;
-import com.oddfar.campus.common.exception.ServiceException;
-import com.oddfar.campus.common.utils.SecurityUtils;
-import com.oddfar.campus.common.utils.StringUtils;
-import com.oddfar.campus.framework.api.sysconfig.ConfigExpander;
-import com.oddfar.campus.framework.mapper.SysRoleMapper;
-import com.oddfar.campus.framework.mapper.SysUserMapper;
-import com.oddfar.campus.framework.mapper.SysUserRoleMapper;
-import com.oddfar.campus.framework.service.SysRoleService;
-import com.oddfar.campus.framework.service.SysUserService;
+import com.zhengcheng.common.domain.PageQuery;
+import com.zhengcheng.common.domain.PageResult;
+import com.zhengcheng.common.exception.BizException;
+import com.zhengcheng.mybatis.plus.utils.PageUtil;
+import com.zhengcheng.ums.common.constant.UserConstants;
+import com.zhengcheng.ums.domain.entity.SysRoleEntity;
+import com.zhengcheng.ums.domain.entity.SysUserEntity;
+import com.zhengcheng.ums.domain.entity.SysUserRoleEntity;
+import com.zhengcheng.ums.mapper.SysRoleMapper;
+import com.zhengcheng.ums.mapper.SysUserMapper;
+import com.zhengcheng.ums.mapper.SysUserRoleMapper;
+import com.zhengcheng.ums.service.SysRoleService;
+import com.zhengcheng.ums.service.SysUserService;
 
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
@@ -32,6 +33,7 @@ import java.util.stream.Collectors;
 import javax.annotation.Resource;
 
 import cn.hutool.core.util.ObjectUtil;
+import cn.hutool.crypto.SecureUtil;
 
 @Service
 public class SysUserServiceImpl implements SysUserService {
@@ -44,6 +46,8 @@ public class SysUserServiceImpl implements SysUserService {
     private SysRoleMapper roleMapper;
     @Resource
     private SysRoleService roleService;
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
     public PageResult<SysUserEntity> page(SysUserEntity sysUserEntity) {
@@ -52,25 +56,17 @@ public class SysUserServiceImpl implements SysUserService {
 
     @Override
     public SysUserEntity selectUserByUserName(String userName) {
-        SysUserEntity userEntity = userMapper.selectUserByUserName(userName);
-        if (userEntity != null && StringUtils.isEmpty(userEntity.getAvatar())) {
-            userEntity.setAvatar(ConfigExpander.getUserDefaultAvatar());
-        }
-        return userEntity;
+        return userMapper.selectUserByUserName(userName);
     }
 
     @Override
     public SysUserEntity selectUserById(Long userId) {
-        SysUserEntity userEntity = userMapper.selectUserById(userId);
-        if (userEntity != null && StringUtils.isEmpty(userEntity.getAvatar())) {
-            userEntity.setAvatar(ConfigExpander.getUserDefaultAvatar());
-        }
-        return userEntity;
+        return userMapper.selectUserById(userId);
     }
 
     @Override
     public Page<SysUserEntity> selectAllocatedList(SysUserEntity user) {
-        Page<SysUserEntity> page = new PageQuery().buildPage();
+        Page<SysUserEntity> page = PageUtil.buildPage(new PageQuery());
 
         QueryWrapper<SysUserEntity> wrapper = Wrappers.query();
         wrapper.eq("u.del_flag", UserConstants.NORMAL)
@@ -83,7 +79,7 @@ public class SysUserServiceImpl implements SysUserService {
 
     @Override
     public Page<SysUserEntity> selectUnallocatedList(SysUserEntity user) {
-        Page<SysUserEntity> page = new PageQuery().buildPage();
+        Page<SysUserEntity> page = PageUtil.buildPage(new PageQuery());
         return userMapper.selectUnallocatedList(page, user);
     }
 
@@ -106,17 +102,17 @@ public class SysUserServiceImpl implements SysUserService {
     public int insertUser(SysUserEntity user) {
         if (StringUtils.isNotEmpty(user.getUserName())
                 && !checkUserNameUnique(user)) {
-            throw new ServiceException("新增用户'" + user.getUserName() + "'失败，登录账号已存在");
+            throw new BizException("新增用户'" + user.getUserName() + "'失败，登录账号已存在");
         }
         if (StringUtils.isNotEmpty(user.getPhonenumber())
                 && !(checkPhoneUnique(user))) {
-            throw new ServiceException("新增用户'" + user.getUserName() + "'失败，手机号码已存在");
+            throw new BizException("新增用户'" + user.getUserName() + "'失败，手机号码已存在");
         }
         if (StringUtils.isNotEmpty(user.getEmail())
                 && !(checkEmailUnique(user))) {
-            throw new ServiceException("新增用户'" + user.getUserName() + "'失败，邮箱账号已存在");
+            throw new BizException("新增用户'" + user.getUserName() + "'失败，邮箱账号已存在");
         }
-        user.setPassword(SecurityUtils.encryptPassword(user.getPassword()));
+        user.setPassword(bCryptPasswordEncoder.encode(SecureUtil.md5(user.getPassword())));
         // 新增用户信息
         int rows = userMapper.insert(user);
         // 新增用户与角色管理
@@ -170,8 +166,8 @@ public class SysUserServiceImpl implements SysUserService {
 
     @Override
     public void checkUserAllowed(SysUserEntity user) {
-        if (StringUtils.isNotNull(user.getUserId()) && user.isAdmin()) {
-            throw new ServiceException("不允许操作超级管理员用户");
+        if (ObjectUtil.isNotNull(user.getUserId()) && user.isAdmin()) {
+            throw new BizException("不允许操作超级管理员用户");
         }
     }
 
@@ -203,9 +199,9 @@ public class SysUserServiceImpl implements SysUserService {
 
     @Override
     public boolean checkUserNameUnique(SysUserEntity user) {
-        Long userId = StringUtils.isNull(user.getUserId()) ? -1L : user.getUserId();
+        Long userId = ObjectUtil.isNull(user.getUserId()) ? -1L : user.getUserId();
         SysUserEntity info = userMapper.checkUserNameUnique(user.getUserName());
-        if (StringUtils.isNotNull(info) && info.getUserId().longValue() != userId.longValue()) {
+        if (ObjectUtil.isNotNull(info) && info.getUserId().longValue() != userId.longValue()) {
             return false;
         }
         return true;
@@ -213,9 +209,9 @@ public class SysUserServiceImpl implements SysUserService {
 
     @Override
     public boolean checkPhoneUnique(SysUserEntity user) {
-        Long userId = StringUtils.isNull(user.getUserId()) ? -1L : user.getUserId();
+        Long userId = ObjectUtil.isNull(user.getUserId()) ? -1L : user.getUserId();
         SysUserEntity info = userMapper.checkPhoneUnique(user.getPhonenumber());
-        if (StringUtils.isNotNull(info) && info.getUserId().longValue() != userId.longValue()) {
+        if (ObjectUtil.isNotNull(info) && info.getUserId().longValue() != userId.longValue()) {
             return false;
         }
         return true;
@@ -223,9 +219,9 @@ public class SysUserServiceImpl implements SysUserService {
 
     @Override
     public boolean checkEmailUnique(SysUserEntity user) {
-        Long userId = StringUtils.isNull(user.getUserId()) ? -1L : user.getUserId();
+        Long userId = ObjectUtil.isNull(user.getUserId()) ? -1L : user.getUserId();
         SysUserEntity info = userMapper.checkEmailUnique(user.getEmail());
-        if (StringUtils.isNotNull(info) && info.getUserId().longValue() != userId.longValue()) {
+        if (ObjectUtil.isNotNull(info) && info.getUserId().longValue() != userId.longValue()) {
             return false;
         }
         return true;
@@ -248,9 +244,9 @@ public class SysUserServiceImpl implements SysUserService {
      * @param roleIds 角色组
      */
     public void insertUserRole(Long userId, Long[] roleIds) {
-        if (StringUtils.isNotEmpty(roleIds)) {
+        if (roleIds != null && roleIds.length > 0) {
             // 新增用户与角色管理
-            List<SysUserRoleEntity> list = new ArrayList<SysUserRoleEntity>(roleIds.length);
+            List<SysUserRoleEntity> list = new ArrayList<>(roleIds.length);
             for (Long roleId : roleIds) {
                 if (roleId != null) {
                     SysUserRoleEntity ur = new SysUserRoleEntity();

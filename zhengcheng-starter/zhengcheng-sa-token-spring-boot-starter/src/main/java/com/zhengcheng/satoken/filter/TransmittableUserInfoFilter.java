@@ -40,7 +40,7 @@ public class TransmittableUserInfoFilter extends GenericFilterBean {
             String clientIp = request.getHeader(CommonConstants.HEADER_CLIENT_IP);
 
             UserInfo userInfo = new UserInfo();
-            userInfo.setId(CharSequenceUtil.isBlank(uid) ? null : Long.valueOf(uid));
+            userInfo.setUserId(CharSequenceUtil.isBlank(uid) ? null : Long.valueOf(uid));
             userInfo.setUserNo(userNo);
             userInfo.setUsername(username);
             userInfo.setClientIp(clientIp);

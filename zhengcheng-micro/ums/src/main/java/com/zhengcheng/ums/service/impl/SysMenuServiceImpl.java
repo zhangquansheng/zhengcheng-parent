@@ -2,10 +2,10 @@ package com.zhengcheng.ums.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.zhengcheng.mybatis.plus.core.LambdaQueryWrapperX;
+import com.zhengcheng.satoken.domain.UserInfo;
 import com.zhengcheng.ums.common.constant.Constants;
 import com.zhengcheng.ums.common.constant.UserConstants;
 import com.zhengcheng.ums.common.utils.MetaVo;
-import com.zhengcheng.ums.common.utils.SecurityUtils;
 import com.zhengcheng.ums.domain.TreeSelect;
 import com.zhengcheng.ums.domain.entity.SysMenuEntity;
 import com.zhengcheng.ums.domain.entity.SysRoleEntity;
@@ -88,7 +88,7 @@ public class SysMenuServiceImpl implements SysMenuService {
     @Override
     public List<SysMenuEntity> selectMenuTreeByUserId(Long userId) {
         List<SysMenuEntity> menus = null;
-        if (SecurityUtils.isAdmin(userId)) {
+        if (UserInfo.isAdmin(userId)) {
             menus = menuMapper.selectMenuTreeAll();
         } else {
             menus = menuMapper.selectMenuTreeByUserId(userId);
@@ -269,8 +269,7 @@ public class SysMenuServiceImpl implements SysMenuService {
 
     @Override
     public boolean hasChildByMenuId(Long menuId) {
-        Long result = menuMapper.selectCount(
-                new LambdaQueryWrapperX<SysMenuEntity>().eq(SysMenuEntity::getParentId, menuId));
+        Long result = menuMapper.selectCount(new LambdaQueryWrapperX<SysMenuEntity>().eq(SysMenuEntity::getParentId, menuId));
 
         return result > 0;
     }
@@ -298,8 +297,7 @@ public class SysMenuServiceImpl implements SysMenuService {
             routerPath = innerLinkReplaceEach(routerPath);
         }
         // 非外链并且是一级目录（类型为目录）
-        if (0 == menu.getParentId().intValue() && UserConstants.TYPE_DIR.equals(menu.getMenuType())
-                && UserConstants.NO_FRAME.equals(menu.getIsFrame())) {
+        if (0 == menu.getParentId().intValue() && UserConstants.TYPE_DIR.equals(menu.getMenuType()) && UserConstants.NO_FRAME.equals(menu.getIsFrame())) {
             routerPath = "/" + menu.getPath();
         }
         // 非外链并且是一级目录（类型为菜单）
@@ -369,8 +367,7 @@ public class SysMenuServiceImpl implements SysMenuService {
      * @return 结果
      */
     public boolean isMenuFrame(SysMenuEntity menu) {
-        return menu.getParentId().intValue() == 0 && UserConstants.TYPE_MENU.equals(menu.getMenuType())
-                && menu.getIsFrame().equals(UserConstants.NO_FRAME);
+        return menu.getParentId().intValue() == 0 && UserConstants.TYPE_MENU.equals(menu.getMenuType()) && menu.getIsFrame().equals(UserConstants.NO_FRAME);
     }
 
     /**
@@ -438,8 +435,7 @@ public class SysMenuServiceImpl implements SysMenuService {
      * @return
      */
     public String innerLinkReplaceEach(String path) {
-        return StringUtils.replaceEach(path, new String[]{Constants.HTTP, Constants.HTTPS, Constants.WWW, "."},
-                new String[]{"", "", "", "/"});
+        return StringUtils.replaceEach(path, new String[]{Constants.HTTP, Constants.HTTPS, Constants.WWW, "."}, new String[]{"", "", "", "/"});
     }
 }
 

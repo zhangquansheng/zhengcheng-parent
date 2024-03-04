@@ -209,9 +209,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysUserRoleMapper, SysUserRo
         //把用户资源和权限缓存
         Map<Long, List<SysRoleAuth>> rolePermsMap = menuService.selectMenuPermsAll();
         Map<Long, List<SysRoleAuth>> roleResourceMap = resourceService.selectSysRoleAuthAll().stream().collect(Collectors.groupingBy(SysRoleAuth::getRoleID));
-
-        ResourceCollectorApi resourceCollectorApi = applicationContext.getBean(ResourceCollectorApi.class);
-        resourceCollectorApi.setRoleAuthCache(rolePermsMap, roleResourceMap);
+        //TODO
     }
 
     /**
