@@ -88,7 +88,7 @@ public class PageUtil {
         pageResult.setTotal(page.getTotal());
         pageResult.setPageNum(page.getCurrent());
         pageResult.setPageSize(page.getSize());
-        pageResult.setRecords(page.getRecords());
+        pageResult.setRows(page.getRecords());
         return pageResult;
     }
 
@@ -97,7 +97,7 @@ public class PageUtil {
         pageResult.setTotal(page.getTotal());
         pageResult.setPageNum(page.getCurrent());
         pageResult.setPageSize(page.getSize());
-        pageResult.setRecords(BeanUtil.copyToList(page.getRecords(), targetType));
+        pageResult.setRows(BeanUtil.copyToList(page.getRecords(), targetType));
         return pageResult;
     }
 }

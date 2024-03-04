@@ -34,7 +34,7 @@ public class PageResult<T> implements Serializable {
     /**
      * 数据
      */
-    private List<T> records;
+    private List<T> rows;
 
     public static <T> PageResult<T> empty(PageQuery pageQuery) {
         return new PageResult<>(pageQuery.getPageNum(), pageQuery.getPageSize(), 0L, null);

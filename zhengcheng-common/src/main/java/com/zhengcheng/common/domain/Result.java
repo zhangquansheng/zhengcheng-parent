@@ -2,7 +2,7 @@ package com.zhengcheng.common.domain;
 
 import com.zhengcheng.common.enums.CodeEnum;
 
-import java.io.Serializable;
+import java.util.HashMap;
 import java.util.Objects;
 
 import lombok.Data;
@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
  */
 @NoArgsConstructor
 @Data
-public class Result<T> implements Serializable {
+public class Result<T> extends HashMap<String, Object> {
     private static final long serialVersionUID = 1129940056717037765L;
 
     private Integer code;
@@ -95,5 +95,26 @@ public class Result<T> implements Serializable {
 
     public static Result fallbackResult() {
         return Result.create(CodeEnum.FALLBACK.getCode(), CodeEnum.FALLBACK.getMessage());
+    }
+
+    public static Result ok() {
+        return new Result();
+    }
+
+    public static Result ok(Object data) {
+        Result r = new Result();
+        r.put("data", data);
+        return r;
+    }
+
+    public Result put(String key, Object value) {
+        super.put(key, value);
+        return this;
+    }
+
+    public Result put(PageResult pageResult) {
+        super.put("rows", pageResult.getRows());
+        super.put("total", pageResult.getTotal());
+        return this;
     }
 }
