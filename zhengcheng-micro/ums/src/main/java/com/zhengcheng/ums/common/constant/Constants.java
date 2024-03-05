@@ -77,11 +77,6 @@ public class Constants {
     public static final Integer CAPTCHA_EXPIRATION = 2;
 
     /**
-     * 令牌
-     */
-    public static final String TOKEN = "token";
-
-    /**
      * 用户id
      */
     public static final String USER_ID = "userId";

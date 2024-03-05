@@ -14,3 +14,6 @@ mybatis-plus:
   mapperPackage: com.zhengcheng.**.mapper
   mapperLocations: classpath*:mapper/**/*Mapper.xml
   typeAliasesPackage: com.zhengcheng.**.domain
+sa-token:
+  # token 名称（同时也是 cookie 名称）
+  token-name: token
