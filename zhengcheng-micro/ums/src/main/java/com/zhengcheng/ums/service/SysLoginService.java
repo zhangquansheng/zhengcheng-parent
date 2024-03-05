@@ -2,10 +2,12 @@ package com.zhengcheng.ums.service;
 
 import com.zhengcheng.ums.common.enums.UserStatusEnum;
 import com.zhengcheng.ums.domain.entity.SysUserEntity;
+import com.zhengcheng.ums.domain.model.LoginUser;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import cn.dev33.satoken.session.SaSession;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.ObjectUtil;
@@ -20,6 +22,8 @@ public class SysLoginService {
 
     @Autowired
     private SysUserService userService;
+    @Autowired
+    private SysPermissionService permissionService;
 
     /**
      * 登录验证
@@ -45,6 +49,8 @@ public class SysLoginService {
 
         // 验证密码，密码错误的的，需要锁定账号的逻辑 SysPasswordService
         StpUtil.login(user.getUserId());
+        StpUtil.getSessionByLoginId(user.getUserId()).set(SaSession.USER, new LoginUser(user.getUserId(), user,
+                permissionService.getMenuPermission(user), permissionService.getResources(user)));
         //记录登录信息
         recordLoginInfo(user.getUserId());
         return StpUtil.getTokenValue();

@@ -4,6 +4,7 @@ package com.zhengcheng.ums.controller.admin.system;
 import com.zhengcheng.common.domain.Result;
 import com.zhengcheng.ums.domain.entity.SysUserEntity;
 import com.zhengcheng.ums.domain.model.LoginBody;
+import com.zhengcheng.ums.domain.model.LoginUser;
 import com.zhengcheng.ums.service.SysLoginService;
 import com.zhengcheng.ums.service.SysMenuService;
 import com.zhengcheng.ums.service.SysPermissionService;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Set;
 
+import cn.dev33.satoken.session.SaSession;
 import cn.dev33.satoken.stp.StpUtil;
 
 @RestController
@@ -52,7 +54,8 @@ public class SysLoginController {
      */
     @GetMapping(value = "getInfo", name = "获取用户信息")
     public Result getInfo() {
-        SysUserEntity user = SecurityUtils.getLoginUser().getUser();
+        LoginUser loginUser = (LoginUser) StpUtil.getSessionByLoginId(StpUtil.getLoginId()).get(SaSession.USER);
+        SysUserEntity user = loginUser.getUser();
         // 角色集合
         Set<String> roles = permissionService.getRolePermission(user);
         // 权限集合
