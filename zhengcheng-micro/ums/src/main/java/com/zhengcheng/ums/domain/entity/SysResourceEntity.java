@@ -2,7 +2,6 @@ package com.zhengcheng.ums.domain.entity;
 
 
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.zhengcheng.mybatis.plus.model.BaseEntity;
 
@@ -20,7 +19,7 @@ import lombok.EqualsAndHashCode;
 public class SysResourceEntity extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
-    @TableId("resource_id")
+    //    @TableId("resource_id")
     private Long resourceId;
 
     /**

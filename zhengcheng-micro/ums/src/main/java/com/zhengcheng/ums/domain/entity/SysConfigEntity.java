@@ -1,7 +1,6 @@
 package com.zhengcheng.ums.domain.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.zhengcheng.mybatis.plus.model.BaseEntity;
 
@@ -26,7 +25,7 @@ public class SysConfigEntity extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
     //    @JsonFormat(shape = JsonFormat.Shape.STRING)
-    @TableId("config_id")
+//    @TableId("config_id")
     private Long configId;
 
     /**

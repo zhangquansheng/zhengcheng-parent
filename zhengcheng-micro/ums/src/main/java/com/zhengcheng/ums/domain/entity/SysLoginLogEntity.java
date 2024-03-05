@@ -1,7 +1,6 @@
 package com.zhengcheng.ums.domain.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -23,7 +22,7 @@ public class SysLoginLogEntity {
     /**
      * ID
      */
-    @TableId("info_id")
+//    @TableId("info_id")
     private Long infoId;
 
     /**

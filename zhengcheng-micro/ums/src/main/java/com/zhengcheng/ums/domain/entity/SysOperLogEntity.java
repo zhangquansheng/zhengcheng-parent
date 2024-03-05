@@ -1,7 +1,6 @@
 package com.zhengcheng.ums.domain.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.zhengcheng.mybatis.plus.model.BaseEntity;
@@ -30,7 +29,7 @@ public class SysOperLogEntity extends BaseEntity {
     /**
      * 日志主键
      */
-    @TableId("oper_id")
+//    @TableId("oper_id")
     private Long operId;
 
     /**

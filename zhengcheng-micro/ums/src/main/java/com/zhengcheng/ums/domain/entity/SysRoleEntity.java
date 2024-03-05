@@ -1,7 +1,6 @@
 package com.zhengcheng.ums.domain.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.zhengcheng.mybatis.plus.model.BaseEntity;
 
@@ -32,7 +31,7 @@ public class SysRoleEntity extends BaseEntity {
     /**
      * 角色ID
      */
-    @TableId("role_id")
+//    @TableId("role_id")
     private Long roleId;
 
     /**

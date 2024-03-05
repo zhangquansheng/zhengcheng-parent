@@ -1,7 +1,6 @@
 package com.zhengcheng.ums.domain.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.zhengcheng.mybatis.plus.model.BaseEntity;
@@ -34,7 +33,7 @@ public class SysMenuEntity extends BaseEntity {
     /**
      * 菜单ID
      */
-    @TableId("menu_id")
+//    @TableId("menu_id")
     private Long menuId;
 
     /**

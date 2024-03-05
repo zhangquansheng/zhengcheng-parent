@@ -1,7 +1,5 @@
 package com.zhengcheng.ums.domain.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
@@ -20,7 +18,7 @@ public class SysUserRoleEntity implements Serializable {
     /**
      * 用户ID
      */
-    @TableId(type = IdType.INPUT)
+//    @TableId(type = IdType.INPUT)
     private Long userId;
 
     /**

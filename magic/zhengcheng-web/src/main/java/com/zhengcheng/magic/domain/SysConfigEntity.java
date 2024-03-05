@@ -1,15 +1,11 @@
 package com.zhengcheng.magic.domain;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.zhengcheng.mybatis.plus.model.BaseEntity;
+//import com.baomidou.mybatisplus.annotation.TableField;
+//import com.baomidou.mybatisplus.annotation.TableName;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.baomidou.mybatisplus.annotation.TableName;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 /**
  * 配置实体类
@@ -17,13 +13,13 @@ import lombok.EqualsAndHashCode;
  * @author zhangquansheng
  */
 @Data
-@EqualsAndHashCode(callSuper = true)
+//@EqualsAndHashCode(callSuper = true)
 @TableName("sys_config")
-public class SysConfigEntity extends BaseEntity {
+public class SysConfigEntity {
     private static final long serialVersionUID = 1L;
 
     //    @JsonFormat(shape = JsonFormat.Shape.STRING)
-    @TableId("config_id")
+//    @TableId("config_id")
     private Long configId;
 
     /**
@@ -56,6 +52,6 @@ public class SysConfigEntity extends BaseEntity {
      */
     private String remark;
 
-    @TableField(exist = false)
-    private Map<String, Object> params = new HashMap<>();
+//    @TableField(exist = false)
+//    private Map<String, Object> params = new HashMap<>();
 }
