@@ -3,12 +3,8 @@ package com.zhengcheng.magic.domain;
 //import com.baomidou.mybatisplus.annotation.TableField;
 //import com.baomidou.mybatisplus.annotation.TableName;
 
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.zhengcheng.mybatis.plus.model.BaseEntity;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -58,7 +54,4 @@ public class SysConfigEntity extends BaseEntity {
      * 备注
      */
     private String remark;
-
-    @TableField(exist = false)
-    private Map<String, Object> params = new HashMap<>();
 }
