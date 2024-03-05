@@ -1,8 +1,7 @@
-package com.oddfar.campus.admin.controller.system;
+package com.zhengcheng.ums.controller.admin.system;
 
 import com.zhengcheng.common.domain.Result;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,8 +9,6 @@ import java.util.HashMap;
 
 /**
  * 首页
- *
- * @author oddfar
  */
 @RestController
 public class SysIndexController {
@@ -24,11 +21,11 @@ public class SysIndexController {
         return "";
     }
 
-    @Value("${campus.version}")
-    private String version;
-
-    @Value("${campus.frameworkVersion}")
-    private String frameworkVersion;
+//    @Value("${campus.version}")
+//    private String version;
+//
+//    @Value("${campus.frameworkVersion}")
+//    private String frameworkVersion;
 
     /**
      * 版本情况
@@ -36,8 +33,8 @@ public class SysIndexController {
     @RequestMapping("/version")
     public Result version() {
         HashMap<String, String> map = new HashMap<>();
-        map.put("version", version);
-        map.put("frameworkVersion", frameworkVersion);
+//        map.put("version", version);
+//        map.put("frameworkVersion", frameworkVersion);
         return Result.ok(map);
     }
 }

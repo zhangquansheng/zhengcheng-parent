@@ -1,7 +1,7 @@
 server:
   tomcat:
     uri-encoding: UTF-8
-  port: 8080
+  port: 8160
 spring:
   application:
     name: ums

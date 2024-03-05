@@ -62,6 +62,7 @@
         <knife4j.version>3.0.3</knife4j.version>
         <dynamic-tp.version>1.0.7</dynamic-tp.version>
         <com.baomidou.lock4j.version>2.2.5</com.baomidou.lock4j.version>
+        <kaptcha.version>2.3.2</kaptcha.version>
     </properties>
 
     <dependencyManagement>
@@ -130,6 +131,11 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>kaptcha-spring-boot-starter</artifactId>
                 <version>1.2.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.penggle</groupId>
+                <artifactId>kaptcha</artifactId>
+                <version>${kaptcha.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.elasticsearch</groupId>
