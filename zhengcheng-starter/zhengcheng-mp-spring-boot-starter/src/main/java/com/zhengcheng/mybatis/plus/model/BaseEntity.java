@@ -3,6 +3,7 @@ package com.zhengcheng.mybatis.plus.model;
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
 
 import java.time.LocalDateTime;
 
@@ -18,7 +19,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @Accessors(chain = true)
-public class BaseEntity {
+public class BaseEntity<T extends Model<?>> extends Model<T> {
     private static final long serialVersionUID = -2237290464565384433L;
     /**
      * 主键ID

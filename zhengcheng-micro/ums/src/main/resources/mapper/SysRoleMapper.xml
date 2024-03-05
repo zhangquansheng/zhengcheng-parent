@@ -34,19 +34,19 @@
 
 
 
-    <select id="selectRolePermissionByUserId" resultType="com.oddfar.campus.common.domain.entity.SysRoleEntity">
+    <select id="selectRolePermissionByUserId" resultType="com.zhengcheng.ums.domain.entity.SysRoleEntity">
         <include refid="selectRoleVo"/>
         WHERE r.del_flag = '0' and ur.user_id = #{userId}
     </select>
 
 
-    <select id="selectRoleById" parameterType="Long" resultType="com.oddfar.campus.common.domain.entity.SysRoleEntity">
+    <select id="selectRoleById" parameterType="Long" resultType="com.zhengcheng.ums.domain.entity.SysRoleEntity">
         <include refid="selectRoleVo"/>
         where r.role_id = #{roleId}
     </select>
 
 
-    <select id="selectRoleList" parameterType="com.oddfar.campus.common.domain.entity.SysRoleEntity" resultMap="SysRoleResult">
+    <select id="selectRoleList" parameterType="com.zhengcheng.ums.domain.entity.SysRoleEntity" resultMap="SysRoleResult">
         <include refid="selectRoleVo"/>
         where r.del_flag = '0'
         <if test="roleId != null and roleId != 0">

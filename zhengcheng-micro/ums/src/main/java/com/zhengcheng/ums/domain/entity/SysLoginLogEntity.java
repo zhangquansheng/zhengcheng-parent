@@ -3,11 +3,13 @@ package com.zhengcheng.ums.domain.entity;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.zhengcheng.mybatis.plus.model.BaseEntity;
 
 import java.util.Date;
 import java.util.Map;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * 系统访问记录表 sys_logininfor
@@ -15,8 +17,9 @@ import lombok.Data;
  * @author ruoyi
  */
 @Data
+@EqualsAndHashCode(callSuper = true)
 @TableName("sys_log_login")
-public class SysLoginLogEntity {
+public class SysLoginLogEntity extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
     /**
@@ -55,15 +58,15 @@ public class SysLoginLogEntity {
      */
     private String browser;
 
-    /**
-     * 操作系统
-     */
-    private String os;
-
-    /**
-     * 提示消息
-     */
-    private String msg;
+//    /**
+//     * 操作系统
+//     */
+//    private String os;
+//
+//    /**
+//     * 提示消息
+//     */
+//    private String msg;
 
     /**
      * 访问时间
