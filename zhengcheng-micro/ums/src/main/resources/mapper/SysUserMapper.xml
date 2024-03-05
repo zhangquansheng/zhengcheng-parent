@@ -24,7 +24,7 @@
         <collection  property="roles"   javaType="java.util.List"   resultMap="RoleResult" />
     </resultMap>
 
-    <resultMap id="RoleResult" type="com.oddfar.campus.common.domain.entity.SysRoleEntity">
+    <resultMap id="RoleResult" type="com.zhengcheng.ums.domain.entity.SysRoleEntity">
         <id     property="roleId"       column="role_id"        />
         <result property="roleName"     column="role_name"      />
         <result property="roleKey"      column="role_key"       />
@@ -43,11 +43,11 @@
     </sql>
 
 
-    <update id="resetUserPwd" parameterType="com.oddfar.campus.common.domain.entity.SysUserEntity">
+    <update id="resetUserPwd" parameterType="com.zhengcheng.ums.domain.entity.SysUserEntity">
         update sys_user set password = #{password} where user_name = #{userName}
     </update>
 
-    <update id="updateUserAvatar" parameterType="com.oddfar.campus.common.domain.entity.SysUserEntity">
+    <update id="updateUserAvatar" parameterType="com.zhengcheng.ums.domain.entity.SysUserEntity">
         update sys_user set avatar = #{avatar} where user_name = #{userName}
     </update>
 

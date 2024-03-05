@@ -99,6 +99,11 @@
             </dependency>
             <dependency>
                 <groupId>com.zhengcheng</groupId>
+                <artifactId>zhengcheng-sa-token-spring-boot-starter</artifactId>
+                <version>${zhengcheng.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
                 <artifactId>zhengcheng-micro-spring-cloud-starter</artifactId>
                 <version>${zhengcheng.version}</version>
             </dependency>

@@ -5,7 +5,6 @@ import com.zhengcheng.common.domain.PageResult;
 import com.zhengcheng.common.domain.Result;
 import com.zhengcheng.ums.domain.entity.SysLoginLogEntity;
 import com.zhengcheng.ums.service.SysLoginLogService;
-import com.zhengcheng.ums.service.SysPasswordService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -26,8 +25,8 @@ public class SysLogininforController {
     @Autowired
     private SysLoginLogService logininforService;
 
-    @Autowired
-    private SysPasswordService passwordService;
+//    @Autowired
+//    private SysPasswordService passwordService;
 
     @GetMapping(value = "/list", name = "登录日志-分类列表")
     public Result list(SysLoginLogEntity logininfor) {
@@ -46,9 +45,9 @@ public class SysLogininforController {
         return Result.ok();
     }
 
-    @GetMapping(value = "/unlock/{userName}", name = "登录日志-解锁")
-    public Result unlock(@PathVariable("userName") String userName) {
-        passwordService.clearLoginRecordCache(userName);
-        return Result.ok();
-    }
+//    @GetMapping(value = "/unlock/{userName}", name = "登录日志-解锁")
+//    public Result unlock(@PathVariable("userName") String userName) {
+//        passwordService.clearLoginRecordCache(userName);
+//        return Result.ok();
+//    }
 }

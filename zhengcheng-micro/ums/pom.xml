@@ -21,7 +21,56 @@
     <dependencies>
         <dependency>
             <groupId>com.zhengcheng</groupId>
-            <artifactId>zhengcheng-micro-spring-cloud-starter</artifactId>
+            <artifactId>zhengcheng-mp-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.zhengcheng</groupId>
+            <artifactId>zhengcheng-redis-cache-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zhengcheng</groupId>
+            <artifactId>zhengcheng-idempotent-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zhengcheng</groupId>
+            <artifactId>zhengcheng-ratelimit-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zhengcheng</groupId>
+            <artifactId>zhengcheng-web-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zhengcheng</groupId>
+            <artifactId>zhengcheng-encrypt-body-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zhengcheng</groupId>
+            <artifactId>zhengcheng-knife4j-spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.ulisesbocchio</groupId>
+            <artifactId>jasypt-spring-boot-starter</artifactId>
+        </dependency>
+        <!-- Sa-Token整合redis (使用jackson序列化方式) -->
+        <dependency>
+            <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-redis-jackson</artifactId>
+        </dependency>
+        <!-- Sa-Token 整合 SpringAOP 实现注解鉴权 拦截器模式和AOP模式不可同时集成，否则会在Controller层发生一个注解校验两次的bug-->
+        <dependency>
+            <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-spring-aop</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.zhengcheng</groupId>
+            <artifactId>zhengcheng-nacos-spring-cloud-starter</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -66,8 +115,6 @@
         <dependency>
             <groupId>com.zhengcheng</groupId>
             <artifactId>zhengcheng-sa-token-spring-boot-starter</artifactId>
-            <version>6.1.1-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
 
