@@ -7,8 +7,9 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.toolkit.support.SFunction;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.oddfar.campus.common.core.page.PageQuery;
-import com.oddfar.campus.common.domain.PageResult;
+import com.zhengcheng.common.domain.PageQuery;
+import com.zhengcheng.common.domain.PageResult;
+import com.zhengcheng.mybatis.plus.utils.PageUtil;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -20,12 +21,11 @@ import java.util.List;
  */
 public interface BaseMapperX<T> extends BaseMapper<T> {
 
-    default PageResult<T> selectPage(@Param("ew") Wrapper<T> queryWrapper) {
-        PageQuery pageQuery = new PageQuery();
-        Page<T> page = pageQuery.buildPage();
+    default PageResult<T> selectPage(PageQuery pageQuery, @Param("ew") Wrapper<T> queryWrapper) {
+        Page<T> page = PageUtil.buildPage(pageQuery);
         selectPage(page, queryWrapper);
         // 转换返回
-        return new PageResult(page.getRecords(), page.getTotal());
+        return PageUtil.buildPageResult(page);
     }
 
     default T selectOne(String field, Object value) {
