@@ -31,11 +31,11 @@ import cn.hutool.core.util.IdUtil;
  */
 @RestController
 public class CaptchaController {
-    @Resource(name = "captchaProducer")
-    private Producer captchaProducer;
-
-    @Resource(name = "captchaProducerMath")
-    private Producer captchaProducerMath;
+//    @Resource(name = "captchaProducer")
+//    private Producer captchaProducer;
+//
+//    @Resource(name = "captchaProducerMath")
+//    private Producer captchaProducerMath;
 
     @Autowired
     private RedisCache redisCache;
@@ -62,15 +62,15 @@ public class CaptchaController {
         BufferedImage image = null;
 
         String captchaType = "math";
-        if ("math".equals(captchaType)) {
-            String capText = captchaProducerMath.createText();
-            capStr = capText.substring(0, capText.lastIndexOf("@"));
-            code = capText.substring(capText.lastIndexOf("@") + 1);
-            image = captchaProducerMath.createImage(capStr);
-        } else if ("char".equals(captchaType)) {
-            capStr = code = captchaProducer.createText();
-            image = captchaProducer.createImage(capStr);
-        }
+//        if ("math".equals(captchaType)) {
+//            String capText = captchaProducerMath.createText();
+//            capStr = capText.substring(0, capText.lastIndexOf("@"));
+//            code = capText.substring(capText.lastIndexOf("@") + 1);
+//            image = captchaProducerMath.createImage(capStr);
+//        } else if ("char".equals(captchaType)) {
+//            capStr = code = captchaProducer.createText();
+//            image = captchaProducer.createImage(capStr);
+//        }
 
         redisCache.setCacheObject(verifyKey, code, Constants.CAPTCHA_EXPIRATION, TimeUnit.MINUTES);
         // 转换流信息写出

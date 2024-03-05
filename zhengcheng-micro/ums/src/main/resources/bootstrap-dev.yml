@@ -22,7 +22,7 @@ spring:
             group: DEFAULT_GROUP
             refresh: true
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/zc_user?autoReconnect=true&useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=Asia/Shanghai&useSSL=false&connectTimeout=60000&socketTimeout=60000
+    url: jdbc:mysql://127.0.0.1:3306/ssdlc_user?autoReconnect=true&useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=Asia/Shanghai&useSSL=false&connectTimeout=60000&socketTimeout=60000
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver # 3.2.0开始支持SPI可省略此配置

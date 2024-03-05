@@ -3,11 +3,12 @@ package com.zhengcheng.cache;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.zhengcheng.cache.redis.RedisCache;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -25,7 +26,6 @@ import lombok.extern.slf4j.Slf4j;
  * @date :    2019/8/12 22:41
  */
 @Slf4j
-@ComponentScan(basePackages = "com.zhengcheng.cache.redis")
 @EnableCaching
 public class RedisAutoConfiguration extends CachingConfigurerSupport {
 
@@ -43,8 +43,8 @@ public class RedisAutoConfiguration extends CachingConfigurerSupport {
      */
     @Primary
     @Bean
-    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory) {
-        RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
+    public RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory factory) {
+        RedisTemplate<Object, Object> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(factory);
 
         //创建 Jackson2JsonRedisSerializer 序列方式，对象类型使用 Object 类型，
@@ -72,6 +72,12 @@ public class RedisAutoConfiguration extends CachingConfigurerSupport {
     @Bean
     public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory connectionFactory) {
         return new StringRedisTemplate(connectionFactory);
+    }
+
+    @ConditionalOnBean(RedisTemplate.class)
+    @Bean
+    public RedisCache redisCache(RedisTemplate<Object, Object> redisTemplate) {
+        return new RedisCache(redisTemplate);
     }
 
 }
