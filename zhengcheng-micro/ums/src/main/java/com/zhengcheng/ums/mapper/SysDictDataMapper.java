@@ -15,11 +15,12 @@ public interface SysDictDataMapper extends BaseMapperX<SysDictDataEntity> {
 
     default PageResult<SysDictDataEntity> selectPage(SysDictDataEntity dictData) {
         return selectPage(PageQueryUtil.build(), new LambdaQueryWrapperX<SysDictDataEntity>()
-                .likeIfPresent(SysDictDataEntity::getDictType, dictData.getDictType())
-                .likeIfPresent(SysDictDataEntity::getDictLabel, dictData.getDictLabel())
-                .eqIfPresent(SysDictDataEntity::getStatus, "0")
-                .betweenIfPresent(SysDictDataEntity::getCreateTime, dictData.getParams())
-                .orderByAsc(SysDictDataEntity::getDictSort));
+                        .likeIfPresent(SysDictDataEntity::getDictType, dictData.getDictType())
+                        .likeIfPresent(SysDictDataEntity::getDictLabel, dictData.getDictLabel())
+                        .eqIfPresent(SysDictDataEntity::getStatus, "0")
+                        .betweenIfPresent(SysDictDataEntity::getCreateTime, dictData.getParams())
+//                .orderByAsc(SysDictDataEntity::getDictSort)
+        );
     }
 
     default List<SysDictDataEntity> selectDictDataByType(String dictType) {

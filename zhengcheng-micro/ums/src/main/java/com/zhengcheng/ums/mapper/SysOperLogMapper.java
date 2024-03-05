@@ -31,7 +31,7 @@ public interface SysOperLogMapper extends BaseMapperX<SysOperLogEntity> {
                 .eqIfPresent(SysOperLogEntity::getOperIp, operLog.getOperIp())
                 .eqIfPresent(SysOperLogEntity::getOperId, operLog.getOperId())
                 .betweenIfPresent(SysOperLogEntity::getOperTime, operLog.getParams())
-                .orderByDesc(SysOperLogEntity::getOperId)
+//                .orderByDesc(SysOperLogEntity::getOperId)
         );
     }
 

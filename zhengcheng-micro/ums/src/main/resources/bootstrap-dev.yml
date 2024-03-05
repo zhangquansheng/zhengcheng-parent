@@ -21,6 +21,7 @@ spring:
           - data-id: ums
             group: DEFAULT_GROUP
             refresh: true
+        enabled: false
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/campus_imaotai?autoReconnect=true&useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=Asia/Shanghai&useSSL=false&connectTimeout=60000&socketTimeout=60000
     username: root

@@ -4,7 +4,6 @@ import com.zhengcheng.cache.redis.RedisCache;
 import com.zhengcheng.ums.common.constant.CacheConstants;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
@@ -17,11 +16,11 @@ public class SysPasswordService {
     @Autowired
     private RedisCache redisCache;
 
-    @Value(value = "${user.password.maxRetryCount}")
-    private int maxRetryCount;
-
-    @Value(value = "${user.password.lockTime}")
-    private int lockTime;
+//    @Value(value = "${user.password.maxRetryCount}")
+//    private int maxRetryCount;
+//
+//    @Value(value = "${user.password.lockTime}")
+//    private int lockTime;
 
     /**
      * 登录账户密码错误次数缓存键名
