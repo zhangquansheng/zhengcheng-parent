@@ -15,7 +15,7 @@
     <modules>
         <module>apollo</module>
         <module>echarts</module>
-        <module>just-auth-RBAC</module>
+        <!--        <module>just-auth-RBAC</module>-->
         <module>zhengcheng-web</module>
         <module>zhengcheng-gateway</module>
         <module>knife4j-springfox-boot-v3</module>
@@ -23,7 +23,7 @@
         <module>webmagic</module>
         <module>nacos</module>
         <module>netty-socketio</module>
-        <module>passport</module>
+        <!--        <module>passport</module>-->
     </modules>
 
 </project>

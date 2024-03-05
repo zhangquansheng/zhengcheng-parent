@@ -4,7 +4,11 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.zhengcheng.magic.domain.enums.AuthorityTypeEnum;
 import com.zhengcheng.mybatis.plus.model.BaseEntity;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 /**
@@ -22,6 +26,8 @@ import lombok.experimental.Accessors;
 @TableName("authority")
 public class Authority extends BaseEntity<Authority> {
     private static final long serialVersionUID = -34315871269614900L;
+
+    private Long id;
     /**
      * 名称
      */
