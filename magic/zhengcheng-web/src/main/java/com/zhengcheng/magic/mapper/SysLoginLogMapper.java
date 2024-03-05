@@ -1,10 +1,10 @@
-package com.zhengcheng.ums.mapper;
+package com.zhengcheng.magic.mapper;
 
 import com.zhengcheng.common.domain.PageResult;
+import com.zhengcheng.magic.domain.SysLoginLogEntity;
 import com.zhengcheng.mvc.util.PageQueryUtil;
 import com.zhengcheng.mybatis.plus.core.BaseMapperX;
 import com.zhengcheng.mybatis.plus.core.LambdaQueryWrapperX;
-import com.zhengcheng.ums.domain.entity.SysLoginLogEntity;
 
 import java.util.List;
 

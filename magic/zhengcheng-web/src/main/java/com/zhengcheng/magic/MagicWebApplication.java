@@ -1,13 +1,12 @@
 package com.zhengcheng.magic;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
 /**
  * @author zhangquansheng
  */
-@MapperScan("com.zhengcheng.magic.mapper")
+//@MapperScan("com.zhengcheng.magic.mapper")
 @SpringBootApplication
 public class MagicWebApplication {
 

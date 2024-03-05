@@ -1,4 +1,4 @@
-package com.zhengcheng.ums.domain.entity;
+package com.zhengcheng.magic.domain;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
