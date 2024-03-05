@@ -1,12 +1,8 @@
 package com.zhengcheng.ums.domain.entity;
 
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.zhengcheng.mybatis.plus.model.BaseEntity;
 import com.zhengcheng.ums.common.constant.UserConstants;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -85,10 +81,6 @@ public class SysDictDataEntity extends BaseEntity {
      * 备注
      */
     private String remark;
-
-
-    @TableField(exist = false)
-    private Map<String, Object> params = new HashMap<>();
 
     public boolean getDefault() {
         return UserConstants.YES.equals(this.isDefault);

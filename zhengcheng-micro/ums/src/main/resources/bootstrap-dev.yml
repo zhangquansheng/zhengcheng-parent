@@ -28,9 +28,10 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver # 3.2.0开始支持SPI可省略此配置
     type: com.zaxxer.hikari.HikariDataSource
   redis:
-    database: 0
-    host: 127.0.0.1
+    host: 10.0.16.9
     port: 6379
+    password: seczone@123
+    database: 1
     timeout: 5000
 redisson:
   address: redis://${spring.redis.host}:${spring.redis.port}

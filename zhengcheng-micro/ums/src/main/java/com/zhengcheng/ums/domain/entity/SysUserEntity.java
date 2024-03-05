@@ -122,9 +122,6 @@ public class SysUserEntity extends BaseEntity {
     @TableField(exist = false)
     private Long roleId;
 
-    @TableField(exist = false)
-    private Map<String, Object> params = new HashMap<>();
-
     public SysUserEntity(Long userId) {
         this.userId = userId;
     }

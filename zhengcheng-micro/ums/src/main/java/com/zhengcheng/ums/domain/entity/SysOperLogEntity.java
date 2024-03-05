@@ -1,13 +1,10 @@
 package com.zhengcheng.ums.domain.entity;
 
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.zhengcheng.mybatis.plus.model.BaseEntity;
 
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -99,6 +96,4 @@ public class SysOperLogEntity extends BaseEntity {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date operTime;
 
-    @TableField(exist = false)
-    private Map<String, Object> params = new HashMap<>();
 }

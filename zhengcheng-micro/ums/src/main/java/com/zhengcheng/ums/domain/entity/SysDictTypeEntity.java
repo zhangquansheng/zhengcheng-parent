@@ -59,6 +59,4 @@ public class SysDictTypeEntity extends BaseEntity {
      */
     private String remark;
 
-    @TableField(exist = false)
-    private Map<String, Object> params = new HashMap<>();
 }

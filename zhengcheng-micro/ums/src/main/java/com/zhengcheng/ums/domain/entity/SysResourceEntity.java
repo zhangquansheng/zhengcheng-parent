@@ -6,9 +6,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.zhengcheng.mybatis.plus.model.BaseEntity;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -83,7 +81,4 @@ public class SysResourceEntity extends BaseEntity {
      */
     @TableField(exist = false)
     private List<SysResourceEntity> children = new ArrayList<SysResourceEntity>();
-
-    @TableField(exist = false)
-    private Map<String, Object> params = new HashMap<>();
 }
