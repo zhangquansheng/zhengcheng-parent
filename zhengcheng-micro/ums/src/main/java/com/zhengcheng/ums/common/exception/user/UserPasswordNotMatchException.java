@@ -1,7 +1,5 @@
 package com.zhengcheng.ums.common.exception.user;
 
-import com.zhengcheng.mvc.utils.I18nUtil;
-
 /**
  * 用户密码不正确或不符合规范异常类
  *
