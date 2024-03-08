@@ -28,6 +28,16 @@
                 <artifactId>sensitive-plus</artifactId>
                 <version>${zhengcheng.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zhengcheng-thread-pool</artifactId>
+                <version>${zhengcheng.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zhengcheng</groupId>
+                <artifactId>zhengcheng-sa-token-core</artifactId>
+                <version>${zhengcheng.version}</version>
+            </dependency>
 
             <!-- springboot starter -->
             <dependency>

@@ -12,7 +12,14 @@
     <artifactId>zhengcheng-sa-token-spring-boot-starter</artifactId>
 
     <dependencies>
-        <!-- Sa-Token 权限认证, 在线文档：http://sa-token.dev33.cn/ -->
+        <dependency>
+            <groupId>com.zhengcheng</groupId>
+            <artifactId>zhengcheng-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zhengcheng</groupId>
+            <artifactId>zhengcheng-sa-token-core</artifactId>
+        </dependency>
         <dependency>
             <groupId>cn.dev33</groupId>
             <artifactId>sa-token-spring-boot-starter</artifactId>
@@ -20,10 +27,6 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>transmittable-thread-local</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.zhengcheng</groupId>
-            <artifactId>zhengcheng-common</artifactId>
         </dependency>
     </dependencies>
 
