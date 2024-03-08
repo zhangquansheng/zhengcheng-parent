@@ -5,7 +5,7 @@ import com.zhengcheng.common.domain.Result;
 import com.zhengcheng.ums.domain.entity.SysMenuEntity;
 import com.zhengcheng.ums.domain.entity.SysUserEntity;
 import com.zhengcheng.ums.domain.model.LoginBody;
-import com.zhengcheng.ums.domain.model.LoginUser;
+import com.zhengcheng.ums.domain.model.LoginLoginUser;
 import com.zhengcheng.ums.service.SysLoginService;
 import com.zhengcheng.ums.service.SysMenuService;
 import com.zhengcheng.ums.service.SysPermissionService;
@@ -65,7 +65,7 @@ public class SysLoginController {
      */
     @GetMapping(value = "getInfo", name = "获取用户信息")
     public Result getInfo() {
-        LoginUser loginUser = (LoginUser) StpUtil.getSessionByLoginId(StpUtil.getLoginId()).get(SaSession.USER);
+        LoginLoginUser loginUser = (LoginLoginUser) StpUtil.getSessionByLoginId(StpUtil.getLoginId()).get(SaSession.USER);
         SysUserEntity user = loginUser.getUser();
         // 角色集合
         Set<String> roles = permissionService.getRolePermission(user);

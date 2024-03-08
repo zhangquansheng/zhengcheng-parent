@@ -2,7 +2,7 @@ package com.zhengcheng.ums.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.zhengcheng.mybatis.plus.core.LambdaQueryWrapperX;
-import com.zhengcheng.satoken.domain.UserInfo;
+import com.zhengcheng.satoken.domain.LoginUser;
 import com.zhengcheng.ums.common.constant.Constants;
 import com.zhengcheng.ums.common.constant.UserConstants;
 import com.zhengcheng.ums.common.utils.MetaVo;
@@ -88,7 +88,7 @@ public class SysMenuServiceImpl implements SysMenuService {
     @Override
     public List<SysMenuEntity> selectMenuTreeByUserId(Long userId) {
         List<SysMenuEntity> menus = null;
-        if (UserInfo.isAdmin(userId)) {
+        if (LoginUser.isAdmin(userId)) {
             menus = menuMapper.selectMenuTreeAll();
         } else {
             menus = menuMapper.selectMenuTreeByUserId(userId);
