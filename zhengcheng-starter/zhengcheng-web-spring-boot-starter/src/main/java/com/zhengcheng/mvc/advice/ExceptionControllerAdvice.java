@@ -114,7 +114,6 @@ public class ExceptionControllerAdvice {
      */
     @ExceptionHandler(BizException.class)
     public Result handleBizException(BizException e) {
-        log.warn("BizException:{}", e.toString());
         return Result.create(e.getCode(), I18nUtil.message(e.getMessage(), e.getArgs()));
     }
 
