@@ -1,12 +1,7 @@
 package com.zhengcheng.common.domain;
 
-import com.zhengcheng.common.enums.CodeEnum;
-
 import java.util.HashMap;
-import java.util.Objects;
-
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import java.util.Map;
 
 /**
  * Result
@@ -14,101 +9,54 @@ import lombok.NoArgsConstructor;
  * @author :    quansheng.zhang
  * @date :    2019/2/28 21:00
  */
-@NoArgsConstructor
-@Data
-public class Result<T> extends HashMap<String, Object> {
-    private static final long serialVersionUID = 1129940056717037765L;
+public class Result extends HashMap<String, Object> {
+    private static final long serialVersionUID = 1L;
 
-    private Integer code;
-    private String msg;
-    private T data;
-
-    public static <T> Result<T> create(Integer code, String message) {
-        return new Result(code, message, null);
+    public Result setData(Object data) {
+        put("data", data);
+        return this;
     }
 
-    public static <T> Result<T> create(Integer code, String message, T data) {
-        return new Result(code, message, data);
+    public Result() {
+        put("code", 200);
+        put("msg", "success");
     }
 
-    public static <T> Result<T> create(CodeEnum codeEnum) {
-        return new Result(codeEnum.getCode(), codeEnum.getMessage(), null);
+    public static Result error() {
+        return error(500, "未知异常，请联系管理员");
     }
 
-    public static <T> Result<T> successData(String message, T data) {
-        return create(CodeEnum.SUCCESS.getCode(), message, data);
+    public static Result error(String msg) {
+        return error(500, msg);
     }
 
-    public static <T> Result<T> successMessage(String message) {
-        return successData(message, null);
+    public static Result error(int code, String msg) {
+        Result r = new Result();
+        r.put("code", code);
+        r.put("msg", msg);
+        return r;
     }
 
-    public static <T> Result<T> successData(T data) {
-        return successData(CodeEnum.SUCCESS.getMessage(), data);
+    public static Result ok(String msg) {
+        Result r = new Result();
+        r.put("msg", msg);
+        return r;
     }
 
-    public static <T> Result<T> success() {
-        return successMessage(CodeEnum.SUCCESS.getMessage());
-    }
-
-    public static <T> Result<T> errorData(String message, T data) {
-        return create(CodeEnum.INTERNAL_SERVER_ERROR.getCode(), message, data);
-    }
-
-    public static <T> Result<T> error() {
-        return errorMessage(CodeEnum.INTERNAL_SERVER_ERROR.getMessage());
-    }
-
-    public static <T> Result<T> error(String message) {
-        return errorData(message, null);
-    }
-
-    public static <T> Result<T> errorData(T data) {
-        return errorData(CodeEnum.INTERNAL_SERVER_ERROR.getMessage(), data);
-    }
-
-    public static <T> Result<T> errorMessage(String message) {
-        return errorData(message, null);
-    }
-
-    public static <T> Result<T> selectiveMessage(boolean success, String successMessage, String errorMessage) {
-        return success ? successMessage(successMessage) : errorMessage(errorMessage);
-    }
-
-    public static <T> Result<T> selectiveMessage(boolean success, String successMessage, String errorMessage, T data) {
-        return success ? successData(successMessage, data) : errorMessage(errorMessage);
-    }
-
-    public Result(Integer code, String msg, T data) {
-        this.code = code;
-        this.msg = msg;
-        this.data = data;
-    }
-
-    public boolean suc() {
-        return CodeEnum.SUCCESS.getCode().equals(this.code);
-    }
-
-    public boolean fail() {
-        return !CodeEnum.SUCCESS.getCode().equals(this.code);
-    }
-
-    public boolean hasData() {
-        return Objects.equals(CodeEnum.SUCCESS.getCode(), this.code) && this.data != null;
-    }
-
-    public static <T> Result<T> fallbackResult() {
-        return Result.create(CodeEnum.FALLBACK.getCode(), CodeEnum.FALLBACK.getMessage());
-    }
-
-    public static <T> Result<T> ok() {
-        return new Result<T>();
-    }
-
-    public static <T> Result<T> ok(Object data) {
-        Result<T> r = new Result<T>();
+    public static Result ok(Object data) {
+        Result r = new Result();
         r.put("data", data);
         return r;
+    }
+
+    public static Result ok(Map<String, Object> map) {
+        Result r = new Result();
+        r.putAll(map);
+        return r;
+    }
+
+    public static Result ok() {
+        return new Result();
     }
 
     public Result put(String key, Object value) {
@@ -125,5 +73,9 @@ public class Result<T> extends HashMap<String, Object> {
         super.put("rows", pageResult.getRows());
         super.put("total", pageResult.getTotal());
         return this;
+    }
+
+    public Integer getCode() {
+        return (Integer) this.get("code");
     }
 }

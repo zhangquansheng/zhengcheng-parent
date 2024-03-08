@@ -43,8 +43,8 @@ public class SysLoginController {
      * @return 结果
      */
     @PostMapping(value = "/login", name = "登录方法")
-    public Result<Void> login(@RequestBody LoginBody loginBody) {
-        Result<Void> r = Result.ok();
+    public Result login(@RequestBody LoginBody loginBody) {
+        Result r = Result.ok();
         // 生成令牌
         String token = loginService.login(loginBody.getUsername(), loginBody.getPassword(), loginBody.getCode(), loginBody.getUuid());
         r.put(StpUtil.getTokenName(), token);
