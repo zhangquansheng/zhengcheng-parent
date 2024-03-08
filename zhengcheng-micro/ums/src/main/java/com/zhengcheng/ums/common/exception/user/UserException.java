@@ -12,6 +12,6 @@ public class UserException extends BizException {
     private static final long serialVersionUID = 1L;
 
     public UserException(String message, Object[] args) {
-        super("user", CodeEnum.ERROR.getCode(), message, args);
+        super("user", CodeEnum.INTERNAL_SERVER_ERROR.getCode(), message, args);
     }
 }

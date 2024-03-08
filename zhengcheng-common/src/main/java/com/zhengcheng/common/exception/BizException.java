@@ -46,7 +46,7 @@ public class BizException extends RuntimeException {
     }
 
     public BizException(String message) {
-        this.code = CodeEnum.ERROR.getCode();
+        this.code = CodeEnum.INTERNAL_SERVER_ERROR.getCode();
         this.message = message;
     }
 

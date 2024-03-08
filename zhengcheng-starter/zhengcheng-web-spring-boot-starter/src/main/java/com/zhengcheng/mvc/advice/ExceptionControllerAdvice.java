@@ -1,9 +1,9 @@
 package com.zhengcheng.mvc.advice;
 
-import com.zhengcheng.common.exception.BizException;
-import com.zhengcheng.common.enums.CodeEnum;
 import com.zhengcheng.common.domain.Result;
-import lombok.extern.slf4j.Slf4j;
+import com.zhengcheng.common.enums.CodeEnum;
+import com.zhengcheng.common.exception.BizException;
+
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.context.annotation.Configuration;
@@ -23,6 +23,8 @@ import org.springframework.web.multipart.MaxUploadSizeExceededException;
 
 import java.sql.SQLException;
 import java.util.Objects;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 统一异常处理
@@ -109,8 +111,7 @@ public class ExceptionControllerAdvice {
      * 返回状态码:200
      */
     @ExceptionHandler(BizException.class)
-    @ResponseStatus(HttpStatus.OK)
-    public Result<Void> handleException(BizException e) {
+    public Result<Void> handleBizException(BizException e) {
         log.warn("BizException:{}", e.getMessage());
         return Result.create(e.getCode(), e.getMessage());
     }

@@ -20,7 +20,7 @@ public class Result<T> extends HashMap<String, Object> {
     private static final long serialVersionUID = 1129940056717037765L;
 
     private Integer code;
-    private String message;
+    private String msg;
     private T data;
 
     public static <T> Result<T> create(Integer code, String message) {
@@ -52,11 +52,11 @@ public class Result<T> extends HashMap<String, Object> {
     }
 
     public static <T> Result<T> errorData(String message, T data) {
-        return create(CodeEnum.ERROR.getCode(), message, data);
+        return create(CodeEnum.INTERNAL_SERVER_ERROR.getCode(), message, data);
     }
 
     public static <T> Result<T> error() {
-        return errorMessage(CodeEnum.ERROR.getMessage());
+        return errorMessage(CodeEnum.INTERNAL_SERVER_ERROR.getMessage());
     }
 
     public static <T> Result<T> error(String message) {
@@ -64,7 +64,7 @@ public class Result<T> extends HashMap<String, Object> {
     }
 
     public static <T> Result<T> errorData(T data) {
-        return errorData(CodeEnum.ERROR.getMessage(), data);
+        return errorData(CodeEnum.INTERNAL_SERVER_ERROR.getMessage(), data);
     }
 
     public static <T> Result<T> errorMessage(String message) {
@@ -79,9 +79,9 @@ public class Result<T> extends HashMap<String, Object> {
         return success ? successData(successMessage, data) : errorMessage(errorMessage);
     }
 
-    public Result(Integer code, String message, T data) {
+    public Result(Integer code, String msg, T data) {
         this.code = code;
-        this.message = message;
+        this.msg = msg;
         this.data = data;
     }
 
