@@ -3,6 +3,7 @@ package com.zhengcheng.mvc.advice;
 import com.zhengcheng.common.domain.Result;
 import com.zhengcheng.common.enums.CodeEnum;
 import com.zhengcheng.common.exception.BizException;
+import com.zhengcheng.mvc.utils.I18nUtil;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
@@ -113,8 +114,8 @@ public class ExceptionControllerAdvice {
      */
     @ExceptionHandler(BizException.class)
     public Result handleBizException(BizException e) {
-        log.warn("BizException:{}", e.getMessage());
-        return Result.error(e.getMessage());
+        log.warn("BizException:{}", e.toString());
+        return Result.create(e.getCode(), I18nUtil.message(e.getMessage(), e.getArgs()));
     }
 
     /**
