@@ -2,6 +2,8 @@ package com.zhengcheng.ums.controller.admin.system;
 
 
 import com.zhengcheng.common.domain.Result;
+import com.zhengcheng.satoken.holder.ZcUserContextHolder;
+import com.zhengcheng.ums.domain.entity.SysMenuEntity;
 import com.zhengcheng.ums.domain.entity.SysUserEntity;
 import com.zhengcheng.ums.domain.model.LoginBody;
 import com.zhengcheng.ums.domain.model.LoginUser;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Set;
 
 import cn.dev33.satoken.session.SaSession;
@@ -48,6 +51,15 @@ public class SysLoginController {
     }
 
     /**
+     * 登出方法
+     */
+    @PostMapping(value = "/logout", name = "登出方法")
+    public Result logout() {
+        StpUtil.logout();
+        return Result.ok();
+    }
+
+    /**
      * 获取用户信息
      *
      * @return 用户信息
@@ -66,17 +78,17 @@ public class SysLoginController {
         ajax.put("permissions", permissions);
         return ajax;
     }
-//
-//    /**
-//     * 获取路由信息
-//     *
-//     * @return 路由信息
-//     */
-//    @GetMapping(value = "getRouters", name = "获取路由信息")
-//    public R getRouters() {
-//        Long userId = SecurityUtils.getUserId();
-//        List<SysMenuEntity> menus = menuService.selectMenuTreeByUserId(userId);
-//        return R.ok(menuService.buildMenus(menus));
-//    }
+
+    /**
+     * 获取路由信息
+     *
+     * @return 路由信息
+     */
+    @GetMapping(value = "getRouters", name = "获取路由信息")
+    public Result getRouters() {
+        Long userId = ZcUserContextHolder.getUserId();
+        List<SysMenuEntity> menus = menuService.selectMenuTreeByUserId(userId);
+        return Result.ok(menuService.buildMenus(menus));
+    }
 
 }

@@ -1,13 +1,13 @@
 package com.zhengcheng.ums.domain.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.zhengcheng.mybatis.plus.model.BaseEntity;
 
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -28,13 +28,13 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
-public class SysUserEntity extends BaseEntity {
+public class SysUserEntity extends BaseEntity<SysUserEntity> {
     private static final long serialVersionUID = 1L;
 
     /**
      * 用户ID
      */
-//    @TableId("user_id")
+    @TableId(value = "user_id", type = IdType.INPUT)
     private Long userId;
 
     /**
