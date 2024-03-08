@@ -1,13 +1,13 @@
 package com.zhengcheng.ums.service;
 
+import com.zhengcheng.satoken.domain.LoginUser;
+import com.zhengcheng.satoken.utils.SaTokenUtil;
 import com.zhengcheng.ums.common.enums.UserStatusEnum;
 import com.zhengcheng.ums.domain.entity.SysUserEntity;
-import com.zhengcheng.ums.domain.model.LoginLoginUser;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import cn.dev33.satoken.session.SaSession;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.ObjectUtil;
@@ -24,6 +24,8 @@ public class SysLoginService {
     private SysUserService userService;
     @Autowired
     private SysPermissionService permissionService;
+    @Autowired
+    private SysRoleService sysRoleService;
 
     /**
      * 登录验证
@@ -49,9 +51,15 @@ public class SysLoginService {
 
         // 验证密码，密码错误的的，需要锁定账号的逻辑 SysPasswordService
         StpUtil.login(user.getUserId());
-        StpUtil.getSessionByLoginId(user.getUserId()).set(SaSession.USER, new LoginLoginUser(user.getUserId(), user,
-                permissionService.getMenuPermission(user), permissionService.getResources(user)));
-        //记录登录信息
+
+        LoginUser loginUser = new LoginUser();
+        loginUser.setUserId(user.getUserId());
+        loginUser.setUsername(user.getUserName());
+
+        loginUser.setRoles(sysRoleService.selectRolePermissionByUserId(user.getUserId()));
+        SaTokenUtil.setLoginUser(loginUser);
+
+//        SaTokenUtil.setPermsByRoleId();
         recordLoginInfo(user.getUserId());
         return StpUtil.getTokenValue();
     }

@@ -6,10 +6,10 @@ import com.zhengcheng.satoken.utils.SaTokenUtil;
 import com.zhengcheng.ums.domain.entity.SysMenuEntity;
 import com.zhengcheng.ums.domain.entity.SysUserEntity;
 import com.zhengcheng.ums.domain.model.LoginBody;
-import com.zhengcheng.ums.domain.model.LoginLoginUser;
 import com.zhengcheng.ums.service.SysLoginService;
 import com.zhengcheng.ums.service.SysMenuService;
 import com.zhengcheng.ums.service.SysPermissionService;
+import com.zhengcheng.ums.service.SysUserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,6 +34,8 @@ public class SysLoginController {
     private SysLoginService loginService;
     @Autowired
     private SysPermissionService permissionService;
+    @Autowired
+    private SysUserService sysUserService;
 
     /**
      * 登录方法
@@ -66,8 +68,7 @@ public class SysLoginController {
      */
     @GetMapping(value = "getInfo", name = "获取用户信息")
     public Result getInfo() {
-        LoginLoginUser loginUser = (LoginLoginUser) StpUtil.getSessionByLoginId(StpUtil.getLoginId()).get(SaSession.USER);
-        SysUserEntity user = loginUser.getUser();
+        SysUserEntity user = sysUserService.selectUserById(SaTokenUtil.getUserId());
         // 角色集合
         Set<String> roles = permissionService.getRolePermission(user);
         // 权限集合
