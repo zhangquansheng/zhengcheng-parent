@@ -23,8 +23,12 @@ public class I18nUtil {
      * @return 获取国际化翻译值
      */
     public static String message(String code, Object... args) {
-        MessageSource messageSource = SpringUtil.getBean(MessageSource.class);
-        return messageSource.getMessage(code, args, LocaleContextHolder.getLocale());
+        try {
+            MessageSource messageSource = SpringUtil.getBean(MessageSource.class);
+            return messageSource.getMessage(code, args, LocaleContextHolder.getLocale());
+        } catch (Exception ignored) {
+            return code;
+        }
     }
 
 }
