@@ -28,6 +28,7 @@
         <module>zhengcheng-ratelimit-spring-boot-starter</module>
         <module>zhengcheng-micro-spring-cloud-starter</module>
         <module>zhengcheng-sa-token-spring-boot-starter</module>
+        <module>zhengcheng-kaptcha-spring-boot-starter</module>
     </modules>
 
 </project>

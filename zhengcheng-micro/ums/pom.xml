@@ -52,6 +52,10 @@
             <groupId>com.zhengcheng</groupId>
             <artifactId>zhengcheng-knife4j-spring-boot-starter</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.zhengcheng</groupId>
+            <artifactId>zhengcheng-kaptcha-spring-boot-starter</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>com.github.ulisesbocchio</groupId>
