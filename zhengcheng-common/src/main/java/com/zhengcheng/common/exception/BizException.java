@@ -29,7 +29,6 @@ public class BizException extends RuntimeException {
      * 错误消息
      */
     private String message;
-
     /**
      * 错误消息对应的参数
      */

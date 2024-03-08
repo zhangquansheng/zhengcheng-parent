@@ -15,6 +15,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class I18nUtil {
 
+    private I18nUtil() {
+    }
+
     /**
      * 根据消息键和参数 获取消息 委托给spring messageSource
      *
