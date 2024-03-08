@@ -1,10 +1,8 @@
-package com.zhengcheng.ums.controller;
+package com.zhengcheng.ums;
 
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import com.zhengcheng.ums.UmsApplication;
 
 /**
  * 测试基类

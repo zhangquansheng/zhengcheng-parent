@@ -13,8 +13,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
 
-import cn.hutool.crypto.SecureUtil;
-
 /**
  * 登录密码方法
  *
@@ -70,7 +68,7 @@ public class SysPasswordService {
     }
 
     public String encode(String password) {
-        return passwordEncoder.encode(SecureUtil.md5(password));
+        return passwordEncoder.encode(password);
     }
 
     public void clearLoginRecordCache(String loginName) {
