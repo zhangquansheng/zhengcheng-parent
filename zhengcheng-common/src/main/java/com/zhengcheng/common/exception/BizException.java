@@ -2,6 +2,7 @@ package com.zhengcheng.common.exception;
 
 
 import com.zhengcheng.common.enums.CodeEnum;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -16,35 +17,37 @@ import lombok.EqualsAndHashCode;
 public class BizException extends RuntimeException {
 
     private static final long serialVersionUID = 5402012883466443408L;
+    /**
+     * 所属模块
+     */
+    private String module;
+    /**
+     * 错误码
+     */
     private Integer code;
+    /**
+     * 错误消息
+     */
     private String message;
+
+    /**
+     * 错误消息对应的参数
+     */
+    private Object[] args;
 
     public BizException() {
     }
 
-    public BizException(Integer code) {
-        this(code, (String) null);
+    public BizException(String module, Integer code, String message, Object[] args) {
+        this.module = module;
+        this.code = code;
+        this.message = message;
+        this.args = args;
     }
 
     public BizException(String message) {
-        this(CodeEnum.ERROR.getCode(), message);
-    }
-
-    public BizException(Integer code, String message) {
-        this(code, message, (Throwable) null);
-    }
-
-    public BizException(Integer code, Throwable cause) {
-        this(code, (String) null, cause);
-    }
-
-    public BizException(Integer code, String message, Throwable cause) {
-        super(message, cause);
-        this.code = code;
+        this.code = CodeEnum.ERROR.getCode();
         this.message = message;
     }
 
-    public BizException(CodeEnum codeEnum) {
-        this(codeEnum.getCode(), codeEnum.getMessage());
-    }
 }

@@ -10,14 +10,12 @@ import com.zhengcheng.ums.common.exception.user.UserPasswordNotMatchException;
 import com.zhengcheng.ums.domain.entity.SysUserEntity;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.text.CharSequenceUtil;
 import cn.hutool.core.util.ObjectUtil;
-import cn.hutool.crypto.SecureUtil;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -32,11 +30,11 @@ public class SysLoginService {
     @Autowired
     private SysPermissionService permissionService;
     @Autowired
+    private SysPasswordService sysPasswordService;
+    @Autowired
     private SysRoleService sysRoleService;
     @Autowired
     private RedisCache redisCache;
-    @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
 
     /**
      * 登录验证
@@ -62,9 +60,7 @@ public class SysLoginService {
             throw new BizException("对不起，您的账号：" + username + " 已停用");
         }
 
-//        if (!passwordEncoder.matches(user.getPassword(), passwordEncoder.encode(SecureUtil.md5(password)))) {
-//            throw new UserPasswordNotMatchException();
-//        }
+        sysPasswordService.validate(user, username, password);
 
         StpUtil.login(user.getUserId());
 

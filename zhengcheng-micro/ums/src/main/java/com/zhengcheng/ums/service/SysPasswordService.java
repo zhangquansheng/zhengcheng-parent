@@ -2,9 +2,18 @@ package com.zhengcheng.ums.service;
 
 import com.zhengcheng.cache.redis.RedisCache;
 import com.zhengcheng.ums.common.constant.CacheConstants;
+import com.zhengcheng.ums.common.exception.user.UserPasswordNotMatchException;
+import com.zhengcheng.ums.common.exception.user.UserPasswordRetryLimitExceedException;
+import com.zhengcheng.ums.domain.entity.SysUserEntity;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
+
+import java.util.concurrent.TimeUnit;
+
+import cn.hutool.crypto.SecureUtil;
 
 /**
  * 登录密码方法
@@ -13,14 +22,17 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class SysPasswordService {
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
     @Autowired
     private RedisCache redisCache;
 
-//    @Value(value = "${user.password.maxRetryCount}")
-//    private int maxRetryCount;
-//
-//    @Value(value = "${user.password.lockTime}")
-//    private int lockTime;
+    @Value(value = "${user.password.maxRetryCount:3}")
+    private int maxRetryCount;
+
+    @Value(value = "${user.password.lockTime:30}")
+    private int lockTime;
 
     /**
      * 登录账户密码错误次数缓存键名
@@ -31,38 +43,35 @@ public class SysPasswordService {
     private String getCacheKey(String username) {
         return CacheConstants.PWD_ERR_CNT_KEY + username;
     }
-//
-//    public void validate(SysUserEntity user) {
-//        Authentication usernamePasswordAuthenticationToken = AuthenticationContextHolder.getContext();
-//        String username = usernamePasswordAuthenticationToken.getName();
-//        String password = usernamePasswordAuthenticationToken.getCredentials().toString();
-//
-//        Integer retryCount = redisCache.getCacheObject(getCacheKey(username));
-//
-//        if (retryCount == null) {
-//            retryCount = 0;
-//        }
-//
-//        if (retryCount >= Integer.valueOf(maxRetryCount).intValue()) {
-//            AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, null, Constants.LOGIN_FAIL,
-//                    MessageUtils.message("user.password.retry.limit.exceed", maxRetryCount, lockTime)));
-//            throw new UserPasswordRetryLimitExceedException(maxRetryCount, lockTime);
-//        }
-//
-//        if (!matches(user, password)) {
-//            retryCount = retryCount + 1;
-//            AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, null, Constants.LOGIN_FAIL,
-//                    MessageUtils.message("user.password.retry.limit.count", retryCount)));
-//            redisCache.setCacheObject(getCacheKey(username), retryCount, lockTime, TimeUnit.MINUTES);
-//            throw new UserPasswordNotMatchException();
-//        } else {
-//            clearLoginRecordCache(username);
-//        }
-//    }
-//
-//    public boolean matches(SysUserEntity user, String rawPassword) {
-//        return SecurityUtils.matchesPassword(rawPassword, user.getPassword());
-//    }
+
+    public void validate(SysUserEntity user, String username, String password) {
+        Integer retryCount = redisCache.getCacheObject(getCacheKey(username));
+
+        if (retryCount == null) {
+            retryCount = 0;
+        }
+
+        if (retryCount >= Integer.valueOf(maxRetryCount).intValue()) {
+            throw new UserPasswordRetryLimitExceedException(maxRetryCount, lockTime);
+        }
+
+        if (!matches(user, password)) {
+            retryCount = retryCount + 1;
+            redisCache.setCacheObject(getCacheKey(username), retryCount, lockTime, TimeUnit.MINUTES);
+            throw new UserPasswordNotMatchException();
+        } else {
+            clearLoginRecordCache(username);
+        }
+    }
+
+
+    public boolean matches(SysUserEntity user, String rawPassword) {
+        return passwordEncoder.matches(rawPassword, user.getPassword());
+    }
+
+    public String encode(String password) {
+        return passwordEncoder.encode(SecureUtil.md5(password));
+    }
 
     public void clearLoginRecordCache(String loginName) {
         if (redisCache.hasKey(getCacheKey(loginName))) {

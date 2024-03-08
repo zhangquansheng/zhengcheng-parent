@@ -14,12 +14,11 @@ import com.zhengcheng.ums.domain.entity.SysUserRoleEntity;
 import com.zhengcheng.ums.mapper.SysRoleMapper;
 import com.zhengcheng.ums.mapper.SysUserMapper;
 import com.zhengcheng.ums.mapper.SysUserRoleMapper;
+import com.zhengcheng.ums.service.SysPasswordService;
 import com.zhengcheng.ums.service.SysRoleService;
 import com.zhengcheng.ums.service.SysUserService;
 
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
@@ -33,7 +32,6 @@ import java.util.stream.Collectors;
 import javax.annotation.Resource;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.hutool.crypto.SecureUtil;
 
 @Service
 public class SysUserServiceImpl implements SysUserService {
@@ -46,8 +44,8 @@ public class SysUserServiceImpl implements SysUserService {
     private SysRoleMapper roleMapper;
     @Resource
     private SysRoleService roleService;
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    @Resource
+    private SysPasswordService sysUserPasswordService;
 
     @Override
     public PageResult<SysUserEntity> page(SysUserEntity sysUserEntity) {
@@ -112,7 +110,7 @@ public class SysUserServiceImpl implements SysUserService {
                 && !(checkEmailUnique(user))) {
             throw new BizException("新增用户'" + user.getUserName() + "'失败，邮箱账号已存在");
         }
-        user.setPassword(bCryptPasswordEncoder.encode(SecureUtil.md5(user.getPassword())));
+        user.setPassword(sysUserPasswordService.encode(user.getPassword()));
         // 新增用户信息
         int rows = userMapper.insert(user);
         // 新增用户与角色管理
