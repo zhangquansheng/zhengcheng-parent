@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zhengcheng.common.domain.PageResult;
-import com.zhengcheng.mvc.util.PageQueryUtil;
+import com.zhengcheng.mvc.utils.PageQueryUtil;
 import com.zhengcheng.mybatis.plus.core.BaseMapperX;
 import com.zhengcheng.mybatis.plus.core.LambdaQueryWrapperX;
 import com.zhengcheng.ums.domain.entity.SysUserEntity;

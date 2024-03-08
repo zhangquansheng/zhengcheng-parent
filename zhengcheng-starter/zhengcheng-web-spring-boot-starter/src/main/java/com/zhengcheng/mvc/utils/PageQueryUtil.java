@@ -1,4 +1,4 @@
-package com.zhengcheng.mvc.util;
+package com.zhengcheng.mvc.utils;
 
 import com.zhengcheng.common.domain.PageQuery;
 

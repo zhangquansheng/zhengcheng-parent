@@ -1,3 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.zhengcheng.mvc.ZcWebAutoConfiguration,\
-  com.zhengcheng.mvc.i18n.CustomLocaleAutoConfiguration
+  com.zhengcheng.mvc.ZcWebAutoConfiguration

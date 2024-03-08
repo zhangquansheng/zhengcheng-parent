@@ -1,7 +1,7 @@
 package com.zhengcheng.ums.mapper;
 
 import com.zhengcheng.common.domain.PageResult;
-import com.zhengcheng.mvc.util.PageQueryUtil;
+import com.zhengcheng.mvc.utils.PageQueryUtil;
 import com.zhengcheng.mybatis.plus.core.BaseMapperX;
 import com.zhengcheng.mybatis.plus.core.LambdaQueryWrapperX;
 import com.zhengcheng.ums.domain.entity.SysConfigEntity;

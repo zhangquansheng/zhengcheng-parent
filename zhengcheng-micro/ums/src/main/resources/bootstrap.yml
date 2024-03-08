@@ -6,7 +6,7 @@ spring:
   application:
     name: ums
   messages:
-      basename: i18n.config,i18n.message
+      basename: i18n/messages
   jackson:
     time-zone: GMT+8
 # MyBatisPlus配置
