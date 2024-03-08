@@ -1,5 +1,7 @@
 package com.zhengcheng.common.domain;
 
+import com.zhengcheng.common.enums.CodeEnum;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,16 +20,24 @@ public class Result extends HashMap<String, Object> {
     }
 
     public Result() {
-        put("code", 200);
-        put("msg", "success");
+        put("code", CodeEnum.SUCCESS.getCode());
+        put("msg", CodeEnum.SUCCESS.getMessage());
     }
 
     public static Result error() {
-        return error(500, "未知异常，请联系管理员");
+        return error(CodeEnum.INTERNAL_SERVER_ERROR.getCode(), "未知异常，请联系管理员");
     }
 
     public static Result error(String msg) {
-        return error(500, msg);
+        return error(CodeEnum.ERROR.getCode(), msg);
+    }
+
+    public static Result errorMessage(String msg) {
+        return error(CodeEnum.ERROR.getCode(), msg);
+    }
+
+    public static Result create(int code, String msg) {
+        return error(code, msg);
     }
 
     public static Result error(int code, String msg) {
