@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Set;
 
-import cn.dev33.satoken.session.SaSession;
 import cn.dev33.satoken.stp.StpUtil;
 
 @RestController
@@ -44,8 +43,8 @@ public class SysLoginController {
      * @return 结果
      */
     @PostMapping(value = "/login", name = "登录方法")
-    public Result login(@RequestBody LoginBody loginBody) {
-        Result r = Result.ok();
+    public Result<Void> login(@RequestBody LoginBody loginBody) {
+        Result<Void> r = Result.ok();
         // 生成令牌
         String token = loginService.login(loginBody.getUsername(), loginBody.getPassword(), loginBody.getCode(), loginBody.getUuid());
         r.put(StpUtil.getTokenName(), token);
