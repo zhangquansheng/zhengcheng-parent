@@ -2,6 +2,7 @@ package com.zhengcheng.ums.controller.admin.system;
 
 
 import com.zhengcheng.common.domain.Result;
+import com.zhengcheng.satoken.utils.SaTokenUtil;
 import com.zhengcheng.ums.domain.entity.SysMenuEntity;
 import com.zhengcheng.ums.domain.entity.SysUserEntity;
 import com.zhengcheng.ums.domain.model.LoginBody;
@@ -85,8 +86,7 @@ public class SysLoginController {
      */
     @GetMapping(value = "getRouters", name = "获取路由信息")
     public Result getRouters() {
-        Long userId = Long.parseLong(String.valueOf(StpUtil.getLoginId()));
-        List<SysMenuEntity> menus = menuService.selectMenuTreeByUserId(userId);
+        List<SysMenuEntity> menus = menuService.selectMenuTreeByUserId(SaTokenUtil.getUserId());
         return Result.ok(menuService.buildMenus(menus));
     }
 

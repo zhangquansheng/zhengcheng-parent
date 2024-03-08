@@ -102,4 +102,17 @@ public class SaTokenUtil {
         // 3. 返回权限码集合
         return permissionList;
     }
+
+    /**
+     * 内置的管理员账号
+     */
+    private static final String ADMIN_USER_NAME = "admin";
+
+    /**
+     * 是否管理员
+     */
+    public static boolean isAdmin() {
+        return ADMIN_USER_NAME.equals(getUsername());
+    }
+
 }
