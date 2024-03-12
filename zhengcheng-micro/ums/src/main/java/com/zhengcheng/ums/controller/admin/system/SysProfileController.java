@@ -55,16 +55,14 @@ public class SysProfileController {
     @PutMapping(name = "个人信息管理-修改")
     public Result updateProfile(@RequestBody SysUserEntity user) {
         SysUserEntity sysUser = userService.selectUserById(SaTokenUtil.getUserId());
+        user.setUserId(sysUser.getUserId());
         user.setUserName(sysUser.getUserName());
-        if (StringUtils.isNotEmpty(user.getPhonenumber())
-                && !(userService.checkPhoneUnique(user))) {
+        if (StringUtils.isNotEmpty(user.getPhonenumber()) && !(userService.checkPhoneUnique(user))) {
             return Result.error("修改用户'" + user.getUserName() + "'失败，手机号码已存在");
         }
-        if (StringUtils.isNotEmpty(user.getEmail())
-                && !(userService.checkEmailUnique(user))) {
+        if (StringUtils.isNotEmpty(user.getEmail()) && !(userService.checkEmailUnique(user))) {
             return Result.error("修改用户'" + user.getUserName() + "'失败，邮箱账号已存在");
         }
-        user.setUserId(sysUser.getUserId());
         user.setPassword(null);
         user.setAvatar(null);
         if (userService.updateUserProfile(user) > 0) {
