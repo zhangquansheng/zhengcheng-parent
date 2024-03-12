@@ -1,9 +1,10 @@
 package com.zhengcheng.satoken;
 
+import com.zhengcheng.satoken.impl.StpInterfaceImpl;
+
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.Ordered;
-import org.springframework.core.annotation.Order;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -20,5 +21,10 @@ public class SaTokenAutoConfiguration {
 
     public SaTokenAutoConfiguration() {
 
+    }
+
+    @Bean
+    public StpInterfaceImpl stpInterface() {
+        return new StpInterfaceImpl();
     }
 }
