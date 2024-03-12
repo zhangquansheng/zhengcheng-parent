@@ -2,11 +2,16 @@ package com.zhengcheng.ums.service;
 
 import com.zhengcheng.cache.redis.RedisCache;
 import com.zhengcheng.common.exception.BizException;
+import com.zhengcheng.mvc.utils.I18nUtil;
+import com.zhengcheng.mvc.utils.IpUtil;
 import com.zhengcheng.satoken.domain.LoginUser;
 import com.zhengcheng.satoken.utils.SaTokenUtil;
 import com.zhengcheng.ums.common.constant.CacheConstants;
+import com.zhengcheng.ums.common.constant.Constants;
 import com.zhengcheng.ums.common.enums.UserStatusEnum;
 import com.zhengcheng.ums.common.exception.user.UserPasswordNotMatchException;
+import com.zhengcheng.ums.common.manager.AsyncFactory;
+import com.zhengcheng.ums.common.manager.AsyncManager;
 import com.zhengcheng.ums.domain.entity.SysUserEntity;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,6 +78,9 @@ public class SysLoginService {
 
 //        SaTokenUtil.setPermsByRoleId();
         recordLoginInfo(user.getUserId());
+
+        //异步记录登录成功日志
+        AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, loginUser.getUserId(), Constants.LOGIN_SUCCESS, I18nUtil.message("user.login.success")));
         return StpUtil.getTokenValue();
     }
 
@@ -104,7 +112,7 @@ public class SysLoginService {
     public void recordLoginInfo(Long userId) {
         SysUserEntity sysUser = new SysUserEntity();
         sysUser.setUserId(userId);
-//        sysUser.setLoginIp(IpUtils.getIpAddr(ServletUtils.getRequest()));
+        sysUser.setLoginIp(IpUtil.getIpAddr());
         sysUser.setLoginDate(DateUtil.date());
         userService.updateUserProfile(sysUser);
     }

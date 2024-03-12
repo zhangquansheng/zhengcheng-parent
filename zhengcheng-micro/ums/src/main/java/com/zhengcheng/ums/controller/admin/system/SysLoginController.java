@@ -2,7 +2,12 @@ package com.zhengcheng.ums.controller.admin.system;
 
 
 import com.zhengcheng.common.domain.Result;
+import com.zhengcheng.mvc.utils.I18nUtil;
+import com.zhengcheng.satoken.domain.LoginUser;
 import com.zhengcheng.satoken.utils.SaTokenUtil;
+import com.zhengcheng.ums.common.constant.Constants;
+import com.zhengcheng.ums.common.manager.AsyncFactory;
+import com.zhengcheng.ums.common.manager.AsyncManager;
 import com.zhengcheng.ums.domain.entity.SysMenuEntity;
 import com.zhengcheng.ums.domain.entity.SysUserEntity;
 import com.zhengcheng.ums.domain.model.LoginBody;
@@ -58,7 +63,10 @@ public class SysLoginController {
      */
     @PostMapping(value = "/logout", name = "登出方法")
     public Result logout() {
+        LoginUser loginUser = SaTokenUtil.getLoginUser();
         StpUtil.logout();
+        // 记录用户退出日志
+        AsyncManager.me().execute(AsyncFactory.recordLogininfor(loginUser.getUsername(), loginUser.getUserId(), Constants.LOGOUT, I18nUtil.message("user.logout.success")));
         return Result.ok();
     }
 
