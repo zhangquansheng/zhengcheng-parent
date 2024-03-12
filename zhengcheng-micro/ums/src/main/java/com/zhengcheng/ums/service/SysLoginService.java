@@ -56,12 +56,15 @@ public class SysLoginService {
         SysUserEntity user = userService.selectUserByUserName(username);
         if (ObjectUtil.isNull(user)) {
             log.info("登录用户：{} 不存在.", username);
+            AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, null, Constants.LOGIN_FAIL, I18nUtil.message("user.password.not.match")));
             throw new UserPasswordNotMatchException();
         } else if (UserStatusEnum.DELETED.getCode().equals(user.getStatus())) {
             log.info("登录用户：{} 已被删除.", username);
+            AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, user.getUserId(), Constants.LOGIN_FAIL, "账号已被删除"));
             throw new BizException("对不起，您的账号：" + username + " 已被删除");
         } else if (UserStatusEnum.DISABLE.getCode().equals(user.getStatus())) {
             log.info("登录用户：{} 已被停用.", username);
+            AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, user.getUserId(), Constants.LOGIN_FAIL, "账号已停用"));
             throw new BizException("对不起，您的账号：" + username + " 已停用");
         }
 
