@@ -59,7 +59,10 @@ public class SysUserServiceImpl implements SysUserService {
 
     @Override
     public SysUserEntity selectUserById(Long userId) {
-        return userMapper.selectUserById(userId);
+        SysUserEntity user = userMapper.selectUserById(userId);
+        List<SysRoleEntity> sysRoleEntities = roleMapper.selectRolePermissionByUserId(userId);
+        user.setRoles(sysRoleEntities);
+        return user;
     }
 
     @Override
@@ -67,10 +70,7 @@ public class SysUserServiceImpl implements SysUserService {
         Page<SysUserEntity> page = PageUtil.buildPage(new PageQuery());
 
         QueryWrapper<SysUserEntity> wrapper = Wrappers.query();
-        wrapper.eq("u.del_flag", UserConstants.NORMAL)
-                .eq("r.role_id", user.getRoleId())
-                .eq(ObjectUtil.isNotNull(user.getPhonenumber()), "u.phonenumber", user.getPhonenumber())
-                .like(ObjectUtil.isNotNull(user.getUserName()), "u.user_name", user.getUserName());
+        wrapper.eq("u.del_flag", UserConstants.NORMAL).eq("r.role_id", user.getRoleId()).eq(ObjectUtil.isNotNull(user.getPhonenumber()), "u.phonenumber", user.getPhonenumber()).like(ObjectUtil.isNotNull(user.getUserName()), "u.user_name", user.getUserName());
         Page<SysUserEntity> sysUserPage = userMapper.selectAllocatedList(page, wrapper);
         return sysUserPage;
     }
@@ -98,16 +98,13 @@ public class SysUserServiceImpl implements SysUserService {
     @Override
     @Transactional
     public int insertUser(SysUserEntity user) {
-        if (StringUtils.isNotEmpty(user.getUserName())
-                && !checkUserNameUnique(user)) {
+        if (StringUtils.isNotEmpty(user.getUserName()) && !checkUserNameUnique(user)) {
             throw new BizException("新增用户'" + user.getUserName() + "'失败，登录账号已存在");
         }
-        if (StringUtils.isNotEmpty(user.getPhonenumber())
-                && !(checkPhoneUnique(user))) {
+        if (StringUtils.isNotEmpty(user.getPhonenumber()) && !(checkPhoneUnique(user))) {
             throw new BizException("新增用户'" + user.getUserName() + "'失败，手机号码已存在");
         }
-        if (StringUtils.isNotEmpty(user.getEmail())
-                && !(checkEmailUnique(user))) {
+        if (StringUtils.isNotEmpty(user.getEmail()) && !(checkEmailUnique(user))) {
             throw new BizException("新增用户'" + user.getUserName() + "'失败，邮箱账号已存在");
         }
         user.setPassword(sysUserPasswordService.encode(user.getPassword()));

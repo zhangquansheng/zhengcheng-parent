@@ -7,6 +7,7 @@ import com.zhengcheng.common.constant.CommonConstants;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -20,6 +21,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @Configuration
+@ComponentScan("com.zhengcheng.mybatis.plus.handler")
 @EnableTransactionManagement
 @MapperScan(basePackages = {"com.zhengcheng.**.mapper*"})
 public class MybatisPlusConfig {

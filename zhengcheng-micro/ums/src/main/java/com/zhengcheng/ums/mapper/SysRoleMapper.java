@@ -51,7 +51,7 @@ public interface SysRoleMapper extends BaseMapperX<SysRoleEntity> {
      * @param RoleKeys
      * @return
      */
-    List<SysRoleEntity> selectRoleListByKey(@Param("RoleKeys") Set<String> RoleKeys);
+    List<SysRoleEntity> selectRoleListByKey(@Param("roleKeys") Set<String> roleKeys);
 
     /**
      * 校验角色名称是否唯一
@@ -75,6 +75,6 @@ public interface SysRoleMapper extends BaseMapperX<SysRoleEntity> {
      * @param userName 用户名
      * @return 角色列表
      */
-    public List<SysRoleEntity> selectRolesByUserName(String userName);
+    List<SysRoleEntity> selectRolesByUserName(String userName);
 
 }

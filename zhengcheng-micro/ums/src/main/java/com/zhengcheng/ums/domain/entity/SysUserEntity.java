@@ -34,14 +34,14 @@ public class SysUserEntity extends BaseEntity<SysUserEntity> {
     /**
      * 用户ID
      */
-    @TableId(value = "user_id", type = IdType.INPUT)
+    @TableId(value = "user_id", type = IdType.AUTO)
     private Long userId;
 
     /**
      * 用户账号
      */
     @NotBlank(message = "用户账号不能为空")
-    @Size(min = 12, max = 30, message = "用户账号长度不能超过30个字符")
+    @Size(min = 0, max = 30, message = "用户账号长度不能超过30个字符")
     private String userName;
 
     /**

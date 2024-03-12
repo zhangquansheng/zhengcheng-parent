@@ -18,7 +18,6 @@ public class SysUserRoleEntity implements Serializable {
     /**
      * 用户ID
      */
-//    @TableId(type = IdType.INPUT)
     private Long userId;
 
     /**
