@@ -14,6 +14,7 @@ import java.util.List;
 import cn.hutool.core.util.ObjectUtil;
 
 public interface SysMenuMapper extends BaseMapperX<SysMenuEntity> {
+
     default PageResult<SysMenuEntity> selectPage(SysMenuEntity sysMenuEntity) {
 
         return selectPage(PageQueryUtil.build(), new LambdaQueryWrapperX<SysMenuEntity>());
@@ -64,6 +65,14 @@ public interface SysMenuMapper extends BaseMapperX<SysMenuEntity> {
      * @return 权限列表
      */
     List<String> selectMenuPermsByRoleId(Long roleId);
+
+    /**
+     * 根据角色Key查询权限
+     *
+     * @param roleKey 角色Key
+     * @return 权限列表
+     */
+    List<String> selectMenuPermsByRoleKey(String roleKey);
 
     /**
      * 查询所有角色的权限列表

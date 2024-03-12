@@ -69,23 +69,6 @@ public class SysPermissionService {
     }
 
     /**
-     * 获取菜单数据权限
-     *
-     * @param roleID 角色id
-     * @return 菜单权限信息
-     */
-    public Set<String> getMenuPermissionByRoleId(Long roleID) {
-        Set<String> perms = new HashSet<String>();
-        // 管理员拥有所有权限
-        if (roleID == 1) {
-            perms.add("*:*:*");
-        } else {
-            perms = menuService.selectMenuPermsByRoleId(roleID);
-        }
-        return perms;
-    }
-
-    /**
      * 获取接口资源数据权限
      *
      * @param user 用户信息

@@ -26,7 +26,7 @@ public class StpInterfaceImpl implements StpInterface {
      */
     @Override
     public List<String> getPermissionList(Object loginId, String loginType) {
-        return SaTokenUtil.getPermsByRoleIds(Collections.singletonList(getRoleList(loginId, loginType)));
+        return SaTokenUtil.getPermsByRoles(getRoleList(loginId, loginType));
     }
 
     /**

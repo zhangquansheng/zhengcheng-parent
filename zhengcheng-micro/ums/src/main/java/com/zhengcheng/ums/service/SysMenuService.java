@@ -88,6 +88,14 @@ public interface SysMenuService {
     Set<String> selectMenuPermsByRoleId(Long roleId);
 
     /**
+     * 根据角色Key查询权限
+     *
+     * @param roleKey 角色Key
+     * @return 权限列表
+     */
+    Set<String> selectMenuPermsByRoleKey(String roleKey);
+
+    /**
      * 所有权限
      *
      * @return 根据角色id分组的权限列表

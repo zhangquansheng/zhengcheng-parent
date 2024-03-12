@@ -221,6 +221,24 @@ public class SysMenuServiceImpl implements SysMenuService {
         return permsSet;
     }
 
+    /**
+     * 根据角色Key查询权限
+     *
+     * @param roleKey 角色Key
+     * @return 权限列表
+     */
+    @Override
+    public Set<String> selectMenuPermsByRoleKey(String roleKey) {
+        List<String> perms = menuMapper.selectMenuPermsByRoleKey(roleKey);
+        Set<String> permsSet = new HashSet<>();
+        for (String perm : perms) {
+            if (StringUtils.isNotEmpty(perm)) {
+                permsSet.addAll(Arrays.asList(perm.trim().split(",")));
+            }
+        }
+        return permsSet;
+    }
+
     @Override
     public Map<Long, List<SysRoleAuth>> selectMenuPermsAll() {
         List<SysRoleAuth> sysRolePerms = menuMapper.getMenuPermsAll();

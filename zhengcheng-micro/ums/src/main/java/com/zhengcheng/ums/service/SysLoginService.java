@@ -1,5 +1,7 @@
 package com.zhengcheng.ums.service;
 
+import com.google.common.collect.Lists;
+
 import com.zhengcheng.cache.redis.RedisCache;
 import com.zhengcheng.common.exception.BizException;
 import com.zhengcheng.mvc.utils.I18nUtil;
@@ -33,7 +35,7 @@ public class SysLoginService {
     @Autowired
     private SysUserService userService;
     @Autowired
-    private SysPermissionService permissionService;
+    private SysMenuService sysMenuService;
     @Autowired
     private SysPasswordService sysPasswordService;
     @Autowired
@@ -78,10 +80,9 @@ public class SysLoginService {
 
         loginUser.setRoles(sysRoleService.selectRolePermissionByUserId(user.getUserId()));
         SaTokenUtil.setLoginUser(loginUser);
+        loginUser.getRoles().forEach(role -> SaTokenUtil.setPermsByRole(role, Lists.newArrayList(sysMenuService.selectMenuPermsByRoleKey(role))));
 
-//        SaTokenUtil.setPermsByRoleId();
         recordLoginInfo(user.getUserId());
-
         //异步记录登录成功日志
         AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, loginUser.getUserId(), Constants.LOGIN_SUCCESS, I18nUtil.message("user.login.success")));
         return StpUtil.getTokenValue();

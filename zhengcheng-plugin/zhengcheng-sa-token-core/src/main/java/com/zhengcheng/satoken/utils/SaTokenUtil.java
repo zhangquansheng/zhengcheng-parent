@@ -84,31 +84,31 @@ public class SaTokenUtil {
      * @param roleId 角色ID
      * @param perms  权限
      */
-    public static void setPermsByRoleId(Object roleId, List<String> perms) {
+    public static void setPermsByRole(String role, List<String> perms) {
         if (CollUtil.isEmpty(perms)) {
             return;
         }
-        SaSession roleSession = SaSessionCustomUtil.getSessionById(ROLE_SESSION_ID_PREFIX + roleId);
+        SaSession roleSession = SaSessionCustomUtil.getSessionById(ROLE_SESSION_ID_PREFIX + role);
         roleSession.set(SaSession.PERMISSION_LIST, perms);
     }
 
     /**
-     * 返回角色ID权限集合
+     * 返回角色权限集合
      *
-     * @param roleIds 角色ID
+     * @param roles 角色列表
      * @return 权限集合
      */
-    public static List<String> getPermsByRoleIds(List<Object> roleIds) {
+    public static List<String> getPermsByRoles(List<String> roles) {
         // 现在假设如下业务场景：我们系统中有十万个账号属于同一个角色，当我们变动这个角色的权限时，难道我们要同时清除这十万个账号的缓存信息吗？ 这显然是一个不合理的操作，同一时间缓存大量清除容易引起Redis的缓存雪崩
 
         // 1. 声明权限码集合
         List<String> permissionList = new ArrayList<>();
-        if (CollUtil.isEmpty(roleIds)) {
+        if (CollUtil.isEmpty(roles)) {
             return permissionList;
         }
         // 2. 遍历角色列表，查询拥有的权限码
-        for (Object roleId : roleIds) {
-            SaSession roleSession = SaSessionCustomUtil.getSessionById(ROLE_SESSION_ID_PREFIX + roleId);
+        for (String role : roles) {
+            SaSession roleSession = SaSessionCustomUtil.getSessionById(ROLE_SESSION_ID_PREFIX + role);
             List<String> perms = (List<String>) roleSession.get(SaSession.PERMISSION_LIST);
             if (CollUtil.isNotEmpty(perms)) {
                 permissionList.addAll(perms);
