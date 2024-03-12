@@ -1,7 +1,9 @@
 package com.zhengcheng.ums.domain.entity;
 
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.zhengcheng.mybatis.plus.model.BaseEntity;
 
@@ -11,13 +13,16 @@ import java.util.List;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+/**
+ * @author zhangquansheng
+ */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @TableName("sys_resource")
 public class SysResourceEntity extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
-    //    @TableId("resource_id")
+    @TableId(value = "resource_id", type = IdType.AUTO)
     private Long resourceId;
 
     /**

@@ -1,14 +1,17 @@
 package com.zhengcheng.ums.domain.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.zhengcheng.mybatis.plus.model.BaseEntity;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
 
 /**
  * 日志实体类 sys_log
@@ -16,17 +19,15 @@ import lombok.ToString;
  * @author zhangquansheng
  */
 @Data
-@ToString(callSuper = true)
-@EqualsAndHashCode(callSuper = true)
 @TableName("sys_log_oper")
-public class SysOperLogEntity extends BaseEntity {
+public class SysOperLogEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
      * 日志主键
      */
-//    @TableId("oper_id")
+    @TableId(value = "oper_id", type = IdType.AUTO)
     private Long operId;
 
     /**
@@ -96,4 +97,6 @@ public class SysOperLogEntity extends BaseEntity {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date operTime;
 
+    @TableField(exist = false)
+    private Map<String, Object> params = new HashMap<>();
 }

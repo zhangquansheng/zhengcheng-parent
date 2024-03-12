@@ -4,6 +4,7 @@ import com.zhengcheng.satoken.domain.LoginUser;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import cn.dev33.satoken.session.SaSession;
 import cn.dev33.satoken.session.SaSessionCustomUtil;
@@ -43,6 +44,21 @@ public class SaTokenUtil {
      */
     public static void setLoginUser(LoginUser loginUser) {
         SaSession saSession = StpUtil.getSessionByLoginId(StpUtil.getLoginId());
+        saSession.set(SaSession.USER, loginUser);
+    }
+
+    /**
+     * 取消登陆用户的角色
+     *
+     * @param userId 用户ID
+     * @param roleId 角色ID
+     */
+    public static void cancelLoginUserRole(Long userId, String roleId) {
+        SaSession saSession = StpUtil.getSessionByLoginId(userId);
+        LoginUser loginUser = (LoginUser) saSession.get(SaSession.USER);
+        if (Objects.nonNull(loginUser) && CollUtil.isNotEmpty(loginUser.getRoles())) {
+            loginUser.getRoles().remove(roleId);
+        }
         saSession.set(SaSession.USER, loginUser);
     }
 

@@ -1,6 +1,8 @@
 package com.zhengcheng.ums.domain.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.zhengcheng.mybatis.plus.model.BaseEntity;
 
@@ -24,13 +26,13 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @TableName("sys_menu")
-public class SysMenuEntity extends BaseEntity {
+public class SysMenuEntity extends BaseEntity<SysMenuEntity> {
     private static final long serialVersionUID = 1L;
 
     /**
      * 菜单ID
      */
-//    @TableId("menu_id")
+    @TableId(value = "menu_id", type = IdType.AUTO)
     private Long menuId;
 
     /**

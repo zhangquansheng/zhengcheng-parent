@@ -5,7 +5,6 @@ import java.io.Serializable;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * 分页查询实体类
@@ -14,7 +13,6 @@ import lombok.NoArgsConstructor;
  * @date :    2020/5/18 14:23
  */
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
 public class PageQuery implements Serializable {
 
@@ -72,6 +70,11 @@ public class PageQuery implements Serializable {
     public static final long DEFAULT_PAGE_SIZE = 10L;
 
     public static final String COMMA = ",";
+
+    public PageQuery() {
+        this.pageNum = DEFAULT_PAGE_NUM;
+        this.pageSize = DEFAULT_PAGE_SIZE;
+    }
 
     public PageQuery(Long pageNum, Long pageSize) {
         this.pageNum = pageNum;

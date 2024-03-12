@@ -28,6 +28,7 @@ import java.util.stream.Collectors;
 
 import javax.annotation.Resource;
 
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ObjectUtil;
 
 @Service
@@ -227,7 +228,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysUserRoleMapper, SysUserRo
             rm.setMenuId(menuId);
             list.add(rm);
         }
-        if (list.size() > 0) {
+        if (CollUtil.isNotEmpty(list)) {
             rows = roleMenuMapper.batchRoleMenu(list);
         }
         return rows;

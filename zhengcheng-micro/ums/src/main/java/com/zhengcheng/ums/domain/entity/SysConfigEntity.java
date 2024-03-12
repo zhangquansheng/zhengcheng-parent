@@ -1,5 +1,7 @@
 package com.zhengcheng.ums.domain.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.zhengcheng.mybatis.plus.model.BaseEntity;
 
@@ -20,8 +22,7 @@ import lombok.EqualsAndHashCode;
 public class SysConfigEntity extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
-    //    @JsonFormat(shape = JsonFormat.Shape.STRING)
-//    @TableId("config_id")
+    @TableId(value = "config_id", type = IdType.AUTO)
     private Long configId;
 
     /**

@@ -1,12 +1,15 @@
 package com.zhengcheng.ums.controller.admin.system;
 
+import com.google.common.collect.Lists;
+
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zhengcheng.common.domain.PageResult;
 import com.zhengcheng.common.domain.Result;
+import com.zhengcheng.satoken.utils.SaTokenUtil;
 import com.zhengcheng.ums.domain.entity.SysRoleEntity;
 import com.zhengcheng.ums.domain.entity.SysUserEntity;
 import com.zhengcheng.ums.domain.entity.SysUserRoleEntity;
-import com.zhengcheng.ums.service.SysPermissionService;
+import com.zhengcheng.ums.service.SysMenuService;
 import com.zhengcheng.ums.service.SysRoleService;
 import com.zhengcheng.ums.service.SysUserService;
 
@@ -21,6 +24,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Arrays;
+import java.util.Set;
+
 @RestController
 @RequestMapping("/system/role")
 public class SysRoleController {
@@ -30,9 +36,7 @@ public class SysRoleController {
     @Autowired
     private SysUserService userService;
     @Autowired
-    private SysPermissionService permissionService;
-//    @Autowired
-//    private TokenService tokenService;
+    private SysMenuService sysMenuService;
 
     @GetMapping("/list")
     public Result list(SysRoleEntity role) {
@@ -74,17 +78,11 @@ public class SysRoleController {
             return Result.error("修改角色'" + role.getRoleName() + "'失败，角色权限已存在");
         }
 
-//        if (roleService.updateRole(role) > 0) {
-//            // 更新缓存用户权限
-//            LoginUser loginUser = SecurityUtils.getLoginUser();
-//            if (StringUtils.isNotNull(loginUser.getUser()) && !loginUser.getUser().isAdmin()) {
-//                loginUser.setPermissions(permissionService.getMenuPermission(loginUser.getUser()));
-//                loginUser.setUser(userService.selectUserByUserName(loginUser.getUser().getUserName()));
-//                tokenService.setLoginUser(loginUser);
-//            }
-//            permissionService.resetLoginUserRoleCache(role.getRoleId());
-//            return Result.ok();
-//        }
+        if (roleService.updateRole(role) > 0) {
+            // 更新缓存角色权限
+            this.resetLoginUserRoleCache(role.getRoleId());
+            return Result.ok();
+        }
         return Result.error("修改角色'" + role.getRoleName() + "'失败，请联系管理员");
     }
 
@@ -96,20 +94,23 @@ public class SysRoleController {
         roleService.checkRoleAllowed(role);
         roleService.updateRoleStatus(role);
         //更新redis缓存权限数据
-//        permissionService.resetLoginUserRoleCache(role.getRoleId());
+        this.resetLoginUserRoleCache(role.getRoleId());
         return Result.ok();
+    }
+
+    private void resetLoginUserRoleCache(Long roleId) {
+        Set<String> perms = sysMenuService.selectMenuPermsByRoleId(roleId);
+        SaTokenUtil.setPermsByRoleId(roleId, Lists.newArrayList(perms));
     }
 
     /**
      * 删除角色
      */
-//    @PreAuthorize("@ss.hasPermi('system:role:remove')")
     @DeleteMapping("/{roleIds}")
     public Result remove(@PathVariable Long[] roleIds) {
         roleService.deleteRoleByIds(roleIds);
         //更新redis缓存权限数据
-//        Arrays.stream(roleIds).forEach(id -> permissionService.resetLoginUserRoleCache(id));
-
+        Arrays.stream(roleIds).forEach(this::resetLoginUserRoleCache);
         return Result.ok();
     }
 
@@ -139,27 +140,26 @@ public class SysRoleController {
     public Result cancelAuthUser(@RequestBody SysUserRoleEntity userRole) {
         int i = roleService.deleteAuthUser(userRole);
         //更新redis缓存权限数据
-//        permissionService.resetLoginUserRoleCache(userRole.getRoleId());
+        SaTokenUtil.cancelLoginUserRole(userRole.getUserId(), userRole.getRoleId() + "");
         return Result.ok(i);
     }
 
     /**
      * 批量取消授权用户
      */
-//    @PreAuthorize("@ss.hasPermi('system:role:edit')")
     @PutMapping("/authUser/cancelAll")
     public Result cancelAuthUserAll(Long roleId, Long[] userIds) {
         int i = roleService.deleteAuthUsers(roleId, userIds);
         //更新redis缓存权限数据
-//        permissionService.resetLoginUserRoleCache(roleId);
-
+        for (Long userId : userIds) {
+            SaTokenUtil.cancelLoginUserRole(userId, roleId + "");
+        }
         return Result.ok(i);
     }
 
     /**
      * 批量选择用户授权
      */
-//    @PreAuthorize("@ss.hasPermi('system:role:edit')")
     @PutMapping("/authUser/selectAll")
     public Result selectAuthUserAll(Long roleId, Long[] userIds) {
         return Result.ok(roleService.insertAuthUsers(roleId, userIds));

@@ -1,6 +1,8 @@
 package com.zhengcheng.ums.domain.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.zhengcheng.mybatis.plus.model.BaseEntity;
 
@@ -25,13 +27,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SysRoleEntity extends BaseEntity {
+public class SysRoleEntity extends BaseEntity<SysRoleEntity> {
     private static final long serialVersionUID = 1L;
 
     /**
      * 角色ID
      */
-//    @TableId("role_id")
+    @TableId(value = "role_id", type = IdType.AUTO)
     private Long roleId;
 
     /**
