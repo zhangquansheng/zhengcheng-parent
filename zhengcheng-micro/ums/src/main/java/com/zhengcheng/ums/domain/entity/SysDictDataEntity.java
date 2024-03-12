@@ -1,5 +1,7 @@
 package com.zhengcheng.ums.domain.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.zhengcheng.mybatis.plus.model.BaseEntity;
 import com.zhengcheng.ums.common.constant.UserConstants;
@@ -27,6 +29,7 @@ public class SysDictDataEntity extends BaseEntity<SysDictDataEntity> {
     /**
      * 字典编码
      */
+    @TableId(type = IdType.INPUT)
     private Long dictCode;
 
     /**
