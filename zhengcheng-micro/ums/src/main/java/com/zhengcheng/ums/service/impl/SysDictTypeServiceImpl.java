@@ -10,6 +10,7 @@ import com.zhengcheng.ums.domain.entity.SysDictTypeEntity;
 import com.zhengcheng.ums.mapper.SysDictDataMapper;
 import com.zhengcheng.ums.mapper.SysDictTypeMapper;
 import com.zhengcheng.ums.service.SysDictTypeService;
+import java.util.Collections;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -58,9 +59,7 @@ public class SysDictTypeServiceImpl implements SysDictTypeService {
             DictUtils.setDictCache(dictType, dictDatas);
             return dictDatas;
         }
-        return null;
-
-
+        return Collections.emptyList();
     }
 
     @Override

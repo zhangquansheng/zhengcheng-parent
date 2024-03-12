@@ -20,14 +20,13 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 @TableName("sys_dict_data")
-public class SysDictDataEntity extends BaseEntity {
+public class SysDictDataEntity extends BaseEntity<SysDictDataEntity> {
 
     private static final long serialVersionUID = 1L;
 
     /**
      * 字典编码
      */
-//    @TableId("dict_code")
     private Long dictCode;
 
     /**

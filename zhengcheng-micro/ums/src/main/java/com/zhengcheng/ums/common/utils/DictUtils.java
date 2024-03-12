@@ -8,6 +8,7 @@ import com.zhengcheng.ums.domain.entity.SysDictDataEntity;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import cn.hutool.core.collection.CollUtil;
@@ -45,7 +46,7 @@ public class DictUtils {
         if (ObjectUtil.isNotNull(arrayCache)) {
             return arrayCache.toList(SysDictDataEntity.class);
         }
-        return null;
+        return Collections.emptyList();
     }
 
     /**

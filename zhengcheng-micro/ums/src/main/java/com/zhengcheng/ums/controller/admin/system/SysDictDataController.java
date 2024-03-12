@@ -7,7 +7,6 @@ import com.zhengcheng.ums.service.SysDictDataService;
 import com.zhengcheng.ums.service.SysDictTypeService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.hutool.core.collection.CollUtil;
 
 @RestController
 @RequestMapping("/system/dict/data")
@@ -41,10 +42,9 @@ public class SysDictDataController {
      */
     @GetMapping(value = "/type/{dictType}", name = "字典数据管理-根据字典类型查询字典数据信息")
     public Result dictType(@PathVariable String dictType) {
-
         List<SysDictDataEntity> data = dictTypeService.selectDictDataByType(dictType);
-        if (StringUtils.isEmpty(data)) {
-            data = new ArrayList<SysDictDataEntity>();
+        if (CollUtil.isEmpty(data)) {
+            data = new ArrayList<>();
         }
         return Result.ok().put(data);
     }
