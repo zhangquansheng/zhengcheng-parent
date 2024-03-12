@@ -49,7 +49,7 @@ public class SysPasswordService {
             retryCount = 0;
         }
 
-        if (retryCount >= Integer.valueOf(maxRetryCount).intValue()) {
+        if (retryCount >= maxRetryCount) {
             throw new UserPasswordRetryLimitExceedException(maxRetryCount, lockTime);
         }
 
@@ -64,15 +64,19 @@ public class SysPasswordService {
 
 
     public boolean matches(SysUserEntity user, String rawPassword) {
-        return passwordEncoder.matches(rawPassword, user.getPassword());
+        return passwordEncoder.matches(user.getPassword(), rawPassword);
+    }
+
+    public boolean matches(String password, String rawPassword) {
+        return passwordEncoder.matches(password, rawPassword);
     }
 
     public String encode(String password) {
         return passwordEncoder.encode(password);
     }
 
-    public void clearLoginRecordCache(String loginName) {
-        if (redisCache.hasKey(getCacheKey(loginName))) {
+    private void clearLoginRecordCache(String loginName) {
+        if (Boolean.TRUE.equals(redisCache.hasKey(getCacheKey(loginName)))) {
             redisCache.deleteObject(getCacheKey(loginName));
         }
     }

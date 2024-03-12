@@ -18,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import cn.dev33.satoken.stp.StpUtil;
@@ -73,7 +75,10 @@ public class SysLoginController {
         // 权限集合
         Set<String> permissions = permissionService.getMenuPermission(user);
         Result ajax = Result.ok();
-        ajax.put("user", user);
+        Map<String, String> userInfo = new HashMap<>();
+        userInfo.put("avatar", user.getAvatar());
+        userInfo.put("userName", user.getUserName());
+        ajax.put("user", userInfo);
         ajax.put("roles", roles);
         ajax.put("permissions", permissions);
         return ajax;
