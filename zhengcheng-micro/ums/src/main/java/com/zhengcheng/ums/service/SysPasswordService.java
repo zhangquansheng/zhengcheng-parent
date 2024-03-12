@@ -64,11 +64,11 @@ public class SysPasswordService {
 
 
     public boolean matches(SysUserEntity user, String rawPassword) {
-        return passwordEncoder.matches(user.getPassword(), rawPassword);
+        return passwordEncoder.matches(rawPassword, user.getPassword());
     }
 
-    public boolean matches(String password, String rawPassword) {
-        return passwordEncoder.matches(password, rawPassword);
+    public boolean matches(String rawPassword, String encodedPassword) {
+        return passwordEncoder.matches(rawPassword, encodedPassword);
     }
 
     public String encode(String password) {

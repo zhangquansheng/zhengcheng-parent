@@ -68,16 +68,16 @@ public class RedisAutoConfiguration extends CachingConfigurerSupport {
         return redisTemplate;
     }
 
-    @Primary
-    @Bean
-    public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory connectionFactory) {
-        return new StringRedisTemplate(connectionFactory);
-    }
-
     @ConditionalOnBean(RedisTemplate.class)
     @Bean
     public RedisCache redisCache(RedisTemplate<Object, Object> redisTemplate) {
         return new RedisCache(redisTemplate);
+    }
+
+    @Primary
+    @Bean
+    public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory connectionFactory) {
+        return new StringRedisTemplate(connectionFactory);
     }
 
 }
