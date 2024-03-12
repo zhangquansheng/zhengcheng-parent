@@ -1,6 +1,5 @@
 package com.zhengcheng.ums.common.utils;
 
-import com.alibaba.fastjson2.JSONArray;
 import com.zhengcheng.cache.redis.RedisCache;
 import com.zhengcheng.ums.common.constant.CacheConstants;
 import com.zhengcheng.ums.domain.entity.SysDictDataEntity;
@@ -42,11 +41,7 @@ public class DictUtils {
      * @return dictDatas 字典数据列表
      */
     public static List<SysDictDataEntity> getDictCache(String key) {
-        JSONArray arrayCache = SpringUtil.getBean(RedisCache.class).getCacheObject(getCacheKey(key));
-        if (ObjectUtil.isNotNull(arrayCache)) {
-            return arrayCache.toList(SysDictDataEntity.class);
-        }
-        return Collections.emptyList();
+        return SpringUtil.getBean(RedisCache.class).getCacheObject(getCacheKey(key));
     }
 
     /**
