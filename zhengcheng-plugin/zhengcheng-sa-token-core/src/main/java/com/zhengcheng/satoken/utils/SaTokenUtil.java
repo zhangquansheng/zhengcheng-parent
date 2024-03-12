@@ -125,6 +125,11 @@ public class SaTokenUtil {
     private static final String ADMIN_USER_NAME = "admin";
 
     /**
+     * 内置的管理员角色Key
+     */
+    public static final String ADMIN_ROLE_KEY = "admin";
+
+    /**
      * 是否管理员
      */
     public static boolean isAdmin() {
