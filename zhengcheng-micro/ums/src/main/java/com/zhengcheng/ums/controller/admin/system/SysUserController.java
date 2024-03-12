@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import cn.dev33.satoken.annotation.SaCheckPermission;
 import cn.hutool.core.util.ObjectUtil;
 
 /**
@@ -46,9 +47,9 @@ public class SysUserController {
      * 分页
      */
     @GetMapping("list")
+    @SaCheckPermission("system:user:list")
     public Result page(SysUserEntity sysUserEntity) {
         PageResult<SysUserEntity> page = userService.page(sysUserEntity);
-
         return Result.ok().put(page);
     }
 
@@ -86,11 +87,9 @@ public class SysUserController {
         userService.checkUserAllowed(user);
         if (!(userService.checkUserNameUnique(user))) {
             return Result.error("修改用户'" + user.getUserName() + "'失败，登录账号已存在");
-        } else if (StringUtils.isNotEmpty(user.getPhonenumber())
-                && !(userService.checkPhoneUnique(user))) {
+        } else if (StringUtils.isNotEmpty(user.getPhonenumber()) && !(userService.checkPhoneUnique(user))) {
             return Result.error("修改用户'" + user.getUserName() + "'失败，手机号码已存在");
-        } else if (StringUtils.isNotEmpty(user.getEmail())
-                && !(userService.checkEmailUnique(user))) {
+        } else if (StringUtils.isNotEmpty(user.getEmail()) && !(userService.checkEmailUnique(user))) {
             return Result.error("修改用户'" + user.getUserName() + "'失败，邮箱账号已存在");
         }
         user.setPassword(null);
