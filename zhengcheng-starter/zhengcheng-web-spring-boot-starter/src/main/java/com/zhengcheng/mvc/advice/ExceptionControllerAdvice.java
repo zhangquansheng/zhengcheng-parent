@@ -8,6 +8,8 @@ import com.zhengcheng.mvc.utils.I18nUtil;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageConversionException;
 import org.springframework.validation.BindException;
@@ -38,6 +40,7 @@ import lombok.extern.slf4j.Slf4j;
 @Configuration
 @ConditionalOnWebApplication
 @RestControllerAdvice
+@Order()
 public class ExceptionControllerAdvice {
 
     @ExceptionHandler({MaxUploadSizeExceededException.class})

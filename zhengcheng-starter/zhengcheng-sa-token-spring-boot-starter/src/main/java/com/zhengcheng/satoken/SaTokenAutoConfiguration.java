@@ -2,6 +2,8 @@ package com.zhengcheng.satoken;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -16,4 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 @ComponentScan({"com.zhengcheng.satoken.advice"})
 public class SaTokenAutoConfiguration {
 
+    public SaTokenAutoConfiguration() {
+
+    }
 }

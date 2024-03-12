@@ -6,9 +6,12 @@ import com.zhengcheng.common.enums.CodeEnum;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import cn.dev33.satoken.exception.NotLoginException;
 import cn.dev33.satoken.exception.NotPermissionException;
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,7 +26,13 @@ import lombok.extern.slf4j.Slf4j;
 @Configuration
 @ConditionalOnWebApplication
 @RestControllerAdvice
+@Order(Ordered.HIGHEST_PRECEDENCE)
 public class SaTokenExceptionControllerAdvice {
+
+    @ExceptionHandler(NotLoginException.class)
+    public Result handleNotLoginException(NotLoginException e) {
+        return Result.create(CodeEnum.UNAUTHORIZED.getCode(), e.getMessage());
+    }
 
     @ExceptionHandler(NotPermissionException.class)
     public Result handleNotPermissionException(NotPermissionException e) {
