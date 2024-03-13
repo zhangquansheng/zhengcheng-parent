@@ -35,7 +35,7 @@ export default {
   },
   data() {
     return {
-      title: 'campus',
+      title: 'zhengcheng',
       logo: logoImg
     }
   }
