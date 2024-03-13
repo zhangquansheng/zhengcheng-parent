@@ -163,7 +163,8 @@ public class SysUserController {
     public Result changeStatus(@RequestBody SysUserEntity user) {
         userService.checkUserAllowed(user);
         userService.updateUserStatus(user);
-//        permissionService.resetUserRoleAuthCache(user.getUserId());
+        //将指定账号踢下线
+        StpUtil.kickout(user.getUserId());
         return Result.ok();
     }
 

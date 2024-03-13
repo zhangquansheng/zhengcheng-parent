@@ -63,10 +63,14 @@ public class SysLoginController {
      */
     @PostMapping(value = "/logout", name = "登出方法")
     public Result logout() {
-        LoginUser loginUser = SaTokenUtil.getLoginUser();
         StpUtil.logout();
-        // 记录用户退出日志
-        AsyncManager.me().execute(AsyncFactory.recordLogininfor(loginUser.getUsername(), loginUser.getUserId(), Constants.LOGOUT, I18nUtil.message("user.logout.success")));
+        try {
+            LoginUser loginUser = SaTokenUtil.getLoginUser();
+            // 记录用户退出日志
+            AsyncManager.me().execute(AsyncFactory.recordLogininfor(loginUser.getUsername(), loginUser.getUserId(), Constants.LOGOUT, I18nUtil.message("user.logout.success")));
+        } catch (Exception ignored) {
+
+        }
         return Result.ok();
     }
 
