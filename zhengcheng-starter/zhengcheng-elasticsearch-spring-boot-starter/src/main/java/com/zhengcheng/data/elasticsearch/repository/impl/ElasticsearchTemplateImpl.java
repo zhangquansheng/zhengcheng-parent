@@ -82,7 +82,7 @@ public class ElasticsearchTemplateImpl<T> implements ElasticsearchTemplate<T> {
 
         PageResult<T> pageResult = PageResult.empty(pageQuery);
         pageResult.setTotal(searchResponseToTotalHits(searchResponse).value);
-        pageResult.setRecords(searchResponseToList(clazz, documentInfo, searchResponse));
+        pageResult.setRows(searchResponseToList(clazz, documentInfo, searchResponse));
         return pageResult;
     }
 
