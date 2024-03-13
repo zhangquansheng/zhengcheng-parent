@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+import cn.dev33.satoken.annotation.SaCheckPermission;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.http.HttpUtil;
 
@@ -35,6 +36,7 @@ public class SysMenuController {
     /**
      * 获取菜单列表
      */
+    @SaCheckPermission("system:menu:list")
     @GetMapping(value = "/list", name = "菜单管理-分页")
     public Result list(SysMenuEntity menu) {
         List<SysMenuEntity> menus = menuService.selectMenuList(menu, getUserId());
@@ -44,6 +46,7 @@ public class SysMenuController {
     /**
      * 根据菜单编号获取详细信息
      */
+    @SaCheckPermission("system:menu:query")
     @GetMapping(value = "/{menuId}", name = "菜单管理-查询")
     public Result getInfo(@PathVariable Long menuId) {
         return Result.ok(menuService.selectMenuById(menuId));
@@ -73,7 +76,7 @@ public class SysMenuController {
     /**
      * 新增菜单
      */
-//    @PreAuthorize("@ss.hasPermi('system:menu:add')")
+    @SaCheckPermission("system:menu:add")
     @PostMapping(name = "菜单管理-新增")
     public Result add(@Validated @RequestBody SysMenuEntity menu) {
         if (!menuService.checkMenuNameUnique(menu)) {
@@ -87,6 +90,7 @@ public class SysMenuController {
     /**
      * 修改菜单
      */
+    @SaCheckPermission("system:menu:edit")
     @PutMapping(name = "菜单管理-修改")
     public Result edit(@Validated @RequestBody SysMenuEntity menu) {
         if (!menuService.checkMenuNameUnique(menu)) {
@@ -102,6 +106,7 @@ public class SysMenuController {
     /**
      * 删除菜单
      */
+    @SaCheckPermission("system:menu:remove")
     @DeleteMapping(value = "/{menuId}", name = "菜单管理-删除")
     public Result remove(@PathVariable("menuId") Long menuId) {
         if (menuService.hasChildByMenuId(menuId)) {

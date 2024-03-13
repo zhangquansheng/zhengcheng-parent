@@ -212,13 +212,7 @@ public class SysMenuServiceImpl implements SysMenuService {
     @Override
     public Set<String> selectMenuPermsByRoleId(Long roleId) {
         List<String> perms = menuMapper.selectMenuPermsByRoleId(roleId);
-        Set<String> permsSet = new HashSet<>();
-        for (String perm : perms) {
-            if (StringUtils.isNotEmpty(perm)) {
-                permsSet.addAll(Arrays.asList(perm.trim().split(",")));
-            }
-        }
-        return permsSet;
+        return this.getPermSet(perms);
     }
 
     /**
@@ -230,6 +224,13 @@ public class SysMenuServiceImpl implements SysMenuService {
     @Override
     public Set<String> selectMenuPermsByRoleKey(String roleKey) {
         List<String> perms = menuMapper.selectMenuPermsByRoleKey(roleKey);
+        return this.getPermSet(perms);
+    }
+
+    /**
+     * 获取权限集合
+     */
+    private Set<String> getPermSet(List<String> perms) {
         Set<String> permsSet = new HashSet<>();
         for (String perm : perms) {
             if (StringUtils.isNotEmpty(perm)) {

@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import cn.dev33.satoken.annotation.SaCheckPermission;
+
 /**
  * 操作日志记录
  */
@@ -23,18 +25,20 @@ public class SysOperlogController {
     @Autowired
     private SysOperLogService operLogService;
 
+    @SaCheckPermission("monitor:operlog:list")
     @GetMapping(value = "/list", name = "操作日志-分页")
     public Result list(SysOperLogEntity operLog) {
         PageResult<SysOperLogEntity> page = operLogService.selectOperLogPage(operLog);
         return Result.ok().put(page);
     }
 
-
+    @SaCheckPermission("monitor:operlog:remove")
     @DeleteMapping(value = "/{operIds}", name = "操作日志-删除")
     public Result remove(@PathVariable Long[] operIds) {
         return Result.ok(operLogService.deleteOperLogByIds(operIds));
     }
 
+    @SaCheckPermission("monitor:operlog:remove")
     @DeleteMapping(value = "/clean", name = "操作日志-清空")
     public Result clean() {
         operLogService.cleanOperLog();

@@ -53,11 +53,11 @@ public class SaTokenUtil {
      * @param userId 用户ID
      * @param roleId 角色ID
      */
-    public static void cancelLoginUserRole(Long userId, String roleId) {
+    public static void cancelLoginUserRole(Long userId, String role) {
         SaSession saSession = StpUtil.getSessionByLoginId(userId);
         LoginUser loginUser = (LoginUser) saSession.get(SaSession.USER);
         if (Objects.nonNull(loginUser) && CollUtil.isNotEmpty(loginUser.getRoles())) {
-            loginUser.getRoles().remove(roleId);
+            loginUser.getRoles().remove(role);
         }
         saSession.set(SaSession.USER, loginUser);
     }

@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+import cn.dev33.satoken.annotation.SaCheckPermission;
+
 
 @RestController
 @RequestMapping("/system/dict/type")
@@ -26,6 +28,7 @@ public class SysDictTypeController {
     @Autowired
     private SysDictTypeService dictTypeService;
 
+    @SaCheckPermission("system:dict:list")
     @GetMapping(value = "/list", name = "字典类型管理-分页")
     public Result list(SysDictTypeEntity sysDictTypeEntity) {
         PageResult<SysDictTypeEntity> page = dictTypeService.page(sysDictTypeEntity);
@@ -35,6 +38,7 @@ public class SysDictTypeController {
     /**
      * 查询字典类型详细
      */
+    @SaCheckPermission("system:dict:query")
     @GetMapping(value = "/{dictId}", name = "字典类型管理-查询")
     public Result getInfo(@PathVariable Long dictId) {
         return Result.ok(dictTypeService.selectDictTypeById(dictId));
@@ -43,6 +47,7 @@ public class SysDictTypeController {
     /**
      * 新增字典类型
      */
+    @SaCheckPermission("system:dict:add")
     @PostMapping(name = "字典类型管理-新增")
     public Result add(@Validated @RequestBody SysDictTypeEntity dict) {
         if (!dictTypeService.checkDictTypeUnique(dict)) {
@@ -55,6 +60,7 @@ public class SysDictTypeController {
     /**
      * 修改字典类型
      */
+    @SaCheckPermission("system:dict:edit")
     @PutMapping(name = "字典类型管理-修改")
     public Result edit(@Validated @RequestBody SysDictTypeEntity dict) {
         if (!dictTypeService.checkDictTypeUnique(dict)) {
@@ -66,6 +72,7 @@ public class SysDictTypeController {
     /**
      * 删除字典类型
      */
+    @SaCheckPermission("system:dict:remove")
     @DeleteMapping(value = "/{dictIds}", name = "字典类型管理-删除")
     public Result remove(@PathVariable Long[] dictIds) {
         dictTypeService.deleteDictTypeByIds(dictIds);
@@ -75,6 +82,7 @@ public class SysDictTypeController {
     /**
      * 刷新字典缓存
      */
+    @SaCheckPermission("system:dict:remove")
     @DeleteMapping(value = "/refreshCache", name = "字典类型管理-刷新")
     public Result refreshCache() {
         dictTypeService.resetDictCache();

@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.dev33.satoken.annotation.SaCheckPermission;
 import cn.hutool.core.collection.CollUtil;
 
 @RestController
@@ -30,7 +31,7 @@ public class SysDictDataController {
     @Autowired
     private SysDictTypeService dictTypeService;
 
-
+    @SaCheckPermission("system:dict:list")
     @GetMapping(value = "/list", name = "字典数据管理-分页")
     public Result page(SysDictDataEntity dictData) {
         PageResult<SysDictDataEntity> page = dictDataService.page(dictData);
@@ -53,6 +54,7 @@ public class SysDictDataController {
     /**
      * 查询字典数据详细
      */
+    @SaCheckPermission("system:dict:query")
     @GetMapping(value = "/{dictCode}", name = "字典数据管理-查询")
     public Result getInfo(@PathVariable Long dictCode) {
         return Result.ok(dictDataService.selectDictDataById(dictCode));
@@ -62,6 +64,7 @@ public class SysDictDataController {
     /**
      * 新增字典类型
      */
+    @SaCheckPermission("system:dict:add")
     @PostMapping(name = "字典数据管理-新增")
     public Result add(@Validated @RequestBody SysDictDataEntity dict) {
         return Result.ok(dictDataService.insertDictData(dict));
@@ -70,6 +73,7 @@ public class SysDictDataController {
     /**
      * 修改保存字典类型
      */
+    @SaCheckPermission("system:dict:edit")
     @PutMapping(name = "字典数据管理-修改")
     public Result edit(@Validated @RequestBody SysDictDataEntity dict) {
         return Result.ok(dictDataService.updateDictData(dict));
@@ -78,6 +82,7 @@ public class SysDictDataController {
     /**
      * 删除字典类型
      */
+    @SaCheckPermission("system:dict:remove")
     @DeleteMapping(value = "/{dictCodes}", name = "字典数据管理-删除")
     public Result remove(@PathVariable Long[] dictCodes) {
         dictDataService.deleteDictDataByIds(dictCodes);

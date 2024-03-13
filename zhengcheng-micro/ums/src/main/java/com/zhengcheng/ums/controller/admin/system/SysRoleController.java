@@ -26,6 +26,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Set;
 
+import cn.dev33.satoken.annotation.SaCheckPermission;
+
 @RestController
 @RequestMapping("/system/role")
 public class SysRoleController {
@@ -37,6 +39,7 @@ public class SysRoleController {
     @Autowired
     private SysMenuService sysMenuService;
 
+    @SaCheckPermission("system:role:list")
     @GetMapping("/list")
     public Result list(SysRoleEntity role) {
         PageResult<SysRoleEntity> list = roleService.page(role);
@@ -46,6 +49,7 @@ public class SysRoleController {
     /**
      * 根据角色编号获取详细信息
      */
+    @SaCheckPermission("system:role:query")
     @GetMapping(value = "/{roleId}")
     public Result getInfo(@PathVariable Long roleId) {
         return Result.ok(roleService.selectRoleById(roleId));
@@ -54,6 +58,7 @@ public class SysRoleController {
     /**
      * 新增角色
      */
+    @SaCheckPermission("system:role:add")
     @PostMapping
     public Result add(@Validated @RequestBody SysRoleEntity role) {
         if (!roleService.checkRoleNameUnique(role)) {
@@ -68,6 +73,7 @@ public class SysRoleController {
     /**
      * 修改保存角色
      */
+    @SaCheckPermission("system:role:edit")
     @PutMapping
     public Result edit(@Validated @RequestBody SysRoleEntity role) {
         roleService.checkRoleAllowed(role);
@@ -88,6 +94,7 @@ public class SysRoleController {
     /**
      * 状态修改
      */
+    @SaCheckPermission("system:role:edit")
     @PutMapping("/changeStatus")
     public Result changeStatus(@RequestBody SysRoleEntity role) {
         roleService.checkRoleAllowed(role);
@@ -105,6 +112,7 @@ public class SysRoleController {
     /**
      * 删除角色
      */
+    @SaCheckPermission("system:role:remove")
     @DeleteMapping("/{roleIds}")
     public Result remove(@PathVariable Long[] roleIds) {
         roleService.deleteRoleByIds(roleIds);
@@ -117,6 +125,7 @@ public class SysRoleController {
     /**
      * 查询已分配用户角色列表
      */
+    @SaCheckPermission("system:role:list")
     @GetMapping("/authUser/allocatedList")
     public Result allocatedList(SysUserEntity user) {
         Page<SysUserEntity> page = userService.selectAllocatedList(user);
@@ -126,6 +135,7 @@ public class SysRoleController {
     /**
      * 查询未分配用户角色列表
      */
+    @SaCheckPermission("system:role:list")
     @GetMapping("/authUser/unallocatedList")
     public Result unallocatedList(SysUserEntity user) {
         Page<SysUserEntity> page = userService.selectUnallocatedList(user);
@@ -135,6 +145,7 @@ public class SysRoleController {
     /**
      * 取消授权用户
      */
+    @SaCheckPermission("system:role:edit")
     @PutMapping("/authUser/cancel")
     public Result cancelAuthUser(@RequestBody SysUserRoleEntity userRole) {
         int i = roleService.deleteAuthUser(userRole);
@@ -146,6 +157,7 @@ public class SysRoleController {
     /**
      * 批量取消授权用户
      */
+    @SaCheckPermission("system:role:edit")
     @PutMapping("/authUser/cancelAll")
     public Result cancelAuthUserAll(Long roleId, Long[] userIds) {
         int i = roleService.deleteAuthUsers(roleId, userIds);
@@ -159,6 +171,7 @@ public class SysRoleController {
     /**
      * 批量选择用户授权
      */
+    @SaCheckPermission("system:role:edit")
     @PutMapping("/authUser/selectAll")
     public Result selectAuthUserAll(Long roleId, Long[] userIds) {
         return Result.ok(roleService.insertAuthUsers(roleId, userIds));

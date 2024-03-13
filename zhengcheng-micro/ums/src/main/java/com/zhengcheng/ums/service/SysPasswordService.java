@@ -81,7 +81,7 @@ public class SysPasswordService {
         return passwordEncoder.encode(password);
     }
 
-    private void clearLoginRecordCache(String loginName) {
+    public void clearLoginRecordCache(String loginName) {
         if (Boolean.TRUE.equals(redisCache.hasKey(getCacheKey(loginName)))) {
             redisCache.deleteObject(getCacheKey(loginName));
         }

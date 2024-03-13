@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import cn.dev33.satoken.annotation.SaCheckPermission;
+
 /**
  * 配置管理
  */
@@ -25,6 +27,7 @@ public class SysConfigController {
     @Autowired
     private SysConfigService configService;
 
+    @SaCheckPermission("system:config:list")
     @GetMapping(value = "page", name = "参数配置管理-分页")
     public Result page(SysConfigEntity sysConfigEntity) {
         PageResult<SysConfigEntity> page = configService.page(sysConfigEntity);
@@ -32,6 +35,7 @@ public class SysConfigController {
         return Result.ok().put(page);
     }
 
+    @SaCheckPermission("system:config:query")
     @GetMapping(value = "{id}", name = "参数配置管理-查询id信息")
     public Result getInfo(@PathVariable("id") Long id) {
         SysConfigEntity entity = configService.selectConfigById(id);
@@ -46,6 +50,7 @@ public class SysConfigController {
         return Result.ok(configService.selectConfigByKey(configKey));
     }
 
+    @SaCheckPermission("system:config:add")
     @PostMapping(name = "参数配置管理-新增")
     public Result add(@Validated @RequestBody SysConfigEntity config) {
         if (!configService.checkConfigKeyUnique(config)) {
@@ -55,6 +60,7 @@ public class SysConfigController {
 
     }
 
+    @SaCheckPermission("system:config:edit")
     @PutMapping(name = "参数配置管理-修改")
     public Result edit(@Validated @RequestBody SysConfigEntity config) {
         if (!configService.checkConfigKeyUnique(config)) {
@@ -64,6 +70,7 @@ public class SysConfigController {
 
     }
 
+    @SaCheckPermission("system:config:remove")
     @DeleteMapping(value = "/{configIds}", name = "参数配置管理-删除")
     public Result remove(@PathVariable Long[] configIds) {
         configService.deleteConfigByIds(configIds);
@@ -73,6 +80,7 @@ public class SysConfigController {
     /**
      * 刷新参数缓存
      */
+    @SaCheckPermission("system:config:remove")
     @DeleteMapping(value = "/refreshCache", name = "参数配置管理-刷新缓存")
     public Result refreshCache() {
         configService.resetConfigCache();
