@@ -9,7 +9,7 @@ export default {
   name: 'RuoYiDoc',
   data() {
     return {
-      url: 'https://github.com/oddfar/campus-imaotai/wiki/'
+      url: 'https://zhangquansheng.github.io/'
     }
   },
   methods: {

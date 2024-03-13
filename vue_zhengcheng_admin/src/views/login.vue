@@ -56,7 +56,7 @@
     </el-form>
     <!--  底部  -->
     <div class="el-login-footer">
-      <span>Copyright © 2023 oddfar.com All Rights Reserved.</span>
+      <span>Copyright © 2020-2024 张全胜 All Rights Reserved.</span>
     </div>
   </div>
 </template>

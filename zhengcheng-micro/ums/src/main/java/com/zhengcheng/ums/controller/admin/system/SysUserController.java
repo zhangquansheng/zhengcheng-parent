@@ -33,8 +33,6 @@ import cn.hutool.core.util.ObjectUtil;
 
 /**
  * 用户管理
- *
- * @author oddfar
  */
 @RestController
 @RequestMapping("/system/user")

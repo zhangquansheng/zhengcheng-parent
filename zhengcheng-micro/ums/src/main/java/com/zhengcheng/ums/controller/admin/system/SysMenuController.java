@@ -95,7 +95,7 @@ public class SysMenuController {
     public Result edit(@Validated @RequestBody SysMenuEntity menu) {
         if (!menuService.checkMenuNameUnique(menu)) {
             return Result.error("修改菜单'" + menu.getMenuName() + "'失败，菜单名称已存在");
-        } else if (UserConstants.YES_FRAME.equals(menu.getIsFrame()) && !HttpUtil.isHttp(menu.getPath())) {
+        } else if (UserConstants.YES_FRAME.equals(menu.getIsFrame()) && !HttpUtil.isHttp(menu.getPath()) && !HttpUtil.isHttps(menu.getPath())) {
             return Result.error("修改菜单'" + menu.getMenuName() + "'失败，地址必须以http(s)://开头");
         } else if (menu.getMenuId().equals(menu.getParentId())) {
             return Result.error("修改菜单'" + menu.getMenuName() + "'失败，上级菜单不能选择自己");

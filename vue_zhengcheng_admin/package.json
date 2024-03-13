@@ -1,8 +1,8 @@
 {
-  "name": "oddfar",
+  "name": "vue_zhengcheng_admin",
   "version": "1.1.0",
-  "description": "campus-imaotai",
-  "author": "oddfar",
+  "description": "vue管理后台",
+  "author": "zhengcheng",
   "license": "MIT",
   "scripts": {
     "dev": "set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service serve",
@@ -33,7 +33,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/oddfar/campus-imaotai"
+    "url": "https://github.com/zhangquansheng/zhengcheng-parent"
   },
   "dependencies": {
     "@riophae/vue-treeselect": "0.4.0",

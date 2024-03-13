@@ -9,7 +9,7 @@ export default {
   name: 'RuoYiGit',
   data() {
     return {
-      url: 'https://github.com/oddfar/campus-imaotai'
+      url: 'https://github.com/zhangquansheng/zhengcheng-parent'
     }
   },
   methods: {

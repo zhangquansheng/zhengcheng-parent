@@ -190,12 +190,6 @@
             </span>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item
-                command="handleAuthApi"
-                icon="el-icon-circle-check"
-                v-hasPermi="['system:role:edit']"
-                >分配接口</el-dropdown-item
-              >
-              <el-dropdown-item
                 command="handleAuthUser"
                 icon="el-icon-user"
                 v-hasPermi="['system:role:edit']"
@@ -535,9 +529,6 @@ export default {
     // 更多操作触发
     handleCommand(command, row) {
       switch (command) {
-        case "handleAuthApi":
-          this.handleAuthApi(row);
-          break;
         case "handleAuthUser":
           this.handleAuthUser(row);
           break;
