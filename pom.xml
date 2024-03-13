@@ -14,7 +14,7 @@
     <groupId>com.zhengcheng</groupId>
     <artifactId>zhengcheng-parent</artifactId>
     <packaging>pom</packaging>
-    <version>6.1.1-RC</version>
+    <version>6.1.1-SNAPSHOT</version>
 
     <modules>
         <module>zhengcheng-plugin</module>

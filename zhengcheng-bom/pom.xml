@@ -6,13 +6,13 @@
 
     <groupId>com.zhengcheng</groupId>
     <artifactId>zhengcheng-bom</artifactId>
-    <version>6.1.1-RC</version>
+    <version>6.1.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <zhengcheng.version>6.1.1-RC</zhengcheng.version>
+        <zhengcheng.version>6.1.1-SNAPSHOT</zhengcheng.version>
     </properties>
 
     <dependencyManagement>
