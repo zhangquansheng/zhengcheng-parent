@@ -15,7 +15,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <zhengcheng.version>6.1.1-SNAPSHOT</zhengcheng.version>
+        <zhengcheng.version>6.1.1-RC</zhengcheng.version>
 
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

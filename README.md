@@ -12,7 +12,7 @@
 <parent>
     <groupId>com.zhengcheng</groupId>
     <artifactId>zhengcheng-parent</artifactId>
-    <version>6.1.1-SNAPSHOT</version>
+    <version>6.1.1-RC</version>
 </parent>
 ```
 
