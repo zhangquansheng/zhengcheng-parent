@@ -2,7 +2,6 @@ package com.zhengcheng.ums.domain;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.zhengcheng.ums.domain.entity.SysMenuEntity;
-import com.zhengcheng.ums.domain.entity.SysResourceEntity;
 
 import java.io.Serializable;
 import java.util.List;
@@ -40,22 +39,10 @@ public class TreeSelect implements Serializable {
         this.label = label;
     }
 
-
-    public TreeSelect(Long id, String label, List<SysResourceEntity> resources) {
-        this.id = id;
-        this.label = label;
-        this.children = resources.stream().map(TreeSelect::new).collect(Collectors.toList());
-    }
-
     public TreeSelect(SysMenuEntity menu) {
         this.id = menu.getMenuId();
         this.label = menu.getMenuName();
         this.children = menu.getChildren().stream().map(TreeSelect::new).collect(Collectors.toList());
-    }
-
-    public TreeSelect(SysResourceEntity resource) {
-        this.id = resource.getResourceId();
-        this.label = resource.getResourceName();
     }
 
     public Long getId() {

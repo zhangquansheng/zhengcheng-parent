@@ -21,8 +21,6 @@ public class SysPermissionService {
     private SysRoleService roleService;
     @Autowired
     private SysMenuService menuService;
-    @Autowired
-    private SysResourceService resourceService;
 
     /**
      * 获取角色数据权限
@@ -66,29 +64,6 @@ public class SysPermissionService {
             }
         }
         return perms;
-    }
-
-    /**
-     * 获取接口资源数据权限
-     *
-     * @param user 用户信息
-     * @return 资源信息
-     */
-    public Set<String> getResources(SysUserEntity user) {
-        Set<String> res = new HashSet<String>();
-        // 超级管理员拥有所有权限
-        if (user.isAdmin()) {
-            res.add("*:*:*");
-        } else {
-            List<SysRoleEntity> roles = user.getRoles();
-            if (roles != null && !roles.isEmpty()) {
-                for (SysRoleEntity role : roles) {
-                    Set<String> code = resourceService.selectResourceCodeByRoleId(role.getRoleId());
-                    res.addAll(code);
-                }
-            }
-        }
-        return res;
     }
 
 }
