@@ -6,6 +6,7 @@ import com.zhengcheng.cache.redis.RedisCache;
 import com.zhengcheng.common.domain.Result;
 import com.zhengcheng.ums.common.constant.CacheConstants;
 import com.zhengcheng.ums.common.constant.Constants;
+import com.zhengcheng.ums.common.sysconfig.ConfigExpander;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.FastByteArrayOutputStream;
@@ -52,7 +53,7 @@ public class CaptchaController {
         String capStr = null, code = null;
         BufferedImage image = null;
 
-        String captchaType = "math";
+        String captchaType = ConfigExpander.getLoginCaptchaType();
         if ("math".equals(captchaType)) {
             String capText = captchaProducerMath.createText();
             capStr = capText.substring(0, capText.lastIndexOf("@"));

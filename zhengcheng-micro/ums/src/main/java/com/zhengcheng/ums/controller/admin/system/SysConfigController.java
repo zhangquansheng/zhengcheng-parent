@@ -31,7 +31,6 @@ public class SysConfigController {
     @GetMapping(value = "page", name = "参数配置管理-分页")
     public Result page(SysConfigEntity sysConfigEntity) {
         PageResult<SysConfigEntity> page = configService.page(sysConfigEntity);
-
         return Result.ok().put(page);
     }
 
