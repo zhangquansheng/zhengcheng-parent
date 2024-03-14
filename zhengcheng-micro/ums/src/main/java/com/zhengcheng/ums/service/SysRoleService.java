@@ -143,10 +143,4 @@ public interface SysRoleService extends IService<SysUserRoleEntity> {
      */
     void checkRoleAllowed(SysRoleEntity role);
 
-    /**
-     * 重置角色的资源和菜单权限缓存
-     */
-    void resetRoleAuthCache();
-
-
 }

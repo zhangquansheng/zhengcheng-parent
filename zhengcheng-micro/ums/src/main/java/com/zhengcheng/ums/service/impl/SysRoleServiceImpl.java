@@ -6,15 +6,11 @@ import com.zhengcheng.common.exception.BizException;
 import com.zhengcheng.ums.domain.entity.SysRoleEntity;
 import com.zhengcheng.ums.domain.entity.SysRoleMenuEntity;
 import com.zhengcheng.ums.domain.entity.SysUserRoleEntity;
-import com.zhengcheng.ums.domain.model.SysRoleAuth;
 import com.zhengcheng.ums.mapper.SysRoleMapper;
 import com.zhengcheng.ums.mapper.SysRoleMenuMapper;
 import com.zhengcheng.ums.mapper.SysUserRoleMapper;
-import com.zhengcheng.ums.service.SysMenuService;
-import com.zhengcheng.ums.service.SysResourceService;
 import com.zhengcheng.ums.service.SysRoleService;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,9 +18,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 import javax.annotation.Resource;
 
@@ -40,13 +34,6 @@ public class SysRoleServiceImpl extends ServiceImpl<SysUserRoleMapper, SysUserRo
     private SysUserRoleMapper userRoleMapper;
     @Resource
     private SysRoleMenuMapper roleMenuMapper;
-    @Resource
-    private SysMenuService menuService;
-    @Resource
-    private SysResourceService resourceService;
-
-    @Resource
-    ApplicationContext applicationContext;
 
     @Override
     public PageResult<SysRoleEntity> page(SysRoleEntity sysRoleEntity) {
@@ -91,7 +78,6 @@ public class SysRoleServiceImpl extends ServiceImpl<SysUserRoleMapper, SysUserRo
     @Override
     public List<SysRoleEntity> selectRoleAll() {
         return this.selectRoleList(new SysRoleEntity());
-//        return SpringUtils.getAopProxy(this).selectRoleList(new SysRoleEntity());
     }
 
     @Override
@@ -203,14 +189,6 @@ public class SysRoleServiceImpl extends ServiceImpl<SysUserRoleMapper, SysUserRo
         if (ObjectUtil.isNotNull(role.getRoleId()) && role.isAdmin()) {
             throw new BizException("不允许操作超级管理员角色");
         }
-    }
-
-    @Override
-    public void resetRoleAuthCache() {
-        //把用户资源和权限缓存
-        Map<Long, List<SysRoleAuth>> rolePermsMap = menuService.selectMenuPermsAll();
-        Map<Long, List<SysRoleAuth>> roleResourceMap = resourceService.selectSysRoleAuthAll().stream().collect(Collectors.groupingBy(SysRoleAuth::getRoleID));
-        //TODO
     }
 
     /**

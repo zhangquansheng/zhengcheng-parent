@@ -1,7 +1,10 @@
 package com.zhengcheng.ums.controller.admin.system;
 
 import com.zhengcheng.common.domain.Result;
+import com.zhengcheng.file.utils.FileUploadUtil;
+import com.zhengcheng.file.utils.MimeTypeUtil;
 import com.zhengcheng.satoken.utils.SaTokenUtil;
+import com.zhengcheng.ums.common.sysconfig.ConfigExpander;
 import com.zhengcheng.ums.domain.entity.SysUserEntity;
 import com.zhengcheng.ums.service.SysPasswordService;
 import com.zhengcheng.ums.service.SysUserService;
@@ -9,10 +12,13 @@ import com.zhengcheng.ums.service.SysUserService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -90,24 +96,20 @@ public class SysProfileController {
         }
         return Result.error("修改密码异常，请联系管理员");
     }
-//
-//    /**
-//     * 头像上传
-//     */
-//    @PostMapping(value = "/avatar", name = "个人信息管理-头像上次")
-//    public R avatar(@RequestParam("avatarfile") MultipartFile file) throws Exception {
-//        if (!file.isEmpty()) {
-//            LoginUser loginUser = getLoginUser();
-//            String avatar = FileUploadUtils.upload(ConfigExpander.getAvatarPath(), file, MimeTypeUtils.IMAGE_EXTENSION);
-//            if (userService.updateUserAvatar(loginUser.getUsername(), avatar)) {
-//                R ajax = R.ok();
-//                ajax.put("imgUrl", avatar);
-//                // 更新缓存用户头像
-//                loginUser.getUser().setAvatar(avatar);
-//                tokenService.setLoginUser(loginUser);
-//                return ajax;
-//            }
-//        }
-//        return R.error("上传图片异常，请联系管理员");
-//    }
+
+    /**
+     * 头像上传
+     */
+    @PostMapping(value = "/avatar", name = "个人信息管理-头像上次")
+    public Result avatar(@RequestParam("avatarfile") MultipartFile file) throws Exception {
+        if (!file.isEmpty()) {
+            String avatar = FileUploadUtil.upload(ConfigExpander.getAvatarPath(), file, MimeTypeUtil.IMAGE_EXTENSION);
+            if (userService.updateUserAvatar(SaTokenUtil.getUsername(), avatar)) {
+                Result ajax = Result.ok();
+                ajax.put("imgUrl", avatar);
+                return ajax;
+            }
+        }
+        return Result.error("上传图片异常，请联系管理员");
+    }
 }

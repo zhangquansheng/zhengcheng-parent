@@ -33,8 +33,19 @@ public class BizException extends RuntimeException {
      * 错误消息对应的参数
      */
     private Object[] args;
+    /**
+     * 默认的错误消息
+     */
+    private String defaultMessage;
 
     public BizException() {
+    }
+
+    public BizException(String module, String message, Object[] args, String defaultMessage) {
+        this.module = module;
+        this.message = message;
+        this.args = args;
+        this.defaultMessage = defaultMessage;
     }
 
     public BizException(String module, Integer code, String message, Object[] args) {
