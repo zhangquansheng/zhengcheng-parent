@@ -26,7 +26,7 @@ import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ObjectUtil;
 
 @Service
-public class SysRoleServiceImpl extends ServiceImpl<SysUserRoleMapper, SysUserRoleEntity> implements SysRoleService {
+public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRoleEntity> implements SysRoleService {
 
     @Resource
     private SysRoleMapper roleMapper;
@@ -155,8 +155,8 @@ public class SysRoleServiceImpl extends ServiceImpl<SysUserRoleMapper, SysUserRo
             ur.setRoleId(roleId);
             list.add(ur);
         }
-
-        return this.saveBatch(list);
+        userRoleMapper.insertBatch(list);
+        return Boolean.TRUE;
     }
 
     @Override

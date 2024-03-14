@@ -9,7 +9,7 @@ import com.zhengcheng.ums.domain.entity.SysUserRoleEntity;
 import java.util.List;
 import java.util.Set;
 
-public interface SysRoleService extends IService<SysUserRoleEntity> {
+public interface SysRoleService extends IService<SysRoleEntity> {
 
 
     PageResult<SysRoleEntity> page(SysRoleEntity sysRoleEntity);

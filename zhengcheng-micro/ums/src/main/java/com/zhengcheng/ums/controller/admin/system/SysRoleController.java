@@ -24,6 +24,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 
 import cn.dev33.satoken.annotation.SaCheckPermission;
@@ -85,7 +87,8 @@ public class SysRoleController {
 
         if (roleService.updateRole(role) > 0) {
             // 更新缓存角色权限
-            this.resetLoginUserRoleCache(role.getRoleKey());
+            SysRoleEntity sysRole = roleService.getById(role.getRoleId());
+            this.resetLoginUserRoleCache(sysRole.getRoleKey());
             return Result.ok();
         }
         return Result.error("修改角色'" + role.getRoleName() + "'失败，请联系管理员");
@@ -99,8 +102,10 @@ public class SysRoleController {
     public Result changeStatus(@RequestBody SysRoleEntity role) {
         roleService.checkRoleAllowed(role);
         roleService.updateRoleStatus(role);
+
+        SysRoleEntity sysRole = roleService.getById(role.getRoleId());
         //更新redis缓存权限数据
-        this.resetLoginUserRoleCache(role.getRoleKey());
+        this.resetLoginUserRoleCache(sysRole.getRoleKey());
         return Result.ok();
     }
 
@@ -115,9 +120,11 @@ public class SysRoleController {
     @SaCheckPermission("system:role:remove")
     @DeleteMapping("/{roleIds}")
     public Result remove(@PathVariable Long[] roleIds) {
+        List<SysRoleEntity> roles = roleService.listByIds(Arrays.asList(roleIds));
+
         roleService.deleteRoleByIds(roleIds);
         //更新redis缓存权限数据
-//        Arrays.stream(roleIds).forEach(this::resetLoginUserRoleCache);
+        roles.forEach(role -> resetLoginUserRoleCache(role.getRoleKey()));
         return Result.ok();
     }
 
